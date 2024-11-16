@@ -1,0 +1,56 @@
+[
+	{
+		"Title": "САС или СОС!?",
+		"Description": "bla bla bla",
+		"Type": "Common",
+		"Options": [
+			{
+				"Title": "татары 1"
+			},
+			{
+				"Title": "татары 2",
+				"Modifiers": [
+					{"type": "NP_Loyalty", "value": 10.0},
+					{"type": "NeutralLoyalty", "value": -10.0}
+				],
+				"ParamLimits": ["NP_Loyalty", "Power"]
+			}
+		]
+	},
+	{
+		"Title": "2",
+		"Description": "bla bla bla 222",
+		"Type": "Common",
+		"Options": [
+			{
+				"Title": "татары 1"
+			},
+			{
+				"Title": "татары 2",
+				"Modifiers": [
+					{"type": "NP_Loyalty", "value": 10.0},
+					{"type": "NeutralLoyalty", "value": -10.0}
+				],
+				"ParamLimits": ["NP_Loyalty", "Power"]
+			}
+		]
+	},
+	{
+		"Title": "3",
+		"Description": "bla bla bla 33",
+		"Type": "Common",
+		"Options": [
+			{
+				"Title": "татары 1"
+			},
+			{
+				"Title": "татары 2",
+				"Modifiers": [
+					{"type": "NP_Loyalty", "value": 10.0},
+					{"type": "NeutralLoyalty", "value": -10.0}
+				],
+				"ParamLimits": ["NP_Loyalty", "Power"]
+			}
+		]
+	}
+]
