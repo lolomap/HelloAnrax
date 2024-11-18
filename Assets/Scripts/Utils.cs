@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Utils
 {
-    public enum ParamType
+    public enum RateType
     {
         NP_Loyalty,
         UP_Loyalty,
@@ -17,8 +17,7 @@ public class Utils
         UP_Coop,
         WP_Coop,
         NeutralLoyalty,
-        Power,
-        PowerModifier
+        Power
     }
 
     public enum Party

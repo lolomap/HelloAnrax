@@ -1,0 +1,13 @@
+{
+  "NP_Loyalty": 50,
+  "UP_Loyalty": 50,
+  "WP_Loyalty": 50,
+  "NP_Power": 50,
+  "UP_Power": 50, 
+  "WP_Power": 50,
+  "NP_Coop": 0, 
+  "UP_Coop": 0,
+  "WP_Coop": 0, 
+  "NeutralLoyalty": 50,
+  "Power": 50
+}

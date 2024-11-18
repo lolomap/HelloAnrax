@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace UI
@@ -6,8 +7,18 @@ namespace UI
     {
         public GameEvent Data;
 
-        public void SelectOption()
+        private void Awake()
         {
+            Data = EventStorage.GetNext();
+        }
+
+        public void SelectOption(int id)
+        {
+            foreach (Modifier modifier in Data.Options[id].Modifiers)
+            {
+                PlayerRates.UpdateRate(modifier.Type, modifier.Value);
+            }
+            
             Data = EventStorage.GetNext();
         }
     }

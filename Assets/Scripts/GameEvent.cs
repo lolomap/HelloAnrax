@@ -1,14 +1,11 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Serialization;
 using static Utils;
 
 [Serializable]
 public struct Modifier
 {
-    public ParamType Type;
+    public RateType Type;
     public float Value;
 }
 
@@ -17,7 +14,7 @@ public class Option
 {
     public string Title;
     public List<Modifier> Modifiers;
-    public List<ParamType> ParamLimits;
+    public List<RateType> ParamLimits;
 
 }
 

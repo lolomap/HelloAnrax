@@ -564,13 +564,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 810586991}
-        m_TargetAssemblyTypeName: UI.EventCard, Assembly-CSharp
-        m_MethodName: SelectOption
+      - m_Target: {fileID: 810586987}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -803,8 +803,28 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7467962607586856759, guid: 93a4177634bf65440aa0894bcfeb3207, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2080690443}
   m_SourcePrefab: {fileID: 100100000, guid: 93a4177634bf65440aa0894bcfeb3207, type: 3}
+--- !u!1 &2080690442 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7467962607586856759, guid: 93a4177634bf65440aa0894bcfeb3207, type: 3}
+  m_PrefabInstance: {fileID: 2080690441}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2080690443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2080690442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7023472dea91f27489156b61ccf276e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
