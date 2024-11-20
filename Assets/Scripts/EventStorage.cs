@@ -39,7 +39,7 @@ public class EventStorage
             indexes.RemoveAt(pos);
         }
     }
-
+    
     public static GameEvent GetNext()
     {
         GameEvent res = null;

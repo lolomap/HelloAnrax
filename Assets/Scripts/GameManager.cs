@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     private static bool _isInited;
 
-    private void Start()
+    private void Awake()
     {
         if (_isInited) return;
         

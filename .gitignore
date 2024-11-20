@@ -75,5 +75,3 @@ crashlytics-build.properties
 
 !*.dll
 !*.obj
-
-Assets/TextMesh?Pro/** linguist-generated

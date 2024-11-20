@@ -1,25 +1,47 @@
 using System;
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 namespace UI
 {
     public class EventCard : MonoBehaviour
     {
+        public TMP_Text EventDescription;
+        
         public GameEvent Data;
 
-        private void Awake()
+        private int _selectedOptionId;
+
+        private void Start()
         {
             Data = EventStorage.GetNext();
+            UpdateCard();
         }
 
         public void SelectOption(int id)
         {
-            foreach (Modifier modifier in Data.Options[id].Modifiers)
+            _selectedOptionId = id;
+        }
+        
+        public void AcceptOption()
+        {
+            List<Modifier> modifiers = Data.Options[_selectedOptionId].Modifiers;
+            if (modifiers != null)
             {
-                PlayerRates.UpdateRate(modifier.Type, modifier.Value);
+                foreach (Modifier modifier in modifiers)
+                {
+                    PlayerRates.UpdateRate(modifier.Type, modifier.Value);
+                }
             }
             
             Data = EventStorage.GetNext();
+            UpdateCard();
+        }
+
+        private void UpdateCard()
+        {
+            EventDescription.text = Data.Description;
         }
     }
 }

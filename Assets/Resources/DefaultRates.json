@@ -8,6 +8,7 @@
   "NP_Coop": 0, 
   "UP_Coop": 0,
   "WP_Coop": 0, 
-  "NeutralLoyalty": 50,
+  "NeutralLoyalty": 0,
+  "NeutralPower": 50,
   "Power": 50
 }
