@@ -1,14 +1,14 @@
 [
 	{
-		"Title": "САС или СОС!?",
-		"Description": "bla bla bla",
+		"Title": "Ивент 1",
+		"Description": "Описание ивента 1",
 		"Type": "Common",
 		"Options": [
 			{
-				"Title": "татары 1"
+				"Title": "Вариант 1.1"
 			},
 			{
-				"Title": "татары 2",
+				"Title": "Варинт 1.2",
 				"Modifiers": [
 					{"type": "NP_Loyalty", "value": 10.0},
 					{"type": "NeutralLoyalty", "value": -10.0}
@@ -18,38 +18,47 @@
 		]
 	},
 	{
-		"Title": "2",
-		"Description": "bla bla bla 222",
+		"Title": "Ивент 2",
+		"Description": "Описание ивента 2",
 		"Type": "Common",
 		"Options": [
 			{
-				"Title": "татары 1"
+				"Title": "Вариант 2.1"
 			},
 			{
-				"Title": "татары 2",
+				"Title": "Вариант 2.2",
 				"Modifiers": [
 					{"type": "NP_Loyalty", "value": 10.0},
 					{"type": "NeutralLoyalty", "value": -10.0}
 				],
 				"ParamLimits": ["NP_Loyalty", "Power"]
+			},
+			{
+				"Title": "Вариант 2.3"
 			}
 		]
 	},
 	{
-		"Title": "3",
-		"Description": "bla bla bla 33",
+		"Title": "Ивент 3",
+		"Description": "Описание ивента 3",
 		"Type": "Common",
 		"Options": [
 			{
-				"Title": "татары 1"
+				"Title": "Варинт 3.1"
 			},
 			{
-				"Title": "татары 2",
+				"Title": "Вариант 3.2",
 				"Modifiers": [
 					{"type": "NP_Loyalty", "value": 10.0},
 					{"type": "NeutralLoyalty", "value": -10.0}
 				],
 				"ParamLimits": ["NP_Loyalty", "Power"]
+			},
+			{
+				"Title": "Вариант 3.3"
+			},
+			{
+				"Title": "Вариант 3.4"
 			}
 		]
 	}
