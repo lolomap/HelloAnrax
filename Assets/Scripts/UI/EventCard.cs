@@ -33,7 +33,7 @@ namespace UI
             {
                 foreach (Modifier modifier in modifiers)
                 {
-                    PlayerRates.UpdateRate(modifier.Type, modifier.Value);
+                    PlayerRates.UpdateRate(modifier.Type, PlayerRates.GetRate(modifier.Type) + modifier.Value);
                 }
             }
             

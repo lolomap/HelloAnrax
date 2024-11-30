@@ -2,11 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using UI;
 using UnityEngine;
 
 public class PlayerRates : MonoBehaviour
 {
-	private static readonly Dictionary<Utils.RateType, float> Rates = new();
+	private static readonly Dictionary<Utils.RateType, float> _rates = new();
 
 	private void Awake()
 	{
@@ -18,17 +19,18 @@ public class PlayerRates : MonoBehaviour
 			if (!Enum.TryParse(key, out Utils.RateType rate))
 				continue;
 
-			Rates[rate] = value;
+			_rates[rate] = value;
 		}
 	}
 
 	public static float GetRate(Utils.RateType rate)
 	{
-		return Rates[rate];
+		return _rates[rate];
 	}
 
 	public static void UpdateRate(Utils.RateType rate, float value)
 	{
-		Rates[rate] = value;
+		_rates[rate] = value;
+		TaggedValue.UpdateAll(rate.ToString(), value);
 	}
 }
