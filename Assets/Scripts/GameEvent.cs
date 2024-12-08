@@ -27,5 +27,7 @@ public class GameEvent
     public Party PartyTemplate;
     public List<Option> Options;
     public bool IsDisposable;
-    public int TurnPosition;
+    
+    public int TurnPosition = -1;
+    public string Soundtrack = "MainTheme";
 }

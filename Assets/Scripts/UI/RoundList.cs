@@ -49,6 +49,7 @@ namespace UI
 		private void Awake()
 		{
 			_rectTransform = GetComponent<RectTransform>();
+			StartCoroutine(WaitUntilEndOfFrame());
 		}
 
 		public void OnDrag()
@@ -141,6 +142,12 @@ namespace UI
 				element.transform.RotateAround(transform.position, Vector3.forward, step * i);
 				element.transform.eulerAngles = Vector3.zero;
 			}
+		}
+
+		private IEnumerator WaitUntilEndOfFrame()
+		{
+			yield return new WaitForEndOfFrame();
+			ResetElementsPosition();
 		}
 	}
 }

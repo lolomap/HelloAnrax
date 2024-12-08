@@ -941,6 +941,7 @@ MonoBehaviour:
     Options: []
     IsDisposable: 0
     TurnPosition: 0
+    Soundtrack: 
 --- !u!4 &630807139
 Transform:
   m_ObjectHideFlags: 0
@@ -2651,7 +2652,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FitWidth: 0
   FitHeight: 1
-  ExtraRadius: 2000
+  ExtraRadius: 500
   AdjustSpeed: 100
 --- !u!114 &1550222056
 MonoBehaviour:

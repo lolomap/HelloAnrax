@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -66,6 +65,11 @@ namespace UI
             }
 
             EventOptionsList.Elements = list;
+
+            if (Data.Soundtrack != MusicManager.Instance.GetCurrent())
+            {
+                MusicManager.Instance.PlayAudio(Data.Soundtrack);
+            }
         }
     }
 }
