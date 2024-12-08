@@ -27,4 +27,5 @@ public class GameEvent
     public Party PartyTemplate;
     public List<Option> Options;
     public bool IsDisposable;
+    public int TurnPosition;
 }

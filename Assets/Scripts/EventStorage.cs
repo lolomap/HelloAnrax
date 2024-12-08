@@ -6,13 +6,16 @@ using Newtonsoft.Json;
 using static Utils;
 using Random = UnityEngine.Random;
 
-public class EventStorage
+public static class EventStorage
 {
     private static List<GameEvent> _common;
     private static List<GameEvent> _partyTemplate;
     private static List<GameEvent> _partySpecial;
+    private static List<GameEvent> _timed;
 
     private static Queue<int> _eventQueue = new();
+    private static Queue<int> _timedQueue = new();
+    private static int _eventsCounter = 0;
 
     private const float PartyTemplateChance = 30.0f;
     private const float PartySpecialChance = 30.0f;
@@ -31,6 +34,14 @@ public class EventStorage
         {
             indexes[i] = i;
         }
+        
+        TextAsset timedRaw = Resources.Load<TextAsset>("TimedEvents");
+        _timed = JsonConvert.DeserializeObject<List<GameEvent>>(timedRaw.text);
+        
+        foreach (GameEvent e in _timed)
+        {
+            _timedQueue.Enqueue(e.TurnPosition);
+        }
 
         while (indexes.Count > 0)
         {
@@ -42,7 +53,17 @@ public class EventStorage
     
     public static GameEvent GetNext()
     {
+        _eventsCounter++;
         GameEvent res = null;
+
+        if (_timedQueue.Count > 0 && _eventsCounter == _timedQueue.Peek())
+        {
+            int timedIndex = _timedQueue.Dequeue();
+
+            res = _timed[--timedIndex];
+            
+            return res;
+        }
         
         int eventIndex = _eventQueue.Dequeue();
 

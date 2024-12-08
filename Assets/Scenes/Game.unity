@@ -692,7 +692,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 186.25
+  m_fontSize: 189.85
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -940,6 +940,7 @@ MonoBehaviour:
     PartyTemplate: 0
     Options: []
     IsDisposable: 0
+    TurnPosition: 0
 --- !u!4 &630807139
 Transform:
   m_ObjectHideFlags: 0
@@ -2036,7 +2037,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 158.6
+  m_fontSize: 179.85
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2551,7 +2552,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: 100
+  m_Spacing: 10
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 1
@@ -2650,7 +2651,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FitWidth: 0
   FitHeight: 1
-  ExtraRadius: 500
+  ExtraRadius: 2000
   AdjustSpeed: 100
 --- !u!114 &1550222056
 MonoBehaviour:
@@ -2820,7 +2821,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 134.7
+  m_fontSize: 152.7
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
