@@ -10,10 +10,10 @@
 			{
 				"Title": "Вариант 1.2",
 				"Modifiers": [
-					{"type": "NP_Loyalty", "value": 10.0},
+					{"type": "NPLoyalty", "value": 10.0},
 					{"type": "NeutralLoyalty", "value": -10.0}
 				],
-				"ParamLimits": ["NP_Loyalty", "Power"]
+				"ParamLimits": ["NPLoyalty", "Power"]
 			}
 		]
 	},
@@ -28,10 +28,10 @@
 			{
 				"Title": "Вариант 2.2",
 				"Modifiers": [
-					{"type": "NP_Loyalty", "value": 10.0},
+					{"type": "UPLoyalty", "value": 10.0},
 					{"type": "NeutralLoyalty", "value": -10.0}
 				],
-				"ParamLimits": ["NP_Loyalty", "Power"]
+				"ParamLimits": ["NPLoyalty", "Power"]
 			},
 			{
 				"Title": "Вариант 2.3"
@@ -49,10 +49,10 @@
 			{
 				"Title": "Вариант 3.2",
 				"Modifiers": [
-					{"type": "NP_Loyalty", "value": 10.0},
+					{"type": "WPLoyalty", "value": 10.0},
 					{"type": "NeutralLoyalty", "value": -10.0}
 				],
-				"ParamLimits": ["NP_Loyalty", "Power"]
+				"ParamLimits": ["NPLoyalty", "Power"]
 			},
 			{
 				"Title": "Вариант 3.3"

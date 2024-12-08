@@ -37,6 +37,8 @@ namespace UI
                 }
             }
             
+            PlayerRates.CalculateFormulas();
+            
             Data = EventStorage.GetNext();
             UpdateCard();
         }

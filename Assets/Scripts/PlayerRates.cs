@@ -8,6 +8,7 @@ using UnityEngine;
 public class PlayerRates : MonoBehaviour
 {
 	private static readonly Dictionary<Utils.RateType, float> _rates = new();
+	private static readonly Dictionary<Utils.RateType, string> _formulas = new();
 
 	private void Awake()
 	{
@@ -20,6 +21,40 @@ public class PlayerRates : MonoBehaviour
 				continue;
 
 			_rates[rate] = value;
+		}
+		
+		TextAsset formulasRaw = Resources.Load<TextAsset>("RatesConfig");
+		Dictionary<string, string> formulas =
+			JsonConvert.DeserializeObject<Dictionary<string, string>>(formulasRaw.text);
+
+		foreach ((string key, string value) in formulas)
+		{
+			if (!Enum.TryParse(key, out Utils.RateType rate))
+				continue;
+
+			_formulas[rate] = value;
+		}
+	}
+
+	private void Start()
+	{
+		foreach ((Utils.RateType rate, float value) in _rates)
+		{
+			TaggedValue.UpdateAll(rate.ToString(), value);
+		}
+	}
+
+	public static void CalculateFormulas()
+	{
+		Dictionary<string, decimal> variables = new();
+		foreach ((Utils.RateType rate, float value) in _rates)
+		{
+			variables[rate.ToString()] = (decimal) value;
+		}
+		
+		foreach ((Utils.RateType rate, string formula) in _formulas)
+		{
+			UpdateRate(rate,  GetRate(rate) + Convert.ToSingle(Utils.Evaluator.Evaluate(formula, variables)));
 		}
 	}
 

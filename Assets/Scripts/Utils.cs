@@ -1,22 +1,24 @@
-using Newtonsoft.Json;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
-public class Utils
+// ReSharper disable UnusedMember.Global
+
+using SimpleExpressionEvaluator;
+
+public static class Utils
 {
     public enum RateType
     {
-        NP_Loyalty,
-        UP_Loyalty,
-        WP_Loyalty,
-        NP_Power,
-        UP_Power,
-        WP_Power,
-        NP_Coop,
-        UP_Coop,
-        WP_Coop,
+        NPLoyalty,
+        UPLoyalty,
+        WPLoyalty,
+        NPPower,
+        UPPower,
+        WPPower,
+        NPCoop,
+        UPCoop,
+        WPCoop,
         NeutralLoyalty,
+        NeutralPower,
+        Treasury,
         Power
     }
 
@@ -34,5 +36,5 @@ public class Utils
         PartySpecial
     }
 
-    public static JsonSerializer Serializer = new();
+    public static readonly ExpressionEvaluator Evaluator = new();
 }
