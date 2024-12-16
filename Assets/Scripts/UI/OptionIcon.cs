@@ -10,8 +10,17 @@ namespace UI
 		private Image _sprite;
 
 		private readonly Color _disabledTint = new Color(1f, 1f, 1f, 0.5f);
-		
-		public Option Data;
+
+		private Option _data;
+		public Option Data
+		{
+			get => _data;
+			set
+			{
+				_data = value;
+				_sprite.sprite = ResourceLoader.GetResource<Sprite>("Icons/Options/" + value.Category);
+			}
+		}
 		private bool _selected;
 
 		public delegate void SelectOptionEventHandler(Option data);

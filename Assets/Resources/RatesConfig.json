@@ -1,3 +1,3 @@
 {
-  "Power": "(NPLoyalty - 50) / 100 * NPPower + (WPLoyalty - 50) / 100 * WPPower + (UPLoyalty - 50) / 100 * UPPower"
+  "Power": "(NationalistsLoyalty - 50) / 100 * NationalistsPower + (DemocratsLoyalty - 50) / 100 * DemocratsPower + (FederationistsLoyalty - 50) / 100 * FederationistsPower"
 }

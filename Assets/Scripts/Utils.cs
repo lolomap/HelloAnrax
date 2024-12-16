@@ -7,19 +7,25 @@ public static class Utils
 {
     public enum RateType
     {
-        NPLoyalty,
-        UPLoyalty,
-        WPLoyalty,
-        NPPower,
-        UPPower,
-        WPPower,
-        NPCoop,
-        UPCoop,
-        WPCoop,
+        NationalistsLoyalty,
+        FederationistsLoyalty,
+        DemocratsLoyalty,
+        NationalistsPower,
+        FederationistsPower,
+        DemocratsPower,
+        NationalistsCoop,
+        FederationistsCoop,
+        DemocratsCoop,
         NeutralLoyalty,
         NeutralPower,
         Treasury,
         Power
+    }
+
+    public enum Category
+    {
+        Default,
+        Logging
     }
 
     public enum Party

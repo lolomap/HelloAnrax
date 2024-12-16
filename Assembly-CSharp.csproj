@@ -102,6 +102,7 @@
     <Compile Include="Assets\Modern UI Pack\Scripts\UI Manager\UIManagerPieChart.cs" />
     <Compile Include="Assets\Modern UI Pack\Scripts\UI Manager\UIManagerInputField.cs" />
     <Compile Include="Assets\Modern UI Pack\Scripts\Editor Handlers\MUIPEditorHandler.cs" />
+    <Compile Include="Assets\Scripts\ResourceLoader.cs" />
     <Compile Include="Assets\Modern UI Pack\Scripts\Window\WindowManagerButton.cs" />
     <Compile Include="Assets\Modern UI Pack\Scripts\Slider\RadialSlider.cs" />
     <Compile Include="Assets\Modern UI Pack\Scripts\UI Manager\UIManagerContextMenu.cs" />

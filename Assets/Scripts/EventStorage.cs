@@ -25,7 +25,7 @@ public static class EventStorage
 
     public static void Load()
     {
-        TextAsset commonRaw = Resources.Load<TextAsset>("CommonEvents");
+        TextAsset commonRaw = ResourceLoader.GetResource<TextAsset>("CommonEvents");
         _common = JsonConvert.DeserializeObject<List<GameEvent>>(commonRaw.text);
 
         int queueSize = _common.Count; //max(common, template, special)
@@ -35,7 +35,7 @@ public static class EventStorage
             indexes[i] = i;
         }
         
-        TextAsset timedRaw = Resources.Load<TextAsset>("TimedEvents");
+        TextAsset timedRaw = ResourceLoader.GetResource<TextAsset>("TimedEvents");
         _timed = JsonConvert.DeserializeObject<List<GameEvent>>(timedRaw.text);
         
         foreach (GameEvent e in _timed)

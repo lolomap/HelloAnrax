@@ -12,7 +12,7 @@ public class PlayerRates : MonoBehaviour
 
 	private void Awake()
 	{
-		TextAsset defaultsRaw = Resources.Load<TextAsset>("DefaultRates");
+		TextAsset defaultsRaw = ResourceLoader.GetResource<TextAsset>("DefaultRates");
 		Dictionary<string, float> defaults = JsonConvert.DeserializeObject<Dictionary<string, float>>(defaultsRaw.text);
 
 		foreach ((string key, float value) in defaults)
@@ -23,7 +23,7 @@ public class PlayerRates : MonoBehaviour
 			_rates[rate] = value;
 		}
 		
-		TextAsset formulasRaw = Resources.Load<TextAsset>("RatesConfig");
+		TextAsset formulasRaw = ResourceLoader.GetResource<TextAsset>("RatesConfig");
 		Dictionary<string, string> formulas =
 			JsonConvert.DeserializeObject<Dictionary<string, string>>(formulasRaw.text);
 

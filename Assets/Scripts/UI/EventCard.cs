@@ -58,7 +58,7 @@ namespace UI
             List<RoundListElement> list = new();
             foreach (Option option in Data.Options)
             {
-                OptionIcon prefab = Resources.Load<OptionIcon>("Prefabs/OptionIcon");
+                OptionIcon prefab = ResourceLoader.GetResource<OptionIcon>("Prefabs/OptionIcon");
                 OptionIcon obj = Instantiate(prefab);
                 obj.Data = option;
                 list.Add(obj);

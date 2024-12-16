@@ -13,6 +13,7 @@ public struct Modifier
 public class Option
 {
     public string Title;
+    public Category Category = Category.Default; 
     public List<Modifier> Modifiers;
     public List<RateType> ParamLimits;
 

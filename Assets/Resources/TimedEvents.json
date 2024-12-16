@@ -22,7 +22,7 @@
   },
   {
     "Title": "Рассвет Независимости",
-    "Description": "Новый парламент избирает <u>Вас</u> президентом Анракса",
+    "Description": "Новый парламент избирает <gradient=\"EventCool\">Вас</gradient> президентом Анракса",
     "Type": "Common",
     "Options": [ { "Title": "Далее" } ],
     "TurnPosition": 4
