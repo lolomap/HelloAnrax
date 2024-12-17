@@ -33,5 +33,110 @@
     "Type": "Common",
     "Options": [ { "Title": "Далее" } ],
     "TurnPosition": 5
+  },
+
+  {
+    "Title": "Выбор главы правительства",
+    "Description": "Посколько фракции в парламенте имеют равную силу, именно за вами остаётся решающее право голоса - кто встанет на должность главы правительства",
+    "Type": "Common",
+    "TurnPosition": 6,
+
+    "Options": [
+      {
+        "Title": "Далв Тирский",
+        "Modifiers": [
+          {"Type": "NationalistsLoyality", "Value": 30},
+          {"Type": "NationalistsPower", "Value": 10},
+          {"Type": "FederationistsLoyality", "Value": -10},
+          {"Type": "DemocratsLoyality", "Value": -10},
+        ]
+      },
+      {
+        "Title": "Анж Нивич",
+        "Modifiers": [
+          {"Type": "FederationistsLoyality", "Value": 30},
+          {"Type": "FederationistsPower", "Value": 10},
+          {"Type": "NationalistsLoyality", "Value": -10},
+          {"Type": "DemocratsLoyality", "Value": -10},
+        ]
+      },
+      {
+        "Title": "Ровуль Манора",
+        "Modifiers": [
+          {"Type": "DemocratsLoyality", "Value": 30},
+          {"Type": "DemocratsPower", "Value": 10},
+          {"Type": "FederationistsLoyality", "Value": -10},
+          {"Type": "NationalistsLoyality", "Value": -10},
+        ]
+      }
+    ]
+  },
+
+  {
+    "Title": "Разруха и нестабильность после гражданской войны",
+    "Description": " Война практически полностью разрушила экономику нашего региона, многие люди остались без работы и средств к существованию. Народ требует от нас принятия первых решений по восстановлению страны",
+    "Type": "Common",
+    "TurnPosition": 7,
+    
+    "Options": [
+      {
+        "Title": "В первую очередь мы выделим деньги на восстановление жилого фонда",
+        "Modifiers": [
+          {"Type": "NeutralLoyality", "Value": 15},
+          {"Type": "Treasury", "Value": -2}
+        ]
+      },
+      {
+        "Title": "Нам следует стимулировать развитие малого бизнеса с помощью льготного налогообложения",
+        "Modifiers": [
+          {"Type": "NeutralLoyality", "Value": 5},
+          {"Type": "Treasury", "Value": -1}
+        ]
+      },
+      {
+        "Title": "Мы сосредоточимся на привлечении инвестиций из-за рубежа",
+        "Modifiers": [
+          {"Type": "DemocratsLoyality", "Value": 10},
+          {"Type": "DemocratsPower", "Value": 10},
+          {"Type": "NationalistsLoyality", "Value": -10},
+        ]
+      },
+      {
+        "Title": "Поручить главе правительства самостоятельно внести предложения по этому вопросу",
+        "Modifiers": [
+          {"Type": "Ивент в зависимости от премьера", "Value": 1}
+        ]
+      },
+    ]
+  },
+
+  {
+    "Title": "А виновны кто?",
+    "Description": "Этим вопросом задаются многое жители нашей страны, им требуется знать по чьей вине они оказались в таком положении, что именно привело к развалу единой страны? Сходящему с ума разуму бедствующей толпы срочно нужны ответы",
+    "Type": "Common",
+    "Options": [
+      {
+        "Title": "Для начала мы обеспечим себе базу поддержки, обвинив в упадке страны федералистов",
+        "Modifiers": [
+          {"Type": "NationalistsLoyality", "Value": 10},
+          {"Type": "FederationistsLoyality", "Value": -25},
+          {"Type": "DemocratsLoyality", "Value": 10},
+        ]
+      },
+      {
+        "Title": "Если бы не западные державы, мы бы сейчас купались в золоте Мгахватского хребта!",
+        "Modifiers": [
+          {"Type": "NationalistsLoyality", "Value": 10},
+          {"Type": "NationalistsPower", "Value": 10}
+        ]
+      },
+      {
+        "Title": "Блюстители капитала развязали эту войну и распродали наше государство, вот кто за всем стоит, олигархи ответят сполна!",
+        "Modifiers": [
+          {"Type": "DemocratsLoyality", "Value": -10},
+          {"Type": "NeutralLoyality", "Value": 10},
+        ]
+      }
+    ]
   }
 ]
