@@ -23,8 +23,12 @@ public class Option
 public class GameEvent
 {
     public GameEventType Type;
+    
     public string Title;
     public string Description;
+
+    public Category Category = Category.Default;
+    
     public Party PartyTemplate;
     public List<Option> Options;
     public bool IsDisposable;

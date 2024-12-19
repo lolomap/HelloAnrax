@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace UI
 {
@@ -10,6 +11,7 @@ namespace UI
         public TMP_Text EventDescription;
         public TMP_Text EventOptionTitle;
         public RoundList EventOptionsList;
+        public Image EventPicture;
         
         public GameEvent Data;
         private Option _selectedOption;
@@ -54,6 +56,7 @@ namespace UI
         {
             EventDescription.text = Data.Description;
             EventTitle.text = Data.Title;
+            EventPicture.sprite = ResourceLoader.GetResource<Sprite>("Icons/Events/" + Data.Category);
 
             List<RoundListElement> list = new();
             foreach (Option option in Data.Options)
