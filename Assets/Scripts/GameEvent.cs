@@ -3,20 +3,27 @@ using System.Collections.Generic;
 using static Utils;
 
 [Serializable]
-public struct Modifier
+public class JsonValue
 {
-    public RateType Type;
+    public string Type;
     public float Value;
 }
+
+[Serializable]
+public class Modifier : JsonValue {}
+
+[Serializable]
+public class Flag : JsonValue {}
 
 [Serializable]
 public class Option
 {
     public string Title;
-    public Category Category = Category.Default; 
+    public string Category = "Default"; 
     public List<Modifier> Modifiers;
-    public List<RateType> ParamLimits;
+    public List<Flag> Flags;
 
+    public List<Flag> Limitations;
 }
 
 [Serializable]
@@ -27,9 +34,9 @@ public class GameEvent
     public string Title;
     public string Description;
 
-    public Category Category = Category.Default;
+    public string Category = "Default";
     
-    public Party PartyTemplate;
+    public string PartyTemplate;
     public List<Option> Options;
     public bool IsDisposable;
     

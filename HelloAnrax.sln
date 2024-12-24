@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AYellowpaper.SerializedColl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{9966de74-273c-5502-2ebb-98e1cd8a89f4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests.csproj", "{a062b096-b8b1-0ac4-1c5f-6c9e719fd0b4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +28,8 @@ Global
 		{d28d6570-813b-679c-4b91-bd4c2527ea20}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9966de74-273c-5502-2ebb-98e1cd8a89f4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9966de74-273c-5502-2ebb-98e1cd8a89f4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{a062b096-b8b1-0ac4-1c5f-6c9e719fd0b4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{a062b096-b8b1-0ac4-1c5f-6c9e719fd0b4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

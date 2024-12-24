@@ -7,65 +7,63 @@ using UnityEngine;
 
 public class PlayerRates : MonoBehaviour
 {
-	private static readonly Dictionary<Utils.RateType, float> _rates = new();
-	private static readonly Dictionary<Utils.RateType, string> _formulas = new();
+	private static Dictionary<string, float> _rates;
+	private static Dictionary<string, float> _flags;
+	private static Dictionary<string, string> _formulas;
 
 	private void Awake()
 	{
 		TextAsset defaultsRaw = ResourceLoader.GetResource<TextAsset>("DefaultRates");
-		Dictionary<string, float> defaults = JsonConvert.DeserializeObject<Dictionary<string, float>>(defaultsRaw.text);
+		_rates = JsonConvert.DeserializeObject<Dictionary<string, float>>(defaultsRaw.text);
 
-		foreach ((string key, float value) in defaults)
-		{
-			if (!Enum.TryParse(key, out Utils.RateType rate))
-				continue;
-
-			_rates[rate] = value;
-		}
+		_flags = new();
 		
 		TextAsset formulasRaw = ResourceLoader.GetResource<TextAsset>("RatesConfig");
-		Dictionary<string, string> formulas =
-			JsonConvert.DeserializeObject<Dictionary<string, string>>(formulasRaw.text);
-
-		foreach ((string key, string value) in formulas)
-		{
-			if (!Enum.TryParse(key, out Utils.RateType rate))
-				continue;
-
-			_formulas[rate] = value;
-		}
+		_formulas = JsonConvert.DeserializeObject<Dictionary<string, string>>(formulasRaw.text);
 	}
 
 	private void Start()
 	{
-		foreach ((Utils.RateType rate, float value) in _rates)
+		foreach ((string rate, float value) in _rates)
 		{
-			TaggedValue.UpdateAll(rate.ToString(), value);
+			TaggedValue.UpdateAll(rate, value);
 		}
 	}
 
 	public static void CalculateFormulas()
 	{
 		Dictionary<string, decimal> variables = new();
-		foreach ((Utils.RateType rate, float value) in _rates)
+		foreach ((string rate, float value) in _rates)
 		{
-			variables[rate.ToString()] = (decimal) value;
+			variables[rate] = (decimal) value;
 		}
 		
-		foreach ((Utils.RateType rate, string formula) in _formulas)
+		foreach ((string rate, string formula) in _formulas)
 		{
 			UpdateRate(rate,  GetRate(rate) + Convert.ToSingle(Utils.Evaluator.Evaluate(formula, variables)));
 		}
 	}
 
-	public static float GetRate(Utils.RateType rate)
-	{
-		return _rates[rate];
-	}
-
-	public static void UpdateRate(Utils.RateType rate, float value)
+	public static float GetRate(string rate) => _rates[rate];
+	public static void UpdateRate(string rate, float value)
 	{
 		_rates[rate] = value;
-		TaggedValue.UpdateAll(rate.ToString(), value);
+		TaggedValue.UpdateAll(rate, value);
+	}
+
+	public static float GetFlag(string flag)
+	{
+		if (!_flags.ContainsKey(flag)) return 0;
+		return _flags[flag];
+	}
+	public static bool HasFlag(string flag)
+	{
+		if (!_flags.ContainsKey(flag)) return false;
+		return _flags[flag] > 0;
+	}
+	public static void SetFlag(string flag, float value)
+	{
+		_flags[flag] = value;
+		TaggedValue.UpdateAll(flag, value);
 	}
 }

@@ -29,12 +29,37 @@ namespace UI
         
         public void AcceptOption()
         {
+            bool canBeAccepted = true;
+            List<Flag> limitations = _selectedOption.Limitations;
+            if (limitations != null)
+            {
+                foreach (Flag limitation in limitations)
+                {
+                    canBeAccepted = canBeAccepted && PlayerRates.GetFlag(limitation.Type) >= limitation.Value;
+                }
+            }
+
+            if (!canBeAccepted)
+            {
+                // TODO: ANIMATE
+                return;
+            }
+            
             List<Modifier> modifiers = _selectedOption.Modifiers;
             if (modifiers != null)
             {
                 foreach (Modifier modifier in modifiers)
                 {
                     PlayerRates.UpdateRate(modifier.Type, PlayerRates.GetRate(modifier.Type) + modifier.Value);
+                }
+            }
+            
+            List<Flag> flags = _selectedOption.Flags;
+            if (flags != null)
+            {
+                foreach (Flag flag in flags)
+                {
+                    PlayerRates.SetFlag(flag.Type, flag.Value);
                 }
             }
             

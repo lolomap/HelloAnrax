@@ -67,26 +67,26 @@ public static class EventStorage
         
         int eventIndex = _eventQueue.Dequeue();
 
-        List<Party> possibleParties = new();
-        if (IsNpEventsUnlocked) possibleParties.Add(Party.Nationalists);
-        if (IsUpEventsUnlocked) possibleParties.Add(Party.Unionists);
-        if (IsWpEventsUnlocked) possibleParties.Add(Party.Westernists);
-        
-        if (possibleParties.Count > 0)
-        {
-            float chance = Random.value;
-            switch (chance)
-            {
-                case < PartyTemplateChance:
-                    res = _partyTemplate[eventIndex];
-                    res.PartyTemplate = possibleParties[Random.Range(0, possibleParties.Count)];
-                    break;
-                case < PartyTemplateChance + PartySpecialChance:
-                    res = _partySpecial[eventIndex];
-                    break;
-            }
-        }
-        else
+        // List<Party> possibleParties = new();
+        // if (IsNpEventsUnlocked) possibleParties.Add(Party.Nationalists);
+        // if (IsUpEventsUnlocked) possibleParties.Add(Party.Unionists);
+        // if (IsWpEventsUnlocked) possibleParties.Add(Party.Westernists);
+        //
+        // if (possibleParties.Count > 0)
+        // {
+        //     float chance = Random.value;
+        //     switch (chance)
+        //     {
+        //         case < PartyTemplateChance:
+        //             res = _partyTemplate[eventIndex];
+        //             res.PartyTemplate = possibleParties[Random.Range(0, possibleParties.Count)];
+        //             break;
+        //         case < PartyTemplateChance + PartySpecialChance:
+        //             res = _partySpecial[eventIndex];
+        //             break;
+        //     }
+        // }
+        // else
         {
             res = _common[eventIndex];
         }

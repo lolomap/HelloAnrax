@@ -3,14 +3,18 @@
     "Title": "Рассвет Независимости",
     "Description": "Огонь озаряет столицу страны Скарну",
     "Type": "Common",
-    "Options": [ { "Title": "Далее" } ],
+    "Options": [ { "Title": "Далее", "Flags": [
+      {"Type":  "HasNationalistsToDemocratsCooperation", "Value": 1 }
+    ]} ],
     "TurnPosition": 1
   },
   {
     "Title": "Рассвет Независимости",
     "Description": "Дом народов потерпел поражение и теперь его остатки разбирают самые сильные и ловкие",
     "Type": "Common",
-    "Options": [ { "Title": "Далее" } ],
+    "Options": [ { "Title": "Далее", "Limitations": [
+      {"Type":  "HasNationalistsToDemocratsCooperation", "Value": 1 }
+    ] } ],
     "TurnPosition": 2
   },
   {
