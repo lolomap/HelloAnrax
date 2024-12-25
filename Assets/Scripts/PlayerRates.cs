@@ -5,13 +5,13 @@ using Newtonsoft.Json;
 using UI;
 using UnityEngine;
 
-public class PlayerRates : MonoBehaviour
+public class PlayerRates
 {
-	private static Dictionary<string, float> _rates;
-	private static Dictionary<string, float> _flags;
-	private static Dictionary<string, string> _formulas;
+	private Dictionary<string, float> _rates;
+	private Dictionary<string, float> _flags;
+	private Dictionary<string, string> _formulas;
 
-	private void Awake()
+	public void Init()
 	{
 		TextAsset defaultsRaw = ResourceLoader.GetResource<TextAsset>("DefaultRates");
 		_rates = JsonConvert.DeserializeObject<Dictionary<string, float>>(defaultsRaw.text);
@@ -22,15 +22,20 @@ public class PlayerRates : MonoBehaviour
 		_formulas = JsonConvert.DeserializeObject<Dictionary<string, string>>(formulasRaw.text);
 	}
 
-	private void Start()
+	public void UpdateUI()
 	{
 		foreach ((string rate, float value) in _rates)
 		{
 			TaggedValue.UpdateAll(rate, value);
 		}
+		
+		foreach ((string flag, float value) in _flags)
+		{
+			TaggedValue.UpdateAll(flag, value);
+		}
 	}
 
-	public static void CalculateFormulas()
+	public void CalculateFormulas()
 	{
 		Dictionary<string, decimal> variables = new();
 		foreach ((string rate, float value) in _rates)
@@ -44,24 +49,24 @@ public class PlayerRates : MonoBehaviour
 		}
 	}
 
-	public static float GetRate(string rate) => _rates[rate];
-	public static void UpdateRate(string rate, float value)
+	public float GetRate(string rate) => _rates[rate];
+	public void UpdateRate(string rate, float value)
 	{
 		_rates[rate] = value;
 		TaggedValue.UpdateAll(rate, value);
 	}
 
-	public static float GetFlag(string flag)
+	public float GetFlag(string flag)
 	{
 		if (!_flags.ContainsKey(flag)) return 0;
 		return _flags[flag];
 	}
-	public static bool HasFlag(string flag)
+	public bool HasFlag(string flag)
 	{
 		if (!_flags.ContainsKey(flag)) return false;
 		return _flags[flag] > 0;
 	}
-	public static void SetFlag(string flag, float value)
+	public void SetFlag(string flag, float value)
 	{
 		_flags[flag] = value;
 		TaggedValue.UpdateAll(flag, value);

@@ -23,7 +23,7 @@ namespace UI
 
         private void Start()
         {
-            Data = EventStorage.GetNext();
+            Data = GameManager.EventStorage.GetNext();
             UpdateCard();
         }
         
@@ -35,7 +35,8 @@ namespace UI
             {
                 foreach (Flag limitation in limitations)
                 {
-                    canBeAccepted = canBeAccepted && PlayerRates.GetFlag(limitation.Type) >= limitation.Value;
+                    canBeAccepted = canBeAccepted &&
+                                    GameManager.PlayerRates.GetFlag(limitation.Type) >= limitation.Value;
                 }
             }
 
@@ -50,7 +51,8 @@ namespace UI
             {
                 foreach (Modifier modifier in modifiers)
                 {
-                    PlayerRates.UpdateRate(modifier.Type, PlayerRates.GetRate(modifier.Type) + modifier.Value);
+                    GameManager.PlayerRates.UpdateRate(modifier.Type,
+                        GameManager.PlayerRates.GetRate(modifier.Type) + modifier.Value);
                 }
             }
             
@@ -59,13 +61,13 @@ namespace UI
             {
                 foreach (Flag flag in flags)
                 {
-                    PlayerRates.SetFlag(flag.Type, flag.Value);
+                    GameManager.PlayerRates.SetFlag(flag.Type, flag.Value);
                 }
             }
             
-            PlayerRates.CalculateFormulas();
+            GameManager.PlayerRates.CalculateFormulas();
             
-            Data = EventStorage.GetNext();
+            Data = GameManager.EventStorage.GetNext();
             UpdateCard();
         }
         

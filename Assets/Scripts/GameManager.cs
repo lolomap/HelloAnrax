@@ -2,17 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+[CreateAssetMenu(fileName = "EditorUtilities/GameManager", menuName = "Game/Manager")]
+public class GameManager : ScriptableObject
 {
-    private static bool _isInited;
+	public enum ResourcesLoadOption
+	{
+		Default,
+		Unload,
+		Reload
+	}
 
-    private void Awake()
-    {
-        if (_isInited) return;
-        
-        EventStorage.Load();
-            
-        _isInited = true;
-    }
+	private static GameManager _instance;
+	
+	// Options
+	// public bool exampleOption;
+	
+	public static EventStorage EventStorage { get; private set; }
+	public static PlayerRates PlayerRates { get; private set; }
+	
+	[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+	private static void ReloadGame()
+	{
+		_instance = Resources.Load<GameManager>("EditorUtilities/GameManager");
+		
+		EventStorage = new();
+		EventStorage.Load();
 
+		PlayerRates = new();
+		PlayerRates.Init();
+	}
 }

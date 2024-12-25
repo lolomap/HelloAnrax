@@ -1,29 +1,24 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Newtonsoft.Json;
-using static Utils;
 using Random = UnityEngine.Random;
 
-public static class EventStorage
+public class EventStorage
 {
-    private static List<GameEvent> _common;
-    private static List<GameEvent> _partyTemplate;
-    private static List<GameEvent> _partySpecial;
-    private static List<GameEvent> _timed;
+    private List<GameEvent> _common;
+    private List<GameEvent> _partyTemplate;
+    private List<GameEvent> _partySpecial;
+    private List<GameEvent> _timed;
 
-    private static Queue<int> _eventQueue = new();
-    private static Queue<int> _timedQueue = new();
-    private static int _eventsCounter = 0;
+    private Queue<int> _eventQueue = new();
+    private Queue<int> _timedQueue = new();
+    private int _eventsCounter = 0;
 
     private const float PartyTemplateChance = 30.0f;
     private const float PartySpecialChance = 30.0f;
     private const float OptionParamMin = 0.3f;
 
-    public static bool IsNpEventsUnlocked, IsUpEventsUnlocked, IsWpEventsUnlocked;
-
-    public static void Load()
+    public void Load()
     {
         TextAsset commonRaw = ResourceLoader.GetResource<TextAsset>("CommonEvents");
         _common = JsonConvert.DeserializeObject<List<GameEvent>>(commonRaw.text);
@@ -51,7 +46,7 @@ public static class EventStorage
         }
     }
     
-    public static GameEvent GetNext()
+    public GameEvent GetNext()
     {
         _eventsCounter++;
         GameEvent res = null;
