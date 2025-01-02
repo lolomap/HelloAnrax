@@ -30,7 +30,7 @@ namespace UI
         public void AcceptOption()
         {
             bool canBeAccepted = true;
-            List<Flag> limitations = _selectedOption.Limitations;
+            List<Flag> limitations = _selectedOption.Limits;
             if (limitations != null)
             {
                 foreach (Flag limitation in limitations)

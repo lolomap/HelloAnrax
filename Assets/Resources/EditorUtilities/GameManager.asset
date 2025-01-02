@@ -12,4 +12,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00fd693331827e948a73f3e622512454, type: 3}
   m_Name: GameManager
   m_EditorClassIdentifier: 
-  ResourcesReload: 1

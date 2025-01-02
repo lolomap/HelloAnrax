@@ -2,39 +2,39 @@
   {
     "Title": "Рассвет Независимости",
     "Description": "Огонь озаряет столицу страны Скарну",
-    "Type": "Common",
+    
     "Options": [ { "Title": "Далее", "Flags": [
-      {"Type":  "HasNationalistsToDemocratsCooperation", "Value": 1 }
+      {"Type":  "HasNationalistsToDemocratsCooperation", "CompareTo": 1 }
     ]} ],
     "TurnPosition": 1
   },
   {
     "Title": "Рассвет Независимости",
     "Description": "Дом народов потерпел поражение и теперь его остатки разбирают самые сильные и ловкие",
-    "Type": "Common",
-    "Options": [ { "Title": "Далее", "Limitations": [
-      {"Type":  "HasNationalistsToDemocratsCooperation", "Value": 1 }
+    
+    "Options": [ { "Title": "Далее", "Limits": [
+      {"Type":  "HasNationalistsToDemocratsCooperation", "CompareTo": 1 }
     ] } ],
     "TurnPosition": 2
   },
   {
     "Title": "Рассвет Независимости",
     "Description": "В городах не смолкают громогласные речи, рёв орудий и беспорядки",
-    "Type": "Common",
+    
     "Options": [ { "Title": "Далее" } ],
     "TurnPosition": 3
   },
   {
     "Title": "Рассвет Независимости",
     "Description": "Новый парламент избирает <gradient=\"EventCool\">Вас</gradient> президентом Анракса",
-    "Type": "Common",
+    
     "Options": [ { "Title": "Далее" } ],
     "TurnPosition": 4
   },
   {
     "Title": "Рассвет Независимости",
     "Description": "На фоне неутихающего безумия Вы наполняетесь решимостью",
-    "Type": "Common",
+    
     "Options": [ { "Title": "Далее" } ],
     "TurnPosition": 5
   }

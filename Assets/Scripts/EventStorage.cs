@@ -1,97 +1,60 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Newtonsoft.Json;
 using Random = UnityEngine.Random;
 
 public class EventStorage
 {
-    private List<GameEvent> _common;
-    private List<GameEvent> _partyTemplate;
-    private List<GameEvent> _partySpecial;
-    private List<GameEvent> _timed;
+    private List<GameEvent> _events;
+    private List<GameEvent> _eventQueue;
 
-    private Queue<int> _eventQueue = new();
-    private Queue<int> _timedQueue = new();
-    private int _eventsCounter = 0;
-
-    private const float PartyTemplateChance = 30.0f;
-    private const float PartySpecialChance = 30.0f;
-    private const float OptionParamMin = 0.3f;
-
+    private static List<GameEvent> LoadFile(string path)
+    {
+        TextAsset raw = ResourceLoader.GetResource<TextAsset>(path);
+        return JsonConvert.DeserializeObject<List<GameEvent>>(raw.text);
+    }
+    
     public void Load()
     {
-        TextAsset commonRaw = ResourceLoader.GetResource<TextAsset>("CommonEvents");
-        _common = JsonConvert.DeserializeObject<List<GameEvent>>(commonRaw.text);
+        _events = new();
+        _eventQueue = new();
+        
+        _events.AddRange(LoadFile("CommonEvents"));
 
-        int queueSize = _common.Count; //max(common, template, special)
-        List<int> indexes = new(new int[queueSize]);
-        for (int i = 0; i < queueSize; i++)
+        List<GameEvent> timed = LoadFile("TimedEvents");
+        _events.AddRange(timed);
+
+        foreach (GameEvent gameEvent in _events.Where(gameEvent => gameEvent.IsAvailable()))
         {
-            indexes[i] = i;
+            _eventQueue.Add(gameEvent);
         }
         
-        TextAsset timedRaw = ResourceLoader.GetResource<TextAsset>("TimedEvents");
-        _timed = JsonConvert.DeserializeObject<List<GameEvent>>(timedRaw.text);
+        _eventQueue.Shuffle();
         
-        foreach (GameEvent e in _timed)
+        foreach (GameEvent gameEvent in timed)
         {
-            _timedQueue.Enqueue(e.TurnPosition);
+            _eventQueue.Insert(gameEvent.TurnPosition - 1, gameEvent);
         }
+    }
 
-        while (indexes.Count > 0)
-        {
-            int pos = Random.Range(0, indexes.Count);
-            _eventQueue.Enqueue(indexes[pos]);
-            indexes.RemoveAt(pos);
-        }
+    public void EnqueueEvent(GameEvent gameEvent)
+    {
+        if (!_events.Contains(gameEvent)) throw new ArgumentException("Try to enqueue unknown event");
+
+        int pos = gameEvent.TurnPosition > 0 ? gameEvent.TurnPosition : Random.Range(0, _eventQueue.Count + 1);
+        
+        _eventQueue.Insert(pos, gameEvent);
     }
     
     public GameEvent GetNext()
     {
-        _eventsCounter++;
-        GameEvent res = null;
-
-        if (_timedQueue.Count > 0 && _eventsCounter == _timedQueue.Peek())
-        {
-            int timedIndex = _timedQueue.Dequeue();
-
-            res = _timed[--timedIndex];
-            
-            return res;
-        }
+        if (_eventQueue.Count < 1) return null;
         
-        int eventIndex = _eventQueue.Dequeue();
-
-        // List<Party> possibleParties = new();
-        // if (IsNpEventsUnlocked) possibleParties.Add(Party.Nationalists);
-        // if (IsUpEventsUnlocked) possibleParties.Add(Party.Unionists);
-        // if (IsWpEventsUnlocked) possibleParties.Add(Party.Westernists);
-        //
-        // if (possibleParties.Count > 0)
-        // {
-        //     float chance = Random.value;
-        //     switch (chance)
-        //     {
-        //         case < PartyTemplateChance:
-        //             res = _partyTemplate[eventIndex];
-        //             res.PartyTemplate = possibleParties[Random.Range(0, possibleParties.Count)];
-        //             break;
-        //         case < PartyTemplateChance + PartySpecialChance:
-        //             res = _partySpecial[eventIndex];
-        //             break;
-        //     }
-        // }
-        // else
-        {
-            res = _common[eventIndex];
-        }
-
-        if (res == null)
-            throw new("Failed to get next event");
+        GameEvent res = _eventQueue[0];
         
-        if (!res.IsDisposable)
-            _eventQueue.Enqueue(eventIndex);
-        
+        _eventQueue.Remove(res);
         return res;
     }
 }

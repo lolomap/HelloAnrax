@@ -5,13 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "EditorUtilities/GameManager", menuName = "Game/Manager")]
 public class GameManager : ScriptableObject
 {
-	public enum ResourcesLoadOption
-	{
-		Default,
-		Unload,
-		Reload
-	}
-
 	private static GameManager _instance;
 	
 	// Options

@@ -11,6 +11,8 @@ public class PlayerRates
 	private Dictionary<string, float> _flags;
 	private Dictionary<string, string> _formulas;
 
+	public event Action Updated;
+
 	public void Init()
 	{
 		TextAsset defaultsRaw = ResourceLoader.GetResource<TextAsset>("DefaultRates");
@@ -66,9 +68,14 @@ public class PlayerRates
 		if (!_flags.ContainsKey(flag)) return false;
 		return _flags[flag] > 0;
 	}
+	public bool HasFlag(Flag flag)
+	{
+		return _flags.ContainsKey(flag.Type) && Utils.Compare(_flags[flag.Type], flag.CompareTo, flag.Comparasion);
+	}
 	public void SetFlag(string flag, float value)
 	{
 		_flags[flag] = value;
 		TaggedValue.UpdateAll(flag, value);
+		Updated?.Invoke();
 	}
 }
