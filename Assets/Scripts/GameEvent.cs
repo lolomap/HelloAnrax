@@ -13,6 +13,10 @@ public class JsonValue
 [Serializable]
 public class Modifier : JsonValue {}
 
+/// <summary>
+/// Flags are used for checking availability.
+/// Set Type same as stat name for stat check, otherwise special flag will be used
+/// </summary>
 [Serializable]
 public class Flag : JsonValue
 {
@@ -43,29 +47,33 @@ public class GameEvent
     public List<Option> Options;
     public bool IsDisposable = true;
 
+    public bool IsTrigger;
     public List<Flag> Limits;
     
     public int TurnPosition = -1;
     public string Soundtrack = "MainTheme";
 
-    private void CheckLimits()
-    {
-        if (IsAvailable())
-            GameManager.EventStorage.EnqueueEvent(this);
-    }
     
-    public GameEvent()
+    
+    public void Init()
     {
-        GameManager.PlayerRates.Updated += CheckLimits;
+        GameManager.PlayerStats.Updated += CheckLimits;
     }
 
     ~GameEvent()
     {
-        GameManager.PlayerRates.Updated -= CheckLimits;
+        GameManager.PlayerStats.Updated -= CheckLimits;
     }
 
     public bool IsAvailable()
     {
-        return Limits.Any(limitation => GameManager.PlayerRates.HasFlag(limitation));
+        return Limits == null || Limits.Any(limitation => GameManager.PlayerStats.HasFlag(limitation));
     }
+    
+    public void CheckLimits()
+     {
+         if (IsAvailable())
+             GameManager.EventStorage.EnqueueEvent(this);
+         else GameManager.EventStorage.DequeueEvent(this);
+     }
 }

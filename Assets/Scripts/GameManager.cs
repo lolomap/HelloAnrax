@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,17 +12,17 @@ public class GameManager : ScriptableObject
 	// public bool exampleOption;
 	
 	public static EventStorage EventStorage { get; private set; }
-	public static PlayerRates PlayerRates { get; private set; }
+	public static PlayerStats PlayerStats { get; private set; }
 	
 	[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
 	private static void ReloadGame()
 	{
 		_instance = Resources.Load<GameManager>("EditorUtilities/GameManager");
 		
+		PlayerStats = new();
+		PlayerStats.Init();
+		
 		EventStorage = new();
 		EventStorage.Load();
-
-		PlayerRates = new();
-		PlayerRates.Init();
 	}
 }

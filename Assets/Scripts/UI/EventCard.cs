@@ -18,6 +18,8 @@ namespace UI
 
         private void Awake()
         {
+            GameManager.EventStorage.Init();
+            
             OptionIcon.SelectOption += OnSelectOption;
         }
 
@@ -36,7 +38,7 @@ namespace UI
                 foreach (Flag limitation in limitations)
                 {
                     canBeAccepted = canBeAccepted &&
-                                    GameManager.PlayerRates.GetFlag(limitation.Type) >= limitation.Value;
+                                    GameManager.PlayerStats.GetFlag(limitation.Type) >= limitation.Value;
                 }
             }
 
@@ -51,8 +53,8 @@ namespace UI
             {
                 foreach (Modifier modifier in modifiers)
                 {
-                    GameManager.PlayerRates.UpdateRate(modifier.Type,
-                        GameManager.PlayerRates.GetRate(modifier.Type) + modifier.Value);
+                    GameManager.PlayerStats.SetStat(modifier.Type,
+                        GameManager.PlayerStats.GetStat(modifier.Type) + modifier.Value);
                 }
             }
             
@@ -61,11 +63,11 @@ namespace UI
             {
                 foreach (Flag flag in flags)
                 {
-                    GameManager.PlayerRates.SetFlag(flag.Type, flag.Value);
+                    GameManager.PlayerStats.SetFlag(flag.Type, flag.Value);
                 }
             }
             
-            GameManager.PlayerRates.CalculateFormulas();
+            GameManager.PlayerStats.CalculateFormulas();
             
             Data = GameManager.EventStorage.GetNext();
             UpdateCard();

@@ -8,6 +8,7 @@ using Random = UnityEngine.Random;
 public class EventStorage
 {
     private List<GameEvent> _events;
+    private List<GameEvent> _timedEvents;
     private List<GameEvent> _eventQueue;
 
     private static List<GameEvent> LoadFile(string path)
@@ -19,33 +20,56 @@ public class EventStorage
     public void Load()
     {
         _events = new();
+        _timedEvents = new();
         _eventQueue = new();
         
         _events.AddRange(LoadFile("CommonEvents"));
+        _timedEvents = LoadFile("TimedEvents");
+    }
 
-        List<GameEvent> timed = LoadFile("TimedEvents");
-        _events.AddRange(timed);
-
-        foreach (GameEvent gameEvent in _events.Where(gameEvent => gameEvent.IsAvailable()))
+    public void Init()
+    {
+        foreach (GameEvent gameEvent in _events)
         {
-            _eventQueue.Add(gameEvent);
+            gameEvent.Init();
+        }
+        
+        // Add to initial queue only available events
+        foreach (GameEvent gameEvent in _events)
+        {
+            gameEvent.CheckLimits();
         }
         
         _eventQueue.Shuffle();
         
-        foreach (GameEvent gameEvent in timed)
+        foreach (GameEvent gameEvent in _timedEvents)
         {
             _eventQueue.Insert(gameEvent.TurnPosition - 1, gameEvent);
         }
     }
 
-    public void EnqueueEvent(GameEvent gameEvent)
+    public void EnqueueEvent(GameEvent gameEvent, bool toEnd = false)
     {
         if (!_events.Contains(gameEvent)) throw new ArgumentException("Try to enqueue unknown event");
 
-        int pos = gameEvent.TurnPosition > 0 ? gameEvent.TurnPosition : Random.Range(0, _eventQueue.Count + 1);
-        
+        int pos;
+        if (toEnd)
+            pos = _eventQueue.Count;
+        else if (gameEvent.IsTrigger)
+            pos = 0;
+        else if (gameEvent.TurnPosition > 0)
+            pos = gameEvent.TurnPosition;
+        else
+            pos = Random.Range(0, _eventQueue.Count + 1);
+
         _eventQueue.Insert(pos, gameEvent);
+    }
+
+    public void DequeueEvent(GameEvent gameEvent)
+    {
+        if (!_events.Contains(gameEvent)) throw new ArgumentException("Try to dequeue unknown event");
+
+        _eventQueue.Remove(gameEvent);
     }
     
     public GameEvent GetNext()
@@ -55,6 +79,11 @@ public class EventStorage
         GameEvent res = _eventQueue[0];
         
         _eventQueue.Remove(res);
+        if (!res.IsDisposable)
+        {
+            EnqueueEvent(res, true);
+        }
+        
         return res;
     }
 }

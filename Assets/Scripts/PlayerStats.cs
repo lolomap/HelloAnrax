@@ -5,9 +5,9 @@ using Newtonsoft.Json;
 using UI;
 using UnityEngine;
 
-public class PlayerRates
+public class PlayerStats
 {
-	private Dictionary<string, float> _rates;
+	private Dictionary<string, float> _stats;
 	private Dictionary<string, float> _flags;
 	private Dictionary<string, string> _formulas;
 
@@ -15,18 +15,18 @@ public class PlayerRates
 
 	public void Init()
 	{
-		TextAsset defaultsRaw = ResourceLoader.GetResource<TextAsset>("DefaultRates");
-		_rates = JsonConvert.DeserializeObject<Dictionary<string, float>>(defaultsRaw.text);
+		TextAsset defaultsRaw = ResourceLoader.GetResource<TextAsset>("DefaultStats");
+		_stats = JsonConvert.DeserializeObject<Dictionary<string, float>>(defaultsRaw.text);
 
 		_flags = new();
 		
-		TextAsset formulasRaw = ResourceLoader.GetResource<TextAsset>("RatesConfig");
+		TextAsset formulasRaw = ResourceLoader.GetResource<TextAsset>("StatsConfig");
 		_formulas = JsonConvert.DeserializeObject<Dictionary<string, string>>(formulasRaw.text);
 	}
 
 	public void UpdateUI()
 	{
-		foreach ((string rate, float value) in _rates)
+		foreach ((string rate, float value) in _stats)
 		{
 			TaggedValue.UpdateAll(rate, value);
 		}
@@ -40,21 +40,21 @@ public class PlayerRates
 	public void CalculateFormulas()
 	{
 		Dictionary<string, decimal> variables = new();
-		foreach ((string rate, float value) in _rates)
+		foreach ((string rate, float value) in _stats)
 		{
 			variables[rate] = (decimal) value;
 		}
 		
 		foreach ((string rate, string formula) in _formulas)
 		{
-			UpdateRate(rate,  GetRate(rate) + Convert.ToSingle(Utils.Evaluator.Evaluate(formula, variables)));
+			SetStat(rate,  GetStat(rate) + Convert.ToSingle(Utils.Evaluator.Evaluate(formula, variables)));
 		}
 	}
 
-	public float GetRate(string rate) => _rates[rate];
-	public void UpdateRate(string rate, float value)
+	public float GetStat(string rate) => _stats[rate];
+	public void SetStat(string rate, float value)
 	{
-		_rates[rate] = value;
+		_stats[rate] = value;
 		TaggedValue.UpdateAll(rate, value);
 	}
 
@@ -70,7 +70,9 @@ public class PlayerRates
 	}
 	public bool HasFlag(Flag flag)
 	{
-		return _flags.ContainsKey(flag.Type) && Utils.Compare(_flags[flag.Type], flag.CompareTo, flag.Comparasion);
+		return _stats.ContainsKey(flag.Type) && Utils.Compare(_stats[flag.Type], flag.CompareTo, flag.Comparasion)
+		       ||
+		       _flags.ContainsKey(flag.Type) && Utils.Compare(_flags[flag.Type], flag.CompareTo, flag.Comparasion);
 	}
 	public void SetFlag(string flag, float value)
 	{
