@@ -47,7 +47,7 @@ public class PlayerStats
 		
 		foreach ((string rate, string formula) in _formulas)
 		{
-			SetStat(rate,  GetStat(rate) + Convert.ToSingle(Utils.Evaluator.Evaluate(formula, variables)));
+			SetStat(rate, Convert.ToSingle(Utils.Evaluator.Evaluate(formula, variables)));
 		}
 	}
 

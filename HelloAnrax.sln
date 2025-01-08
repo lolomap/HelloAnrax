@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{eb295003-311a-649e-684f-43a9c45fe7b6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneralScripts", "GeneralScripts.csproj", "{6f79a9dc-1a0a-d217-a2ba-018782c88c96}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AYellowpaper.SerializedCollections", "AYellowpaper.SerializedCollections.csproj", "{3a467063-5f71-1671-72cb-ba777029ec5a}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-firstpass", "Assembly-CSharp-firstpass.csproj", "{b455f053-ce2d-0f32-0878-829fc97043ef}"
@@ -20,6 +22,8 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{eb295003-311a-649e-684f-43a9c45fe7b6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{eb295003-311a-649e-684f-43a9c45fe7b6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6f79a9dc-1a0a-d217-a2ba-018782c88c96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6f79a9dc-1a0a-d217-a2ba-018782c88c96}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3a467063-5f71-1671-72cb-ba777029ec5a}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3a467063-5f71-1671-72cb-ba777029ec5a}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{b455f053-ce2d-0f32-0878-829fc97043ef}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
