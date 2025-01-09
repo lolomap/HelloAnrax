@@ -19,6 +19,7 @@ namespace UI
         private void Awake()
         {
             GameManager.EventStorage.Init();
+            GameManager.PlayerStats.UpdateUI();
             
             OptionIcon.SelectOption += OnSelectOption;
         }

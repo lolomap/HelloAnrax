@@ -26,9 +26,9 @@ public class PlayerStats
 
 	public void UpdateUI()
 	{
-		foreach ((string rate, float value) in _stats)
+		foreach ((string stat, float value) in _stats)
 		{
-			TaggedValue.UpdateAll(rate, value);
+			TaggedValue.UpdateAll(stat, value);
 		}
 		
 		foreach ((string flag, float value) in _flags)
@@ -40,22 +40,27 @@ public class PlayerStats
 	public void CalculateFormulas()
 	{
 		Dictionary<string, decimal> variables = new();
-		foreach ((string rate, float value) in _stats)
+		foreach ((string stat, float value) in _stats)
 		{
-			variables[rate] = (decimal) value;
+			variables[stat] = (decimal) value;
 		}
 		
-		foreach ((string rate, string formula) in _formulas)
+		foreach ((string stat, string formula) in _formulas)
 		{
-			SetStat(rate, Convert.ToSingle(Utils.Evaluator.Evaluate(formula, variables)));
+			float value = Convert.ToSingle(Utils.Evaluator.Evaluate(formula, variables));
+			SetStat(stat, value);
+			if (!variables.ContainsKey(stat))
+			{
+				variables[stat] = (decimal) value;
+			}
 		}
 	}
 
-	public float GetStat(string rate) => _stats[rate];
-	public void SetStat(string rate, float value)
+	public float GetStat(string stat) => _stats[stat];
+	public void SetStat(string stat, float value)
 	{
-		_stats[rate] = value;
-		TaggedValue.UpdateAll(rate, value);
+		_stats[stat] = value;
+		TaggedValue.UpdateAll(stat, value);
 	}
 
 	public float GetFlag(string flag)
@@ -78,6 +83,5 @@ public class PlayerStats
 	{
 		_flags[flag] = value;
 		TaggedValue.UpdateAll(flag, value);
-		Updated?.Invoke();
 	}
 }

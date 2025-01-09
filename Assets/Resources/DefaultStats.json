@@ -10,5 +10,6 @@
   "DemocratsCoop": 0, 
   "NeutralLoyalty": 0,
   "NeutralPower": 50,
-  "Power": 50
+  "Power": 50,
+  "Treasury": 5
 }

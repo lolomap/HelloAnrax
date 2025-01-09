@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,8 +12,9 @@ namespace UI
 		private static event UpdateEventHandler UpdateUI;
 		
 		public string Tag;
-
+		
 		private Slider _slider;
+		private SegmentBar _segmentBar;
 		private TMP_Text _text;
 		
 		private void Awake()
@@ -22,6 +22,7 @@ namespace UI
 			UpdateUI += OnUpdate;
 
 			_slider = GetComponent<Slider>();
+			_segmentBar = GetComponent<SegmentBar>();
 			_text = GetComponent<TMP_Text>();
 		}
 
@@ -32,9 +33,14 @@ namespace UI
 			
 			switch (value)
 			{
+				case int:
+					if (_segmentBar != null) _segmentBar.Set(Convert.ToInt32(value));
+					break;
+				
 				case decimal:
 				case float:
 					if (_slider != null) _slider.value = Convert.ToSingle(value);
+					if (_segmentBar != null) _segmentBar.Set(Convert.ToInt32(value));
 					break;
 			
 				case string:
