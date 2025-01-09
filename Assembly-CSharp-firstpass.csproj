@@ -783,17 +783,17 @@
     <Reference Include="Unity.2D.Animation.Runtime">
       <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Library\ScriptAssemblies\Unity.2D.Animation.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VisualScripting.Core.Editor">
-      <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.AdaptivePerformance.Profiler.Editor">
       <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Library\ScriptAssemblies\Unity.AdaptivePerformance.Profiler.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.2D.Tilemap.Extras">
-      <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Library\ScriptAssemblies\Unity.2D.Tilemap.Extras.dll</HintPath>
+    <Reference Include="Unity.VisualScripting.Core.Editor">
+      <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Tilemap.Extras">
+      <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Library\ScriptAssemblies\Unity.2D.Tilemap.Extras.dll</HintPath>
     </Reference>
     <Reference Include="Unity.AdaptivePerformance.UI.Editor">
       <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Library\ScriptAssemblies\Unity.AdaptivePerformance.UI.Editor.dll</HintPath>

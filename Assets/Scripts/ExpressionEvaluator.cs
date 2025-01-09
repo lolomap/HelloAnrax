@@ -163,6 +163,12 @@ public class ExpressionEvaluator : DynamicObject
                         operatorStack.Push(Operation.UnaryMinus);
                         continue;
                     }
+                    if (next == '|' && expressionStack.Count == 0)
+                    {
+                        reader.Read();
+                        operatorStack.Push(Operation.Abs);
+                        continue;
+                    }
 
                     var currentOperation = ReadOperation(reader);
 
@@ -178,10 +184,17 @@ public class ExpressionEvaluator : DynamicObject
                     reader.Read();
                     operatorStack.Push(Parentheses.Left);
 
-                    if (reader.Peek() == '-')
+                    int c = reader.Peek();
+                    switch (c)
                     {
-                        reader.Read();
-                        operatorStack.Push(Operation.UnaryMinus);
+                        case '-':
+                            reader.Read();
+                            operatorStack.Push(Operation.UnaryMinus);
+                            break;
+                        case '|':
+                            reader.Read();
+                            operatorStack.Push(Operation.Abs);
+                            break;
                     }
 
                     continue;
@@ -365,7 +378,18 @@ internal sealed class Operation : Symbol
         return Expression.Call(null,
             typeof(Math).GetMethod("Abs", new[] {expression.Type})!, expression);
     }
-
+    private static Expression OrExpression(Expression a, Expression b)
+    {
+        BinaryExpression expression = Expression.Or(a, b);
+        return Expression.Call(null,
+            typeof(Convert).GetMethod("ToDecimal", new[] {expression.Type})!, expression);
+    }
+    private static Expression AndExpression(Expression a, Expression b)
+    {
+        BinaryExpression expression = Expression.And(a, b);
+        return Expression.Call(null,
+            typeof(Convert).GetMethod("ToDecimal", new[] {expression.Type})!, expression);
+    }
     private static Expression GreaterThanExpression(Expression a, Expression b)
     {
         BinaryExpression expression = Expression.GreaterThan(a, b);
@@ -397,6 +421,10 @@ internal sealed class Operation : Symbol
     public static readonly Operation Division = new(2, Expression.Divide, "Division");
     public static readonly Operation UnaryMinus = new(2, Expression.Negate, "Negation");
     public static readonly Operation Abs = new(2, AbsExpression, "Abs");
+    
+    public static readonly Operation And = new(3, GreaterThanExpression, "And");
+    public static readonly Operation Or = new(2, GreaterThanExpression, "Or");
+    
     public static readonly Operation GreaterThan = new(2, GreaterThanExpression, "GreaterThan");
     public static readonly Operation LessThan = new(2, LessThanExpression, "LessThan");
     public static readonly Operation GreaterThanOrEqual = new(2, GreaterThanOrEqualExpression, "GreaterThanOrEqual");
@@ -408,7 +436,10 @@ internal sealed class Operation : Symbol
         { '-', Subtraction },
         { '*', Multiplication},
         { '/', Division },
-        { '|', Abs},
+        
+        { '|', Or},
+        { '&', And},
+        
         { '>', GreaterThan},
         { '<', LessThan},
         { '≥', GreaterThanOrEqual},
