@@ -43,6 +43,7 @@ namespace UI
 		public float AdjustSpeed;
 		
 		private float _radius;
+		private float _dragStartAngle;
 		private float _selectionAngle;
 		private bool _isAdjusting;
 		
@@ -58,30 +59,46 @@ namespace UI
 			if (_isAdjusting) return;
 
 			Touch touch = Input.touches[0];
-			Vector2 velocity = touch.deltaPosition;
-			float chord = Vector2.Distance(Vector2.zero, velocity);
-			float angle = Mathf.Asin(chord / _radius / 2) * (180 / Mathf.PI) * 2;
+			float angle = Vector2.SignedAngle(Vector2.up, Camera.main!.ScreenToWorldPoint(touch.position));
+			
+			float step = 360f / _elements.Count;
 
-			Vector3 direction = velocity.x < 0 ? Vector3.forward : Vector3.back;
-			
-			if (Camera.main!.ScreenToWorldPoint(touch.position).y < transform.position.y) direction *= -1f;
-			
-			foreach (RoundListElement element in _elements)
+			for (int i = 0; i < _elements.Count; i++)
 			{
-				element.RTransform.transform.RotateAround(transform.position, direction, angle);
-				element.RTransform.transform.eulerAngles = Vector3.zero;
+				RectTransform element = _elements[i].RTransform;
+				element.localPosition = Vector3.zero;
 
-				float elementAngle = Vector2.Angle(element.RTransform.localPosition, Vector2.up);
+				_radius = ExtraRadius;
+				if (FitWidth)
+					_radius = (ExtraRadius + _rectTransform.rect.width) * 0.25f;
+				else if (FitHeight)
+					_radius = (ExtraRadius + _rectTransform.rect.height) * 0.25f;
+				
+				element.localPosition += Vector3.up * _radius;
+				element.transform.RotateAround(transform.position, Vector3.forward, step * i);
+				element.transform.RotateAround(transform.position, Vector3.forward, _dragStartAngle + angle);
+				element.transform.eulerAngles = Vector3.zero;
+				
+				float elementAngle = Vector2.Angle(element.localPosition, Vector2.up);
 				
 				if (elementAngle > _selectionAngle) continue;
 				
 				foreach (RoundListElement el in _elements) { el.Unselect(); }
-				element.Select();
+				_elements[i].Select();
 			}
+		}
+
+		public void OnBeginDrag()
+		{
+			if (_elements.Count < 1) return;
+			
+			_dragStartAngle = Vector2.Angle(Vector2.up, _elements[0].RTransform.transform.localPosition);
 		}
 
 		public void OnEndDrag()
 		{
+			_dragStartAngle = 0;
+			
 			for (int i = 0; i < _elements.Count; i++)
 			{
 				RoundListElement element = _elements[i];
