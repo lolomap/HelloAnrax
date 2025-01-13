@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\MusicManager.cs" />
     <Compile Include="Assets\Scripts\UI\Generics.cs" />
+    <Compile Include="Assets\Scripts\BuildScriptableObject.cs" />
     <Compile Include="Assets\Scripts\UI\EventCard.cs" />
     <Compile Include="Assets\Scripts\ExpressionEvaluator.cs" />
     <Compile Include="Assets\Scripts\UI\OptionIcon.cs" />

@@ -19,7 +19,6 @@ namespace UI
         private void Awake()
         {
             GameManager.EventStorage.Init();
-            GameManager.PlayerStats.UpdateUI();
             
             OptionIcon.SelectOption += OnSelectOption;
         }
@@ -28,6 +27,9 @@ namespace UI
         {
             Data = GameManager.EventStorage.GetNext();
             UpdateCard();
+            
+            GameManager.PlayerStats.UpdateUI();
+            TaggedValue.UpdateAll("BuildVersion", GameManager.GetVersion());
         }
         
         public void AcceptOption()

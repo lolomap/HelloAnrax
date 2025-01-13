@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Assets\Modern UI Pack\Editor\Scripts\ContextMenu.cs" />
     <Compile Include="Assets\Modern UI Pack\Editor\Scripts\InitMUIP.cs" />
+    <Compile Include="Assets\Editor\BuildVersionProcessor.cs" />
     <Reference Include="UnityEngine">
       <HintPath>E:\Unity\2022.3.24f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
