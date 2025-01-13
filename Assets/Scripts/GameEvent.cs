@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine.Serialization;
 using static Utils;
 
 [Serializable]
@@ -20,7 +21,7 @@ public class Modifier : JsonValue {}
 [Serializable]
 public class Flag : JsonValue
 {
-    public Comparasion Comparasion = Comparasion.GtE;
+    public Comparison Comparison = Comparison.GtE;
     public float CompareTo;
 }
 

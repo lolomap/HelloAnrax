@@ -10,6 +10,7 @@ public class EventStorage
     private List<GameEvent> _events;
     private List<GameEvent> _timedEvents;
     private List<GameEvent> _eventQueue;
+    private List<GameEvent> _failEvents;
 
     private static List<GameEvent> LoadFile(string path)
     {
@@ -25,6 +26,8 @@ public class EventStorage
         
         _events.AddRange(LoadFile("CommonEvents"));
         _timedEvents = LoadFile("TimedEvents");
+
+        _failEvents = LoadFile("FailEvents");
     }
 
     public void Init()
@@ -85,5 +88,10 @@ public class EventStorage
         }
         
         return res;
+    }
+
+    public GameEvent GetFail()
+    {
+        return _failEvents.Count < 1 ? null : _failEvents.FirstOrDefault(gameEvent => gameEvent.IsAvailable());
     }
 }

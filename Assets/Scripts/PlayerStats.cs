@@ -75,9 +75,9 @@ public class PlayerStats
 	}
 	public bool HasFlag(Flag flag)
 	{
-		return _stats.ContainsKey(flag.Type) && Utils.Compare(_stats[flag.Type], flag.CompareTo, flag.Comparasion)
+		return _stats.ContainsKey(flag.Type) && Utils.Compare(_stats[flag.Type], flag.CompareTo, flag.Comparison)
 		       ||
-		       _flags.ContainsKey(flag.Type) && Utils.Compare(_flags[flag.Type], flag.CompareTo, flag.Comparasion);
+		       _flags.ContainsKey(flag.Type) && Utils.Compare(_flags[flag.Type], flag.CompareTo, flag.Comparison);
 	}
 	public void SetFlag(string flag, float value)
 	{

@@ -34,6 +34,13 @@ namespace UI
         
         public void AcceptOption()
         {
+            if (_selectedOption == null)
+            {
+                // TODO: Restart game
+                
+                return;
+            }
+            
             bool canBeAccepted = true;
             List<Flag> limitations = _selectedOption.Limits;
             if (limitations != null)
@@ -71,8 +78,14 @@ namespace UI
             }
             
             GameManager.PlayerStats.CalculateFormulas();
+
+            // TODO: move to configs
+            Data = GameManager.PlayerStats.GetStat("Power") < 30
+                ? GameManager.EventStorage.GetFail()
+                : GameManager.EventStorage.GetNext();
+
+            _selectedOption = null;
             
-            Data = GameManager.EventStorage.GetNext();
             UpdateCard();
         }
         
@@ -91,12 +104,16 @@ namespace UI
             EventPicture.sprite = ResourceLoader.GetResource<Sprite>("Icons/Events/" + Data.Category);
 
             List<RoundListElement> list = new();
-            foreach (Option option in Data.Options)
+            
+            if (Data.Options != null)
             {
-                OptionIcon prefab = ResourceLoader.GetResource<OptionIcon>("Prefabs/OptionIcon");
-                OptionIcon obj = Instantiate(prefab);
-                obj.Data = option;
-                list.Add(obj);
+                foreach (Option option in Data.Options)
+                {
+                    OptionIcon prefab = ResourceLoader.GetResource<OptionIcon>("Prefabs/OptionIcon");
+                    OptionIcon obj = Instantiate(prefab);
+                    obj.Data = option;
+                    list.Add(obj);
+                }
             }
 
             EventOptionsList.Elements = list;
