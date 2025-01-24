@@ -17,6 +17,9 @@ public class MusicManager : MonoBehaviour
     [SerializedDictionary("Name", "Audio")]
     public SerializedDictionary<string, AudioClip> Tracks;
 
+    [Range(0f, 1f)]
+    public float InitVolume = 1f;
+    
     private float _volume;
     public float Volume
     {
@@ -36,6 +39,7 @@ public class MusicManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        Volume = InitVolume;
     }
 
     public void PlayAudio(string trackName)

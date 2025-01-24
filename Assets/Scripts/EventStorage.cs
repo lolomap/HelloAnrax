@@ -34,7 +34,11 @@ public class EventStorage
     {
         foreach (GameEvent gameEvent in _events)
         {
-            gameEvent.Init();
+            gameEvent.EnableDynamicChecking();
+        }
+        foreach (GameEvent gameEvent in _failEvents)
+        {
+            gameEvent.EnableDynamicChecking();
         }
         
         // Add to initial queue only available events

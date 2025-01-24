@@ -5,18 +5,46 @@ using UnityEngine;
 namespace UI
 {
 	[RequireComponent(typeof(RectTransform))]
-	public abstract class RoundListElement : MonoBehaviour, ISelectable
+	[RequireComponent(typeof(AudioSource))]
+	public abstract class RoundListElement : MonoBehaviour
 	{
 		public RectTransform RTransform;
+		public AudioSource AudioSource;
 
-		public abstract void Select();
-		public abstract void Unselect();
+		public AudioClip SelectSound;
+
+		public bool IsSelected;
+		
+		protected abstract void SelectEffect();
+		protected abstract void UnselectEffect();
+
+		public void Select(bool isMuted = false)
+		{
+			if (IsSelected) return;
+			IsSelected = true;
+			
+			if (!isMuted)
+				AudioSource.PlayOneShot(SelectSound);
+			SelectEffect();
+		}
+
+		public void Unselect()
+		{
+			if (!IsSelected) return;
+			IsSelected = false;
+			
+			UnselectEffect();
+		}
 	}
 
 	[RequireComponent(typeof(RectTransform))]
+	[RequireComponent(typeof(AudioSource))]
 	public class RoundList : MonoBehaviour
 	{
 		private RectTransform _rectTransform;
+		private AudioSource _audioSource;
+
+		private RoundListElement _selectedElement;
 		
 		private List<RoundListElement> _elements = new();
 		public List<RoundListElement> Elements
@@ -32,7 +60,7 @@ namespace UI
 				ResetElementsPosition();
 				
 				if (_elements.Count > 0)
-					_elements[0].Select();
+					_elements[0].Select(true);
 			}
 		}
 
@@ -41,6 +69,8 @@ namespace UI
 		public float ExtraRadius;
 
 		public float AdjustSpeed;
+
+		public AudioClip ScrollSound;
 		
 		private float _radius;
 		private float _dragStartAngle;
@@ -50,6 +80,8 @@ namespace UI
 		private void Awake()
 		{
 			_rectTransform = GetComponent<RectTransform>();
+			_audioSource = GetComponent<AudioSource>();
+			
 			StartCoroutine(WaitUntilEndOfFrame());
 		}
 
@@ -58,6 +90,9 @@ namespace UI
 			if (Input.touches.Length == 0) return;
 			if (_isAdjusting) return;
 
+			if (!_audioSource.isPlaying)
+				_audioSource.PlayOneShot(ScrollSound);
+			
 			Touch touch = Input.touches[0];
 			float angle = Vector2.SignedAngle(Vector2.up, Camera.main!.ScreenToWorldPoint(touch.position));
 			
@@ -81,10 +116,13 @@ namespace UI
 				
 				float elementAngle = Vector2.Angle(element.localPosition, Vector2.up);
 				
-				if (elementAngle > _selectionAngle) continue;
-				
-				foreach (RoundListElement el in _elements) { el.Unselect(); }
-				_elements[i].Select();
+				if (elementAngle > _selectionAngle || _selectedElement == _elements[i]) continue;
+
+				if (_selectedElement != null)
+					_selectedElement.Unselect();
+				_selectedElement = _elements[i];
+
+				_selectedElement.Select();
 			}
 		}
 
@@ -117,7 +155,10 @@ namespace UI
 				direction = Vector3.forward;
 			
 			while (Vector2.Angle(_elements[id].RTransform.localPosition, Vector2.up) > AdjustSpeed * Time.deltaTime)
-			{ 
+			{
+				if (!_audioSource.isPlaying)
+					_audioSource.PlayOneShot(ScrollSound);
+				
 				foreach (RoundListElement element in _elements)
 				{
 					element.RTransform.transform.RotateAround(transform.position, direction,

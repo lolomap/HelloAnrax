@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3103107730438213730}
+  - component: {fileID: 6234355838829773838}
   - component: {fileID: 5204985558169495478}
   - component: {fileID: 5421587402371179202}
-  - component: {fileID: 6234355838829773838}
   m_Layer: 0
   m_Name: Master
   m_TagString: Untagged
@@ -34,6 +34,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6234355838829773838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7467962607586856759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b595437e5c37c494fbfcc4881a3ee0e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MainTrack: {fileID: 5204985558169495478}
+  SecondaryTrack: {fileID: 5421587402371179202}
+  Tracks:
+    _serializedList:
+    - Key: MainTheme
+      Value: {fileID: 8300000, guid: 4dde7386e43fa29409f1ccc4a805071e, type: 3}
+  InitVolume: 0.51
+  TransitionTime: 0.5
 --- !u!82 &5204985558169495478
 AudioSource:
   m_ObjectHideFlags: 0
@@ -45,10 +65,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -141,10 +161,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -226,22 +246,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &6234355838829773838
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7467962607586856759}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b595437e5c37c494fbfcc4881a3ee0e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MainTrack: {fileID: 5204985558169495478}
-  SecondaryTrack: {fileID: 5421587402371179202}
-  Tracks:
-    _serializedList:
-    - Key: MainTheme
-      Value: {fileID: 8300000, guid: 4dde7386e43fa29409f1ccc4a805071e, type: 3}
-  TransitionTime: 0.5

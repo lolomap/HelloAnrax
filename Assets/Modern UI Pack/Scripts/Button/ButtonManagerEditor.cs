@@ -256,10 +256,10 @@ namespace Michsky.MUIP
                         else if (buttonTarget.navigationMode == UnityEngine.UI.Navigation.Mode.Explicit) 
                         {
                             EditorGUI.indentLevel = 1;
-                            MUIPEditorHandler.DrawPropertyPlain(selectOnUp, customSkin, "Select On Up");
-                            MUIPEditorHandler.DrawPropertyPlain(selectOnDown, customSkin, "Select On Down");
-                            MUIPEditorHandler.DrawPropertyPlain(selectOnLeft, customSkin, "Select On Left");
-                            MUIPEditorHandler.DrawPropertyPlain(selectOnRight, customSkin, "Select On Right");
+                            MUIPEditorHandler.DrawPropertyPlain(selectOnUp, customSkin, "SelectEffect On Up");
+                            MUIPEditorHandler.DrawPropertyPlain(selectOnDown, customSkin, "SelectEffect On Down");
+                            MUIPEditorHandler.DrawPropertyPlain(selectOnLeft, customSkin, "SelectEffect On Left");
+                            MUIPEditorHandler.DrawPropertyPlain(selectOnRight, customSkin, "SelectEffect On Right");
                             EditorGUI.indentLevel = 0;
                         }
 

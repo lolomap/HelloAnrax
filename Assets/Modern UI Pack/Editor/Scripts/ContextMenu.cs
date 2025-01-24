@@ -695,10 +695,10 @@ namespace Michsky.MUIP
             CreateObject("Dropdown/Dropdown");
         }
 
-        [MenuItem("GameObject/Modern UI Pack/Dropdown/Multi Select", false, 8)]
+        [MenuItem("GameObject/Modern UI Pack/Dropdown/Multi SelectEffect", false, 8)]
         static void DMSD()
         {
-            CreateObject("Dropdown/Dropdown - Multi Select");
+            CreateObject("Dropdown/Dropdown - Multi SelectEffect");
         }
 
         [MenuItem("GameObject/Modern UI Pack/Horizontal Selector/Standard", false, 8)]

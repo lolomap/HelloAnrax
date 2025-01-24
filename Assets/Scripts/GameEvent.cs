@@ -56,14 +56,15 @@ public class GameEvent
 
     
     
-    public void Init()
+    public void EnableDynamicChecking()
     {
         GameManager.PlayerStats.Updated += CheckLimits;
     }
 
     ~GameEvent()
     {
-        GameManager.PlayerStats.Updated -= CheckLimits;
+        if (GameManager.PlayerStats != null)
+            GameManager.PlayerStats.Updated -= CheckLimits;
     }
 
     public bool IsAvailable()

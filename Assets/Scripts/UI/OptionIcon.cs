@@ -9,7 +9,7 @@ namespace UI
 	{
 		private Image _sprite;
 
-		private readonly Color _disabledTint = new Color(1f, 1f, 1f, 0.5f);
+		private readonly Color _disabledTint = new(1f, 1f, 1f, 0.5f);
 
 		private Option _data;
 		public Option Data
@@ -21,7 +21,6 @@ namespace UI
 				_sprite.sprite = ResourceLoader.GetResource<Sprite>("Icons/Options/" + value.Category);
 			}
 		}
-		private bool _selected;
 
 		public delegate void SelectOptionEventHandler(Option data);
 		public static event SelectOptionEventHandler SelectOption;
@@ -32,21 +31,15 @@ namespace UI
 			_sprite.color = _disabledTint;
 		}
 
-		public override void Select()
+		protected override void SelectEffect()
 		{
-			if (_selected) return;
-			
-			_selected = true;
 			_sprite.color = Color.white;
 			
 			SelectOption?.Invoke(Data);
 		}
 
-		public override void Unselect()
+		protected override void UnselectEffect()
 		{
-			if (!_selected) return;
-			
-			_selected = false;
 			_sprite.color = _disabledTint;
 		}
 	}
