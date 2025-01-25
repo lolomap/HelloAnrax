@@ -792,6 +792,9 @@
     <Reference Include="Unity.Collections">
       <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Library\ScriptAssemblies\Unity.Collections.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.AdaptivePerformance.Google.Android">
+      <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Library\ScriptAssemblies\Unity.AdaptivePerformance.Google.Android.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.2D.SpriteShape.Runtime">
       <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Library\ScriptAssemblies\Unity.2D.SpriteShape.Runtime.dll</HintPath>
     </Reference>
@@ -819,6 +822,9 @@
     <Reference Include="NuGetForUnity">
       <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Library\ScriptAssemblies\NuGetForUnity.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.AdaptivePerformance.Samsung.Android">
+      <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Library\ScriptAssemblies\Unity.AdaptivePerformance.Samsung.Android.dll</HintPath>
+    </Reference>
     <Reference Include="PsdPlugin">
       <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Library\ScriptAssemblies\PsdPlugin.dll</HintPath>
     </Reference>
@@ -828,14 +834,23 @@
     <Reference Include="Unity.Burst">
       <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Library\ScriptAssemblies\Unity.Burst.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.AdaptivePerformance.Google.Android.Editor">
+      <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Library\ScriptAssemblies\Unity.AdaptivePerformance.Google.Android.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Shared.Editor">
       <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.AdaptivePerformance.Simulator.Google.Extension">
+      <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Library\ScriptAssemblies\Unity.AdaptivePerformance.Simulator.Google.Extension.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.AdaptivePerformance">
       <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Library\ScriptAssemblies\Unity.AdaptivePerformance.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.AdaptivePerformance.Simulator.VRR.Extension">
+      <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Library\ScriptAssemblies\Unity.AdaptivePerformance.Simulator.VRR.Extension.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
       <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
@@ -864,6 +879,9 @@
     <Reference Include="Unity.2D.Tilemap.Extras">
       <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Library\ScriptAssemblies\Unity.2D.Tilemap.Extras.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.AdaptivePerformance.Samsung.Android.Editor">
+      <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Library\ScriptAssemblies\Unity.AdaptivePerformance.Samsung.Android.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.AdaptivePerformance.UI.Editor">
       <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Library\ScriptAssemblies\Unity.AdaptivePerformance.UI.Editor.dll</HintPath>
     </Reference>
@@ -887,9 +905,6 @@
     </Reference>
     <Reference Include="Unity.2D.Psdimporter.Editor">
       <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Library\ScriptAssemblies\Unity.2D.Psdimporter.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Subsystem.Registration">
-      <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Library\ScriptAssemblies\Unity.Subsystem.Registration.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Postprocessing.Editor">
       <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Library\ScriptAssemblies\Unity.Postprocessing.Editor.dll</HintPath>

@@ -73,7 +73,8 @@ namespace UI
 		public AudioClip ScrollSound;
 		
 		private float _radius;
-		private float _dragStartAngle;
+		private float _elementStartAngle;
+		private float _cursorStartAngle;
 		private float _selectionAngle;
 		private bool _isAdjusting;
 		
@@ -95,11 +96,16 @@ namespace UI
 			
 			Touch touch = Input.touches[0];
 			float angle = Vector2.SignedAngle(Vector2.up, Camera.main!.ScreenToWorldPoint(touch.position));
+			if (angle < 0) angle = 360 + angle;
+
+			angle -= _cursorStartAngle;
+			angle += _elementStartAngle;
 			
 			float step = 360f / _elements.Count;
 
 			for (int i = 0; i < _elements.Count; i++)
 			{
+				// Set proper rotation for element
 				RectTransform element = _elements[i].RTransform;
 				element.localPosition = Vector3.zero;
 
@@ -111,9 +117,10 @@ namespace UI
 				
 				element.localPosition += Vector3.up * _radius;
 				element.transform.RotateAround(transform.position, Vector3.forward, step * i);
-				element.transform.RotateAround(transform.position, Vector3.forward, _dragStartAngle + angle);
+				element.transform.RotateAround(transform.position, Vector3.forward, angle);
 				element.transform.eulerAngles = Vector3.zero;
 				
+				// Calculate new selection
 				float elementAngle = Vector2.Angle(element.localPosition, Vector2.up);
 				
 				if (elementAngle > _selectionAngle || _selectedElement == _elements[i]) continue;
@@ -130,12 +137,19 @@ namespace UI
 		{
 			if (_elements.Count < 1) return;
 			
-			_dragStartAngle = Vector2.Angle(Vector2.up, _elements[0].RTransform.transform.localPosition);
+			Touch touch = Input.touches[0];
+			
+			_elementStartAngle = Vector2.SignedAngle(Vector2.up, _elements[0].RTransform.transform.position);
+			if (_elementStartAngle < 0) _elementStartAngle = 360 + _elementStartAngle;
+			
+			_cursorStartAngle = Vector2.SignedAngle(Vector2.up, Camera.main!.ScreenToWorldPoint(touch.position));
+			if (_cursorStartAngle < 0) _cursorStartAngle = 360 + _cursorStartAngle;
 		}
 
 		public void OnEndDrag()
 		{
-			_dragStartAngle = 0;
+			_elementStartAngle = 0;
+			_cursorStartAngle = 0;
 			
 			for (int i = 0; i < _elements.Count; i++)
 			{

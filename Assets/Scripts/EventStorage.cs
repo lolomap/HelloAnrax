@@ -12,6 +12,8 @@ public class EventStorage
     private List<GameEvent> _eventQueue;
     private List<GameEvent> _failEvents;
 
+    private int _currentTurn;
+
     private static List<GameEvent> LoadFile(string path)
     {
         TextAsset raw = ResourceLoader.GetResource<TextAsset>(path);
@@ -36,10 +38,8 @@ public class EventStorage
         {
             gameEvent.EnableDynamicChecking();
         }
-        foreach (GameEvent gameEvent in _failEvents)
-        {
-            gameEvent.EnableDynamicChecking();
-        }
+        // No dynamic checks for fail events (they use another queue)
+        // No dynamic checks for timed events (they use another queue)
         
         // Add to initial queue only available events
         foreach (GameEvent gameEvent in _events)
@@ -48,11 +48,6 @@ public class EventStorage
         }
         
         _eventQueue.Shuffle();
-        
-        foreach (GameEvent gameEvent in _timedEvents)
-        {
-            _eventQueue.Insert(gameEvent.TurnPosition - 1, gameEvent);
-        }
     }
 
     public void EnqueueEvent(GameEvent gameEvent, bool toEnd = false)
@@ -64,8 +59,6 @@ public class EventStorage
             pos = _eventQueue.Count;
         else if (gameEvent.IsTrigger)
             pos = 0;
-        else if (gameEvent.TurnPosition > 0)
-            pos = gameEvent.TurnPosition;
         else
             pos = Random.Range(0, _eventQueue.Count + 1);
 
@@ -82,13 +75,25 @@ public class EventStorage
     public GameEvent GetNext()
     {
         if (_eventQueue.Count < 1) return null;
+
+        GameEvent res;
         
-        GameEvent res = _eventQueue[0];
-        
-        _eventQueue.Remove(res);
-        if (!res.IsDisposable)
+        _currentTurn++;
+        if (_timedEvents.Count > 0 && _timedEvents[0].TurnPosition <= _currentTurn)
         {
-            EnqueueEvent(res, true);
+            res = _timedEvents[0];
+
+            _timedEvents.Remove(res);
+        }
+        else
+        {
+            res = _eventQueue[0];
+
+            _eventQueue.Remove(res);
+            if (!res.IsDisposable)
+            {
+                EnqueueEvent(res, true);
+            }
         }
         
         return res;

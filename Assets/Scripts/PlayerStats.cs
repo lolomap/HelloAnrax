@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using UI;
@@ -12,6 +11,7 @@ public class PlayerStats
 	private Dictionary<string, string> _formulas;
 
 	public event Action Updated;
+	private bool _isReady;
 
 	public void Init()
 	{
@@ -22,6 +22,8 @@ public class PlayerStats
 		
 		TextAsset formulasRaw = ResourceLoader.GetResource<TextAsset>("StatsConfig");
 		_formulas = JsonConvert.DeserializeObject<Dictionary<string, string>>(formulasRaw.text);
+
+		_isReady = true;
 	}
 
 	public void UpdateUI()
@@ -54,6 +56,8 @@ public class PlayerStats
 				variables[stat] = (decimal) value;
 			}
 		}
+		
+		OnUpdated();
 	}
 
 	public float GetStat(string stat) => _stats[stat];
@@ -61,6 +65,8 @@ public class PlayerStats
 	{
 		_stats[stat] = value;
 		TaggedValue.UpdateAll(stat, value);
+		
+		OnUpdated();
 	}
 
 	public float GetFlag(string flag)
@@ -83,5 +89,13 @@ public class PlayerStats
 	{
 		_flags[flag] = value;
 		TaggedValue.UpdateAll(flag, value);
+
+		OnUpdated();
+	}
+
+	private void OnUpdated()
+	{
+		if (_isReady)
+			Updated?.Invoke();
 	}
 }
