@@ -1,13 +1,14 @@
+using System;
 using UI;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "EditorUtilities/GameManager", menuName = "Game/Manager")]
 public class GameManager : ScriptableObject
 {
-	private static GameManager _instance;
+	public static GameManager Instance;
 	
 	// Options
-	// public bool exampleOption;
+	public UISettings UI;
 	
 	public static EventStorage EventStorage { get; private set; }
 	public static PlayerStats PlayerStats { get; private set; }
@@ -17,7 +18,7 @@ public class GameManager : ScriptableObject
 	[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
 	private static void ReloadGame()
 	{
-		_instance = Resources.Load<GameManager>("EditorUtilities/GameManager");
+		Instance = Resources.Load<GameManager>("EditorUtilities/GameManager");
 
 		_buildNumber = ResourceLoader.GetResource<BuildScriptableObject>("EditorUtilities/Build").BuildNumber;
 		
@@ -32,4 +33,11 @@ public class GameManager : ScriptableObject
 	{
 		return $"v{Application.version}.{_buildNumber}";
 	}
+}
+
+[Serializable]
+public struct UISettings
+{
+	public float AnimationDuration;
+	public float AnimationScale;
 }

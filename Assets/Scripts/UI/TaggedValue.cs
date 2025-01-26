@@ -13,7 +13,8 @@ namespace UI
 		
 		public string Tag;
 		
-		private Slider _slider;
+		//private Slider _slider;
+		private AnimatedBar _slider;
 		private SegmentBar _segmentBar;
 		private TMP_Text _text;
 		
@@ -21,7 +22,7 @@ namespace UI
 		{
 			UpdateUI += OnUpdate;
 
-			_slider = GetComponent<Slider>();
+			_slider = GetComponent<AnimatedBar>();
 			_segmentBar = GetComponent<SegmentBar>();
 			_text = GetComponent<TMP_Text>();
 		}
@@ -39,7 +40,7 @@ namespace UI
 				
 				case decimal:
 				case float:
-					if (_slider != null) _slider.value = Convert.ToSingle(value);
+					if (_slider != null) _slider.Set(Convert.ToSingle(value));
 					if (_segmentBar != null) _segmentBar.Set(Convert.ToInt32(value));
 					break;
 			
