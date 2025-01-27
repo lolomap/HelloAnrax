@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine.Serialization;
 using static Utils;
 
 [Serializable]
@@ -39,13 +38,13 @@ public class Option
 [Serializable]
 public class GameEvent
 {
-    public string Title;
-    public string Description;
+    public string Title = "";
+    public string Description = "";
 
     public string Category = "Default";
     
     public string PartyTemplate;
-    public List<Option> Options;
+    public List<Option> Options = new(){new() {Title = "Далее"}};
     public bool IsDisposable = true;
 
     public bool IsTrigger;
@@ -54,17 +53,22 @@ public class GameEvent
     public int TurnPosition = -1;
     public string Soundtrack = "MainTheme";
 
-    
+    public List<GameEvent> TLDR;
     
     public void EnableDynamicChecking()
     {
         GameManager.PlayerStats.Updated += CheckLimits;
     }
 
+    public void DisableDynamicChecking()
+    {
+        GameManager.PlayerStats.Updated -= CheckLimits;
+    }
+
     ~GameEvent()
     {
         if (GameManager.PlayerStats != null)
-            GameManager.PlayerStats.Updated -= CheckLimits;
+            DisableDynamicChecking();
     }
 
     public bool IsAvailable()

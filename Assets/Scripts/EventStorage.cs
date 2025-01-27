@@ -52,6 +52,8 @@ public class EventStorage
 
     public void EnqueueEvent(GameEvent gameEvent, bool toEnd = false)
     {
+        if (_eventQueue.Contains(gameEvent)) return; // Prevent multiple enqueueing
+        
         if (!_events.Contains(gameEvent)) throw new ArgumentException("Try to enqueue unknown event");
 
         int pos;
@@ -93,6 +95,11 @@ public class EventStorage
             if (!res.IsDisposable)
             {
                 EnqueueEvent(res, true);
+            }
+            else
+            {
+                res.DisableDynamicChecking();
+                _events.Remove(res);
             }
         }
         

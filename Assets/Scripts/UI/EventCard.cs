@@ -15,6 +15,8 @@ namespace UI
         
         public GameEvent Data;
         private Option _selectedOption;
+        private int _tldrPosition;
+        private GameEvent _tldrData;
 
         private void Awake()
         {
@@ -34,12 +36,25 @@ namespace UI
         
         public void AcceptOption()
         {
-            if (_selectedOption == null)
+            // Process long events
+            if (_tldrData != null || Data.TLDR is {Count: > 0})
             {
-                // TODO: Restart game
-                
-                return;
+                _tldrData ??= Data;
+
+                if (_tldrPosition < _tldrData.TLDR.Count)
+                {
+                    Data = _tldrData.TLDR[_tldrPosition];
+                    if (Data.Title == "")
+                        Data.Title = _tldrData.Title;
+                    _selectedOption = null;
+                    UpdateCard();
+                    
+                    _tldrPosition++;
+                    return;
+                }
             }
+            _tldrData = null;
+            _tldrPosition = 0;
             
             bool canBeAccepted = true;
             List<Flag> limitations = _selectedOption.Limits;
@@ -79,7 +94,7 @@ namespace UI
             
             GameManager.PlayerStats.CalculateFormulas();
 
-            // TODO: move to configs
+            // TODO: move fail condition to configs
             Data = GameManager.PlayerStats.GetStat("Power") < 30
                 ? GameManager.EventStorage.GetFail()
                 : GameManager.EventStorage.GetNext();
