@@ -56,20 +56,9 @@ namespace UI
             _tldrData = null;
             _tldrPosition = 0;
             
-            bool canBeAccepted = true;
-            List<Flag> limitations = _selectedOption.Limits;
-            if (limitations != null)
+            if (!_selectedOption.IsAvailable())
             {
-                foreach (Flag limitation in limitations)
-                {
-                    canBeAccepted = canBeAccepted &&
-                                    GameManager.PlayerStats.GetFlag(limitation.Type) >= limitation.Value;
-                }
-            }
-
-            if (!canBeAccepted)
-            {
-                // TODO: ANIMATE
+                ((OptionIcon) EventOptionsList.GetSelected()).PlayAnimation();
                 return;
             }
             
@@ -119,16 +108,14 @@ namespace UI
             EventPicture.sprite = ResourceLoader.GetResource<Sprite>("Icons/Events/" + Data.Category);
 
             List<RoundListElement> list = new();
-            
-            if (Data.Options != null)
+
+            Data.Options ??= new() {new() {Title = "Далее"}};
+            foreach (Option option in Data.Options)
             {
-                foreach (Option option in Data.Options)
-                {
-                    OptionIcon prefab = ResourceLoader.GetResource<OptionIcon>("Prefabs/OptionIcon");
-                    OptionIcon obj = Instantiate(prefab);
-                    obj.Data = option;
-                    list.Add(obj);
-                }
+                OptionIcon prefab = ResourceLoader.GetResource<OptionIcon>("Prefabs/OptionIcon");
+                OptionIcon obj = Instantiate(prefab);
+                obj.Data = option;
+                list.Add(obj);
             }
 
             EventOptionsList.Elements = list;

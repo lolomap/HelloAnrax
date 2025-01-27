@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json;
 using static Utils;
 
 [Serializable]
@@ -33,6 +34,22 @@ public class Option
     public List<Flag> Flags;
 
     public List<Flag> Limits;
+
+    public bool IsAvailable()
+    {
+        bool result = true;
+        List<Flag> limitations = Limits;
+        
+        if (limitations == null) return true;
+        
+        foreach (Flag limitation in limitations)
+        {
+            result = result && GameManager.PlayerStats.HasFlag(limitation);
+                     //GameManager.PlayerStats.GetFlag(limitation.Type) >= limitation.Value;
+        }
+
+        return result;
+    }
 }
 
 [Serializable]
@@ -43,8 +60,7 @@ public class GameEvent
 
     public string Category = "Default";
     
-    public string PartyTemplate;
-    public List<Option> Options = new(){new() {Title = "Далее"}};
+    public List<Option> Options;
     public bool IsDisposable = true;
 
     public bool IsTrigger;

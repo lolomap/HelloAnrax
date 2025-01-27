@@ -15,3 +15,4 @@ MonoBehaviour:
   UI:
     AnimationDuration: 0.3
     AnimationScale: 1.2
+    AnimationShakeStrength: 1

@@ -58,9 +58,11 @@ namespace UI
 				}
 				_elements = value;
 				ResetElementsPosition();
+
+				if (_elements.Count <= 0) return;
 				
-				if (_elements.Count > 0)
-					_elements[0].Select(true);
+				_elements[0].Select(true);
+				_selectedElement = _elements[0];
 			}
 		}
 
@@ -85,6 +87,8 @@ namespace UI
 			
 			StartCoroutine(WaitUntilEndOfFrame());
 		}
+
+		public RoundListElement GetSelected() => _selectedElement;
 
 		public void OnDrag()
 		{

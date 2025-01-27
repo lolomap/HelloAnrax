@@ -1,5 +1,4 @@
 using System;
-using UI;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "EditorUtilities/GameManager", menuName = "Game/Manager")]
@@ -40,4 +39,5 @@ public struct UISettings
 {
 	public float AnimationDuration;
 	public float AnimationScale;
+	public float AnimationShakeStrength;
 }

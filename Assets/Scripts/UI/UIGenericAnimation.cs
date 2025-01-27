@@ -20,5 +20,11 @@ namespace UI
 					GameManager.Instance.UI.AnimationDuration))
 				.Append(_rectTransform.DOScale(1f, GameManager.Instance.UI.AnimationDuration));
 		}
+
+		public void ButtonShake()
+		{
+			_rectTransform.DOShakePosition(GameManager.Instance.UI.AnimationDuration,
+					GameManager.Instance.UI.AnimationShakeStrength);
+		}
 	}
 }
