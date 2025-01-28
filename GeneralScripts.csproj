@@ -58,6 +58,7 @@
     <Compile Include="Assets\Scripts\UI\RoundList.cs" />
     <Compile Include="Assets\Scripts\GameEvent.cs" />
     <Compile Include="Assets\Scripts\EventStorage.cs" />
+    <Compile Include="Assets\Scripts\UI\MapSelection.cs" />
     <Compile Include="Assets\Scripts\Utils.cs" />
     <Compile Include="Assets\Scripts\PlayerStats.cs" />
     <Compile Include="Assets\Scripts\UI\TaggedValue.cs" />

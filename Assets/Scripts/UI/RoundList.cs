@@ -92,13 +92,12 @@ namespace UI
 
 		public void OnDrag()
 		{
-			if (Input.touches.Length == 0) return;
 			if (_isAdjusting) return;
 
 			if (!_audioSource.isPlaying)
 				_audioSource.PlayOneShot(ScrollSound);
 			
-			Touch touch = Input.touches[0];
+			Touch touch = Input.GetTouch(0);
 			float angle = Vector2.SignedAngle(Vector2.up, Camera.main!.ScreenToWorldPoint(touch.position));
 			if (angle < 0) angle = 360 + angle;
 
@@ -140,8 +139,8 @@ namespace UI
 		public void OnBeginDrag()
 		{
 			if (_elements.Count < 1) return;
-			
-			Touch touch = Input.touches[0];
+
+			Touch touch = Input.GetTouch(0);
 			
 			_elementStartAngle = Vector2.SignedAngle(Vector2.up, _elements[0].RTransform.transform.position);
 			if (_elementStartAngle < 0) _elementStartAngle = 360 + _elementStartAngle;
