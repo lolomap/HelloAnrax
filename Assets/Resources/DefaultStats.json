@@ -11,5 +11,15 @@
   "NeutralLoyalty": 0,
   "NeutralPower": 50,
   "Power": 40,
-  "Treasury": 5
+  "Treasury": 3,
+  
+  
+  "EconomicPower": 20,
+  "MilitaryPower": 20,
+  "ExtremismLevel": 5,
+  
+  "RelationsUCB": 50,
+  "RelationsSBU": 50,
+  "RelationsEIK": 50,
+  "RelationsIID": 50
 }

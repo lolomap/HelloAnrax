@@ -3,127 +3,176 @@
 		"Title": "Договориться с Империей",
 		"Description":
 		"ИИД прорабатывает проект Каратен-Праетерской Администрации на территории Террапильи, Кулиштии и Анракса. Нам необходимо найти способ утихомирить гиганта и как-то обезопасить себя.",
-		"Type": "Common",
+		"Category": "Relations",
 		"Options": [
 			{
-				"Title": "Необходимо заручиться поддержкой ОсНБ"
+				"Title": "Необходимо заручиться поддержкой ОсНБ",
+				"Modifiers": [
+					{"Type":  "DemocratsPower", "Value": 5},
+					{"Type":  "DemocratsLoyalty", "Value": 5},
+					{"Type":  "FederationistsLoyalty", "Value":  -10},
+					{"Type":  "NationalistsLoyalty", "Value": -15},
+					{"Type":  "RelationsIID", "Value":  10},
+					{"Type":  "RelationsUCB", "Value":  10}
+				],
+				"Limits": [
+					{"Type":  "RelationsUCB", "CompareTo":  35}
+				]
+			},
+			{
+				"Title": "Обратимся к мировому сообществу",
+				"Modifiers": [
+					{"Type":  "DemocratsPower", "Value": 5},
+					{"Type":  "FederationistsPower", "Value": 5},
+					{"Type":  "NationalistsLoyalty", "Value": -5}
+				]
+			},
+			{
+				"Title": "Пригрозим силой",
+				"Modifiers": [
+					{"Type":  "NationalistsLoyalty", "Value":  15},
+					{"Type":  "RelationsIID", "Value":  -25}
+				]
 			}
 		]
 	},
 	{
 		"Title": "Языковой вопрос",
 		"Description": "Теперь мы самостоятельны и с государственным языком все очевидно, но как поступим с остальными языками бывшего ФШКБ?",
-		"Type": "Common",
+		"Category": "Social",
 		"Options": [
 			{
-				"Title": "Анракс для анраксцев. Запрещаем"
+				"Title": "Анракс для анраксцев. Запрещаем",
+				"Modifiers": [
+					{"Type":  "FederationistsLoyalty", "Value": -15},
+					{"Type":  "NationalistsPower", "Value": 15},
+					{"Type":  "NationalistsLoyalty", "Value": 10}
+				]
 			},
 			{
-				"Title": "Не будем напрягать соседей"
+				"Title": "Не будем напрягать соседей",
+				"Modifiers": [
+					{"Type":  "DemocratsPower", "Value": 5},
+					{"Type":  "FederationistsPower", "Value": 5}
+				]
 			},
 			{
 				"Title": "Исключим из школьной программы",
-				"Category": "Logging"
+				"Modifiers": [
+					{"Type":  "FederationistsLoyalty", "Value": -8},
+					{"Type":  "NationalistsLoyalty", "Value": 8}
+				]
 			}
 		]
 	},
 	{
 		"Title": "Анраксцы зарубежом",
-		"Description": "Начать последовательно проводить политику по защите интересов анраксцев в Кулиштии и НДРО или создадим благоприятные условия для переселенцев?",
-		"Type": "Common",
+		"Description": "Начать последовательно проводить политику по защите интересов анраксцев в ИИД, ОсНБ и НДРО или создадим благоприятные условия для переселенцев?",
+		"Category": "Social",
 		"Options": [
 			{
-				"Title": "Защищаем"
+				"Title": "Защищаем",
+				"Modifiers": [
+					{"Type":  "NeutralLoyalty", "Value": 10},
+					{"Type":  "DemocratsPower", "Value": 5}
+				]
 			},
 			{
-				"Title": "Разрабатываем переселенческую программу"
+				"Title": "Разрабатываем переселенческую программу",
+				"Modifiers": [
+					{"Type":  "NeutralLoyalty", "Value": 5},
+					{"Type":  "EconomicPower", "Value": 8}
+				]
 			}
 		]
 	},
 	{
 		"Title": "Наследство",
 		"Description": "Как поступим с долгами и международными соглашениями ФШКБ?",
-		"Type": "Common",
+		"Type": "Relations",
 		"Options": [
 			{
 				"Title": "Какого КБ?"
 			},
 			{
-				"Title": "Анракс - сердце Штатов, с болшой силой приходит большая ответственность"
+				"Title": "Анракс - сердце Штатов, с болшой силой приходит большая ответственность",
+				"Modifiers": [
+					{"Type":  "Treasury", "Value": -1},
+					{"Type":  "RelationsUCB", "Value": 5},
+					{"Type":  "RelationsSBU", "Value": 5},
+					{"Type":  "RelationsIID", "Value": 5}
+				]
 			},
 			{
-				"Title": "Договариваемся о совместных обязанностях с соседями"
-			}
-		]
-	},
-	{
-		"Title": "Недобитки",
-		"Description": "Силовики обнаружили вооруженные ячейки провланорских экстремистов. Совершаем рейд или попробуем выйти на рыбку покрупнее?",
-		"Type": "Common",
-		"Options": [
-			{
-				"Title": "Вербуем"
-			},
-			{
-				"Title": "Арестовать"
+				"Title": "Договариваемся о совместных обязанностях с соседями",
+				"Modifiers": [
+					{"Type":  "FederationistsPower", "Value": 8},
+					{"Type":  "FederationistsLoyalty", "Value": 5},
+					{"Type":  "NationalistsLoyalty", "Value": -5}
+				]
 			}
 		]
 	},
 	{
 		"Title": "Партия на обочине",
 		"Description": "Барьер на выборах в не преодолело несколько партий. Допустим их в Парламент или нам ни к чему лишняя конкуренция?",
-		"Type": "Common",
+		"Type": "Appointment",
 		"Options": [
 			{
-				"Title": "В споре рождается истина"
+				"Title": "В споре рождается истина",
+				"Modifiers": [
+					{"Type":  "DemocratsPower", "Value": 5},
+					{"Type":  "NationalistsPower", "Value": 5},
+					{"Type":  "FederationistsPower", "Value": 5},
+					{"Type":  "NeutralityLoyalty", "Value": 10}
+				]
 			},
 			{
 				"Title": "Нет нужды"
 			},
 			{
-				"Title": "Но только под наше крыло!"
-			}
-		]
-	},
-	{
-		"Title": "Дела дирийские",
-		"Description": "Парламент Картилии начинает открыто вмешивается в гражданскую войну в Дирии. С какой позиции осветим это в СМИ, учитывая, что мы сами только недавно вышли из двух войн?",
-		"Type": "Common",
-		"Options": [
-			{
-				"Title": "На восточном фронте без перемен"
-			},
-			{
-				"Title": "Минх и Вланора - стороны одной монеты"
-			},
-			{
-				"Title": "Дирия - тюрьма народов, свободу Балджурии!"
-			},
-			{
-				"Title": "Поддержим защитников демократии"
+				"Title": "Но только под наше крыло!",
+				"Modifiers": [
+					{"Type":  "DemocratsPower", "Value": -8,
+						"Limit": {"Type": "RovulManora", "CompareTo": 1, "Comparison": "Lt"}},
+					{"Type":  "NationalistsPower", "Value": -8,
+						"Limit": { "Type": "DalvTirsky", "CompareTo": 1, "Comparison": "Lt"}},
+					{"Type":  "FederationistsPower", "Value": -8,
+						"Limit": {"Type": "AnzhNivich", "CompareTo": 1, "Comparison": "Lt"}}
+				]
 			}
 		]
 	},
 	{
 		"Title": "«Единство. Каратения. Братство»",
-		"Description": "Молодежное движение «Е.К.Б.» просит о регистрации политической партии. Похоже, они поддерживают каратенский экспансионизм, реформирование Федерации и страдают реваншизмом. Кого-то напоминает...",
-		"Type": "Common",
+		"Description": "Молодежное движение «Е.К.Б.» просит о регистрации политической партии. Похоже, они поддерживают каратенский экспансионизм, реставрацию Федерации и страдают реваншизмом. Кого-то напоминает...",
 		"Options": [
 			{
-				"Title": "Закрыть их и побыстрее"
+				"Title": "Закрыть их и побыстрее",
+				"Modifiers": [
+					{"Type":  "ExtremismLevel", "Value": -5}
+				]
 			},
 			{
-				"Title": "Нам еще понадобятся сочувствующие ФШКБ"
+				"Title": "Нам еще понадобятся сочувствующие ФШКБ",
+				"Modifiers": [
+					{"Type":  "ExtremismLevel", "Value": 10},
+					{"Type":  "FederationistsPower", "Value": 5},
+					{"Type":  "FederationistsLoyalty", "Value": 5}
+				]
 			},
 			{
-				"Title": "Откажем, но пускай волонтерствуют"
+				"Title": "Откажем, но пускай волонтерствуют",
+				"Modifiers": [
+					{"Type":  "ExtremismLevel", "Value": -5},
+					{"Type":  "NeutralityLoyalty", "Value": 5}
+				]
 			}
 		]
 	},
 	{
-		"Title": "Обезьяны с гранатами?",
+		"Title": "TODO Обезьяны с гранатами?",
 		"Description": "Вернувшиеся с Ортостанской войны снаряженные ветераны обеспечили нам избавление от оков ФШКБ. Как бы это оружие не обернулось теперь уже против нас.",
-		"Type": "Common",
 		"Options": [
 			{
 				"Title": "С чего бы нам бояться?"
@@ -136,7 +185,154 @@
 			},
 			{
 				"Title": "Увеличить льготы ветеранам"
+			}
+		]
+	},
+
+	{
+		"Title": "Новое начало!",
+		"Description": "Министр экономического развития республики Анракс (имя перса) предлагает варианты налогообложения",
+		"Category": "Financial",
+		"Options": [
+			{
+				"Title": "Прогрессивная",
+				"Modifiers": [
+					{"Type":  "NationalistsLoyalty", "Value": 10}
+				]
 			},
+			{
+				"Title": "Единый налог на доход",
+				"Modifiers": [
+					{"Type":  "DemocratsLoyalty", "Value": 5},
+					{"Type":  "FederationistsLoyalty", "Value": 5},
+					{"Type":  "NationalistsLoyalty", "Value": 5}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Ни себе ни людям",
+		"Description": "Предприятия жалуются на беспрецедентно  высокие пошлины на импорт сырья из стран ЭС! Как нам поступить?",
+		"Category": "Financial",
+		"Options": [
+			{
+				"Title": "Пошлины справедливы",
+				"Modifiers": [
+					{"Type":  "EconomicPower", "Value": -10}
+				]
+			},
+			{
+				"Title": "Можно и снизить",
+				"Modifiers": [
+					{"Type":  "EconomicPower", "Value": 10},
+					{"Type":  "Treasury", "Value":  -1}
+				]
+			},
+			{
+				"Title": "Импортазмещение - наш выбор",
+				"Modifiers": [
+					{"Type":  "EconomicPower", "Value": 15},
+					{"Type":  "Treasury", "Value":  -2}
+				]
+			},
+			{
+				"Title": "Никакой торговли с ОсНБ",
+				"Modifiers": [
+					{"Type":  "EconomicPower", "Value": -20},
+					{"Type":  "Treasury", "Value":  -1}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Посыпались!",
+		"Description": "Глава ЦБ сообщает,что многие коммерческие банки находятся под угрозой банкротства! Должны ли мы вмешаться?",
+		"Category": "Financial",
+		"Options": [
+			{
+				"Title": "У нас есть более важные расходы",
+				"Modifiers": [
+					{"Type":  "EconomicPower", "Value": -20}
+				]
+			},
+			{
+				"Title": "Спасти все банки",
+				"Modifiers": [
+					{"Type":  "EconomicPower", "Value": 10},
+					{"Type":  "NeutralLoyalty", "Value": 5},
+					{"Type":  "Treasury", "Value": -2}
+				]
+			},
+			{
+				"Title": "Финансировать крупные банки",
+				"Modifiers": [
+					{"Type":  "DemocratsPower", "Value": 8},
+					{"Type":  "Treasury", "Value":  -1}
+				]
+			}
+		]
+	},
+	{
+		"Title": "В тени",
+		"Description": "Всё больше граждан ведут коммерческую деятельность без надзора государства и уплаты налогов. Мы должны что-то предпринять.",
+		"Category": "Financial",
+		"Options": [
+			{
+				"Title": "Создать надзорный орган",
+				"Modifiers": [
+					{"Type":  "NationalistsPower", "Value": -7},
+					{"Type":  "DemocratsPower", "Value": -7},
+					{"Type":  "FederationistsPower", "Value": -7}
+				]
+			},
+			{
+				"Title": "Способствовать укрупнению бизнеса",
+				"Modifiers": [
+					{"Type":  "NeutralityLoyalty", "Value": -5},
+					{"Type":  "Treasury", "Value": 1}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Спасибо в карман не положишь",
+		"Description": "Общий уровень корупции достиг рекордного максимума. Это наносит сильный ущерб нашей экономике!",
+		"Category": "Financial",
+		"Options": [
+			{
+				"Title": "Отправить коррупционеров в отставку",
+				"Modifiers": [
+					{"Type":  "NationalistsLoyalty", "Value": -10},
+					{"Type":  "DemocratsLoyalty", "Value": -10},
+					{"Type":  "FederationistsLoyalty", "Value": -10},
+					{"Type":  "NeutralityLoyalty", "Value": 15}
+				]
+			},
+			{
+				"Title": "Увеличить финансирование ответственных органов",
+				"Modifiers": [
+					{"Type":  "EconomicPower", "Value": 20},
+					{"Type":  "Treasury", "Value": -1}
+				]
+			},
+			{
+				"Title": "Шантажировать коррупционеров ради лояльности",
+				"Modifiers": [
+					{"Type":  "NationalistsLoyalty", "Value": 5},
+					{"Type":  "DemocratsLoyalty", "Value": 5},
+					{"Type":  "FederationistsLoyalty", "Value": 5},
+					{"Type":  "EconomicPower", "Value": -10}
+				]
+			},
+			{
+				"Title": "Хапаем пока есть возможность",
+				"Modifiers": [
+					{"Type":  "NationalistsPower", "Value": 5},
+					{"Type":  "DemocratsPower", "Value": 5},
+					{"Type":  "FederationistsPower", "Value": 5},
+					{"Type":  "EconomicPower", "Value": -20}
+				]
+			}
 		]
 	}
 ]

@@ -1,11 +1,11 @@
 {
-  "NationalistsDemocratsConcurrency": "|(DemocratsPower - NationalistsPower)",
-  "NationalistsFederationistsConcurrency": "|(FederationistsPower - NationalistsPower)",
-  "DemocratsFederationistsConcurrency": "|(DemocratsPower - FederationistsPower)",
+  "//NationalistsDemocratsConcurrency": "|(DemocratsPower - NationalistsPower)",
+  "//NationalistsFederationistsConcurrency": "|(FederationistsPower - NationalistsPower)",
+  "//DemocratsFederationistsConcurrency": "|(DemocratsPower - FederationistsPower)",
   
-  "NationalistsPower": "NationalistsPower - (NationalistsDemocratsConcurrency ≤ 5 | NationalistsFederationistsConcurrency ≤ 5) * 5",
-  "DemocratsPower": "DemocratsPower - (NationalistsDemocratsConcurrency ≤ 5 | DemocratsFederationistsConcurrency ≤ 5) * 5",
-  "FederationistsPower": "FederationistsPower - (NationalistsFederationistsConcurrency ≤ 5 | DemocratsFederationistsConcurrency ≤ 5) * 5",
+  "//NationalistsPower": "NationalistsPower - (NationalistsDemocratsConcurrency ≤ 5 | NationalistsFederationistsConcurrency ≤ 5) * 5",
+  "//DemocratsPower": "DemocratsPower - (NationalistsDemocratsConcurrency ≤ 5 | DemocratsFederationistsConcurrency ≤ 5) * 5",
+  "//FederationistsPower": "FederationistsPower - (NationalistsFederationistsConcurrency ≤ 5 | DemocratsFederationistsConcurrency ≤ 5) * 5",
   
   "Power": "Power + ((NationalistsLoyalty - 50) / 100 * NationalistsPower + (DemocratsLoyalty - 50) / 100 * DemocratsPower + (FederationistsLoyalty - 50) / 100 * FederationistsPower)"
 }

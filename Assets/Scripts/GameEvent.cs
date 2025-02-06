@@ -12,7 +12,10 @@ public class JsonValue
 }
 
 [Serializable]
-public class Modifier : JsonValue {}
+public class Modifier : JsonValue
+{
+    public Flag Limit;
+}
 
 /// <summary>
 /// Flags are used for checking availability.
@@ -22,7 +25,7 @@ public class Modifier : JsonValue {}
 public class Flag : JsonValue
 {
     public Comparison Comparison = Comparison.GtE;
-    public float CompareTo;
+    public float CompareTo = 1f;
 }
 
 [Serializable]

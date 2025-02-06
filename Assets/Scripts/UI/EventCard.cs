@@ -67,8 +67,11 @@ namespace UI
             {
                 foreach (Modifier modifier in modifiers)
                 {
-                    GameManager.PlayerStats.SetStat(modifier.Type,
+                    if (modifier.Limit != null && GameManager.PlayerStats.HasFlag(modifier.Limit))
+                    {
+                        GameManager.PlayerStats.SetStat(modifier.Type,
                         GameManager.PlayerStats.GetStat(modifier.Type) + modifier.Value);
+                    }
                 }
             }
             
