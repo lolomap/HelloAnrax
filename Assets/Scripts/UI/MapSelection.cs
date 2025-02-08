@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,13 +14,20 @@ namespace UI
 		private RectTransform _rectTransform;
 
 		public Color SelectedColor;
+		public GlossaryCard Glossary;
 		private static readonly int _selectedColor = Shader.PropertyToID("_SelectedColor");
+
+		private Dictionary<string, string> _glossaryBindings; 
 
 		private void Awake()
 		{
 			_image = GetComponent<Image>();
 			_texture = _image.sprite.texture;
 			_rectTransform = GetComponent<RectTransform>();
+
+			_glossaryBindings =
+				JsonConvert.DeserializeObject<Dictionary<string, string>>(
+					ResourceLoader.GetResource<TextAsset>("Map").text);
 		}
 
 		public void OnClick()
@@ -36,7 +45,11 @@ namespace UI
 				_texture.height);
 
 			SelectedColor = _texture.GetPixel(px, py);
-			_image.material.SetColor(_selectedColor, SelectedColor);
+			if (_glossaryBindings.TryGetValue("#"+ColorUtility.ToHtmlStringRGB(SelectedColor), out string country))
+			{
+				_image.material.SetColor(_selectedColor, SelectedColor);
+				Glossary.Show(country);
+			}
 		}
 	}
 }

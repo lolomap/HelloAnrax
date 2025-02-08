@@ -23,11 +23,11 @@ namespace UI
 			int linkIndex =
 				TMP_TextUtilities.FindIntersectingLink(_text, Input.GetTouch(0).position, Camera.main);
 
-			string text = linkIndex > -1
-				? ResourceLoader.GetGlossaryText(_text.textInfo.linkInfo[linkIndex].GetLinkID())
-				: "Нет информации";
+			string id = linkIndex > -1
+				? _text.textInfo.linkInfo[linkIndex].GetLinkID()
+				: "NULL";
 			
-			Glossary.Show(text);
+			Glossary.Show(id);
 		}
 	}
 }

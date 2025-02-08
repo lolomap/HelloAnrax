@@ -136,6 +136,7 @@
     <Compile Include="Assets\Modern UI Pack\Scripts\Tooltip\TooltipManager.cs" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets\Resources\Map.json" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\DOTween\readme.txt" />
     <None Include="Assets\Resources\TimedEvents.json" />

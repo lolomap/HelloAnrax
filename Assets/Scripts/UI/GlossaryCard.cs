@@ -18,9 +18,9 @@ namespace UI
 			gameObject.SetActive(false);
 		}
 
-		public void Show(string text)
+		public void Show(string id)
 		{
-			_data.text = text;
+			_data.text = ResourceLoader.GetGlossaryText(id);
 
 			_rectTransform.localScale = Vector3.zero;
 			gameObject.SetActive(true);
