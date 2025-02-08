@@ -12,6 +12,7 @@ namespace UI
         public TMP_Text EventOptionTitle;
         public RoundList EventOptionsList;
         public Image EventPicture;
+        public AudioSource EventSound;
         
         public GameEvent Data;
         private Option _selectedOption;
@@ -67,7 +68,7 @@ namespace UI
             {
                 foreach (Modifier modifier in modifiers)
                 {
-                    if (modifier.Limit != null && GameManager.PlayerStats.HasFlag(modifier.Limit))
+                    if (modifier.Limit == null || GameManager.PlayerStats.HasFlag(modifier.Limit))
                     {
                         GameManager.PlayerStats.SetStat(modifier.Type,
                         GameManager.PlayerStats.GetStat(modifier.Type) + modifier.Value);
@@ -108,6 +109,8 @@ namespace UI
             EventDescription.text = Data.Description;
             EventTitle.text = Data.Title;
             EventPicture.sprite = ResourceLoader.GetResource<Sprite>("Icons/Events/" + Data.Category);
+            if (EventPicture.sprite == null)
+                EventPicture.sprite = ResourceLoader.GetResource<Sprite>("Icons/Events/Default");
 
             List<RoundListElement> list = new();
 
@@ -126,6 +129,10 @@ namespace UI
             {
                 MusicManager.Instance.PlayAudio(Data.Soundtrack);
             }
+
+            AudioClip categorySound = ResourceLoader.GetResource<AudioClip>("Audio/Events/" + Data.Category);
+            if (categorySound != null)
+                EventSound.PlayOneShot(categorySound);
         }
     }
 }

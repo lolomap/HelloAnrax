@@ -124,7 +124,7 @@
 					{"Type":  "DemocratsPower", "Value": 5},
 					{"Type":  "NationalistsPower", "Value": 5},
 					{"Type":  "FederationistsPower", "Value": 5},
-					{"Type":  "NeutralityLoyalty", "Value": 10}
+					{"Type":  "NeutralLoyalty", "Value": 10}
 				]
 			},
 			{
@@ -165,7 +165,7 @@
 				"Title": "Откажем, но пускай волонтерствуют",
 				"Modifiers": [
 					{"Type":  "ExtremismLevel", "Value": -5},
-					{"Type":  "NeutralityLoyalty", "Value": 5}
+					{"Type":  "NeutralLoyalty", "Value": 5}
 				]
 			}
 		]
@@ -288,7 +288,7 @@
 			{
 				"Title": "Способствовать укрупнению бизнеса",
 				"Modifiers": [
-					{"Type":  "NeutralityLoyalty", "Value": -5},
+					{"Type":  "NeutralLoyalty", "Value": -5},
 					{"Type":  "Treasury", "Value": 1}
 				]
 			}
@@ -305,7 +305,7 @@
 					{"Type":  "NationalistsLoyalty", "Value": -10},
 					{"Type":  "DemocratsLoyalty", "Value": -10},
 					{"Type":  "FederationistsLoyalty", "Value": -10},
-					{"Type":  "NeutralityLoyalty", "Value": 15}
+					{"Type":  "NeutralLoyalty", "Value": 15}
 				]
 			},
 			{
