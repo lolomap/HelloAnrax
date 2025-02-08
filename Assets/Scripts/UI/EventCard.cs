@@ -86,8 +86,7 @@ namespace UI
             
             GameManager.PlayerStats.CalculateFormulas();
 
-            // TODO: move fail condition to configs
-            Data = GameManager.PlayerStats.GetStat("Power") < 30
+            Data = GameManager.PlayerStats.HasFlag("FAIL")
                 ? GameManager.EventStorage.GetFail()
                 : GameManager.EventStorage.GetNext();
 

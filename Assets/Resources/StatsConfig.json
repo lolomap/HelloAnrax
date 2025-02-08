@@ -1,4 +1,6 @@
 {
+  "FAIL": "Power < 10",
+  
   "//NationalistsDemocratsConcurrency": "|(DemocratsPower - NationalistsPower)",
   "//NationalistsFederationistsConcurrency": "|(FederationistsPower - NationalistsPower)",
   "//DemocratsFederationistsConcurrency": "|(DemocratsPower - FederationistsPower)",
