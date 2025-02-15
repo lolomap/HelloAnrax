@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace UI
@@ -15,9 +16,12 @@ namespace UI
 
 		public Color SelectedColor;
 		public GlossaryCard Glossary;
+		public GameObject Panel;
+		public float ScrollSpeed = 1f;
 		private static readonly int _selectedColor = Shader.PropertyToID("_SelectedColor");
 
-		private Dictionary<string, string> _glossaryBindings; 
+		private Dictionary<string, string> _glossaryBindings;
+		private bool _isDragging;
 
 		private void Awake()
 		{
@@ -30,8 +34,30 @@ namespace UI
 					ResourceLoader.GetResource<TextAsset>("Map").text);
 		}
 
+		public void OnBeginDrag() => _isDragging = true;
+		public void OnEndDrag() => _isDragging = false;
+		
+		public void OnDrag()
+		{
+			Touch touch = Input.GetTouch(0);
+			
+			_rectTransform.anchoredPosition += touch.deltaPosition * ScrollSpeed * Vector2.right;
+		}
+
+		public void Show()
+		{
+			Panel.SetActive(true);
+		}
+
+		public void Hide()
+		{
+			Panel.SetActive(false);
+		}
+
 		public void OnClick()
 		{
+			if (_isDragging) return;
+			
 			Touch touch = Input.GetTouch(0);
 
 			RectTransformUtility.ScreenPointToLocalPointInRectangle(_rectTransform, touch.position,

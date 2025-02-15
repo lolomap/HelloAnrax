@@ -9,13 +9,17 @@ namespace UI
 	{
 		private TMP_Text _data;
 		private RectTransform _rectTransform;
+
+		private GameObject _panel;
 		
 		private void Awake()
 		{
 			_rectTransform = GetComponent<RectTransform>();
 			_data = GetComponentInChildren<TMP_Text>();
+
+			_panel = transform.parent.gameObject;
 			
-			gameObject.SetActive(false);
+			_panel.SetActive(false);
 		}
 
 		public void Show(string id)
@@ -23,13 +27,15 @@ namespace UI
 			_data.text = ResourceLoader.GetGlossaryText(id);
 
 			_rectTransform.localScale = Vector3.zero;
-			gameObject.SetActive(true);
+			_panel.SetActive(true);
 			_rectTransform.DOScale(Vector3.one, GameManager.Instance.UI.PopUpDuration);
 		}
 
 		public void Hide()
 		{
-			gameObject.SetActive(false);
+			DOTween.Sequence()
+				.Append(_rectTransform.DOScale(Vector3.zero, GameManager.Instance.UI.PopUpDuration))
+				.AppendCallback(() => _panel.SetActive(false));
 		}
 	}
 }

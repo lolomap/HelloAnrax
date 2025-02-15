@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00fd693331827e948a73f3e622512454, type: 3}
   m_Name: GameManager
   m_EditorClassIdentifier: 
+  Global:
+    FrameRateLocked: 0
   UI:
     AnimationDuration: 0.3
     AnimationScale: 1.2
     AnimationShakeStrength: 100
-    PopUpDuration: 1
+    PopUpDuration: 0.5
