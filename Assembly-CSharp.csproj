@@ -959,6 +959,9 @@
     <Reference Include="Unity.2D.Psdimporter.Editor">
       <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Library\ScriptAssemblies\Unity.2D.Psdimporter.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="TMProDynamicDataCleaner.Editor">
+      <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Library\ScriptAssemblies\TMProDynamicDataCleaner.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Postprocessing.Editor">
       <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Library\ScriptAssemblies\Unity.Postprocessing.Editor.dll</HintPath>
     </Reference>

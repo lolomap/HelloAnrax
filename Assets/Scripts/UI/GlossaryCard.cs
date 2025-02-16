@@ -7,7 +7,7 @@ namespace UI
 	[RequireComponent(typeof(RectTransform))]
 	public class GlossaryCard : MonoBehaviour
 	{
-		private TMP_Text _data;
+		private TMP_Text[] _data;
 		private RectTransform _rectTransform;
 
 		private GameObject _panel;
@@ -15,7 +15,7 @@ namespace UI
 		private void Awake()
 		{
 			_rectTransform = GetComponent<RectTransform>();
-			_data = GetComponentInChildren<TMP_Text>();
+			_data = GetComponentsInChildren<TMP_Text>();
 
 			_panel = transform.parent.gameObject;
 			
@@ -24,7 +24,8 @@ namespace UI
 
 		public void Show(string id)
 		{
-			_data.text = ResourceLoader.GetGlossaryText(id);
+			foreach (TMP_Text element in _data)
+				element.text = ResourceLoader.GetGlossaryText(id);
 
 			_rectTransform.localScale = Vector3.zero;
 			_panel.SetActive(true);

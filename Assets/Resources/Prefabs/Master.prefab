@@ -51,7 +51,7 @@ MonoBehaviour:
   Tracks:
     _serializedList:
     - Key: MainTheme
-      Value: {fileID: 8300000, guid: 4dde7386e43fa29409f1ccc4a805071e, type: 3}
+      Value: {fileID: 8300000, guid: 5910239a3cd64e24ba87d88c6609a634, type: 3}
   InitVolume: 0.51
   TransitionTime: 0.5
 --- !u!82 &5204985558169495478
