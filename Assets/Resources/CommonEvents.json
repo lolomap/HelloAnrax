@@ -101,6 +101,9 @@
 					{"Type":  "RelationsUCB", "Value": 5},
 					{"Type":  "RelationsSBU", "Value": 5},
 					{"Type":  "RelationsIID", "Value": 5}
+				],
+				"Limits": [
+					{"Type": "Treasury", "CompareTo": 1}
 				]
 			},
 			{
@@ -226,6 +229,9 @@
 				"Modifiers": [
 					{"Type":  "EconomicPower", "Value": 10},
 					{"Type":  "Treasury", "Value":  -1}
+				],
+				"Limits": [
+					{"Type": "Treasury", "CompareTo": 1}
 				]
 			},
 			{
@@ -233,6 +239,9 @@
 				"Modifiers": [
 					{"Type":  "EconomicPower", "Value": 15},
 					{"Type":  "Treasury", "Value":  -2}
+				],
+				"Limits": [
+					{"Type": "Treasury", "CompareTo": 2}
 				]
 			},
 			{
@@ -240,6 +249,9 @@
 				"Modifiers": [
 					{"Type":  "EconomicPower", "Value": -20},
 					{"Type":  "Treasury", "Value":  -1}
+				],
+				"Limits": [
+					{"Type": "Treasury", "CompareTo": 1}
 				]
 			}
 		]
@@ -261,6 +273,9 @@
 					{"Type":  "EconomicPower", "Value": 10},
 					{"Type":  "NeutralLoyalty", "Value": 5},
 					{"Type":  "Treasury", "Value": -2}
+				],
+				"Limits": [
+					{"Type": "Treasury", "CompareTo": 2}
 				]
 			},
 			{
@@ -268,6 +283,9 @@
 				"Modifiers": [
 					{"Type":  "DemocratsPower", "Value": 8},
 					{"Type":  "Treasury", "Value":  -1}
+				],
+				"Limits": [
+					{"Type": "Treasury", "CompareTo": 1}
 				]
 			}
 		]
@@ -313,6 +331,81 @@
 				"Modifiers": [
 					{"Type":  "EconomicPower", "Value": 20},
 					{"Type":  "Treasury", "Value": -1}
+				],
+				"Limits": [
+					{"Type": "Treasury", "CompareTo": 1}
+				],
+				"Flags": [{"Type":  "CorruptionAgain", "Value":  1}]
+			},
+			{
+				"Title": "Шантажировать коррупционеров ради лояльности",
+				"Modifiers": [
+					{"Type":  "NationalistsLoyalty", "Value": 5},
+					{"Type":  "DemocratsLoyalty", "Value": 5},
+					{"Type":  "FederationistsLoyalty", "Value": 5},
+					{"Type":  "EconomicPower", "Value": -10}
+				]
+			},
+			{
+				"Title": "Хапаем пока есть возможность",
+				"Modifiers": [
+					{"Type":  "NationalistsPower", "Value": 5},
+					{"Type":  "DemocratsPower", "Value": 5},
+					{"Type":  "FederationistsPower", "Value": 5},
+					{"Type":  "EconomicPower", "Value": -20}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Мы достойны большего",
+		"Description": "Ветераны крайне недовольны отсустсвием значимых программ поддержки . Государство должно им помочь!",
+		"Category": "Financial",
+		"Options": [
+			{
+				"Title": "Льготные ипотеки и кредиты",
+				"Modifiers": [
+					{"Type":  "Treasury", "Value":  -1},
+					{"Type":  "EconomicPower", "Value":  10}
+				],
+				"Limits": [
+					{"Type": "Treasury", "CompareTo": 1}
+				]
+			},
+			{
+				"Title": "Увеличение пенсий",
+				"Modifiers": [
+					{"Type":  "NeutralLoyalty", "Value":  15},
+					{"Type":  "Treasury", "Value":  -1}
+				],
+				"Limits": [
+					{"Type": "Treasury", "CompareTo": 1}
+				]
+			},
+			{
+				"Title": "Это их долг",
+				"Modifiers": [
+					{"Type":  "NeutralLoyalty", "Value":  -15}
+				]
+			},
+			{
+				"Title": "Льготные места в ВУЗах"
+			}
+		]
+	},
+	{
+		"Title": "Им этого мало",
+		"Description": "Несмотря на увеличение финансирования комитета по борьбе с корупцией взятничество продолжает разъедать нашу экономику!",
+		"Category": "Financial",
+		"Limits": [{"Type":  "CorruptionAgain"}],
+		"Options": [
+			{
+				"Title": "Отправить коррупционеров в отставку",
+				"Modifiers": [
+					{"Type":  "NationalistsLoyalty", "Value": -10},
+					{"Type":  "DemocratsLoyalty", "Value": -10},
+					{"Type":  "FederationistsLoyalty", "Value": -10},
+					{"Type":  "NeutralLoyalty", "Value": 15}
 				]
 			},
 			{
@@ -331,6 +424,2183 @@
 					{"Type":  "DemocratsPower", "Value": 5},
 					{"Type":  "FederationistsPower", "Value": 5},
 					{"Type":  "EconomicPower", "Value": -20}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Враг моего друга - мой враг",
+		"Description": "<style=\"IID\">Империя Имени Дукса</style> обрывает с нами все экономические отношения! Неоходимо предпринять меры для поиска новых логистических цепочек и партнёров,иначе это сильно ударит по нашей экономике..",
+		"Category": "Financial",
+		"Limits": [
+			{"Type": "TRPHelped"}
+		],
+		"Options": [
+			{
+				"Title": "Выделить средства на проведение антисанкционных мер",
+				"Modifiers": [
+					{"Type": "Treasury", "Value": -2}
+				],
+				"Limits": [
+					{"Type": "Treasury", "CompareTo": 2}
+				]
+			},
+			{
+				"Title": "Нам это не навредит!",
+				"Modifiers": [
+					{"Type": "Treasury", "Value": -1},
+					{"Type":  "EconomicPower", "Value":  -15}
+				],
+				"Flags": [
+					{"Type":  "NoIIDTrade", "Value":  1}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Шрамы из прошлого",
+		"Description": "Война практически полностью разрушила экономику нашего региона, многие люди остались без работы и средств к существованию. Народ требует от нас принятия первых решений по восстановлению страны.",
+		"Category": "Financial",
+		"Options": [
+			{
+				"Title": "Сперва выделим деньги на восстановление жилого фонда",
+				"Modifiers": [
+					{"Type": "NeutralLoyalty", "Value": 15},
+					{"Type":  "Treasury", "Value":  -2}
+				],
+				"Limits": [
+					{"Type": "Treasury", "CompareTo": 2}
+				]
+			},
+			{
+				"Title": "Следует стимулировать развитие малого бизнеса с помощью льготного налогообложения",
+				"Modifiers": [
+					{"Type": "NeutralLoyalty", "Value": 5},
+					{"Type":  "Treasury", "Value": -1}
+				],
+				"Limits": [
+					{"Type": "Treasury", "CompareTo": 1}
+				]
+			},
+			{
+				"Title": "Сосредоточимся на привлечении инвестиций из-за рубежа",
+				"Modifiers": [
+					{"Type": "DemocratLoyalty", "Value": 10},
+					{"Type":  "DemocratPower", "Value":  10},
+					{"Type": "NationalistsLoyalty", "Value":  -10}
+				]
+			},
+			{
+				"Title": "Поручить главе правительства самостоятельно внести предложения",
+				"Flags": [
+					{"Type": "GovernmentWarScars", "Value":  1}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Набитые кошельки",
+		"Description": "Граждане взволнованы высокими зарплатами чиновников относительно рабочих. Может имеет смысл снизить жалованье?",
+		"Category": "Financial",
+		"Options": [
+			{
+				"Title": "Оставить все как есть",
+				"Modifiers": [
+					{"Type": "FederationistsPower", "Value": 5},
+					{"Type": "DemocratsPower", "Value": 5},
+					{"Type": "NationalistsPower", "Value": 5},
+					{"Type": "NeutralLoyalty", "Value": -5}
+				]
+			},
+			{
+				"Title": "Снизить жалованья",
+				"Modifiers": [
+					{"Type": "FederationistsLoyalty", "Value": -8},
+					{"Type": "DemocratsLoyalty", "Value": -8},
+					{"Type": "NationalistsLoyalty", "Value": -8},
+					{"Type": "NeutralPower", "Value": -5}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Эпоха возрождения",
+		"Description": "Министерство финансов подготовило отчет о доходах бюджета за предыдущий квартал",
+		"Category": "Financial",
+		"Limits": [
+			{"Type": "EconomicReport", "CompareTo": 3}
+		],
+		"IsTrigger": true,
+		"Options": [
+			{
+				"Title": "Вот так бы всегда!",
+				"Modifiers": [{"Type": "Treasury", "Value": 4}]
+			}
+		]
+	},
+	{
+		"Title": "Бюджетный профицит",
+		"Description": "Министерство финансов подготовило отчет о доходах бюджета за предыдущий квартал",
+		"Category": "Financial",
+		"Limits": [
+			{"Type": "EconomicReport", "CompareTo": 2, "Comparison": "Eq"}
+		],
+		"IsTrigger": true,
+		"Options": [
+			{
+				"Title": "Не хорошо, но и не ужасно",
+				"Modifiers": [{"Type": "Treasury", "Value": 2}]
+			}
+		]
+	},
+	{
+		"Title": "Стабильно ничего",
+		"Description": "Министерство финансов подготовило отчет о доходах бюджета за предыдущий квартал",
+		"Category": "Financial",
+		"Limits": [
+			{"Type": "EconomicReport", "CompareTo": 1, "Comparison": "Eq"}
+		],
+		"IsTrigger": true,
+		"Options": [
+			{
+				"Title": "Мы все просрали",
+				"Modifiers": [{"Type": "Treasury", "Value": 0}]
+			}
+		]
+	},
+	
+	{
+		"Title": "Требуется пополение!",
+		"Description": "Минестерство обороны просит увеличить количество призывников в ряды армии.",
+		"Category": "MilitaryArmy",
+		"Options": [
+			{
+				"Title": "Мы их не потянем",
+				"Modifiers": [
+					{"Type": "NationalistsLoyalty", "Value": -10},
+					{"Type": "FederationistsPower", "Value": -5}
+				]
+			},
+			{
+				"Title": "Увеличить срок службы",
+				"Modifiers": [
+					{"Type": "MilitaryPower", "Value": 15},
+					{"Type": "NeutralLoyalty", "Value": -5}
+				],
+				"Flags": [
+					{"Type": "ArmyExpandDuration", "Value":  1}
+				]
+			},
+			{
+				"Title": "Снизим требования к призывникам",
+				"Modifiers": [
+					{"Type": "MilitaryPower", "Value": 5},
+					{"Type": "DemocratsLoyalty", "Value": -5},
+					{"Type":  "FederationistsPower", "Value":  5}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Заряжай!",
+		"Description": "Министр Обороны предлагает ряд мер для наращивания военного потенциала Анракса",
+		"Category": "MilitaryArmy",
+		"Options": [
+			{
+				"Title": "Увеличить объем вооружения",
+				"Modifiers": [
+					{"Type": "MilitaryPower", "Value": 10},
+					{"Type": "Treasury", "Value": -1}
+				],
+				"Limits": [
+					{"Type": "Treasury", "CompareTo": 1}
+				]
+			},
+			{
+				"Title": "Увеличить качество оснащения",
+				"Modifiers": [
+					{"Type": "MilitaryPower", "Value": 10},
+					{"Type": "Treasury", "Value": -1},
+					{"Type": "NeutralLoyalty", "Value": 15}
+				],
+				"Limits": [
+					{"Type": "Treasury", "CompareTo": 1}
+				]
+			},
+			{
+				"Title": "Больше пушек, лучше оснащение",
+				"Limits": [
+					{"Type":  "Treasury", "CompareTo": 3}
+				],
+				"Modifiers": [
+					{"Type": "MilitaryPower", "Value": 30},
+					{"Type": "Treasury", "Value": -3},
+					{"Type": "NeutralLoyalty", "Value": 15},
+					{"Type": "DemocratsLoyalty", "Value": -15},
+					{"Type": "NationalistsPower", "Value": 5},
+					{"Type": "NationalistsLoyalty", "Value": 5}
+				]
+			},
+			{
+				"Title": "Сократите бюджет воякам",
+				"Modifiers": [
+					{"Type": "MilitaryPower", "Value": -15},
+					{"Type": "Treasury", "Value": 1},
+					{"Type": "EconomicPower", "Value": 15}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Волнения на побережье",
+		"Description": "На границе окупированного побережья произошли провокации между войсками ЭС и пограничниками Анракса. Это событие вызовет ненужные волнения общественности...",
+		"Category": "MilitaryArmy",
+		"Limits": [
+			{"Type":  "SouthCaptured", "Comparison":  "Lt"}
+		],
+		"Options": [
+			{
+				"Title": "Компенсировать ущерб материально",
+				"Modifiers": [
+					{"Type": "Treasury", "Value": -1},
+					{"Type": "NationalistsPower", "Value": 10},
+					{"Type": "DemocratsLoyalty", "Value": -5}
+				],
+				"Limits": [
+					{"Type": "Treasury", "CompareTo": 1}
+				]
+			},
+			{
+				"Title": "Наказть пограничников",
+				"Modifiers": [
+					{"Type": "NationalistsLoyalty", "Value": -5},
+					{"Type": "DemocratsPower", "Value": 10},
+					{"Type": "MilitaryPower", "Value": -15}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Новый срок службы в ВС",
+		"Description": "Каков будет новый срок службы в военных силах Анракса?",
+		"Category": "MilitaryArmy",
+		"Limits": [
+			{"Type": "ArmyExpandDuration"}
+		],
+		"Options": [
+			{
+				"Title": "Увеличить на год",
+				"Modifiers": [
+					{"Type": "EconomicPower", "Value": -5}
+				]
+			},
+			{
+				"Title": "Увеличить на 2 года",
+				"Modifiers": [
+					{"Type": "EconomicPower", "Value": -10},
+					{"Type": "Treasury", "Value": -1}
+				],
+				"Limits": [
+					{"Type": "Treasury", "CompareTo": 1}
+				]
+			},
+			{
+				"Title": "Есть такая профессия - Родину защищать",
+				"Modifiers": [
+					{"Type": "EconomicPower", "Value": -15},
+					{"Type": "NeutralLoyalty", "Value": -10},
+					{"Type": "Treasury", "Value": -1}
+				],
+				"Limits": [
+					{"Type": "Treasury", "CompareTo": 1}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Студенты к оружию!",
+		"Description": "Для повышения качества обучения военных министерство обороны предлагает построить военно-учебные центры.",
+		"Category": "MilitaryArmy",
+		"Options": [
+			{
+				"Title": "Организовать специализированные учреждения",
+				"Modifiers": [
+					{"Type": "MilitaryPower", "Value": 15},
+					{"Type": "DemocratsLoyalty", "Value": -5}
+				]
+			},
+			{
+				"Title": "Ввести военную подготовку в школах и ВУЗах",
+				"Modifiers": [
+					{"Type": "MilitaryPower", "Value": 10},
+					{"Type": "NeutralLoyalty", "Value": -5}
+				]
+			},
+			{
+				"Title": "Довольно штыков",
+				"Modifiers": [
+					{"Type": "MilitaryPower", "Value": -10},
+					{"Type": "DemocratsLoyalty", "Value": 10}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Оставьте нас в покое!",
+		"Description": "Профсоюзы предлагают ввести освобождение рабочих критических производств от мобилизации в случае военного положения",
+		"Category": "MilitaryArmy",
+		"Options": [
+			{
+				"Title": "Ввести законопроект",
+				"Modifiers": [
+					{"Type": "MilitaryPower", "Value": -5},
+					{"Type": "DemocratsLoyalty", "Value": 10},
+					{"Type": "DemocratsPower", "Value": 10}
+				]
+			},
+			{
+				"Title": "В долгий ящик",
+				"Modifiers": [
+					{"Type": "NeutralLoyalty", "Value": -5}
+				],
+				"Flags": [
+					{"Type": "WorkersNonMobilised", "Value":  1}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Свободу рабочим!",
+		"Description": "Рабочие промышленных предприятий объявили забастовку и грозятся повредить станки и оборудование. В их условия входят освобождение от мобилизации и увеличенные пенсии",
+		"Category": "MilitaryArmy",
+		"Limits": [
+			{"Type": "WorkersNonMobilised"}
+		],
+		"Options": [
+			{
+				"Title": "Принять условия",
+				"Modifiers": [
+					{"Type": "MilitaryPower", "Value": -5},
+					{"Type": "DemocratsLoyalty", "Value": 5},
+					{"Type": "DemocratsPower", "Value": 5}
+				]
+			},
+			{
+				"Title": "Всех под арест",
+				"Modifiers": [
+					{"Type": "DemocratsLoyalty", "Value": -10},
+					{"Type": "NeutralLoyalty", "Value": -10},
+					{"Type": "Power", "Value": 5}
+				]
+			},
+			{
+				"Title": "Арестовать зачинщиков",
+				"Modifiers": [
+					{"Type": "DemocratsLoyalty", "Value": -10},
+					{"Type": "DemocratsPower", "Value": -10}
+				]
+			},
+			{
+				"Title": "Выполнить небольшую часть условий",
+				"Modifiers": [
+					{"Type": "FederationistsLoyalty", "Value": 5},
+					{"Type": "DemocratsLoyalty", "Value": 5},
+					{"Type": "NationalistsLoyalty", "Value": 5},
+					{"Type": "NeutralLoyalty", "Value": 5}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Всегда на страже порядка",
+		"Description": "Главное управление полиции просит выделить несколько единиц военного транспорта для патрулирования улиц по ночам для предотвращения ночных беспорядков и понижения уровня преступности.",
+		"Category": "Default",
+		"Options": [
+			{
+				"Title": "Выделить военный транспорт",
+				"Modifiers": [
+					{"Type": "FederationistsPower", "Value": 15},
+					{"Type":  "Treasury", "Value":  1}
+				]
+			},
+			{
+				"Title": "Отказать",
+				"Modifiers": [
+					{"Type": "ExtremismLevel", "Value": 15}
+				],
+				"Flags": [
+					{"Type": "PoliceNoTransport", "Value": 1}
+				]
+			}
+		]
+	},
+	
+	{
+		"Title": "Грянул гром!",
+		"Description": "Ночью бандитская группировка совершила террористический акт. Террористы заминировали и взорвали военный коммисариат. Погиб один дежурный и двое полицейских, пытающихся обезвредить преступников. ",
+		"Category": "Emergency",
+		"Options": [
+			{
+				"Title": "Выделить средства на реставрацию коммисариата",
+				"Modifiers": [
+					{"Type": "NeutralLoyalty", "Value": -5}
+				],
+				"Flags": [
+					{"Type": "NoVictimsHelp", "Value":  1}
+				]
+			},
+			{
+				"Title": "Выплатить родственникам погибщих компенсацию",
+				"Modifiers": [
+					{"Type": "FederationistsLoyalty", "Value": -5}
+				]
+			},
+			{
+				"Title": "Выделить средства коммисариату и родственникам жертв",
+				"Modifiers": [
+					{"Type": "Treasury", "Value": -1}
+				],
+				"Limits": [
+					{"Type": "Treasury", "CompareTo": 1}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Почтовый бунт",
+		"Description": "Родственники сотрудников правоохранительных органов, погибших в результате террористического акта, отправили на электронный адрес правительственной палаты множество писем с жалобами и обвинением в халатности и бесжалостности в адрес президента.",
+		"Category": "Riots",
+		"Limits": [
+			{"Type":  "NoVictimsHelp"}
+		],
+		"Options": [
+			{
+				"Title": "Публично принести извенения по ТВ",
+				"Modifiers": [
+					{"Type": "NeutralLoyalty", "Value": 5}
+				]
+			},
+			{
+				"Title": "Арестовать провокаторов",
+				"Modifiers": [
+					{"Type": "NeutralLoyalty", "Value": -5}
+				]
+			},
+			{
+				"Title": "Проигнорировать"
+			}
+		]
+	},
+	{
+		"Title": "Забастовка шахтеров",
+		"Description": "Шахтеры Диозиса устроили забастовку после двухмесячного ожидания выплаты зарплаты. Они утверждают, что не вернутся к работе пока оплата труда не будет восстановлена!",
+		"Category": "Emergency",
+		"Options": [
+			{
+				"Title": "Отправиться в Диозис для того, чтобы лично разобраться в проблеме",
+				"Flags": [
+					{"Type": "DiosisMiners", "Value": 1}
+				]
+			},
+			{
+				"Title": "Губернатор западных территорий восстановит порядок",
+				"Modifiers": [
+					{"Type": "NeutralLoyalty", "Value": -15},
+					{"Type":  "ExtremismLevel", "Value":  10}
+				]
+			},
+			{
+				"Title": "Поручить правительству разобраться с этим вопросом",
+				"Modifiers": [
+					{"Type": "Treasury", "Value": -1}
+				],
+				"Limits": [
+					{"Type": "Treasury", "CompareTo": 1}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Приезд в Диозис",
+		"Description": "Диозис встречает почерневшими от постоянного смога бетонными многоэтажками, кислотным воздухом и запахом жженой резины. Мэр города встречает вас на машине, чтобы отправится к угольным шахтам.",
+		"Category": "Default",
+		"Limits": [
+			{"Type":  "DiosisMiners"}
+		],
+		"IsTrigger": true,
+		"Options": [
+			{
+				"Title": "Замечатльный город, сам бы тут жил!",
+				"Modifiers": [
+					{"Type": "NeutralLoyalty", "Value": 5}
+				],
+				"Flags": [
+					{"Type":  "DiosisMiners2"}
+				]
+			},
+			{
+				"Title": "Ну и вонища, как вы тут живёте?",
+				"Modifiers": [
+					{"Type": "NeutralLoyalty", "Value": -5}
+				],
+				"Flags": [
+					{"Type":  "DiosisMiners2"}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Стачка у шахты",
+		"Description": "Машина подъезжает к толпе, перекрывшей дорогу. Столпотворения бедных и грязных людей в обносках, видимо и есть те самые шахтеры. Через какое-то время к машине выходит коренастый бородатый мужчина с лопатой в руке, видимо главный зачинщик беспорядков!",
+		"Category": "Default",
+		"Limits": [
+			{"Type": "DiosisMiners2"}
+		],
+		"IsTrigger": true,
+		"Options": [
+			{
+				"Title": "Спецназ, к земле его!",
+				"Modifiers": [
+					{"Type": "NeutralLoyalty", "Value": -15}
+				]
+			},
+			{
+				"Title": "Я выйду и перетру с ним по мужски",
+				"Flags": [
+					{"Type": "DiosisMiners3", "Value": 1}
+				]
+			},
+			{
+				"Title": "Немедленно возвращайтесь к работе! Стране нужны деньги!",
+				"Modifiers": [
+					{"Type": "NeutralLoyalty", "Value": -15},
+					{"Type": "ExtremismLevel", "Value": 10},
+					{"Type": "Treasury", "Value": 1}
+				],
+				"Flags": [
+					{"Type": "DiosisMiners3", "Value": 1}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Переговоры",
+		"Description": "Толпа освистывает вас и кидает в лицо и новый пиджак мусор и уголь. Дварфоподобный шахтер становится в стойку готовясь к твоим следующим действиям",
+		"Category": "Default",
+		"Limits": [
+			{"Type":  "DiosisMiners3"}
+		],
+		"IsTrigger": true,
+		"Options": [
+			{
+				"Title": "Зачем вам эти грязные шахты? Едьте в столицу и открывайте бизнес!",
+				"Modifiers": [
+					{"Type": "NeutralLoyalty", "Value": -10}
+				]
+			},
+			{
+				"Title": "Страна о вас не забыла! Я здесь чтобы оплатить ваш труд!",
+				"Modifiers": [
+					{"Type": "Treasury", "Value": -1},
+					{"Type": "NeutralLoyalty", "Value": 10}
+				],
+				"Limits": [
+					{"Type": "Treasury", "CompareTo": 1}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Прощай, Анракс",
+		"Description": "Люди продолжают массово покидать страну, создавая столпотворения на пропусных пунктах с ОсНБ и Саффлией. По нашим оценкам из страны уже уехало около миллиона человек! Люди бегут от безработицы, нищеты и разрухи в поисках лучшей жизни, мы должны их остановить!",
+		"Category": "Social",
+		"Options": [
+			{
+				"Title": "Пусть уходят, предатели...",
+				"Modifiers": [
+					{"Type": "Treasury", "Value": -1},
+					{"Type": "NationalistsLoyalty", "Value": -10}
+				],
+				"Limits": [
+					{"Type": "Treasury", "CompareTo": 1}
+				]
+			},
+			{
+				"Title": "Закрыть границу,выставить патрули, не выпускать!!!",
+				"Modifiers": [
+					{"Type": "NeutralLoyalty", "Value": -15},
+					{"Type": "DemocratsLoyalty", "Value": -10}
+				]
+			},
+			{
+				"Title": "Я дам вам денег, только не уходите!",
+				"Modifiers": [
+					{"Type": "Treasury", "Value": -2},
+					{"Type": "NeutralLoyalty", "Value": 10}
+				],
+				"Limits": [
+					{"Type": "Treasury", "CompareTo": 2}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Когда не видно слёз",
+		"Description": "Норма выпавших осадков за последние недели уже превышена в 2 раза и продолжает расти. Южные регионы стоят перед угрозой масштабного наводнения!",
+		"Category": "Emergency",
+		"Options": [
+			{
+				"Title": "Необходимо срочно провести противопаводковые мероприятия",
+				"Modifiers": [
+					{"Type": "Treasury", "Value": -1},
+					{"Type": "NeutralLoyalty", "Value": 10}
+				],
+				"Limits": [
+					{"Type": "Treasury", "CompareTo": 1}
+				]
+			},
+			{
+				"Title": "Бегите глупцы! Готовьте лодки!",
+				"Modifiers": [
+					{"Type": "NeutralLoyalty", "Value": -10}
+				],
+				"Flags": [
+					{"Type": "WaterFlows", "Value": 0}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Сухими из воды не выйти",
+		"Description": "Огромное количество пострадавших и обездоленных из Южного Анракса покидают свою родину в поисках убежища и крова, и все из-за бездействия правительства",
+		"Category": "Emergency",
+		"Limits": [
+			{"Type": "WaterFlows"}
+		],
+		"Options": [
+			{
+				"Title": "Виноват губернатор",
+				"Modifiers": [
+					{"Type": "NationalistsLoyalty", "Value": -30},
+					{"Type": "DemocratsLoyalty", "Value": -30},
+					{"Type": "FederationistsLoyalty", "Value": -30},
+					{"Type": "NeutralLoyalty", "Value": -50}
+				]
+			},
+			{
+				"Title": "Меня там даже не было, я был в туалете",
+				"Modifiers": [
+					{"Type": "NationalistsLoyalty", "Value": -30},
+					{"Type": "DemocratsLoyalty", "Value": -30},
+					{"Type": "FederationistsLoyalty", "Value": -30},
+					{"Type": "NeutralLoyalty", "Value": -50}
+				]
+			},
+			{
+				"Title": "О, человечество!",
+				"Modifiers": [
+					{"Type": "NationalistsLoyalty", "Value": -30},
+					{"Type": "DemocratsLoyalty", "Value": -30},
+					{"Type": "FederationistsLoyalty", "Value": -30},
+					{"Type": "NeutralLoyalty", "Value": -50}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Взрыв на Химкомбинате в Сценре",
+		"Description": "Пока неизвестно что стало причиной аварии, однако оглушительный взрыв на предприятии по производству бытовой химии вызвал панику среди местного населения. Жители города Сценра опасаются, что это отразится на качестве воздуха",
+		"Category": "Emergency",
+		"Options": [
+			{
+				"Title": "Мы немедленно проведем расследование и установим размер ущерба экологии",
+				"Modifiers": [
+					{"Type": "NeutralLoyalty", "Value": 10}
+				],
+				"Flags": [
+					{"Type": "ScernaExplosion"}
+				]
+			},
+			{
+				"Title": "Предприятие будет отремонтировано и продолжит работу незамедлительно",
+				"Modifiers": [
+					{"Type": "FederationistsLoyalty", "Value": 10},
+					{"Type": "NeutralLoyalty", "Value": -10}
+				],
+				"Flags": [
+					{"Type": "ScernaExplosion"}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Расследование причин катастрофы",
+		"Description": "Стало известно, что химическое предприятие в Сценре принадлежало видному чиновнику симпатизирующего фракции федералистов",
+		"Category": "Emergency",
+		"Limits": [
+			{"Type": "ScernaExplosion"}
+		],
+		"Options": [
+			{
+				"Title": "Он будет арестован до завершения расследования!",
+				"Modifiers": [
+					{"Type": "FederationistsLoyalty", "Value": -20},
+					{"Type": "NeutralLoyalty", "Value": 10}
+				]
+			},
+			{
+				"Title": "Это явно был несчастный случай",
+				"Modifiers": [
+					{"Type": "NeutralLoyalty", "Value": -10}
+				]
+			},
+			{
+				"Title": "Это запутанное событие, где не все так однозначно",
+				"Modifiers": [
+					{"Type": "FederationistsPower", "Value": 15},
+					{"Type": "NeutralLoyalty", "Value": -5}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Экологическая катастрофа",
+		"Description": "Взрыв на Химкомбинате повлек за собой катастрофическое увеличение концентрации вредных соединенией в атмосфере, что ставит под угрозу жизнь и здоровье местных жителей!",
+		"Category": "Emergency",
+		"Limits": [
+			{"Type":  "ScernaExplosion"}
+		],
+		"IsTrigger": true,
+		"Options": [
+			{
+				"Title": "Немедленно провести эвакуацию",
+				"Modifiers": [
+					{"Type": "Treasury", "Value": -2},
+					{"Type": "NeutralLoyalty", "Value": 15}
+				],
+				"Limits": [
+					{"Type": "Treasury", "CompareTo": 2}
+				]
+			},
+			{
+				"Title": "Выплатить компенсации пострадавшим",
+				"Modifiers": [
+					{"Type": "Treasury", "Value": -1},
+					{"Type": "NeutralLoyalty", "Value": -15}
+				],
+				"Limits": [
+					{"Type": "Treasury", "CompareTo": 1}
+				]
+			},
+			{
+				"Title": "Оставить панику! Жить можно!",
+				"Modifiers": [
+					{"Type": "NeutralLoyalty", "Value": -30},
+					{"Type": "FederationistsLoyalty", "Value": 15}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Господа демократы",
+		"Description": "Ливерийские политики впечатлены уровнем наших либеральных реформ!",
+		"Category": "Relations",
+		"Limits": [
+			{"Type": "NeutralLoyalty", "CompareTo": 60},
+			{"Type": "ExtremismLevel", "CompareTo": 20, "Comparison": "LtE"},
+			{"Type": "RelationsUCB", "CompareTo":  60},
+			{"Type": "RelationsSBU", "CompareTo": 50},
+			{"Type": "DemocratsLoyalty", "CompareTo": 65}
+		],
+		"Options": [
+			{
+				"Title": "Нужно установить экономические отношения",
+				"Modifiers": [
+					{"Type": "Treasury", "Value": 4}
+				]
+			},
+			{
+				"Title": "Проведем совместную миротворческую конференцию",
+				"Modifiers": [
+					{"Type": "NeutralLoyalty", "Value": 15},
+					{"Type": "NationalistsPower", "Value": -10},
+					{"Type": "DemocratsPower", "Value": -10},
+					{"Type": "FederationistsPower", "Value": -10}
+				]
+			},
+			{
+				"Title": "Пусть завидуют!",
+				"Modifiers": [
+					{"Type": "NationalistsLoyalty", "Value": 30},
+					{"Type": "NationalistsPower", "Value": 25}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Никакой толерантности",
+		"Description": "На мероприятии в Империи Дукса прямо на глазах у прессы представитель от Буптаса Юн Бимбос плюнул под ноги нашему министру экономики.",
+		"Category": "Relations",
+		"Options": [
+			{
+				"Title": "Это война",
+				"Modifiers": [
+					{"Type": "Power", "Value": -5}
+				]
+			},
+			{
+				"Title": "Извинись перед анраксовцем!",
+				"Modifiers": [
+					{"Type": "NationalistsLoyalty", "Value": 5},
+					{"Type": "NeutralLoyalty", "Value": 5}
+				]
+			},
+			{
+				"Title": "Проигнорируем обычаи лоардинцев",
+				"Modifiers": [
+					{"Type": "NationalistsLoyalty", "Value": -5},
+					{"Type": "DemocratsLoyalty", "Value": -5},
+					{"Type": "FederationistsLoyalty", "Value": -5}
+				]
+			}
+		]
+	},
+	{
+		"Title": "За спиной у товарища",
+		"Description": "Федералисты в правительстве толкают инициативы по закупке у ИИД нефти из Сектора-Кайи. Но ведь это оккупированный регион дружественной Террапильи, будет ли такой шаг корректным?",
+		"Category": "Relations",
+		"Options": [
+			{
+				"Title": "Закупить для себя",
+				"Modifiers": [
+					{"Type": "EconomicPower", "Value": 10},
+					{"Type": "Treasury", "Value": 1},
+					{"Type": "RelationsIID", "Value": 15},
+					{"Type": "NationalistsLoyalty", "Value": 5},
+					{"Type": "FederationistsLoyalty", "Value": -5}
+				]
+			},
+			{
+				"Title": "Будем поставлять Террапилье",
+				"Modifiers": [
+					{"Type": "EconomicPower", "Value": 15},
+					{"Type": "RelationsIID", "Value": 5},
+					{"Type": "DemocratsLoyalty", "Value": -5}
+				]
+			},
+			{
+				"Title": "Это подло",
+				"Modifiers": [
+					{"Type": "NationalistsLoyalty", "Value": 15},
+					{"Type": "FederationistsLoyalty", "Value": -7}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Вопрос принадлежности Ортостана",
+		"Description": "Официальные лица Республики Ортостан хотят чтобы мы публично признали их независимость. Стоит ли нам пойти на этот шаг?",
+		"Category": "Relations",
+		"Options": [
+			{
+				"Title": "Признать независимость",
+				"Modifiers": [
+					{"Type": "FederationistsPower", "Value": 15},
+					{"Type": "NationalistsLoyalty", "Value": 5},
+					{"Type": "DemocratsLoyalty", "Value": 5}
+				],
+				"Flags": [
+					{"Type": "ORBAcceptance", "Value": 1}
+				]
+			},
+			{
+				"Title": "Игнорировать",
+				"Modifiers": [
+					{"Type": "FederationistsLoyalty", "Value": -20},
+					{"Type": "DemocratsLoyalty", "Value": -5},
+					{"Type": "NationalistsPower", "Value": 10}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Силовые методы",
+		"Description": "Террапилье не хватает вооружения для остаивания своей независимости от угрозы со стороны ИИД. Нам стоит в это вмешиваться?",
+		"Category": "Relations",
+		"Options": [
+			{
+				"Title": "Мы поможем!",
+				"Modifiers": [
+					{"Type": "Treasury", "Value": -1},
+					{"Type": "RelationsIID", "Value": -20},
+					{"Type": "NationalistsLoyalty", "Value": 8},
+					{"Type": "DemocratsLoyalty", "Value": 8},
+					{"Type": "FederationistsLoyalty", "Value": 8}
+				],
+				"Flags": [
+					{"Type": "TRPHelped", "Value": 1}
+				],
+				"Limits": [
+					{"Type": "Treasury", "CompareTo": 1}
+				]
+			},
+			{
+				"Title": "Это не наше дело..."
+			}
+		]
+	},
+	{
+		"Title": "Обмен опытом",
+		"Description": "Конфликт между государством ИИД и Террапильей с каждым днём набирает интенсивность. Мы можем послать своего военного аташе в этот регион для обмена военным опытом.",
+		"Category": "Relations",
+		"Options": [
+			{
+				"Title": "Отправить аташе",
+				"Modifiers": [
+					{"Type": "RelationsIID", "Value": -15},
+					{"Type": "MilitaryPower", "Value": 15},
+					{"Type": "NationalistsLoyalty", "Value": 15},
+					{"Type": "DemocratsLoyalty", "Value": -15}
+				],
+				"Flags": [
+					{"Type": "TRPHelped", "Value": 1}
+				]
+			},
+			{
+				"Title": "У нас нет на это времени!"
+			}
+		]
+	},
+	{
+		"Title": "Чистое небо",
+		"Description": "Военные действия на территории бывшего ФШКБ давно завершились, но хотим ли мы открывать свое воздушное пространство для международных перелетов? НПА считают, что ЭС и ИИД заслуживают санкции.",
+		"Category": "Relations",
+		"Options": [
+			{
+				"Title": "Закрыть воздушное пространство",
+				"Modifiers": [
+					{"Type": "NationalistsPower", "Value": 20},
+					{"Type": "EconomicPower", "Value": -20},
+					{"Type": "RelationsIID", "Value": -10},
+					{"Type": "RelationsSBU", "Value": -10},
+					{"Type": "RelationsUCB", "Value": -10}
+				]
+			},
+			{
+				"Title": "Открыть перелеты над Анраксом",
+				"Modifiers": [
+					{"Type": "NationalistsPower", "Value": -10},
+					{"Type": "EconomicPower", "Value": 10}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Дикий Запад",
+		"Description": "Мы получили официальное приглашение на \"Экономическом форуме Западной Этредии\".Это хорошая возмжность для укрепления позиций Анракса на мировой арене!",
+		"Category": "Relations",
+		"Options": [
+			{
+				"Title": "Требуем инвестиций!",
+				"Modifiers": [
+					{"Type": "Treasury", "Value": 4},
+					{"Type": "EconomicPower", "Value": -25},
+					{"Type": "DemocratsPower", "Value": 20}
+				]
+			},
+			{
+				"Title": "Поиск стратегических партнеров",
+				"Modifiers": [
+					{"Type": "RelationsUCB", "Value": 20},
+					{"Type": "RelationsSBU", "Value": 20},
+					{"Type": "RelationsIID", "Value": 20},
+					{"Type": "RelationsEIK", "Value": 20}
+				]
+			},
+			{
+				"Title": "Устроить инфоповод",
+				"Modifiers": [
+					{"Type": "NationalistsLoyalty", "Value": -10},
+					{"Type": "DemocratsLoyalty", "Value": -10},
+					{"Type": "FederationistsLoyalty", "Value": -10}
+				]
+			},
+			{
+				"Title": "Потребовать репараций у ОсНБ",
+				"Modifiers": [
+					{"Type": "NationalistsLoyalty", "Value": 20},
+					{"Type": "NationalistsPower", "Value": 20},
+					{"Type": "RelationsUCB", "Value": -20},
+					{"Type": "RelationsSBU", "Value": -10},
+					{"Type": "RelationsEIK", "Value": 20}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Общая проблема",
+		"Description": "Продолжается бесконтрольная миграция. Сегодня мы смогли выбить переговоры по этому вопросу с ОсНБ. Какую стратегию выберем?",
+		"Category": "Relations",
+		"Options": [
+			{
+				"Title": "Господа каратенцы, от нас бегут одни шпионы и террористы!",
+				"Modifiers": [
+					{"Type": "RelationsUCB", "Value": -10}
+				]
+			},
+			{
+				"Title": "Потребовать депортаций",
+				"Modifiers": [
+					{"Type": "RelationsUCB", "Value": -10},
+					{"Type": "EconomicPower", "Value": 5},
+					{"Type": "Treasury", "Value": 1}
+				]
+			},
+			{
+				"Title": "Деньги помогут",
+				"Modifiers": [
+					{"Type": "Treasury", "Value": -1},
+					{"Type": "RelationsUCB", "Value": 10},
+					{"Type": "EconomicPower", "Value": 8}
+				],
+				"Limits": [
+					{"Type": "Treasury", "CompareTo": 1}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Силы южного Каратена",
+		"Description": "Президент Ортостана Себастьен Олорезио предлагает провести совместные мероприятия в военной сфере",
+		"Category": "Relations",
+		"Limits": [
+			{"Type": "ORBAcceptance"}
+		],
+		"Options": [
+			{
+				"Title": "Провести масштабные учения на границе",
+				"Modifiers": [
+					{"Type": "RelationsUCB", "Value": -20},
+					{"Type": "RelationsSBU", "Value": -20},
+					{"Type": "MilitaryPower", "Value": 20},
+					{"Type": "NationalistsLoyalty", "Value": 15},
+					{"Type": "FederationistsLoyalty", "Value": 15},
+					{"Type": "FederationistsPower", "Value": 15}
+				]
+			},
+			{
+				"Title": "Отправиться на обмен военным опытом",
+				"Modifiers": [
+					{"Type": "MilitaryPower", "Value": 10},
+					{"Type": "FederationistsLoyalty", "Value": 15},
+					{"Type": "FederationistsPower", "Value": 10}
+				]
+			},
+			{
+				"Title": "Провести совместный парад",
+				"Modifiers": [
+					{"Type": "FederationistsPower", "Value": 5}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Громкое утро",
+		"Description": "Ранним утром вооружённая группа людей инициировала шествие к зданию парламента. Помимо оружий они несли с собой плакаты с лозунгами о непринятии результатов выборов призедента. Узнать их конечную цель - пока не придставляется возможным.",
+		"Category": "Riots",
+		"Limits": [
+			{"Type": "NeutralLoyalty", "CompareTo": 45, "Comparison": "LtE"}
+		],
+		"Options": [
+			{
+				"Title": "Остановить шествие и всех арестовать",
+				"Modifiers": [
+					{"Type": "NationalistsLoyalty", "Value": -10},
+					{"Type": "FederationistsLoyalty", "Value": -10},
+					{"Type": "DemocratsLoyalty", "Value": -10},
+					{"Type": "NeutralLoyalty", "Value": -10},
+					{"Type": "ExtremismLevel", "Value": 20}
+				]
+			},
+			{
+				"Title": "Отправить парламентёра на дипломатические переговоры",
+				"Modifiers": [
+					{"Type": "NeutralLoyalty", "Value": 5},
+					{"Type": "ExtremismLevel", "Value": -5}
+				]
+			}
+		]
+	},
+	{
+		"Title": "После драки кулаками не машут",
+		"Description": "Несколько военных создали коалицию с целью захвата военной части и выдвижения требований по немедленному проведению опреации по возвращению Анраксу территорий бывшей ФШКБ.",
+		"Category": "Riots",
+		"Options": [
+			{
+				"Title": "Провести переговоры",
+				"Modifiers": [
+					{"Type": "NationalistsPower", "Value": -5},
+					{"Type": "FederationistsPower", "Value": -5},
+					{"Type": "ExtremismLevel", "Value": -5}
+				]
+			},
+			{
+				"Title": "Провести штурм захваченной военной части",
+				"Modifiers": [
+					{"Type": "ExtremismLevel", "Value": -10},
+					{"Type": "NationalistsLoyalty", "Value": -10},
+					{"Type": "FederationistsLoyalty", "Value":-10},
+					{"Type": "DemocratsPower", "Value": 10}
+				]
+			},
+			{
+				"Title": "Проигнорировать",
+				"Modifiers": [
+					{"Type": "NeutralLoyalty", "Value": -10},
+					{"Type": "ExtremismLevel", "Value": 10},
+					{"Type": "FederationistsPower", "Value": 15}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Хватит войны!",
+		"Description": "Представители демократической партии собрались на митинг на городской площади. Они просят перераспределить государственный бюджет и часть средств, выделяемых на ВПК, отдать на зароботные платы, реставрацию городов и образование.",
+		"Category": "Riots",
+		"Limits": [
+			{"Type": "NeutralLoyalty", "CompareTo": 45, "Comparison": "LtE"}
+		],
+		"Options": [
+			{
+				"Title": "Полностью удовлетворить интерес граждан",
+				"Modifiers": [
+					{"Type": "MilitaryPower", "Value": -20},
+					{"Type": "ExtremismLevel", "Value": -15},
+					{"Type": "NeutralLoyalty", "Value": 15},
+					{"Type": "NationalistsLoyalty", "Value": -10},
+					{"Type": "DemocratsPower", "Value": 10}
+				]
+			},
+			{
+				"Title": "Выделить из бюджета небольшую сумму",
+				"Modifiers": [
+					{"Type": "Treasury", "Value": -1},
+					{"Type": "ExtremismLevel", "Value": -10},
+					{"Type": "NeutralLoyalty", "Value": 15}
+				],
+				"Limits": [
+					{"Type": "Treasury", "CompareTo":  1}
+				]
+			},
+			{
+				"Title": "Отказать",
+				"Modifiers": [
+					{"Type": "ExtremismLevel", "Value": 10}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Стенка на стенку",
+		"Description": "Националисты разожгли конфликт со сторонниками демократической партии. Беспорядки на улицах города держат в страхе простых граждан и вредят целостности инфроструктуры города.",
+		"Category": "Riots",
+		"Limits": [
+			{"Type": "ExtremismLevel", "CompareTo": 30}
+		],
+		"Options": [
+			{
+				"Title": "Направить военную полицию с целью ареста демократов",
+				"Modifiers": [
+					{"Type": "DemocratsPower", "Value": -15},
+					{"Type": "DemocratsLoyalty", "Value": -10}
+				]
+			},
+			{
+				"Title": "Направить военную полицию с целью ареста нацианалистов",
+				"Modifiers": [
+					{"Type": "NationalistsLoyalty", "Value": -10},
+					{"Type": "NationalistsPower", "Value": -15}
+				]
+			},
+			{
+				"Title": "Урегулировать ситуацию, наказав обе стороны",
+				"Modifiers": [
+					{"Type": "DemocratsLoyalty", "Value": -20},
+					{"Type": "NationalistsLoyalty", "Value": -20},
+					{"Type": "DemocratsPower", "Value": -30},
+					{"Type": "NationalistsPower", "Value": -30},
+					{"Type": "NeutralLoyalty", "Value": 10},
+					{"Type": "ExtremismLevel", "Value": -20}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Эхо войны",
+		"Description": "Националисты устроили несанкционированный митинг у стен правительственного здания! Они требуют освобождение береговой линии Анракса от вооружённых сил ЭС любыми способами! ",
+		"Category": "Riots",
+		"Limits": [
+			{"Type": "NeutralLoyalty", "CompareTo": 45, "Comparison": "LtE"},
+			{"Type": "SouthIsFree", "CompareTo": 0, "Comparison": "LtE"},
+			{"Type": "PrepareToWar", "CompareTo": 0, "Comparison": "LtE"}
+		],
+		"Options": [
+			{
+				"Title": "Нам нечего им противопоставить",
+				"Modifiers": [
+					{"Type": "NationalistsPower", "Value": 20}
+				]
+			},
+			{
+				"Title": "Попытаться урегулировать ситуацию с странами ЭС дипломатическим путём",
+				"Modifiers": [
+					{"Type": "NationalistsPower", "Value": -15},
+					{"Type": "NationalistsLoyalty", "Value": -15}
+				]
+			}
+		]
+	},
+	{
+		"Title": "На волосок от смерти...",
+		"Description": "Группа из четырёх человек,вооружённая огнестрельным оружием открыла огонь по проезжающему мимо картежу президента. Благо вы не пострадали,но погибло несколько охранников и мирные жителей. Трое террористов были ликвидированы,однако один остался в живых. Как с ним поступить?:",
+		"Category": "Emergency",
+		"Limits": [
+			{"Type": "NeutralLoyalty", "CompareTo": 25, "Comparison": "LtE"}
+		],
+		"Options": [
+			{
+				"Title": "Посадить в тюрьму",
+				"Modifiers": [
+					{"Type": "ExtremismLevel", "Value": -15}
+				]
+			},
+			{
+				"Title": "Казнить, нельзя помиловть",
+				"Modifiers": [
+					{"Type": "ExtremismLevel", "Value": -25},
+					{"Type": "NeutralLoyalty", "Value": -10}
+				]
+			},
+			{
+				"Title": "Казнить нельзя, помиловать",
+				"Modifiers": [
+					{"Type": "ExtremismLevel", "Value": 25},
+					{"Type": "NeutralLoyalty", "Value": 25}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Отчаявшиеся",
+		"Description": "Ситуацию на границе с ОСНБ вышла из под контроля! Тысячи эмигрантов пытаются массово пересечь границу нелегальным путём. Наблюдаются вооружённые стычки. ОСНБ просит нас направить силы для подавления беспорядков!",
+		"Category": "Riots",
+		"Options": [
+			{
+				"Title": "1) Это проблемы ОСНБ 2) Временно закрыть границу с ОСНБ 3) Направить армию подавить беспорядки"
+			}
+		]
+	},
+	{
+		"Title": "Грубая сила",
+		"Description": "Вооружённая группировка похитила нашего дипломата,который завтра должен был направиться на переговоры с представитеялми стран ЭС. По нашим данным они связаны с националистами. Как мы поступим?",
+		"Category": "Emergency",
+		"Limits": [
+			{"Type": "ExtremismLevel", "CompareTo": 35}
+		],
+		"Options": [
+			{
+				"Title": "1) Публично обвинить националистов в содеянном 2) Огранизовать спасательную операцию 3)Забудем об этом..."
+			}
+		]
+	},
+	{
+		"Title": "Священный долг",
+		"Description": "На окраинах Анракса наблюдаются вспышки конфликтов между радикальными религиозными группами. Эта ситуация повышает напряжённость на границах с другими государствами. Терапилья предлагает ввод миротворческих войск на территорию Анракса для урегулирования конфликта.",
+		"Category": "Riots",
+		"Limits": [
+			{"Type": "ExtremismLevel", "CompareTo": 20}
+		],
+		"Options": [
+			{
+				"Title": "1) Согласиться на предложение Терапильи 2) Мы справимся сами! 3) Мы не будем вмешиваться!"
+			}
+		]
+	},
+	{
+		"Title": "День знаний",
+		"Description": "10 вооружённых человек захватили школу в Скарне. Некоторым гражданским удалось сбежать,но сотни человек были взяты в заложники. Террористы требуют отставки действующего правительства  и большую сумму денег. ",
+		"Category": "Emergency",
+		"Limits": [
+			{"Type": "NeutralLoyalty", "CompareTo": 20, "Comparison": "LtE"}
+		],
+		"Options": [
+			{
+				"Title": "1) Пойти на переговоры (в этом случае получится подкупить террористов) 2) Взять школу штурмом (некоторые из мирных жителей погибнут) "
+			}
+		]
+	},
+	{
+		"Title": "Националисты организуют карательные бригады",
+		"Description": "",
+		"Category": "Social",
+		"Options": [
+			{
+				"Title": ""
+			}
+		]
+	},
+	{
+		"Title": "Демократы организуют штабы оппозиции",
+		"Description": "По всей стране открываются штабы \"Народной Партии за Справедливость\"",
+		"Category": "Social",
+		"Options": [
+			{
+				"Title": ""
+			}
+		]
+	},
+	{
+		"Title": "Федералисты среди чиновников",
+		"Description": "В аппарате управления плетут паутины остатки лоялистов ФШКБ, пока-что повода для беспокойства нет, однако кто знает как это обернется нам в будущем…",
+		"Category": "Social",
+		"Options": [
+			{
+				"Title": "Пусть плетут свои грязные интриги как крысы! Нас это не сломит",
+				"Modifiers": [
+					{"Type": "FederationistsPower", "Value": 30}
+				]
+			}
+		]
+	},
+	{
+		"Title": "А виновны кто?",
+		"Description": "Этим вопросом задаются многое жители нашей страны, им требуется знать по чьей вине они оказались в таком положении, что именно привело к развалу единой страны? Сходящему с ума разуму бедствующей толпы срочно нужны ответы.",
+		"Category": "Social",
+		"Options": [
+			{
+				"Title": "Мы обеспечим себе базу поддержки, обвинив в упадке страны федералистов.",
+				"Modifiers": [
+					{"Type": "FederationistsLoyalty", "Value": -25},
+					{"Type": "NationalistsLoyalty", "Value": 10},
+					{"Type": "DemocratsLoyalty", "Value": 10}
+				]
+			},
+			{
+				"Title": "Если бы не западные державы, мы бы сейчас купались в золоте Мгахватского хребта!",
+				"Modifiers": [
+					{"Type": "NationalistsLoyalty", "Value": 10},
+					{"Type": "NationalistsPower", "Value": 10}
+				]
+			},
+			{
+				"Title": "Блюстители капитала развязали эту войну и распродали наше государство, вот кто за всем стоит, олигархи ответят сполна!",
+				"Modifiers": [
+					{"Type": "DemocratsLoyalty", "Value": -10},
+					{"Type": "NeutralLoyalty", "Value": 10},
+					{"Type": "", "Value": 0},
+					{"Type": "", "Value": 0},
+					{"Type": "", "Value": 0},
+					{"Type": "", "Value": 0}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Побережье оккупировано",
+		"Description": "После интервенции войск содружества на территорию бывшего ФШКБ, не все они покинули места своей дислокации. По сей день побережье нашей страны и крупнейший портовый город Дабрег остаются не под нашим контролем.",
+		"Category": "War",
+		"Limits": [
+			{"Type": "SouthIsFree", "CompareTo": 0, "Comparison": "LtE"}
+		],
+		"Options": [
+			{
+				"Title": "Выразить ноту протеста ОсНБ и Сибурленду с требованием покинуть территорию Анракса",
+				"Modifiers": [
+					{"Type": "NationalistsLoyalty", "Value": 10},
+					{"Type": "FederationistsLoyalty", "Value": 10}
+				],
+				"Flags": [
+					{"Type": "CoastQuestion", "Value": 1}
+				]
+			},
+			{
+				"Title": "Инициировать переговоры с ОсНБ и Сибурлендом для обсуждения вывода их войск",
+				"Modifiers": [
+					{"Type": "DemocratsLoyalty", "Value": 10}
+				],
+				"Flags": [
+					{"Type": "CoastQuestion", "Value": 1}
+				]
+			},
+			{
+				"Title": "Мы не в состоянии сейчас затрагивать внешнюю политику",
+				"Modifiers": [
+					{"Type": "NationalistsLoyalty", "Value": -10},
+					{"Type": "DemocratsLoyalty", "Value": -10},
+					{"Type": "FederationistsLoyalty", "Value": -10}
+				],
+				"Flags": [
+					{"Type": "CoastQuestion", "Value": 1}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Националисты требуют ответить силой",
+		"Description": "Премьер-министр Далв Тисирский с фракцией националистов требует задействовать наши вооруженные силы для освобождения побережья страны от иностранных контингентов",
+		"Category": "War",
+		"Limits": [
+			{"Type": "SouthIsFree", "CompareTo": 0, "Comparison": "LtE"},
+			{"Type": "PM_Nationalists"},
+			{"Type": "CoastQuestion"}
+		],
+		"Options": [
+			{
+				"Title": "Мы не пойдем на этот рисковый шаг",
+				"Modifiers": [
+					{"Type": "NationalistsLoyalty", "Value": -20},
+					{"Type": "NationalistsPower", "Value": -10},
+					{"Type": "DemocratsPower", "Value": 10},
+					{"Type": "FederationistsPower", "Value": 10}
+				]
+			},
+			{
+				"Title": "Иного выбора у нас нет, заряжайте винтовки!",
+				"Modifiers": [
+					{"Type": "NationalistsLoyalty", "Value": 30},
+					{"Type": "NationalistsPower", "Value": 10},
+					{"Type": "DemocratsPower", "Value": -20},
+					{"Type": "FederationistsPower", "Value": -20}
+				],
+				"Flags": [
+					{"Type": "PrepareToWar", "Value": 1}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Демократы предлагают выкупить побережье",
+		"Description": "Премьер-министр Ровуль Манора предлагает выкупить у ОсНБ побережье страны, чтобы избавить его от иностранных контингентов",
+		"Category": "War",
+		"Limits": [
+			{"Type": "SouthIsFree", "CompareTo": 0, "Comparison": "LtE"},
+			{"Type": "PM_Democrats"},
+			{"Type": "CoastQuestion"}
+		],
+		"Options": [
+			{
+				"Title": "У нас нет средств на эту авантюру",
+				"Modifiers": [
+					{"Type": "DemocratsLoyalty", "Value": -20},
+					{"Type": "DemocratsPower", "Value": -10},
+					{"Type": "FederationistsPower", "Value": 10},
+					{"Type": "NationalistsPower", "Value": 10}
+				]
+			},
+			{
+				"Title": "Мы выдвинем предложение о сделке",
+				"Modifiers": [
+					{"Type": "DemocratsLoyalty", "Value": 30},
+					{"Type": "DemocratsPower", "Value": 10},
+					{"Type": "NationalistsPower", "Value": -20},
+					{"Type": "FederationistsPower", "Value": -20}
+				],
+				"Flags": [
+					{"Type": "BuyCoast", "Value": 1}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Лакомый пирог",
+		"Description": "ИИД вновь проводит вооруженные провокации против Террапильи, стараясь прихватить себе больше нефтяных месторождений и поставить под вопрос суверенитет этот маленькой страны. Можем ли мы что-то сделать?",
+		"Category": "War",
+		"Options": [
+			{
+				"Title": "Поддержать Террапилью деньгами",
+				"Modifiers": [
+					{"Type": "Treasury", "Value": -1},
+					{"Type": "NationalistsLoyalty", "Value": -15},
+					{"Type": "FederationistsLoyalty", "Value": 15},
+					{"Type": "MilitaryPower", "Value": 10}
+				],
+				"Limits": [
+					{"Type": "Treasury", "CompareTo": 1}
+				]
+			},
+			{
+				"Title": "Мы отправим военный контингент для контроля ситуации на границе",
+				"Modifiers": [
+					{"Type": "Treasury", "Value": -2},
+					{"Type": "NationalistsLoyalty", "Value": -30},
+					{"Type": "MilitaryPower", "Value": 20}
+				],
+				"Limits": [
+					{"Type": "Treasury", "CompareTo": 2}
+				]
+			},
+			{
+				"Title": "Это не наше дело",
+				"Modifiers": [
+					{"Type": "FederationistsLoyalty", "Value": -15},
+					{"Type": "NationalistsLoyalty", "Value": 15}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Марш мертвецов",
+		"Description": "Ободранные и голодные, пешком по грязи, с бум палками вместо автоматов и ядрами вместо патронов - славная армия Анракса направляется в свой поход на юг, чтобы освободить побережье от захватчиков из ОсНБ... (игрок должен отказать во всех ивентах с просьбами о финансировании со стороны минобороны)",
+		"Category": "War",
+		"Limits": [
+			{"Type": "SouthIsFree", "CompareTo": 0, "Comparison": "LtE"},
+			{"Type": "MilitaryPower", "CompareTo": 8, "Comparison": "LtE"},
+			{"Type": "ReadyToWar", "CompareTo": 5}
+		],
+		"Options": [
+			{
+				"Title": "Славься Анракс!",
+				"Modifiers": [
+					{"Type": "NeutralLoyalty", "Value": 15}
+				],
+				"Flags": [
+					{"Type": "SouthMarch", "Value": 1}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Славный марш",
+		"Description": "Войска пошли на юг",
+		"Category": "War",
+		"Limits": [
+			{"Type": "MilitaryPower", "CompareTo": 9},
+			{"Type": "ReadyToWar", "CompareTo": 5}
+		],
+		"Options": [
+			{
+				"Title": "Славься Анракс!",
+				"Modifiers": [
+					{"Type": "NeutralLoyalty", "Value": 15}
+				],
+				"Flags": [
+					{"Type": "SouthMarch", "Value": 1}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Позорная кампания",
+		"Description": "Тяжелые бои, развернувшиеся на юге нашей страны затянулись и оборачиваются не в нашу пользу. ОсНБ подвели подкрепление и официально объявили о начале военной кампании \"по устранению враждебного режима Анракса\". Более того, Ортостан выступил в конфликте на стороне наших врагов и пропускает войска неприятеля по своей территории! Это открывает перед нами еще одно направление и ставит под угрозку целостность фронта...",
+		"Category": "War",
+		"Limits": [
+			{"Type": "SouthIsFree", "CompareTo": 0, "Comparison": "LtE"},
+			{"Type": "SouthMarch"}
+		],
+		"Options": [
+			{
+				"Title": "Мы атакуем всеми силами! Любой ценой пробиться к побережью!",
+				"Modifiers": [
+					{"Type": "Power", "Value": -100}
+				]
+			},
+			{
+				"Title": "Распределить войска по границе с Ортостаном, обеспечьте прикрытие тыла!",
+				"Modifiers": [
+					{"Type": "Power", "Value": -100}
+				]
+			},
+			{
+				"Title": "Отступите к реке, истощите неприятеля, они долго не протянут!",
+				"Modifiers": [
+					{"Type": "Power", "Value": -100}
+				]
+			}
+		]
+	},
+	
+	{
+		"Title": "Сделка с дьяволом",
+		"Description": "Влиятельные олигархи из ИИД заинтересованы в приобритении месторождений полезных ископаемых в Диозисе и предлагают нам обсудить этот вопрос.",
+		"Category": "Trade",
+		"Options": [
+			{
+				"Title": "Наша земля не продается!",
+				"Modifiers": [
+					{"Type": "RelationsIID", "Value": -20},
+					{"Type": "NationalistsLoyalty", "Value": 10}
+				]
+			},
+			{
+				"Title": "Мы вынуждены пойти на соглашение ради стабилизации бюджета",
+				"Modifiers": [
+					{"Type": "NationalistsLoyalty", "Value": -10},
+					{"Type": "DemocratsLoyalty", "Value": 10}
+				],
+				"Flags": [
+					{"Type": "TradeResourcesIID"}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Забытое прошлое",
+		"Description": "Представители ИИД предлагают внушительные поставки  ресурсов и экономическую помощь взамен на передачу некоторых урановых месторождений под контроль ИИД.",
+		"Category": "Trade",
+		"Limits": [
+			{"Type": "TradeResourcesIID"}
+		],
+		"Options": [
+			{
+				"Title": "Хорошее предложение",
+				"Modifiers": [
+					{"Type": "Treasury", "Value": 3}
+				]
+			},
+			{
+				"Title": "Кем они себя возомнили?",
+				"Modifiers": [
+					{"Type": "RelationsIID", "Value": -20}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Первые партнёры",
+		"Description": "Ортостан  желает заключить сделку на поставку вольфрама и аллюминия. Данное сотрудничество может стать началом крепкого экономического союза",
+		"Category": "Trade",
+		"Options": [
+			{
+				"Title": "Предоставить вольфрам и аллюминий",
+				"Modifiers": [
+					{"Type": "EconomicPower", "Value": 30},
+					{"Type": "Treasury", "Value": -1}
+				]
+			},
+			{
+				"Title": "Эти ресурсы нужны нам!"
+			}
+		]
+	},
+	{
+		"Title": "Энергетическая независимость",
+		"Description": "",
+		"Category": "Trade",
+		"Options": [
+			{
+				"Title": "1) Экспортировать в ОсНБ 2)Экспортировать в Эйклинстинд 3)использовать для своих нужд"
+			}
+		]
+	},
+	{
+		"Title": "Враг внутри",
+		"Description": "Была обнаружена группа контрабандистов, которые незаконно распродают за границу краденое оружие и боеприпасы, оставшиеся после войны.",
+		"Category": "Trade",
+		"Options": [
+			{
+				"Title": "1) Взять их немедленно и изъять краденое 2) Взять вместе с заказчиками с поличным, во время следующей сделки"
+			}
+		]
+	},
+	{
+		"Title": "Виндетта",
+		"Description": "Заказчиками оказались военные ОСБН! Они ударят по военной части, если не освободить контрабандистов!",
+		"Category": "Trade",
+		"Options": [
+			{
+				"Title": "1) Освободить только людей ОСБН 2) Освободить всех"
+			}
+		]
+	},
+	{
+		"Title": "Пути отрезаны",
+		"Description": "Пограничники ИИД прервали благотворительную миссию Террапильи по транспортировке гуманитарной помощи в Анракс.",
+		"Category": "Trade",
+		"Options": [
+			{
+				"Title": "1) Ввести санкции в сторону ИИД 2) Отказаться от помощи Террапильи"
+			}
+		]
+	},
+	{
+		"Title": "Удар в спину",
+		"Description": "ИИД и Саффлия объединились в коалицию и перекрыли Анраксу импорт.  ",
+		"Category": "Trade",
+		"Options": [
+			{
+				"Title": "1) Не нужны нам их подачки! 2) Ответить Саффлии санкциями"
+			}
+		]
+	},
+	{
+		"Title": "Не друг ты мне",
+		"Description": "Фракция националистов открыто выражает свое недовольство непропорционально высоким влиянием демократов на решения правительства и требует от нас принять меры для стабилизации ситуации.",
+		"Category": "Appointment",
+		"Limits": [
+			{"Type": "NationalistsLoyalty", "CompareTo": 50, "Comparison": "Lt"},
+			{"Type": "DemocratsPower", "CompareTo": 65}
+		],
+		"IsTrigger": true,
+		"Options": [
+			{
+				"Title": "Думаю мы можем потеснить демократов в правительстве",
+				"Modifiers": [
+					{"Type": "DemocratsPower", "Value": -30},
+					{"Type": "DemocratsLoyalty", "Value": -25},
+					{"Type": "NationalistsLoyalty", "Value": 25},
+					{"Type": "NationalistsPower", "Value": 15}
+				]
+			},
+			{
+				"Title": "Товарищи из НПА слишком много о себе возомнили",
+				"Modifiers": [
+					{"Type": "NationalistsLoyalty", "Value": -25}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Не друг ты мне",
+		"Description": "Фракция демократов возмущена непропорциональным высоким влиянием националистов на решения правительства и настоятельно просит нас принять меры для стабилизации ситуации",
+		"Category": "Appointment",
+		"Limits": [
+			{"Type": "DemocratsLoyalty", "CompareTo": 50, "Comparison": "Lt"},
+			{"Type": "NationalistsPower", "CompareTo": 65}
+		],
+		"IsTrigger": true,
+		"Options": [
+			{
+				"Title": "Думаю мы можем потеснить националистов в правительстве",
+				"Modifiers": [
+					{"Type": "NationalistsPower", "Value": -30},
+					{"Type": "NationalistsLoyalty", "Value": -25},
+					{"Type": "DemocratsLoyalty", "Value": 25},
+					{"Type": "DemocratsPower", "Value": 15}
+				]
+			},
+			{
+				"Title": "Товарищи из НПЗС слишком много о себе возомнили",
+				"Modifiers": [
+					{"Type": "DemocratsLoyalty", "Value": -25}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Дирийский авторитет",
+		"Description": "В восточных регионах Анракса разрастается подпольная криминальная сеть под руководством некоего \"Дирийского авторитета\". Служба Безопасности Анракса указывает на рост оборота наркотив, оружия и санкционных товаров в этой части страны, однако местные правоохранительные органы уверяют, что опасения весьма завышены и ситуация находится под контролем.",
+		"Category": "Court",
+		"Options": [
+			{
+				"Title": "Очередная война фракций, кто кого надурит! Мы не поведёмся.",
+				"Modifiers": [
+					{"Type": "NeutralLoyalty", "Value": -10}
+				],
+				"Flags": [
+					{"Type": "DirianFancyPants", "Value": 1}
+				]
+			},
+			{
+				"Title": "Поручить Службе Безопаности провести расследование",
+				"Modifiers": [
+					{"Type": "FederationistsLoyalty", "Value": 15},
+					{"Type": "FederationistsPower", "Value": 15}
+				]
+			},
+			{
+				"Title": "Поручить правительству заняться этим вопросом",
+				"Modifiers": [
+					{"Type": "FederationistsLoyalty", "Value": -15},
+					{"Type": "DemocratsLoyalty", "Value": 10},
+					{"Type": "NationalistsLoyalty", "Value": 10}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Белые горы",
+		"Description": "После пуска на самотёк проблемы роста криминалитета в Восточном Анраксе, молва об этом крае уже идет на весь регион, клича его второй наркотической столицей мира, после города Игуэ в Дирии.",
+		"Category": "Court",
+		"Limits": "DirianFancyPants",
+		"Options": [
+			{
+				"Title": "Это был явный просчет нашей политики",
+				"Modifiers": [
+					{"Type": "Treasury", "Value": -1},
+					{"Type": "NeutralLoyalty", "Value": -20}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Армии нужны новые автоматы",
+		"Description": "Минобороны запрашивает выделение дополнительного финансирования на закупку пехотного снаряжения на нужды армии. Все, как утверждается, для успешной военной операции по возвращению побережья страны.",
+		"Category": "MilitaryIndustry",
+		"Limits": [
+			{"Type": "PrepareToWar"}
+		],
+		"Options": [
+			{
+				"Title": "",
+				"Modifiers": [
+					{"Type": "Treasury", "Value": -1},
+					{"Type": "MilitaryPower", "Value": 10}
+				]
+			},
+			{
+				"Title": "1) И они получат автоматы! (деньги -1, Military Power +10) 2) Армия обойдется старым снаряжением"
+			}
+		]
+	},
+	{
+		"Title": "Армии нужны патроны",
+		"Description": "Минобороны запрашивает экстренное финансирование для восполнения запасов на военных складах. Без патрона нет приема.",
+		"Category": "MilitaryIndustry",
+		"Limits": [
+			{"Type": "PrepareToWar"}
+		],
+		"Options": [
+			{
+				"Title": "1) И они получат патроны! (деньги -1, Military Power +10) 2) Операция не займет много времени, им хватит того что есть"
+			}
+		]
+	},
+	{
+		"Title": "Армии нужна форма",
+		"Description": "Минобороны вновь обращается к правительству за финансированием. Армии требуется закупка современного снаряжения для успешного ведения боевых действий против ОсНБ.",
+		"Category": "MilitaryIndustry",
+		"Limits": [
+			{"Type": "PrepareToWar"}
+		],
+		"Options": [
+			{
+				"Title": "1) И они получат современную форму! (деньги -1, Military Power +10) 2) Настоящий солдат может наступать и в пижаме"
+			}
+		]
+	},
+	{
+		"Title": "Армии нужна техника",
+		"Description": "Минобороны снова запрашивает финасирование. На этот раз на закупку военной техники, без которой невозможно быстрое и маневренное наступление для освобождения побережья.",
+		"Category": "MilitaryIndustry",
+		"Limits": [
+			{"Type": "PrepareToWar"}
+		],
+		"Options": [
+			{
+				"Title": "1) И они получат технику! (деньги -1, Military Power +10) 2) Они доедут на машинах федерации"
+			}
+		]
+	},
+	{
+		"Title": "Армии нужно топливо",
+		"Description": "И вновь минобороны требует финансирование. На этот раз армии требуется восполнить запасы топлива, чтобы получить достаточные ресурсы для обеспечения снабжения и перевозки личного состава в предстоящей военной кампании",
+		"Category": "MilitaryIndustry",
+		"Limits": [
+			{"Type": "PrepareToWar"}
+		],
+		"Options": [
+			{
+				"Title": "1) И они получат топливо! (деньги -1, Military Power +10) 2) Хотя... Я думаю они дойдут и пешком"
+			}
+		]
+	},
+	{
+		"Title": "Монополия Федералов",
+		"Description": "Множество бизнесов, подконтрольных федералистам, организованно давят прочие предприятия, нарушая здоровую конкуренцию. Антимонопольная служба нашла множество прецедентов и готова копать глубже",
+		"Category": "Court",
+		"Options": [
+			{
+				"Title": "Дать зеленый свет",
+				"Modifiers": [
+					{"Type": "FederationistsLoyalty", "Value": -15}
+				]
+			},
+			{
+				"Title": "Замять дело",
+				"Modifiers": [
+					{"Type": "FederationistsPower", "Value": 20}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Неожиданность от SZ",
+		"Description": "Крупнейшая корпорация Этредии Sburska Zvezda была замечена в подозрительных финансовых махинациях на Анракском рынке",
+		"Category": "Court",
+		"Options": [
+			{
+				"Title": "Начать расследование",
+				"Modifiers": [
+					{"Type": "Treasury", "Value": -1}
+				],
+				"Limits": [
+					{"Type": "Treasury", "CompareTo": 1}
+				],
+				"Flags": [
+					{"Type": "SZCook", "Value": 1},
+					{"Type": "SZCookCourt", "Value": 1}
+				]
+			},
+			{
+				"Title": "SZ наш важный партнер",
+				"Modifiers": [
+					{"Type": "RelationsSBU", "Value": 20},
+					{"Type": "Treasury", "Value": 1}
+				],
+				"Flags": [
+					{"Type": "SZCook", "Value": 1}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Им есть что скрывать",
+		"Description": "На поверхность всплыла информация о множестве земельных участков Sburska Zvezda, которые были приобретены в черную. Чем же они там занимаются? ",
+		"Category": "Court",
+		"Limits": [
+			{"Type": "SZCook"}
+		],
+		"Options": [
+			{
+				"Title": "Провести обыски",
+				"Modifiers": [
+					{"Type": "DemocratsLoyalty", "Value": -10},
+					{"Type": "DemocratsPower", "Value": -10}
+				],
+				"Flags": [
+					{"Type": "SZCookSearch", "Value": 1}
+				],
+				"Limits": [
+					{"Type": "SZCookCourt"}
+				]
+			},
+			{
+				"Title": "Выждать",
+				"Modifiers": [
+					{"Type": "DemocratsPower", "Value": 10}
+				],
+				"Flags": [
+					{"Type": "SZCookWait", "Value": 1}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Темные делишки",
+		"Description": "Теперь мы знаем точно: SZ-шники занимаются производством запрещенных веществ! Это большой скандал, но как к ним подступиться?",
+		"Category": "Court",
+		"Limits": [
+			{"Type": "SZCookSearch"}
+		],
+		"Options": [
+			{
+				"Title": "Зачем? Крышуем бизнес",
+				"Modifiers": [
+					{"Type": "Treasury", "Value": 2},
+					{"Type": "DemocratsPower", "Value": 10},
+					{"Type": "DemocratsLoyalty", "Value": 5},
+					{"Type": "NationalistsLoyalty", "Value": -10},
+					{"Type": "FederationistsLoyalty", "Value": -10}
+				]
+			},
+			{
+				"Title": "Дело требует огласки",
+				"Modifiers": [
+					{"Type": "NeutralLoyalty", "Value": 10}
+				]
+			},
+			{
+				"Title": "Тихо ищем вещдоки",
+				"Flags": [
+					{"Type": "SZCookSearch2", "Value": 1}
+				]
+			},
+			{
+				"Title": "Выгнать SZ из страны",
+				"Modifiers": [
+					{"Type": "Treasury", "Value": -1},
+					{"Type": "EconomicPower", "Value": -15},
+					{"Type": "DemocratsLoyalty", "Value": -15},
+					{"Type": "DemocratsPower", "Value": -15},
+					{"Type": "NationalistsLoyalty", "Value": 10},
+					{"Type": "FederationistsLoyalty", "Value": 10}
+				],
+				"Limits": [
+					{"Type": "Treasury", "CompareTo": 1}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Предложение, от которого нельзя отказаться",
+		"Description": "На одного из высокопоставленных парламентеров вышел представитель SZ. Анракс ждут огромные инвестиции, если мы не сунем нос куда не следует",
+		"Category": "Court",
+		"Limit": [
+			{"Type": "SZCookWait"}
+		],
+		"Options": [
+			{
+				"Title": "Взять чемоданы",
+				"Modifiers": [
+					{"Type": "Treasury", "Value": 2},
+					{"Type": "EconomicPower", "Value": 10},
+					{"Type": "DemocratsPower", "Value": 20},
+					{"Type": "FederationistsPower", "Value": 10}
+				]
+			},
+			{
+				"Title": "Анракс такого не потерпит",
+				"Modifiers": [
+					{"Type": "DemocratsLoyalty", "Value": -25},
+					{"Type": "RelationsSBU", "Value": -20}
+				],
+				"Flags": [
+					{"Type": "SZCookSearch", "Value": 1}
+				]
+			}
+		]
+	},
+	{
+		"Title": "А где?",
+		"Description": "Неудивительно, что SZ до сих пор еще до нас никто не прижал. Все сколько-либо значимые доказательства незаконной деятельности корпорации были в миг уничтожены. Удалось лишь посадить пару десятков частных лиц, от которых SZ открестились",
+		"Category": "Court",
+		"Limits": [
+			{"Type": "SZCookSearch2"}
+		],
+		"Options": [
+			{
+				"Title": "Ну, мы пытались"
+			}
+		]
+	},
+	{
+		"Title": "Запрет НПА",
+		"Description": "В данный момент Националистическая Партия Анракса утратила практически всю свою силу и поддержку народа, что представляет нам идеальный шанс для запрета их политической партии и установлению практической монополии на власть. Врагам демократии - никакой демократии!",
+		"Category": "Law",
+		"Limits": [
+			{"Type": "NationalistsPower", "CompareTo": 5, "Comparison": "LtE"}
+		],
+		"Options": [
+			{
+				"Title": "Мы воспользуемся этой возможностью",
+				"Modifiers": [
+					{"Type": "NationalistsPower", "Value": -999},
+					{"Type": "NationalistsLoyalty", "Value": -999},
+					{"Type": "NeutralLoyalty", "Value": -10},
+					{"Type": "DemocratsPower", "Value": 15},
+					{"Type": "FederationistsPower", "Value": 15}
+				],
+				"Flags": [
+					{"Type": "NationalistsBanned", "Value": 1}
+				]
+			},
+			{
+				"Title": "Мы не станем переступать через конституцию",
+				"Modifiers": [
+					{"Type": "NeutralLoyalty", "Value": 10},
+					{"Type": "DemocratsLoyalty", "Value": -10}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Запрет идей реваншизма",
+		"Description": "Сторонники идей возрождения утраченной федерации плотно засели в наших рядах, ставя под угрозу национальную безопасность. В данный момент, когда их фракции временно утратила свое влияния, нам в срочном порядке требуется проведение чистки правительства и введение запрета идей реваншизма на государственном уровне.",
+		"Category": "Law",
+		"Limits": [
+			{"Type": "FederationistsPower", "CompareTo": 5, "Comparison": "LtE"}
+		],
+		"Options": [
+			{
+				"Title": "Мы воспользуемся этой возможностью",
+				"Modifiers": [
+					{"Type": "FederationistsPower", "Value": -999},
+					{"Type": "FederationistsLoyalty", "Value": -999},
+					{"Type": "NeutralLoyalty", "Value": -10},
+					{"Type": "DemocratsPower", "Value": 15},
+					{"Type": "NationalistsPower", "Value": 15}
+				],
+				"Flags": [
+					{"Type": "FederationistsBanned", "Value": 1}
+				]
+			},
+			{
+				"Title": "Мы не станем переступать через конституцию",
+				"Modifiers": [
+					{"Type": "NeutralLoyalty", "Value": 10},
+					{"Type": "DemocratsLoyalty", "Value": -10}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Запрет НПЗС",
+		"Description": "В данный момент Народная Партия за Справедливость практически полностью утратила свою силу и поддержку избирателей, что представляет нам идельную возможность для запрета и преследования их деятельности. Коварные и убийственные идеи ЭС не пройдут по головам анраксцев!",
+		"Category": "Law",
+		"Limits": [
+			{"Type": "DemocratsPower", "CompareTo": 5, "Comparison": "LtE"}
+		],
+		"Options": [
+			{
+				"Title": "Мы воспользуемся этой возможностью",
+				"Modifiers": [
+					{"Type": "DemocratsPower", "Value": -999},
+					{"Type": "NationalistsLoyalty", "Value": -999},
+					{"Type": "NeutralLoyalty", "Value": -10},
+					{"Type": "NationalistsPower", "Value": 15},
+					{"Type": "FederationistsPower", "Value": 15}
+				],
+				"Flags": [
+					{"Type": "DemocratsBanned", "Value": 1}
+				]
+			},
+			{
+				"Title": "Мы не станем переступать через конституцию",
+				"Modifiers": [
+					{"Type": "NeutralLoyalty", "Value": 10},
+					{"Type": "NationalistsLoyalty", "Value": 10}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Парламентская республика?",
+		"Description": "Парламент в полном составе выступает в поддержку ограничения Ваших полномочий. Похоже участники фракционной борьбы считают, что смогут так получить больше власти в стране",
+		"Category": "Law",
+		"Limits": [
+			{"Type": "DemocratsLoyalty", "CompareTo": 30, "Comparison": "Lt"},
+			{"Type": "NationalistsLoyalty", "CompareTo": 30, "Comparison": "Lt"},
+			{"Type": "FederationistsLoyalty", "CompareTo": 30, "Comparison": "Lt"},
+			{"Type": "DemocratsPower", "CompareTo": 50, "Comparison": "Gt"},
+			{"Type": "NationalistsPower", "CompareTo": 50, "Comparison": "Gt"},
+			{"Type": "FederationistsPower", "CompareTo": 50, "Comparison": "Gt"},
+			{"Type": "Power", "CompareTo": 50, "Comparison": "Lt"}
+		],
+		"Options": [
+			{
+				"Title": "Бумажная работа тоже неплохо",
+				"Modifiers": [
+					{"Type": "Power", "Value": -999}
+				],
+				"Flags": [
+					{"Type": "PresidentLimited", "Value": 1}
+				]
+			},
+			{
+				"Title": "Я не устану, я не уйду",
+				"Modifiers": [
+					{"Type": "ExtremismLevel", "Value": 8},
+					{"Type": "MilitaryPower", "Value": -8},
+					{"Type": "EconomicPower", "Value": -8}
+				]
+			},
+			{
+				"Title": "Время созвать новый парламент",
+				"Modifiers": [
+					{"Type": "Power", "Value": 20},
+					{"Type": "ExtremismLevel", "Value": 15},
+					{"Type": "MilitaryPower", "Value": -15},
+					{"Type": "EconomicPower", "Value": -15}
 				]
 			}
 		]

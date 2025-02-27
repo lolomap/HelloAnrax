@@ -17,6 +17,15 @@
       "dependencies": {},
       "hash": "07514511512e3cd45c2c737cb0b393b9ea701f72"
     },
+    "com.luca3317.tmpeffects": {
+      "version": "https://github.com/Luca3317/TMPEffects.git?path=/Package",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.textmeshpro": "3.0.6"
+      },
+      "hash": "bc982953c6f897bd37d437ecfa1dc47ead7b2724"
+    },
     "com.starasgames.tmpro-dynamic-data-cleaner": {
       "version": "https://github.com/STARasGAMES/tmpro-dynamic-data-cleaner.git#upm",
       "depth": 0,

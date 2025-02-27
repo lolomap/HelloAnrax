@@ -57,11 +57,11 @@ public class EventStorage
         if (!_events.Contains(gameEvent)) throw new ArgumentException("Try to enqueue unknown event");
 
         int pos;
-        if (toEnd)
-            pos = _eventQueue.Count;
-        else if (gameEvent.IsTrigger)
+        if (gameEvent.IsTrigger)
             pos = 0;
-        else
+        else if (toEnd)
+            pos = _eventQueue.Count;
+        else 
             pos = Random.Range(0, _eventQueue.Count + 1);
 
         _eventQueue.Insert(pos, gameEvent);

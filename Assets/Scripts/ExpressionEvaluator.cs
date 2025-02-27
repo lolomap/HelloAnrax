@@ -380,15 +380,11 @@ internal sealed class Operation : Symbol
     }
     private static Expression OrExpression(Expression a, Expression b)
     {
-        BinaryExpression expression = Expression.Or(a, b);
-        return Expression.Call(null,
-            typeof(Convert).GetMethod("ToDecimal", new[] {expression.Type})!, expression);
+        return GreaterThanExpression(Expression.Add(a, b),Expression.Constant(0m, typeof(decimal)));
     }
     private static Expression AndExpression(Expression a, Expression b)
     {
-        BinaryExpression expression = Expression.And(a, b);
-        return Expression.Call(null,
-            typeof(Convert).GetMethod("ToDecimal", new[] {expression.Type})!, expression);
+        return GreaterThanExpression(Expression.Multiply(a, b),Expression.Constant(0m, typeof(decimal)));
     }
     private static Expression GreaterThanExpression(Expression a, Expression b)
     {
@@ -414,6 +410,27 @@ internal sealed class Operation : Symbol
         return Expression.Call(null,
             typeof(Convert).GetMethod("ToDecimal", new[] {expression.Type})!, expression);
     }
+
+    private static Expression NotEqualExpression(Expression a, Expression b)
+    {
+        BinaryExpression expression = Expression.NotEqual(a, b);
+        return Expression.Call(null,
+            typeof(Convert).GetMethod("ToDecimal", new[] {expression.Type})!, expression);
+    }
+    private static Expression EqualExpression(Expression a, Expression b)
+    {
+        BinaryExpression expression = Expression.Equal(a, b);
+        return Expression.Call(null,
+            typeof(Convert).GetMethod("ToDecimal", new[] {expression.Type})!, expression);
+    }
+
+    private static Expression RandomExpression(Expression a)
+    {
+        double res = Utils.Random.NextDouble() * 100.0;
+        Expression exp = Expression.Convert(Expression.Constant(res), typeof(decimal));
+        return Expression.Call(null,
+            typeof(Math).GetMethod("Abs", new[] {exp.Type})!, exp);
+    }
     
     public static readonly Operation Addition = new(1, Expression.Add, "Addition");
     public static readonly Operation Subtraction = new(1, Expression.Subtract, "Subtraction");
@@ -421,14 +438,19 @@ internal sealed class Operation : Symbol
     public static readonly Operation Division = new(2, Expression.Divide, "Division");
     public static readonly Operation UnaryMinus = new(2, Expression.Negate, "Negation");
     public static readonly Operation Abs = new(2, AbsExpression, "Abs");
+    public static readonly Operation Modulo = new(2, Expression.Modulo, "Modulo");
     
-    public static readonly Operation And = new(3, GreaterThanExpression, "And");
-    public static readonly Operation Or = new(2, GreaterThanExpression, "Or");
+    public static readonly Operation And = new(4, AndExpression, "And");
+    public static readonly Operation Or = new(3, OrExpression, "Or");
     
     public static readonly Operation GreaterThan = new(2, GreaterThanExpression, "GreaterThan");
     public static readonly Operation LessThan = new(2, LessThanExpression, "LessThan");
     public static readonly Operation GreaterThanOrEqual = new(2, GreaterThanOrEqualExpression, "GreaterThanOrEqual");
     public static readonly Operation LessThanOrEqual = new(2, LessThanOrEqualExpression, "LessThanOrEqual");
+    public static readonly Operation NotEqual = new(2, NotEqualExpression, "NotEqual");
+    public static readonly Operation Equal = new(2, EqualExpression, "Equal");
+
+    public static readonly Operation Random = new(5, RandomExpression, "Random");
     
     private static readonly Dictionary<char, Operation> Operations = new()
     {
@@ -436,6 +458,7 @@ internal sealed class Operation : Symbol
         { '-', Subtraction },
         { '*', Multiplication},
         { '/', Division },
+        { '%', Modulo },
         
         { '|', Or},
         { '&', And},
@@ -443,7 +466,10 @@ internal sealed class Operation : Symbol
         { '>', GreaterThan},
         { '<', LessThan},
         { '≥', GreaterThanOrEqual},
-        { '≤', LessThanOrEqual}
+        { '≤', LessThanOrEqual},
+        { '≠', NotEqual},
+        { '=', Equal},
+        { '№', Random}
     };
 
     private Operation(int precedence, string name)

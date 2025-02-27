@@ -12,6 +12,7 @@ public static class Utils
         Lt,
         GtE,
         LtE,
+        Eq,
         Exists
     }
     
@@ -26,6 +27,7 @@ public static class Utils
             Comparison.Lt => a.CompareTo(b) < 0,
             Comparison.GtE => a.CompareTo(b) >= 0,
             Comparison.LtE => a.CompareTo(b) <= 0,
+            Comparison.Eq => a.CompareTo(b) == 0,
             Comparison.Exists => a.CompareTo(0) > 0,
             _ => false
         };

@@ -1,22 +1,88 @@
 ﻿[
-  {
-    "Title": "Рассвет Независимости",
-    "Description": "Огонь озаряет столицу страны Скарну",
-    "TurnPosition": 1,
+	{
+		"Title": "Рассвет Независимости",
+		"Description": "Огонь озаряет столицу страны Скарну",
+		"TurnPosition": 1,
 
-    "TLDR": [
-      {
-        "Description": "Дом народов потерпел поражение и теперь его остатки разбирают самые сильные и ловкие"
-      },
-      {
-        "Description": "В городах не смолкают громогласные речи, рёв орудий и беспорядки"
-      },
-      {
-        "Description": "Новый парламент избирает Вас президентом <gradient=\"EventCool\"><link=\"ANR\">Анракса</link></gradient>"
-      },
-      {
-        "Description": "На фоне неутихающего безумия Вы наполняетесь решимостью"
-      }
-    ]
-  }
+		"TLDR": [
+			{
+				"Description": "Дом народов потерпел поражение и теперь его остатки разбирают самые сильные и ловкие"
+			},
+			{
+				"Description": "В городах не смолкают громогласные речи, рёв орудий и беспорядки"
+			},
+			{
+				"Description": "Новый парламент избирает Вас президентом <style=\"ANR\">Анракса</style>"
+			},
+			{
+				"Description": "На фоне неутихающего безумия Вы наполняетесь решимостью"
+			}
+		]
+	},
+
+	{
+		"Title": "Выбор главы правительства",
+		"Description": "Посколько фракции в парламенте имеют равную силу, именно за вами остаётся решающее право голоса - кто встанет на должность главы правительства",
+		"Type": "Appointment",
+		"TurnPosition": 2,
+
+		"Options": [
+			{
+				"Title": "Далв Тирский",
+				"Modifiers": [
+					{"Type": "NationalistsLoyalty", "Value": 30},
+					{"Type": "NationalistsPower", "Value": 10},
+					{"Type": "FederationistsLoyalty", "Value": -10},
+					{"Type": "DemocratsLoyalty", "Value": -10}
+				],
+				"Flags": [
+					{"Type": "PM_Nationalists", "Value":	1}
+				]
+			},
+			{
+				"Title": "Анж Нивич",
+				"Modifiers": [
+					{"Type": "FederationistsLoyalty", "Value": 30},
+					{"Type": "FederationistsPower", "Value": 10},
+					{"Type": "NationalistsLoyalty", "Value": -10},
+					{"Type": "DemocratsLoyalty", "Value": -10}
+				],
+				"Flags": [
+					{"Type": "PM_Federationists", "Value":	1}
+				]
+			},
+			{
+				"Title": "Ровуль Манора",
+				"Modifiers": [
+					{"Type": "DemocratsLoyalty", "Value": 30},
+					{"Type": "DemocratsPower", "Value": 10},
+					{"Type": "FederationistsLoyalty", "Value": -10},
+					{"Type": "NationalistsLoyalty", "Value": -10}
+				],
+				"Flags": [
+					{"Type": "PM_Democrats", "Value":	1}
+				]
+			}
+		]
+	},
+
+	{
+		"Title": "Юг свободен!",
+		"Description": "МИД ОсНБ официально уведомил нас о том, что они приняли решение покинуть территорию Юга Анракса и вернуть его под наше управление",
+		"Category": "War",
+		"TurnPosition": 30,
+		
+		"Options": [
+			{
+				"Title": "Это наша победа! Победа выдержанная временем!",
+				"Modifiers": [
+					{"Type": "Treasury", "Value": 1},
+					{"Type": "NeutralLoyalty", "Value": 15}
+				],
+				"Flags": [
+					{"Type": "SouthIsFree", "Value": 1}
+				]
+			}
+		]
+	}
 ]

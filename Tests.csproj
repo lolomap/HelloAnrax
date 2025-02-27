@@ -41,6 +41,9 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+    <Analyzer Include="E:\UnityProjects\HelloAnrax\HelloAnrax\Library\PackageCache\com.luca3317.tmpeffects@bc982953c6\TMPEffects.AutoParameters.dll" />
+    <Analyzer Include="E:\UnityProjects\HelloAnrax\HelloAnrax\Library\PackageCache\com.luca3317.tmpeffects@bc982953c6\TMPEffects.StringLibrary.dll" />
+    <Analyzer Include="E:\UnityProjects\HelloAnrax\HelloAnrax\Library\PackageCache\com.luca3317.tmpeffects@bc982953c6\TMPEffects.ParameterUtilityGenerator.dll" />
     <Analyzer Include="E:\Unity\2022.3.24f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
     <Analyzer Include="E:\Unity\2022.3.24f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>

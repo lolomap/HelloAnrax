@@ -1,15 +1,13 @@
 {
+  "TURN": 1,
+  
   "NationalistsLoyalty": 50,
   "FederationistsLoyalty": 50,
   "DemocratsLoyalty": 50,
   "NationalistsPower": 50,
   "FederationistsPower": 50, 
   "DemocratsPower": 50,
-  "NationalistsCoop": 0, 
-  "FederationistsCoop": 0,
-  "DemocratsCoop": 0, 
   "NeutralLoyalty": 0,
-  "NeutralPower": 50,
   "Power": 40,
   "Treasury": 3,
   
