@@ -318,6 +318,9 @@
     <Reference Include="Unity.Collections.LowLevel.ILSupport">
       <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Library\PackageCache\com.unity.collections@1.2.4\Unity.Collections.LowLevel.ILSupport\Unity.Collections.LowLevel.ILSupport.dll</HintPath>
     </Reference>
+    <Reference Include="TMPEffects.AutoParameters.Attributes">
+      <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Library\PackageCache\com.luca3317.tmpeffects@bc982953c6\TMPEffects.AutoParameters.Attributes.dll</HintPath>
+    </Reference>
     <Reference Include="unityplastic">
       <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Library\PackageCache\com.unity.collab-proxy@2.3.1\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
     </Reference>
@@ -350,9 +353,6 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.TextureAssets">
       <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Library\PackageCache\com.unity.visualscripting@1.9.2\Editor\VisualScripting.Core\EditorAssetResources\Unity.VisualScripting.TextureAssets.dll</HintPath>
-    </Reference>
-    <Reference Include="TMPEffects.AutoParameters.Attributes">
-      <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Library\PackageCache\com.luca3317.tmpeffects@bc982953c6\TMPEffects.AutoParameters.Attributes.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>E:\Unity\2022.3.24f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>

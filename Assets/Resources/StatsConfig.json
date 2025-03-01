@@ -1,7 +1,12 @@
 {
   "FAIL": "Power < 10",
   "RANDOM": "№0",
+  
   "TURN": "TURN + 1",
+  "EVERY2": "TURN % 2",
+  "EVERY3": "TURN % 3",
+  "EVERY5": "TURN % 5",
+  "EVERY10": "TURN % 10",
   
   "NationalistsDemocratsConcurrency": "|(DemocratsPower - NationalistsPower)",
   "NationalistsFederationistsConcurrency": "|(FederationistsPower - NationalistsPower)",

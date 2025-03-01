@@ -531,6 +531,7 @@
 			{"Type": "EconomicReport", "CompareTo": 3}
 		],
 		"IsTrigger": true,
+		"IsDisposable": false,
 		"Options": [
 			{
 				"Title": "Вот так бы всегда!",
@@ -546,6 +547,7 @@
 			{"Type": "EconomicReport", "CompareTo": 2, "Comparison": "Eq"}
 		],
 		"IsTrigger": true,
+		"IsDisposable": false,
 		"Options": [
 			{
 				"Title": "Не хорошо, но и не ужасно",
@@ -561,6 +563,7 @@
 			{"Type": "EconomicReport", "CompareTo": 1, "Comparison": "Eq"}
 		],
 		"IsTrigger": true,
+		"IsDisposable": false,
 		"Options": [
 			{
 				"Title": "Мы все просрали",
@@ -1324,7 +1327,7 @@
 		]
 	},
 	{
-		"Title": "Силовые методы",
+		"Title": "Борьба с Голиафом",
 		"Description": "Террапилье не хватает вооружения для остаивания своей независимости от угрозы со стороны ИИД. Нам стоит в это вмешиваться?",
 		"Category": "Relations",
 		"Options": [
@@ -1692,11 +1695,34 @@
 	},
 	{
 		"Title": "Отчаявшиеся",
-		"Description": "Ситуацию на границе с ОСНБ вышла из под контроля! Тысячи эмигрантов пытаются массово пересечь границу нелегальным путём. Наблюдаются вооружённые стычки. ОСНБ просит нас направить силы для подавления беспорядков!",
+		"Description": "Ситуацию на границе с ОсНБ вышла из под контроля! Тысячи эмигрантов пытаются массово пересечь границу нелегальным путём. Наблюдаются вооружённые стычки. ОСНБ просит нас направить силы для подавления беспорядков!",
 		"Category": "Riots",
 		"Options": [
 			{
-				"Title": "1) Это проблемы ОСНБ 2) Временно закрыть границу с ОСНБ 3) Направить армию подавить беспорядки"
+				"Title": "Это проблемы ОсНБ",
+				"Modifiers": [
+					{"Type": "RelationsUCB", "Value": -10},
+					{"Type": "DemocratsLoyalty", "Value": -20}
+				]
+			},
+			{
+				"Title": "Временно закрыть границу с ОсНБ",
+				"Modifiers": [
+					{"Type": "Treasury", "Value": -1},
+					{"Type": "NationalistsLoyalty", "Value": 10}
+				],
+				"Limits": [
+					{"Type": "Treasury", "CompareTo": 1}
+				]
+			},
+			{
+				"Title": "Направить армию подавить беспорядки",
+				"Modifiers": [
+					{"Type": "NeutralLoyalty", "Value": -20},
+					{"Type": "ExtremismLevel", "Value": -15},
+					{"Type": "FederationistsPower", "Value": 10},
+					{"Type": "NationalistsPower", "Value": 10}
+				]
 			}
 		]
 	},
@@ -1709,7 +1735,26 @@
 		],
 		"Options": [
 			{
-				"Title": "1) Публично обвинить националистов в содеянном 2) Огранизовать спасательную операцию 3)Забудем об этом..."
+				"Title": "Публично обвинить националистов в содеянном",
+				"Modifiers": [
+					{"Type": "NationalistsLoyalty", "Value": -20},
+					{"Type": "NationalistsPower", "Value": -15},
+					{"Type": "DemocratsPower", "Value": 10}
+				]
+			},
+			{
+				"Title": "Огранизовать спасательную операцию",
+				"Modifiers": [
+					{"Type": "NeutralLoyalty", "Value": 20},
+					{"Type": "NationalistsPower", "Value": 10}
+				]
+			},
+			{
+				"Title": "Забудем об этом...",
+				"Modifiers": [
+					{"Type": "NationalistsPower", "Value": 20},
+					{"Type": "DemocratsLoyalty", "Value": -15}
+				]
 			}
 		]
 	},
@@ -1718,6 +1763,7 @@
 		"Description": "На окраинах Анракса наблюдаются вспышки конфликтов между радикальными религиозными группами. Эта ситуация повышает напряжённость на границах с другими государствами. Терапилья предлагает ввод миротворческих войск на территорию Анракса для урегулирования конфликта.",
 		"Category": "Riots",
 		"Limits": [
+			{"Type": "== HIDDEN =="},
 			{"Type": "ExtremismLevel", "CompareTo": 20}
 		],
 		"Options": [
@@ -1735,7 +1781,28 @@
 		],
 		"Options": [
 			{
-				"Title": "1) Пойти на переговоры (в этом случае получится подкупить террористов) 2) Взять школу штурмом (некоторые из мирных жителей погибнут) "
+				"Title": "Пойти на переговоры",
+				"Modifiers": [
+					{"Type": "Treasury", "Value": -1},
+					{"Type": "NeutralLoyalty", "Value": -15},
+					{"Type": "ExtremismLevel", "Value": 15},
+					{"Type": "DemocratsPower", "Value": -5},
+					{"Type": "NationalistsPower", "Value": -5},
+					{"Type": "FederationistsPower", "Value": -5}
+				],
+				"Limits": [
+					{"Type": "Treasury", "CompareTo": 1}
+				]
+			},
+			{
+				"Title": "Взять школу штурмом",
+				"Modifiers": [
+					{"Type": "ExtremismLevel", "Value": -15},
+					{"Type": "NeutralLoyalty", "Value": 5},
+					{"Type": "DemocratsPower", "Value": -10},
+					{"Type": "NationalistsPower", "Value": -10},
+					{"Type": "FederationistsPower", "Value": -10}
+				]
 			}
 		]
 	},
@@ -1743,6 +1810,7 @@
 		"Title": "Националисты организуют карательные бригады",
 		"Description": "",
 		"Category": "Social",
+		"Limits": [{"Type": "== HIDDEN =="}],
 		"Options": [
 			{
 				"Title": ""
@@ -1753,6 +1821,7 @@
 		"Title": "Демократы организуют штабы оппозиции",
 		"Description": "По всей стране открываются штабы \"Народной Партии за Справедливость\"",
 		"Category": "Social",
+		"Limits": [{"Type": "== HIDDEN =="}],
 		"Options": [
 			{
 				"Title": ""
@@ -1954,8 +2023,12 @@
 		"Category": "War",
 		"Limits": [
 			{"Type": "SouthIsFree", "CompareTo": 0, "Comparison": "LtE"},
-			{"Type": "MilitaryPower", "CompareTo": 8, "Comparison": "LtE"},
-			{"Type": "ReadyToWar", "CompareTo": 5}
+			{"Type": "MilitaryPower", "CompareTo": 20, "Comparison": "Lt"},
+			{"Type": "PrepareToWar1"},
+			{"Type": "PrepareToWar2"},
+			{"Type": "PrepareToWar3"},
+			{"Type": "PrepareToWar4"},
+			{"Type": "PrepareToWar5"}
 		],
 		"Options": [
 			{
@@ -1974,8 +2047,12 @@
 		"Description": "Войска пошли на юг",
 		"Category": "War",
 		"Limits": [
-			{"Type": "MilitaryPower", "CompareTo": 9},
-			{"Type": "ReadyToWar", "CompareTo": 5}
+			{"Type": "MilitaryPower", "CompareTo": 20},
+			{"Type": "PrepareToWar1"},
+			{"Type": "PrepareToWar2"},
+			{"Type": "PrepareToWar3"},
+			{"Type": "PrepareToWar4"},
+			{"Type": "PrepareToWar5"}
 		],
 		"Options": [
 			{
@@ -2085,6 +2162,9 @@
 	{
 		"Title": "Энергетическая независимость",
 		"Description": "",
+		"Limits": [
+			{"Type": "== HIDDEN =="}
+		],
 		"Category": "Trade",
 		"Options": [
 			{
@@ -2095,16 +2175,31 @@
 	{
 		"Title": "Враг внутри",
 		"Description": "Была обнаружена группа контрабандистов, которые незаконно распродают за границу краденое оружие и боеприпасы, оставшиеся после войны.",
-		"Category": "Trade",
+		"Category": "Default",
 		"Options": [
 			{
-				"Title": "1) Взять их немедленно и изъять краденое 2) Взять вместе с заказчиками с поличным, во время следующей сделки"
+				"Title": "Взять их немедленно и изъять краденое",
+				"Modifiers": [
+					{"Type": "Treasury", "Value": 2},
+					{"Type": "NeutralLoyalty", "Value": 8}
+				]
+			},
+			{
+				"Title": "Взять вместе с заказчиками с поличным, во время следующей сделки",
+				"Modifiers": [
+					{"Type": "Treasury", "Value": 1},
+					{"Type": "NeutralLoyalty", "Value": 15},
+					{"Type": "ExtremismLevel", "Value": -15}
+				]
 			}
 		]
 	},
 	{
 		"Title": "Виндетта",
 		"Description": "Заказчиками оказались военные ОСБН! Они ударят по военной части, если не освободить контрабандистов!",
+		"Limits": [
+			{"Type": "== HIDDEN =="}
+		],
 		"Category": "Trade",
 		"Options": [
 			{
@@ -2118,17 +2213,39 @@
 		"Category": "Trade",
 		"Options": [
 			{
-				"Title": "1) Ввести санкции в сторону ИИД 2) Отказаться от помощи Террапильи"
+				"Title": "Ввести санкции в сторону ИИД",
+				"Modifiers": [
+					{"Type": "Treasury", "Value": 1},
+					{"Type": "EconomicPower", "Value": -20}
+				],
+				"Flags": [
+					{"Type": "NoIIDTrade", "Value": 1}
+				]
+			},
+			{
+				"Title": "Отказаться от помощи Террапильи"
 			}
 		]
 	},
 	{
 		"Title": "Удар в спину",
-		"Description": "ИИД и Саффлия объединились в коалицию и перекрыли Анраксу импорт.  ",
+		"Description": "ИИД и Саффлия объединились в коалицию и перекрыли Анраксу импорт.",
 		"Category": "Trade",
+		"Limits": [
+			{"Type": "NoIIDTrade"}
+		],
 		"Options": [
 			{
-				"Title": "1) Не нужны нам их подачки! 2) Ответить Саффлии санкциями"
+				"Title": "Не нужны нам их подачки!",
+				"Modifiers": [
+					{"Type": "Treasury", "Value": -1}
+				]
+			},
+			{
+				"Title": "Ответить Саффлии санкциями",
+				"Modifiers": [
+					{"Type": "Treasury", "Value": -1}
+				]
 			}
 		]
 	},
@@ -2237,18 +2354,29 @@
 		"Description": "Минобороны запрашивает выделение дополнительного финансирования на закупку пехотного снаряжения на нужды армии. Все, как утверждается, для успешной военной операции по возвращению побережья страны.",
 		"Category": "MilitaryIndustry",
 		"Limits": [
-			{"Type": "PrepareToWar"}
+			{"Type": "PrepareToWar"},
+			{"Type": "EVERY3", "CompareTo": 0, "Comparison": "LtE"}
 		],
 		"Options": [
 			{
-				"Title": "",
+				"Title": "И они получат автоматы!",
 				"Modifiers": [
 					{"Type": "Treasury", "Value": -1},
 					{"Type": "MilitaryPower", "Value": 10}
+				],
+				"Limits": [
+					{"Type": "Treasury", "CompareTo": 1}
+				],
+				"Flags": [
+					{"Type": "PrepareToWar1", "Value": 1},
+					{"Type": "PrepareToWarMinimal", "Value": 1}
 				]
 			},
 			{
-				"Title": "1) И они получат автоматы! (деньги -1, Military Power +10) 2) Армия обойдется старым снаряжением"
+				"Title": "Армия обойдется старым снаряжением",
+				"Flags": [
+					{"Type": "PrepareToWar1", "Value": 1}
+				]
 			}
 		]
 	},
@@ -2257,11 +2385,29 @@
 		"Description": "Минобороны запрашивает экстренное финансирование для восполнения запасов на военных складах. Без патрона нет приема.",
 		"Category": "MilitaryIndustry",
 		"Limits": [
-			{"Type": "PrepareToWar"}
+			{"Type": "PrepareToWar"},
+			{"Type": "EVERY3", "CompareTo": 0, "Comparison": "LtE"}
 		],
 		"Options": [
 			{
-				"Title": "1) И они получат патроны! (деньги -1, Military Power +10) 2) Операция не займет много времени, им хватит того что есть"
+				"Title": "И они получат патроны!",
+				"Modifiers": [
+					{"Type": "Treasury", "Value": -1},
+					{"Type": "MilitaryPower", "Value": 10}
+				],
+				"Limits": [
+					{"Type": "Treasury", "CompareTo": 1}
+				],
+				"Flags": [
+					{"Type": "PrepareToWar2", "Value": 1},
+					{"Type": "PrepareToWarMinimal", "Value": 1}
+				]
+			},
+			{
+				"Title": "Операция не займет много времени, им хватит того что есть",
+				"Flags": [
+					{"Type": "PrepareToWar2", "Value": 1}
+				]
 			}
 		]
 	},
@@ -2270,11 +2416,29 @@
 		"Description": "Минобороны вновь обращается к правительству за финансированием. Армии требуется закупка современного снаряжения для успешного ведения боевых действий против ОсНБ.",
 		"Category": "MilitaryIndustry",
 		"Limits": [
-			{"Type": "PrepareToWar"}
+			{"Type": "PrepareToWar"},
+			{"Type": "EVERY3", "CompareTo": 0, "Comparison": "LtE"}
 		],
 		"Options": [
 			{
-				"Title": "1) И они получат современную форму! (деньги -1, Military Power +10) 2) Настоящий солдат может наступать и в пижаме"
+				"Title": "И они получат современную форму!",
+				"Modifiers": [
+					{"Type": "Treasury", "Value": -1},
+					{"Type": "MilitaryPower", "Value": 10}
+				],
+				"Limits": [
+					{"Type": "Treasury", "CompareTo": 1}
+				],
+				"Flags": [
+					{"Type": "PrepareToWar3", "Value": 1},
+					{"Type": "PrepareToWarMinimal", "Value": 1}
+				]
+			},
+			{
+				"Title": "Настоящий солдат может наступать и в пижаме",
+				"Flags": [
+					{"Type": "PrepareToWar3", "Value": 1}
+				]
 			}
 		]
 	},
@@ -2283,11 +2447,29 @@
 		"Description": "Минобороны снова запрашивает финасирование. На этот раз на закупку военной техники, без которой невозможно быстрое и маневренное наступление для освобождения побережья.",
 		"Category": "MilitaryIndustry",
 		"Limits": [
-			{"Type": "PrepareToWar"}
+			{"Type": "PrepareToWar"},
+			{"Type": "EVERY3", "CompareTo": 0, "Comparison": "LtE"}
 		],
 		"Options": [
 			{
-				"Title": "1) И они получат технику! (деньги -1, Military Power +10) 2) Они доедут на машинах федерации"
+				"Title": "И они получат технику!",
+				"Modifiers": [
+					{"Type": "Treasury", "Value": -1},
+					{"Type": "MilitaryPower", "Value": 10}
+				],
+				"Limits": [
+					{"Type": "Treasury", "CompareTo": 1}
+				],
+				"Flags": [
+					{"Type": "PrepareToWar4", "Value": 1},
+					{"Type": "PrepareToWarMinimal", "Value": 1}
+				]
+			},
+			{
+				"Title": "Они доедут на машинах федерации",
+				"Flags": [
+					{"Type": "PrepareToWar4", "Value": 1}
+				]
 			}
 		]
 	},
@@ -2296,11 +2478,29 @@
 		"Description": "И вновь минобороны требует финансирование. На этот раз армии требуется восполнить запасы топлива, чтобы получить достаточные ресурсы для обеспечения снабжения и перевозки личного состава в предстоящей военной кампании",
 		"Category": "MilitaryIndustry",
 		"Limits": [
-			{"Type": "PrepareToWar"}
+			{"Type": "PrepareToWar"},
+			{"Type": "EVERY3", "CompareTo": 0, "Comparison": "LtE"}
 		],
 		"Options": [
 			{
-				"Title": "1) И они получат топливо! (деньги -1, Military Power +10) 2) Хотя... Я думаю они дойдут и пешком"
+				"Title": "И они получат топливо!",
+				"Modifiers": [
+					{"Type": "Treasury", "Value": -1},
+					{"Type": "MilitaryPower", "Value": 10}
+				],
+				"Limits": [
+					{"Type": "Treasury", "CompareTo": 1}
+				],
+				"Flags": [
+					{"Type": "PrepareToWar5", "Value": 1},
+					{"Type": "PrepareToWarMinimal", "Value": 1}
+				]
+			},
+			{
+				"Title": "Хотя... Я думаю они дойдут и пешком",
+				"Flags": [
+					{"Type": "PrepareToWar5", "Value": 1}
+				]
 			}
 		]
 	},

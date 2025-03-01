@@ -11,6 +11,7 @@ public class EventStorage
     private List<GameEvent> _timedEvents;
     private List<GameEvent> _eventQueue;
     private List<GameEvent> _failEvents;
+    private List<GameEvent> _winEvents;
 
     private int _currentTurn;
 
@@ -30,6 +31,7 @@ public class EventStorage
         _timedEvents = LoadFile("TimedEvents");
 
         _failEvents = LoadFile("FailEvents");
+        _winEvents = LoadFile("WinEvents");
     }
 
     public void Init()
@@ -109,5 +111,10 @@ public class EventStorage
     public GameEvent GetFail()
     {
         return _failEvents.Count < 1 ? null : _failEvents.FirstOrDefault(gameEvent => gameEvent.IsAvailable());
+    }
+
+    public GameEvent GetWin()
+    {
+        return _winEvents.Count < 1 ? null : _winEvents.FirstOrDefault(gameEvent => gameEvent.IsAvailable());
     }
 }
