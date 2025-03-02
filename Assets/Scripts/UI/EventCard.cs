@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -56,10 +57,16 @@ namespace UI
             }
             _tldrData = null;
             _tldrPosition = 0;
-            
-            if (!_selectedOption.IsAvailable())
+
+            if (!_selectedOption.IsAvailable(out List<Flag> blockedFlags))
             {
                 ((OptionIcon) EventOptionsList.GetSelected()).PlayAnimation();
+
+                foreach (Flag flag in blockedFlags)
+                {
+                    TaggedValue.AnimateAll(flag.Type, UIGenericAnimation.Animation.ButtonShake);
+                }
+                
                 return;
             }
             

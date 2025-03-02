@@ -17,6 +17,16 @@ public class GameManager : ScriptableObject
 	public static PlayerStats PlayerStats { get; private set; }
 
 	private static string _buildNumber = "1";
+
+	public static void OverridePlayerStats(PlayerStats stats)
+	{
+		PlayerStats = stats;
+	}
+
+	public static void OverrideEventStorage(EventStorage eventStorage)
+	{
+		EventStorage = eventStorage;
+	}
 	
 	[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
 	private static void ReloadGame()

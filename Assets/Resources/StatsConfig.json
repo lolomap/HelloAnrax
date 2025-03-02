@@ -19,7 +19,7 @@
   "EconomicReportBestChance": "(EconomicPower < 25) * 10 + ((EconomicPower ≥ 25) & (EconomicPower ≤ 75)) * 20 + (EconomicPower > 75) * 25",
   "EconomicReportMediumChance": "(EconomicPower < 25) * 45 + ((EconomicPower ≥ 25) & (EconomicPower ≤ 75)) * 60 + (EconomicPower > 75) * 65",
   "EconomicReportWorstChance": "(EconomicPower < 25) * 35 + ((EconomicPower ≥ 25) & (EconomicPower ≤ 75)) * 20 + (EconomicPower > 75) * 10",
-  "EconomicReportTiming": "(TURN % 20) > 0",
+  "EconomicReportTiming": "(TURN % 20) = 0",
   "EconomicReport": "EconomicReportTiming * ((RANDOM < EconomicReportWorstChance) * 1 + ((RANDOM ≥ EconomicReportWorstChance) & (RANDOM < (EconomicReportMediumChance + EconomicReportWorstChance))) * 2 + (RANDOM ≥ (EconomicReportMediumChance + EconomicReportWorstChance)) * 3)",
   
   "Power": "Power + ((NationalistsLoyalty - 50) / 100 * NationalistsPower + (DemocratsLoyalty - 50) / 100 * DemocratsPower + (FederationistsLoyalty - 50) / 100 * FederationistsPower + (NeutralLoyalty - 50) / 100 * ExtremismLevel)"

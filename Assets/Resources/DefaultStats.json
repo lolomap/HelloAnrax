@@ -1,23 +1,23 @@
 {
-  "TURN": 1,
+  "TURN": {"Value": 1},
   
-  "NationalistsLoyalty": 50,
-  "FederationistsLoyalty": 50,
-  "DemocratsLoyalty": 50,
-  "NationalistsPower": 50,
-  "FederationistsPower": 50, 
-  "DemocratsPower": 50,
-  "NeutralLoyalty": 0,
-  "Power": 40,
-  "Treasury": 3,
+  "NationalistsLoyalty": {"Value": 50, "Max": 100},
+  "FederationistsLoyalty": {"Value": 50, "Max": 100},
+  "DemocratsLoyalty": {"Value": 50, "Max": 100},
+  "NationalistsPower": {"Value": 50, "Max": 100},
+  "FederationistsPower": {"Value": 50, "Max": 100}, 
+  "DemocratsPower": {"Value": 50, "Max": 100},
+  "NeutralLoyalty": {"Value": 0, "Max": 100},
+  "Power": {"Value": 40, "Max": 100},
+  "Treasury": {"Value": 3, "Max": 5},
   
   
-  "EconomicPower": 20,
-  "MilitaryPower": 20,
-  "ExtremismLevel": 5,
+  "EconomicPower": {"Value": 20, "Max": 100},
+  "MilitaryPower": {"Value": 20, "Max": 100},
+  "ExtremismLevel": {"Value": 5, "Max": 100},
   
-  "RelationsUCB": 50,
-  "RelationsSBU": 50,
-  "RelationsEIK": 50,
-  "RelationsIID": 50
+  "RelationsUCB": {"Value": 50, "Max": 100},
+  "RelationsSBU": {"Value": 50, "Max": 100},
+  "RelationsEIK": {"Value": 50, "Max": 100},
+  "RelationsIID": {"Value": 50, "Max": 100}
 }

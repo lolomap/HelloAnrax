@@ -2257,7 +2257,6 @@
 			{"Type": "NationalistsLoyalty", "CompareTo": 50, "Comparison": "Lt"},
 			{"Type": "DemocratsPower", "CompareTo": 65}
 		],
-		"IsTrigger": true,
 		"Options": [
 			{
 				"Title": "Думаю мы можем потеснить демократов в правительстве",
@@ -2284,7 +2283,6 @@
 			{"Type": "DemocratsLoyalty", "CompareTo": 50, "Comparison": "Lt"},
 			{"Type": "NationalistsPower", "CompareTo": 65}
 		],
-		"IsTrigger": true,
 		"Options": [
 			{
 				"Title": "Думаю мы можем потеснить националистов в правительстве",

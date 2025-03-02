@@ -22,13 +22,13 @@
 
 	{
 		"Title": "Выбор главы правительства",
-		"Description": "Посколько фракции в парламенте имеют равную силу, именно за вами остаётся решающее право голоса - кто встанет на должность главы правительства",
+		"Description": "Господин президент, поскольку фракции в парламенте имеют равную силу, именно за вами остаётся решающее право голоса - кто встанет на должность главы правительства",
 		"Type": "Appointment",
-		"TurnPosition": 2,
+		"TurnPosition": 3,
 
 		"Options": [
 			{
-				"Title": "Далв Тирский",
+				"Title": "Далв Тисирский",
 				"Modifiers": [
 					{"Type": "NationalistsLoyalty", "Value": 30},
 					{"Type": "NationalistsPower", "Value": 10},
@@ -46,6 +46,9 @@
 					{"Type": "FederationistsPower", "Value": 10},
 					{"Type": "NationalistsLoyalty", "Value": -10},
 					{"Type": "DemocratsLoyalty", "Value": -10}
+				],
+				"Limits": [
+					{"Type": "== HIDDEN =="}
 				],
 				"Flags": [
 					{"Type": "PM_Federationists", "Value":	1}

@@ -1,17 +1,20 @@
 using System;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace UI
 {
 	public class TaggedValue : MonoBehaviour
 	{
 		private delegate void UpdateEventHandler(string uiTag, object value);
+		private delegate void AnimateEventHandler(string uiTag, UIGenericAnimation.Animation anim);
 
 		private static event UpdateEventHandler UpdateUI;
+		private static event AnimateEventHandler Animate;
 		
 		public string Tag;
+
+		private UIGenericAnimation _animation;
 		
 		//private Slider _slider;
 		private AnimatedBar _slider;
@@ -21,7 +24,10 @@ namespace UI
 		private void Awake()
 		{
 			UpdateUI += OnUpdate;
+			Animate += OnAnimate;
 
+			_animation = GetComponent<UIGenericAnimation>();
+			
 			_slider = GetComponent<AnimatedBar>();
 			_segmentBar = GetComponent<SegmentBar>();
 			_text = GetComponent<TMP_Text>();
@@ -48,6 +54,19 @@ namespace UI
 					if (_text != null) _text.text = value.ToString();
 					break;
 			}
+		}
+
+		private void OnAnimate(string uiTag, UIGenericAnimation.Animation anim)
+		{
+			if (uiTag != Tag || _animation == null)
+				return;
+
+			_animation.Play(anim);
+		}
+
+		public static void AnimateAll(string uiTag, UIGenericAnimation.Animation anim)
+		{
+			Animate?.Invoke(uiTag, anim);
 		}
 
 		public static void UpdateAll(string uiTag, object value)

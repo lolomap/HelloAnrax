@@ -6,7 +6,14 @@ using UnityEngine;
 
 public class PlayerStats
 {
-	private Dictionary<string, float> _stats;
+	private class Stat
+	{
+		public float Min;
+		public float Max = 9999f;
+		public float Value;
+	}
+	
+	private Dictionary<string, Stat> _stats;
 	private Dictionary<string, float> _flags;
 	private Dictionary<string, string> _formulas;
 
@@ -16,7 +23,7 @@ public class PlayerStats
 	public void Init()
 	{
 		TextAsset defaultsRaw = ResourceLoader.GetResource<TextAsset>("DefaultStats");
-		_stats = JsonConvert.DeserializeObject<Dictionary<string, float>>(defaultsRaw.text);
+		_stats = JsonConvert.DeserializeObject<Dictionary<string, Stat>>(defaultsRaw.text);
 
 		_flags = new();
 		
@@ -28,9 +35,9 @@ public class PlayerStats
 
 	public void UpdateUI()
 	{
-		foreach ((string stat, float value) in _stats)
+		foreach ((string id, Stat stat) in _stats)
 		{
-			TaggedValue.UpdateAll(stat, value);
+			TaggedValue.UpdateAll(id, stat.Value);
 		}
 		
 		foreach ((string flag, float value) in _flags)
@@ -42,9 +49,9 @@ public class PlayerStats
 	public void CalculateFormulas()
 	{
 		Dictionary<string, decimal> variables = new();
-		foreach ((string stat, float value) in _stats)
+		foreach ((string id, Stat stat) in _stats)
 		{
-			variables[stat] = (decimal) value;
+			variables[id] = (decimal) stat.Value;
 		}
 		
 		foreach ((string stat, string formula) in _formulas)
@@ -60,10 +67,19 @@ public class PlayerStats
 		OnUpdated();
 	}
 
-	public float GetStat(string stat) => _stats[stat];
+	public float GetStat(string stat) => _stats[stat].Value;
 	public void SetStat(string stat, float value)
 	{
-		_stats[stat] = value;
+		if (!_stats.ContainsKey(stat))
+			_stats[stat] = new();
+
+		if (value < _stats[stat].Min)
+			_stats[stat].Value = _stats[stat].Min;
+		else if (value > _stats[stat].Max)
+			_stats[stat].Value = _stats[stat].Max;
+		else
+			_stats[stat].Value = value;
+		
 		TaggedValue.UpdateAll(stat, value);
 		
 		OnUpdated();
@@ -81,7 +97,7 @@ public class PlayerStats
 	}
 	public bool HasFlag(Flag flag)
 	{
-		return _stats.ContainsKey(flag.Type) && Utils.Compare(_stats[flag.Type], flag.CompareTo, flag.Comparison)
+		return _stats.ContainsKey(flag.Type) && Utils.Compare(_stats[flag.Type].Value, flag.CompareTo, flag.Comparison)
 		       ||
 		       _flags.ContainsKey(flag.Type) && Utils.Compare(_flags[flag.Type], flag.CompareTo, flag.Comparison);
 	}

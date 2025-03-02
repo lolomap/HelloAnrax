@@ -48,7 +48,26 @@ public class Option
         foreach (Flag limitation in limitations)
         {
             result = result && GameManager.PlayerStats.HasFlag(limitation);
-                     //GameManager.PlayerStats.GetFlag(limitation.Type) >= limitation.Value;
+        }
+
+        return result;
+    }
+    
+    public bool IsAvailable(out List<Flag> blockedFlags)
+    {
+        bool result = true;
+        List<Flag> limitations = Limits;
+        blockedFlags = new();
+        
+        if (limitations == null) return true;
+        
+        foreach (Flag limitation in limitations)
+        {
+            if (!GameManager.PlayerStats.HasFlag(limitation))
+            {
+                blockedFlags.Add(limitation);
+                result = false;
+            }
         }
 
         return result;
@@ -92,7 +111,7 @@ public class GameEvent
 
     public bool IsAvailable()
     {
-        return Limits == null || Limits.Any(limitation => GameManager.PlayerStats.HasFlag(limitation));
+        return Limits == null || Limits.All(limitation => GameManager.PlayerStats.HasFlag(limitation));
     }
     
     public void CheckLimits()

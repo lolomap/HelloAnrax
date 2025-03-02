@@ -34,13 +34,24 @@ public class EventStorage
         _winEvents = LoadFile("WinEvents");
     }
 
+    public void Load(List<GameEvent> events, List<GameEvent> timedEvents,
+        List<GameEvent> failEvents, List<GameEvent> winEvents)
+    {
+        _eventQueue = new();
+        
+        _events = events;
+        _timedEvents = timedEvents;
+        _failEvents = failEvents;
+        _winEvents = winEvents;
+    }
+
     public void Init()
     {
         foreach (GameEvent gameEvent in _events)
         {
             gameEvent.EnableDynamicChecking();
         }
-        // No dynamic checks for fail events (they use another queue)
+        // No dynamic checks for win/fail events (they use another queue)
         // No dynamic checks for timed events (they use another queue)
         
         // Add to initial queue only available events
@@ -74,6 +85,13 @@ public class EventStorage
         if (!_events.Contains(gameEvent)) throw new ArgumentException("Try to dequeue unknown event");
 
         _eventQueue.Remove(gameEvent);
+    }
+
+    public List<GameEvent> GetQueue()
+    {
+        List<GameEvent> res = new();
+        res.AddRange(_eventQueue);
+        return res;
     }
     
     public GameEvent GetNext()
