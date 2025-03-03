@@ -46,7 +46,9 @@ namespace UI
 				
 				case decimal:
 				case float:
-					if (_slider != null) _slider.Set(Convert.ToSingle(value));
+					if (_slider != null)
+						_slider.Set(Convert.ToSingle(value),
+							uiTag.StartsWith("HIGHLIGHT_") ? GameManager.Instance.UI.AnimationDelaySec : 0);
 					if (_segmentBar != null) _segmentBar.Set(Convert.ToInt32(value));
 					break;
 			

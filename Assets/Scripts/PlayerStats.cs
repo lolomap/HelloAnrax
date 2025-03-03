@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using Newtonsoft.Json;
 using UI;
 using UnityEngine;
@@ -57,7 +58,9 @@ public class PlayerStats
 		foreach ((string stat, string formula) in _formulas)
 		{
 			float value = Convert.ToSingle(Utils.Evaluator.Evaluate(formula, variables));
+			
 			SetStat(stat, value);
+			
 			if (!variables.ContainsKey(stat))
 			{
 				variables[stat] = (decimal) value;

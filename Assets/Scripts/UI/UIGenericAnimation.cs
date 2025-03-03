@@ -36,14 +36,10 @@ namespace UI
 		
 		public void ButtonScale()
 		{
-			if (_isBusy) return;
-
-			_isBusy = true;
 			DOTween.Sequence()
 				.Append(_rectTransform.DOScale(GameManager.Instance.UI.AnimationScale,
-					GameManager.Instance.UI.AnimationDuration))
-				.Append(_rectTransform.DOScale(1f, GameManager.Instance.UI.AnimationDuration))
-				.AppendCallback(() => { _isBusy = false; });
+					GameManager.Instance.UI.AnimationDurationSec))
+				.Append(_rectTransform.DOScale(1f, GameManager.Instance.UI.AnimationDurationSec));
 		}
 
 		public void ButtonShake()
@@ -52,7 +48,7 @@ namespace UI
 
 			_isBusy = true;
 			DOTween.Sequence()
-				.Append(_rectTransform.DOShakePosition(GameManager.Instance.UI.AnimationDuration,
+				.Append(_rectTransform.DOShakePosition(GameManager.Instance.UI.AnimationDurationSec,
                         					GameManager.Instance.UI.AnimationShakeStrength))
 				.AppendCallback(() => { _isBusy = false; });
 		}

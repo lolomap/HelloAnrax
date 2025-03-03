@@ -24,12 +24,13 @@ namespace UI
 			_lastValue = _slider.value;
 		}
 
-		public void Set(float value)
+		public void Set(float value, float animationDelay = 0)
 		{
 			_slider.value = _lastValue;
 			float segDuration = Duration / 3f;
 
 			DOTween.Sequence()
+				.AppendInterval(animationDelay)
 				.Append(_rectTransform.DOScale(1.2f, segDuration))
 				.Append(DOTween.To(() => _slider.value, (x) => _slider.value = x, value, segDuration))
 				.Append(_rectTransform.DOScale(1, segDuration));

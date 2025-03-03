@@ -1,6 +1,7 @@
 using System;
 using UI;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(fileName = "EditorUtilities/GameManager", menuName = "Game/Manager")]
 public class GameManager : ScriptableObject
@@ -56,10 +57,11 @@ public class GameManager : ScriptableObject
 [Serializable]
 public struct UISettings
 {
-	public float AnimationDuration;
+	public float AnimationDurationSec;
 	public float AnimationScale;
 	public float AnimationShakeStrength;
-
+	public float AnimationDelaySec;
+	
 	public float PopUpDuration;
 }
 
