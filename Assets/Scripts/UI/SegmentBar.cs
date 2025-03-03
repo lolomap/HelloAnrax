@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace UI
 {
-	[ExecuteAlways]
+	[ExecuteInEditMode]
 	public class SegmentBar : MonoBehaviour
 	{
 		// Max value for MaxValue
