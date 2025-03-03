@@ -189,6 +189,9 @@
 			{
 				"Title": "Увеличить льготы ветеранам"
 			}
+		],
+		"Limits": [
+			{"Type": "=== HIDDEN ==="}
 		]
 	},
 
@@ -938,7 +941,7 @@
 					{"Type": "NeutralLoyalty", "Value": 5}
 				],
 				"Flags": [
-					{"Type":  "DiosisMiners2"}
+					{"Type":  "DiosisMiners2", "Value": 1}
 				]
 			},
 			{
@@ -947,7 +950,7 @@
 					{"Type": "NeutralLoyalty", "Value": -5}
 				],
 				"Flags": [
-					{"Type":  "DiosisMiners2"}
+					{"Type":  "DiosisMiners2", "Value": 1}
 				]
 			}
 		]
@@ -1121,7 +1124,7 @@
 					{"Type": "NeutralLoyalty", "Value": 10}
 				],
 				"Flags": [
-					{"Type": "ScernaExplosion"}
+					{"Type": "ScenraExplosion1", "Value": 1}
 				]
 			},
 			{
@@ -1131,7 +1134,7 @@
 					{"Type": "NeutralLoyalty", "Value": -10}
 				],
 				"Flags": [
-					{"Type": "ScernaExplosion"}
+					{"Type": "ScenraExplosion2", "Value": 1}
 				]
 			}
 		]
@@ -1141,7 +1144,7 @@
 		"Description": "Стало известно, что химическое предприятие в Сценре принадлежало видному чиновнику симпатизирующего фракции федералистов",
 		"Category": "Emergency",
 		"Limits": [
-			{"Type": "ScernaExplosion"}
+			{"Type": "ScenraExplosion1"}
 		],
 		"Options": [
 			{
@@ -1171,7 +1174,7 @@
 		"Description": "Взрыв на Химкомбинате повлек за собой катастрофическое увеличение концентрации вредных соединенией в атмосфере, что ставит под угрозу жизнь и здоровье местных жителей!",
 		"Category": "Emergency",
 		"Limits": [
-			{"Type":  "ScernaExplosion"}
+			{"Type":  "ScenraExplosion2"}
 		],
 		"IsTrigger": true,
 		"Options": [
