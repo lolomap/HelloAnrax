@@ -18,5 +18,5 @@ MonoBehaviour:
     AnimationDurationSec: 0.3
     AnimationScale: 1.2
     AnimationShakeStrength: 100
-    AnimationDelaySec: 1
+    AnimationDelaySec: 0.5
     PopUpDuration: 0.5
