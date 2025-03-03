@@ -488,8 +488,8 @@
 			{
 				"Title": "Сосредоточимся на привлечении инвестиций из-за рубежа",
 				"Modifiers": [
-					{"Type": "DemocratLoyalty", "Value": 10},
-					{"Type":  "DemocratPower", "Value":  10},
+					{"Type": "DemocratsLoyalty", "Value": 10},
+					{"Type": "DemocratsPower", "Value":  10},
 					{"Type": "NationalistsLoyalty", "Value":  -10}
 				]
 			},
@@ -521,7 +521,7 @@
 					{"Type": "FederationistsLoyalty", "Value": -8},
 					{"Type": "DemocratsLoyalty", "Value": -8},
 					{"Type": "NationalistsLoyalty", "Value": -8},
-					{"Type": "NeutralPower", "Value": -5}
+					{"Type": "NeutralLoyalty", "Value": -5}
 				]
 			}
 		]
