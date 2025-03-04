@@ -31,6 +31,7 @@ Material:
     m_Floats:
     - _TintForce: 1
     m_Colors:
-    - _SelectedColor: {r: 0.7254902, g: 0.7019608, b: 0.34509805, a: 1}
+    - _SelectedColor: {r: 0.72156864, g: 0.7058824, b: 0.6862745, a: 1}
     - _SelectionTint: {r: 1, g: 0, b: 0.009994984, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1

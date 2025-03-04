@@ -14,6 +14,8 @@ namespace UI
 		private void Awake()
 		{
 			_text = GetComponent<TMP_Text>();
+			
+			
 		}
 
 		public void OnPointerClick(PointerEventData eventData)
