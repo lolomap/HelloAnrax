@@ -38,11 +38,9 @@ namespace UI
 	}
 
 	[RequireComponent(typeof(RectTransform))]
-	[RequireComponent(typeof(AudioSource))]
 	public class RoundList : MonoBehaviour
 	{
 		private RectTransform _rectTransform;
-		private AudioSource _audioSource;
 
 		private RoundListElement _selectedElement;
 		
@@ -71,8 +69,6 @@ namespace UI
 		public float ExtraRadius;
 
 		public float AdjustSpeed;
-
-		public AudioClip ScrollSound;
 		
 		private float _radius;
 		private float _elementStartAngle;
@@ -83,7 +79,6 @@ namespace UI
 		private void Awake()
 		{
 			_rectTransform = GetComponent<RectTransform>();
-			_audioSource = GetComponent<AudioSource>();
 			
 			StartCoroutine(WaitUntilEndOfFrame());
 		}
@@ -94,9 +89,6 @@ namespace UI
 		{
 			if (_isAdjusting) return;
 
-			if (!_audioSource.isPlaying)
-				_audioSource.PlayOneShot(ScrollSound);
-			
 			Touch touch = Input.GetTouch(0);
 			float angle = Vector2.SignedAngle(Vector2.up, Camera.main!.ScreenToWorldPoint(touch.position));
 			if (angle < 0) angle = 360 + angle;
@@ -173,9 +165,6 @@ namespace UI
 			
 			while (Vector2.Angle(_elements[id].RTransform.localPosition, Vector2.up) > AdjustSpeed * Time.deltaTime)
 			{
-				if (!_audioSource.isPlaying)
-					_audioSource.PlayOneShot(ScrollSound);
-				
 				foreach (RoundListElement element in _elements)
 				{
 					element.RTransform.transform.RotateAround(transform.position, direction,

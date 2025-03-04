@@ -32,20 +32,18 @@ public class BuildVersionProcesor : IPreprocessBuildWithReport
                 PlayerSettings.PS4.appVersion = IncrementBuildNumber(PlayerSettings.PS4.appVersion);
                 buildScriptableObject.BuildNumber = PlayerSettings.PS4.appVersion;
                 break;
-            case BuildTarget.XboxOne:
-                PlayerSettings.XboxOne.Version = IncrementBuildNumber(PlayerSettings.XboxOne.Version);
-                buildScriptableObject.BuildNumber = PlayerSettings.XboxOne.Version;
-                break;
             case BuildTarget.WSAPlayer:
                 PlayerSettings.WSA.packageVersion = new(PlayerSettings.WSA.packageVersion.Major, PlayerSettings.WSA.packageVersion.Minor, PlayerSettings.WSA.packageVersion.Build + 1);
                 buildScriptableObject.BuildNumber = PlayerSettings.WSA.packageVersion.Build.ToString();
                 break;
+                /*
             case BuildTarget.Switch:
                 PlayerSettings.Switch.displayVersion = IncrementBuildNumber(PlayerSettings.Switch.displayVersion);
                 PlayerSettings.Switch.releaseVersion = IncrementBuildNumber(PlayerSettings.Switch.releaseVersion);
                 // which one to use?
                 buildScriptableObject.BuildNumber = PlayerSettings.Switch.displayVersion;
                 break;
+                */
             case BuildTarget.tvOS:
                 PlayerSettings.tvOS.buildNumber = IncrementBuildNumber(PlayerSettings.tvOS.buildNumber);
                 buildScriptableObject.BuildNumber = PlayerSettings.tvOS.buildNumber;

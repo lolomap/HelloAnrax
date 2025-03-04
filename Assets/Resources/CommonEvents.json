@@ -1868,11 +1868,7 @@
 				"Title": "Блюстители капитала развязали эту войну и распродали наше государство, вот кто за всем стоит, олигархи ответят сполна!",
 				"Modifiers": [
 					{"Type": "DemocratsLoyalty", "Value": -10},
-					{"Type": "NeutralLoyalty", "Value": 10},
-					{"Type": "", "Value": 0},
-					{"Type": "", "Value": 0},
-					{"Type": "", "Value": 0},
-					{"Type": "", "Value": 0}
+					{"Type": "NeutralLoyalty", "Value": 10}
 				]
 			}
 		]

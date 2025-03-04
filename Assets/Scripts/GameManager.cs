@@ -48,6 +48,15 @@ public class GameManager : ScriptableObject
 		ResourceLoader.ReloadGlossary();
 	}
 
+	public static void Restart()
+	{
+		PlayerStats = new();
+		PlayerStats.Init();
+		
+		EventStorage = new();
+		EventStorage.Load();
+	}
+
 	public static string GetVersion()
 	{
 		return $"v{Application.version}.{_buildNumber}";

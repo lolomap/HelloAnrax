@@ -57,7 +57,7 @@ namespace UI
             }
             _tldrData = null;
             _tldrPosition = 0;
-
+            
             if (!_selectedOption.IsAvailable(out List<Flag> blockedFlags))
             {
                 ((OptionIcon) EventOptionsList.GetSelected()).PlayAnimation();
@@ -94,6 +94,16 @@ namespace UI
             
             GameManager.PlayerStats.CalculateFormulas();
 
+            if (GameManager.PlayerStats.HasFlag("RESTART_GAME"))
+            {
+                GameManager.Restart();
+                GameManager.EventStorage.Init();
+                Data = GameManager.EventStorage.GetNext();
+                UpdateCard();
+                GameManager.PlayerStats.UpdateUI();
+                return;
+            }
+            
             Data = (GameManager.PlayerStats.HasFlag("FAIL")
                 ? GameManager.EventStorage.GetFail()
                 : GameManager.EventStorage.GetNext()) ?? GameManager.EventStorage.GetWin();

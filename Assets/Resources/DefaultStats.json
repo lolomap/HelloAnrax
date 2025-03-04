@@ -8,7 +8,8 @@
   "FederationistsPower": {"Value": 50, "Max": 100}, 
   "DemocratsPower": {"Value": 50, "Max": 100},
   "NeutralLoyalty": {"Value": 0, "Max": 100},
-  "Power": {"Value": 40, "Max": 100},
+  "Power": {"Value": 50, "Max": 100},
+  "HIGHLIGHT_Power": {"Value": 50, "Max": 100},
   "Treasury": {"Value": 3, "Max": 5},
   
   

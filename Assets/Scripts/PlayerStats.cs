@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Threading;
 using Newtonsoft.Json;
 using UI;
 using UnityEngine;
@@ -95,8 +94,12 @@ public class PlayerStats
 	}
 	public bool HasFlag(string flag)
 	{
-		if (!_flags.ContainsKey(flag)) return false;
-		return _flags[flag] > 0;
+		if (_flags.TryGetValue(flag, out float flagValue))
+			return flagValue > 0;
+		if (_stats.TryGetValue(flag, out Stat stat))
+			return stat.Value > 0;
+
+		return false;
 	}
 	public bool HasFlag(Flag flag)
 	{
