@@ -52,9 +52,11 @@
     <Compile Include="Assets\Modern UI Pack\Editor\Scripts\ContextMenu.cs" />
     <Compile Include="Assets\Modern UI Pack\Editor\Scripts\InitMUIP.cs" />
     <Compile Include="Assets\Editor\BuildVersionProcessor.cs" />
+    <None Include="Assets\PlayServicesResolver\Editor\play-services-resolver_v1.2.137.0.txt" />
     <None Include="Assets\TMPEffects\Editor\StyleSheets\Extensions\light.uss" />
     <None Include="Assets\TMPEffects\Editor\StyleSheets\Extensions\common.uss" />
     <None Include="Assets\TMPEffects\Editor\StyleSheets\Extensions\dark.uss" />
+    <None Include="Assets\ExternalDependencyManager\Editor\external-dependency-manager_version-1.2.177_manifest.txt" />
     <Reference Include="UnityEngine">
       <HintPath>E:\Unity\6000.0.40f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
@@ -471,6 +473,21 @@
     </Reference>
     <Reference Include="Mono.Cecil">
       <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Library\PackageCache\com.unity.nuget.mono-cecil@d6f9955a5d5f\Mono.Cecil.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.PackageManagerResolver">
+      <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Assets\ExternalDependencyManager\Editor\1.2.177\Google.PackageManagerResolver.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.VersionHandlerImpl">
+      <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Assets\ExternalDependencyManager\Editor\1.2.177\Google.VersionHandlerImpl.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.JarResolver">
+      <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Assets\ExternalDependencyManager\Editor\1.2.177\Google.JarResolver.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.VersionHandler">
+      <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Assets\ExternalDependencyManager\Editor\Google.VersionHandler.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.IOSResolver">
+      <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Assets\ExternalDependencyManager\Editor\1.2.177\Google.IOSResolver.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>E:\Unity\6000.0.40f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
@@ -1106,9 +1123,17 @@
       <Project>{eb295003-311a-649e-684f-43a9c45fe7b6}</Project>
       <Name>Assembly-CSharp</Name>
     </ProjectReference>
+    <ProjectReference Include="YandexAdsEditor.csproj">
+      <Project>{1955230c-2b0d-3ee9-50ce-d9c9e6bd37c9}</Project>
+      <Name>YandexAdsEditor</Name>
+    </ProjectReference>
     <ProjectReference Include="DOTween.Modules.csproj">
       <Project>{33a81380-1631-c0db-a469-e2fa72ddcfe6}</Project>
       <Name>DOTween.Modules</Name>
+    </ProjectReference>
+    <ProjectReference Include="YandexMobileAds.csproj">
+      <Project>{10a90698-34bb-3d77-d6d9-316029c70467}</Project>
+      <Name>YandexMobileAds</Name>
     </ProjectReference>
     <ProjectReference Include="GeneralScripts.csproj">
       <Project>{6f79a9dc-1a0a-d217-a2ba-018782c88c96}</Project>

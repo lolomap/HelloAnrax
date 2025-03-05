@@ -1,7 +1,6 @@
 using System;
-using UI;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 [CreateAssetMenu(fileName = "EditorUtilities/GameManager", menuName = "Game/Manager")]
 public class GameManager : ScriptableObject
@@ -38,7 +37,10 @@ public class GameManager : ScriptableObject
 
 		//FrameRateManager = new();
 		Application.targetFrameRate = Instance.Global.FrameRateLocked;
-		
+
+		Dictionary<string, string> adIds = ResourceLoader.GetAdIds();
+		BannerAdManager.AdUnitId = adIds["banner"];
+
 		PlayerStats = new();
 		PlayerStats.Init();
 		

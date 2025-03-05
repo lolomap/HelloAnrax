@@ -19,6 +19,11 @@ public static class ResourceLoader
 		return (T)result;
 	}
 
+	public static Dictionary<string, string> GetAdIds()
+	{
+		return JsonConvert.DeserializeObject<Dictionary<string, string>>(Resources.Load<TextAsset>("AdIds").text);
+	}
+
 	public static void ReloadGlossary()
 	{
 		_glossary =

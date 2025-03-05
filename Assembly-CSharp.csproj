@@ -152,6 +152,7 @@
     <None Include="Assets\Materials\MapSelection.shader" />
     <None Include="Assets\Modern UI Pack\Read Me.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\SDFFunctions.hlsl" />
+    <None Include="Assets\Resources\AdIds.json" />
     <None Include="Assets\Resources\GlossaryLinks.json" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
@@ -163,6 +164,7 @@
     <None Include="Assets\Resources\FailEvents.json" />
     <None Include="Assets\Resources\Glossary.json" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\PlayServicesResolver\play-services-resolver_v1.2.137.0.txt" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\Resources\CommonEvents.json" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
@@ -1149,9 +1151,17 @@
       <Project>{b455f053-ce2d-0f32-0878-829fc97043ef}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
     </ProjectReference>
+    <ProjectReference Include="YandexAdsEditor.csproj">
+      <Project>{1955230c-2b0d-3ee9-50ce-d9c9e6bd37c9}</Project>
+      <Name>YandexAdsEditor</Name>
+    </ProjectReference>
     <ProjectReference Include="DOTween.Modules.csproj">
       <Project>{33a81380-1631-c0db-a469-e2fa72ddcfe6}</Project>
       <Name>DOTween.Modules</Name>
+    </ProjectReference>
+    <ProjectReference Include="YandexMobileAds.csproj">
+      <Project>{10a90698-34bb-3d77-d6d9-316029c70467}</Project>
+      <Name>YandexMobileAds</Name>
     </ProjectReference>
     <ProjectReference Include="GeneralScripts.csproj">
       <Project>{6f79a9dc-1a0a-d217-a2ba-018782c88c96}</Project>
