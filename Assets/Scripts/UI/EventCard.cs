@@ -116,9 +116,29 @@ namespace UI
         private void OnSelectOption(Option option)
         {
             if (option == null) return;
+
+            // Disable all modifiers of previous option
+            if (_selectedOption is {Modifiers: not null})
+            {
+                foreach (Modifier modifier in _selectedOption.Modifiers)
+                {
+                    TaggedValue.PreviewAll(modifier.Type,
+                        GameManager.PlayerStats.GetStat(modifier.Type) + modifier.Value);
+                }
+            }
             
             _selectedOption = option;
             EventOptionTitle.text = option.Title;
+
+            // Preview all modifiers of current option
+            if (option.Modifiers != null)
+            {
+                foreach (Modifier modifier in option.Modifiers)
+                {
+                    TaggedValue.PreviewAll(modifier.Type,
+                        GameManager.PlayerStats.GetStat(modifier.Type) + modifier.Value);
+                }
+            }
         }
 
         private void UpdateCard()

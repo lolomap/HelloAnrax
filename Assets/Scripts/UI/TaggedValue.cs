@@ -8,9 +8,12 @@ namespace UI
 	{
 		private delegate void UpdateEventHandler(string uiTag, object value);
 		private delegate void AnimateEventHandler(string uiTag, UIGenericAnimation.Animation anim);
+		private delegate void PreviewEventHandler(string uiTag, object value);
+		private delegate void ClearPreviewEventHandler();
 
 		private static event UpdateEventHandler UpdateUI;
 		private static event AnimateEventHandler Animate;
+		private static event PreviewEventHandler PreviewUI;
 		
 		public string Tag;
 
@@ -24,6 +27,7 @@ namespace UI
 		private void Awake()
 		{
 			UpdateUI += OnUpdate;
+			PreviewUI += OnPreview;
 			Animate += OnAnimate;
 
 			_animation = GetComponent<UIGenericAnimation>();
@@ -58,6 +62,14 @@ namespace UI
 			}
 		}
 
+		private void OnPreview(string uiTag, object value)
+		{
+			if (uiTag != Tag)
+				return;
+
+			if (_segmentBar != null) _segmentBar.Preview(Convert.ToInt32(value));
+		}
+
 		private void OnAnimate(string uiTag, UIGenericAnimation.Animation anim)
 		{
 			if (uiTag != Tag || _animation == null)
@@ -74,6 +86,11 @@ namespace UI
 		public static void UpdateAll(string uiTag, object value)
 		{
 			UpdateUI?.Invoke(uiTag, value);
+		}
+
+		public static void PreviewAll(string uiTag, object value)
+		{
+			PreviewUI?.Invoke(uiTag, value);
 		}
 	}
 }

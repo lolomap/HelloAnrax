@@ -149,7 +149,7 @@
     <None Include="Assets\Resources\WinEvents.json" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
-    <None Include="Assets\Materials\MapSelection.shader" />
+    <None Include="Assets\Resources\Materials\MapSelection.shader" />
     <None Include="Assets\Modern UI Pack\Read Me.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\SDFFunctions.hlsl" />
     <None Include="Assets\Resources\AdIds.json" />
@@ -172,6 +172,7 @@
     <None Include="Assets\Resources\DefaultStats.json" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+    <None Include="Assets\Resources\Materials\SimpleBlink.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne.json" />
     <None Include="Assets\Resources\StatsConfig.json" />

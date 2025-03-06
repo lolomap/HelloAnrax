@@ -32,6 +32,20 @@ namespace UI
 			}
 		}
 
+		public void Preview(int value)
+		{
+			Material blinkMat = ResourceLoader.GetResource<Material>("Materials/SimpleBlink");
+			
+			if (Value - value >= 0)
+			{
+				for (int i = Value - 1; i > value - 1 && i > 0; i--)
+				{
+					_segments[i].material = _segments[i].material != blinkMat ? blinkMat : null;
+				}
+			}
+			
+		}
+
 		private void Awake()
 		{
 			for (int i = 0; i < transform.childCount; i++)
