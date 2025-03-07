@@ -52,8 +52,13 @@ public class GameManager : ScriptableObject
 
 	public static void Restart()
 	{
+		IEnumerable<KeyValuePair<string, float>> saveGlobal = PlayerStats.GetGlobalFlags();
 		PlayerStats = new();
 		PlayerStats.Init();
+		foreach ((string flag, float value) in saveGlobal)
+		{
+			PlayerStats.SetFlag(flag, value);
+		}
 		
 		EventStorage = new();
 		EventStorage.Load();

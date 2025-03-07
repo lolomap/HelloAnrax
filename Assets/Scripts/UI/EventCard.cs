@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -35,29 +34,9 @@ namespace UI
             GameManager.PlayerStats.UpdateUI();
             TaggedValue.UpdateAll("BuildVersion", GameManager.GetVersion());
         }
-        
-        public void AcceptOption()
-        {
-            // Process long events
-            if (_tldrData != null || Data.TLDR is {Count: > 0})
-            {
-                _tldrData ??= Data;
 
-                if (_tldrPosition < _tldrData.TLDR.Count)
-                {
-                    Data = _tldrData.TLDR[_tldrPosition];
-                    if (Data.Title == "")
-                        Data.Title = _tldrData.Title;
-                    _selectedOption = null;
-                    UpdateCard();
-                    
-                    _tldrPosition++;
-                    return;
-                }
-            }
-            _tldrData = null;
-            _tldrPosition = 0;
-            
+        private void ProcessOption()
+        {
             if (!_selectedOption.IsAvailable(out List<Flag> blockedFlags))
             {
                 ((OptionIcon) EventOptionsList.GetSelected()).PlayAnimation();
@@ -78,7 +57,7 @@ namespace UI
                     if (modifier.Limit == null || GameManager.PlayerStats.HasFlag(modifier.Limit))
                     {
                         GameManager.PlayerStats.SetStat(modifier.Type,
-                        GameManager.PlayerStats.GetStat(modifier.Type) + modifier.Value);
+                            GameManager.PlayerStats.GetStat(modifier.Type) + modifier.Value);
                     }
                 }
             }
@@ -92,8 +71,6 @@ namespace UI
                 }
             }
             
-            GameManager.PlayerStats.CalculateFormulas();
-
             if (GameManager.PlayerStats.HasFlag("RESTART_GAME"))
             {
                 GameManager.Restart();
@@ -103,6 +80,35 @@ namespace UI
                 GameManager.PlayerStats.UpdateUI();
                 return;
             }
+        }
+        
+        public void AcceptOption()
+        {
+            // Process long events
+            if (_tldrData != null || Data.TLDR is {Count: > 0})
+            {
+                _tldrData ??= Data;
+
+                if (_tldrPosition < _tldrData.TLDR.Count)
+                {
+                    ProcessOption();
+                    
+                    Data = _tldrData.TLDR[_tldrPosition];
+                    if (Data.Title == "")
+                        Data.Title = _tldrData.Title;
+                    _selectedOption = null;
+                    UpdateCard();
+                    
+                    _tldrPosition++;
+                    return;
+                }
+            }
+            _tldrData = null;
+            _tldrPosition = 0;
+            
+            ProcessOption();
+            
+            GameManager.PlayerStats.CalculateFormulas();
             
             Data = (GameManager.PlayerStats.HasFlag("FAIL")
                 ? GameManager.EventStorage.GetFail()

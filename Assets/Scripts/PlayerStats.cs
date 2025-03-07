@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Newtonsoft.Json;
 using UI;
 using UnityEngine;
@@ -69,6 +70,11 @@ public class PlayerStats
 		OnUpdated();
 	}
 
+	public IEnumerable<KeyValuePair<string,float>> GetGlobalFlags()
+	{
+		return _flags.Where(x => x.Key.StartsWith("GLOBAL_"));
+	}
+	
 	public float GetStat(string stat) => _stats[stat].Value;
 	public void SetStat(string stat, float value)
 	{

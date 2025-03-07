@@ -45,7 +45,7 @@ public static class ResourceLoader
 		{
 			foreach ((string regexp, string style) in _glossaryLinks)
 			{
-				Regex regex = new(regexp);
+				Regex regex = new(regexp, RegexOptions.IgnoreCase);
 					
 				MatchCollection matches = regex.Matches(gameEvent.Description);
 				foreach (Match match in matches)
