@@ -403,7 +403,7 @@
 				"Title": "Парочка отстранений СБАшников их припугнет",
 				"Modifiers": [
 					{"Type": "FederationistsLoyalty", "Value": -10},
-					{"Type": "FederationPower", "Value": -15}
+					{"Type": "FederationistsPower", "Value": -15}
 				]
 			}
 		]
@@ -456,7 +456,7 @@
 				"Title": "Как вы смеете говорить в таком тоне? Идите прочь!",
 				"Modifiers": [
 					{"Type": "FederationistsLoyalty", "Value": -15},
-					{"Type": "FederationPower", "Value": 5},
+					{"Type": "FederationistsPower", "Value": 5},
 					{"Type": "DemocratsLoyalty", "Value": 15},
 					{"Type": "NationalistsLoyalty", "Value": 15}
 				]
@@ -464,8 +464,8 @@
 			{
 				"Title": "... (*промолчать*)",
 				"Modifiers": [
-					{"Type": "FederationLoyalty", "Value": -10},
-					{"Type": "FederationPower", "Value": 5}
+					{"Type": "FederationistsLoyalty", "Value": -10},
+					{"Type": "FederationistsPower", "Value": 5}
 				]
 			}
 		]

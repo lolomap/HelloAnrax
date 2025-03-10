@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Tests\FormulasTests.cs" />
+    <Compile Include="Assets\Tests\Analytics.cs" />
     <Compile Include="Assets\Tests\EventsTests.cs" />
     <None Include="Assets\Tests\Tests.asmdef" />
     <Reference Include="UnityEngine">
