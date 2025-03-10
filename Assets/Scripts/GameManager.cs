@@ -31,6 +31,7 @@ public class GameManager : ScriptableObject
 	[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
 	private static void ReloadGame()
 	{
+		ResourceLoader.ClearResources();
 		Instance = Resources.Load<GameManager>("EditorUtilities/GameManager");
 
 		_buildNumber = ResourceLoader.GetResource<BuildScriptableObject>("EditorUtilities/Build").BuildNumber;

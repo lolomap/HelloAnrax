@@ -10,6 +10,11 @@ public static class ResourceLoader
 	private static Dictionary<string, string> _glossary = new();
 	private static Dictionary<string, string> _glossaryLinks = new();
 
+	public static void ClearResources()
+	{
+		_resources.Clear();
+	}
+	
 	public static T GetResource<T>(string path, bool force = false) where T : Object
 	{
 		if (!force && _resources.TryGetValue(path, out Object result)) return (T)result;

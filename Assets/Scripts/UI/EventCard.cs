@@ -110,9 +110,11 @@ namespace UI
             
             GameManager.PlayerStats.CalculateFormulas();
             
-            Data = (GameManager.PlayerStats.HasFlag("FAIL")
-                ? GameManager.EventStorage.GetFail()
-                : GameManager.EventStorage.GetNext()) ?? GameManager.EventStorage.GetWin();
+            Data = (
+                    GameManager.PlayerStats.HasFlag("FAIL")
+                    ? GameManager.EventStorage.GetFail()
+                    : GameManager.EventStorage.GetNext()
+                ) ?? GameManager.EventStorage.GetWin();
 
             _selectedOption = null;
             
