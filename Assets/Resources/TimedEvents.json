@@ -51,7 +51,7 @@
 				]
 			},
 			{
-				"Description": "Дальше шкала отношения к тебе твоего народа. Если она будет низкой, тебя могут ждать народные бунты, подрывающие твою власть.",
+				"Description": "Дальше шкала отношения к тебе твоего народа. Если она будет низкой, тебя могут ждать народные бунты, подрывающие твою власть или даже революция.",
 				"Options": [
 					{
 						"Title": "Всем за мой счет!",
@@ -105,6 +105,161 @@
 			}
 		]
 	},
+	
+	{
+		"Title": "Секретарша:",
+		"Description": "Сегодня у вас назначана встреча с министрами, они подготовили для вас доклады по состоянию Анракса. Кого вы пригласите первым?",
+		"TurnPosition": 1,
+		
+		"Options": [
+			{
+				"Title": "Служба Безопасности",
+				"Flags": [{"Type": "StartInfoSecurity", "Value": 1}]
+			},
+			{
+				"Title": "Министерство Труда",
+				"Flags": [{"Type": "StartInfoWork", "Value": 1}]
+			},
+			{
+				"Title": "Министерство Экономики",
+				"Flags": [{"Type": "StartInfoEconomics", "Value": 1}]
+			},
+			{
+				"Title": "Министерство Иностранных Дел",
+				"Flags": [{"Type": "StartInfoInternational", "Value": 1}]
+			}
+		]
+	},
+	{
+		"Title": "СБА, Мих Солтон:",
+		"Description": "Докладываю господин президент, ситуация в стране продолжает оставаться напряженной, правоохранительные органы слабы и страдают от нехватки финансирования, что приводит к расцвету коррупции. Отдаленные уголки страны больше всего страдают от беззакония местных авторитетов. Я жду от вас принятия смелых и результативных решений, вместе мы восстановим в стране порядок.",
+		
+		"Limits": [{"Type": "StartInfoSecurity"}],
+		"IsTrigger": true,
+		
+		"Options": [
+			{
+				"Title": "Служба Безопасности",
+				"Flags": [{"Type": "StartInfoSecurity", "Value": 1}],
+				"Limits": [{"Type": "StartInfoSecurity", "CompareTo": 0, "Comparison": "LtE"}]
+			},
+			{
+				"Title": "Министерство Труда",
+				"Flags": [{"Type": "StartInfoWork", "Value": 1}],
+				"Limits": [{"Type": "StartInfoWork", "CompareTo": 0, "Comparison": "LtE"}]
+			},
+			{
+				"Title": "Министерство Экономики",
+				"Flags": [{"Type": "StartInfoEconomics", "Value": 1}],
+				"Limits": [{"Type": "StartInfoEconomics", "CompareTo": 0, "Comparison": "LtE"}]
+			},
+			{
+				"Title": "Министерство Иностранных Дел",
+				"Flags": [{"Type": "StartInfoInternational", "Value": 1}],
+				"Limits": [{"Type": "StartInfoInternational", "CompareTo": 0, "Comparison": "LtE"}]
+			}
+		]
+	},
+	{
+		"Title": "МинТруда, Эрмий Рауль:",
+		"Description": "Господин президент, социальная обстановка в стране катастрофическая, огромное количество граджан находятся на грани бедствия. Элементарные товары потребления стали менее доступны, а из самых бедных регионов пропали вовсе. В государстве процветает безработица, многие предприятия разрушены после войны гражданской и войны с коалицией. Народ ждет от вас расширение социальных программ и организацию государственной помощи в поиске работы.",
+
+		"Limits": [{"Type": "StartInfoWork"}],
+		"IsTrigger": true,
+
+		"Options": [
+			{
+				"Title": "Служба Безопасности",
+				"Flags": [{"Type": "StartInfoSecurity", "Value": 1}],
+				"Limits": [{"Type": "StartInfoSecurity", "CompareTo": 0, "Comparison": "LtE"}]
+			},
+			{
+				"Title": "Министерство Труда",
+				"Flags": [{"Type": "StartInfoWork", "Value": 1}],
+				"Limits": [{"Type": "StartInfoWork", "CompareTo": 0, "Comparison": "LtE"}]
+			},
+			{
+				"Title": "Министерство Экономики",
+				"Flags": [{"Type": "StartInfoEconomics", "Value": 1}],
+				"Limits": [{"Type": "StartInfoEconomics", "CompareTo": 0, "Comparison": "LtE"}]
+			},
+			{
+				"Title": "Министерство Иностранных Дел",
+				"Flags": [{"Type": "StartInfoInternational", "Value": 1}],
+				"Limits": [{"Type": "StartInfoInternational", "CompareTo": 0, "Comparison": "LtE"}]
+			}
+		]
+	},
+	{
+		"Title": "МинЭкономики, Алло Монтье:",
+		"Description": "Господин президент, разрешите доложить, что мы на грани краха! Анракс не в состоянии исполнять свои бюджетные обязательства в нынешних условиях. Практически все программы предложенные временным правительством необходимо отменить, несмотря на непопулярность подобных решений. Несмотря на шаткое положение, правительство готово сделать всё возможное для стабилизации обстановки в стране.",
+
+		"Limits": [{"Type": "StartInfoEconomics"}],
+		"IsTrigger": true,
+
+		"Options": [
+			{
+				"Title": "Служба Безопасности",
+				"Flags": [{"Type": "StartInfoSecurity", "Value": 1}],
+				"Limits": [{"Type": "StartInfoSecurity", "CompareTo": 0, "Comparison": "LtE"}]
+			},
+			{
+				"Title": "Министерство Труда",
+				"Flags": [{"Type": "StartInfoWork", "Value": 1}],
+				"Limits": [{"Type": "StartInfoWork", "CompareTo": 0, "Comparison": "LtE"}]
+			},
+			{
+				"Title": "Министерство Экономики",
+				"Flags": [{"Type": "StartInfoEconomics", "Value": 1}],
+				"Limits": [{"Type": "StartInfoEconomics", "CompareTo": 0, "Comparison": "LtE"}]
+			},
+			{
+				"Title": "Министерство Иностранных Дел",
+				"Flags": [{"Type": "StartInfoInternational", "Value": 1}],
+				"Limits": [{"Type": "StartInfoInternational", "CompareTo": 0, "Comparison": "LtE"}]
+			}
+		]
+	},
+	{
+		"Title": "МИД, Клеон Хьюз:",
+		"Description": "Приетствую, Господин президент! Довожу до вашего сведения, что на побережье страны попрежнему остаются войска Этредийского Содружества. К тому же они продолжают попеременно игнорировать интересы Анракса, находясь в поиске вариантов извлечения выгоды из нашей страны. Одной из крупнейших угроз национальной безопасности остается Империя Имени Дукса, которая уже аннексировала территории Кулиштии и часть Террапильи. С НДРО и Террапильей удалось установить дружественные отношения по окончании гражданской войны, в то время как Нерия была насильно включена в состав МСАС и более не является независимым субъектом.",
+
+		"Limits": [{"Type": "StartInfoInternational"}],
+		"IsTrigger": true,
+
+		"Options": [
+			{
+				"Title": "Служба Безопасности",
+				"Flags": [{"Type": "StartInfoSecurity", "Value": 1}],
+				"Limits": [{"Type": "StartInfoSecurity", "CompareTo": 0, "Comparison": "LtE"}]
+			},
+			{
+				"Title": "Министерство Труда",
+				"Flags": [{"Type": "StartInfoWork", "Value": 1}],
+				"Limits": [{"Type": "StartInfoWork", "CompareTo": 0, "Comparison": "LtE"}]
+			},
+			{
+				"Title": "Министерство Экономики",
+				"Flags": [{"Type": "StartInfoEconomics", "Value": 1}],
+				"Limits": [{"Type": "StartInfoEconomics", "CompareTo": 0, "Comparison": "LtE"}]
+			},
+			{
+				"Title": "Министерство Иностранных Дел",
+				"Flags": [{"Type": "StartInfoInternational", "Value": 1}],
+				"Limits": [{"Type": "StartInfoInternational", "CompareTo": 0, "Comparison": "LtE"}]
+			}
+		]
+	},
+	{
+		"Title": "Секретарша:",
+		"Description": "Господин президент, вы наверное устали от такого обилия дел и приёмов. Я сделала вам кофе.",
+		"Limits": [
+			{"Type": "StartInfoEconomics"},
+			{"Type": "StartInfoSecurity"}
+		],
+		"IsTrigger": true
+	},
+	
 	{
 		"Title": "Выбор главы правительства",
 		"Description": "Господин президент, поскольку фракции в парламенте имеют равную силу, именно за вами остаётся решающее право голоса - кто встанет на должность главы правительства",
@@ -154,6 +309,280 @@
 		]
 	},
 
+	{
+		"Title": "СБА, Мих Солтон:",
+		"Description": "Господин президент, я, как директор службы безопасности, по долгу службы обязан присматриваться к людям и делать выводы. Не сочтите за грубость, но, я считаю ваше решение о назначении премьер-министра весьма опрометчивым.",
+		"Type": "Appointment",
+		"TurnPosition": 8,
+
+		"Options": [
+			{
+				"Title": "Это не вам решать",
+				"Modifiers": [
+					{"Type": "FederationistsLoyalty", "Value": -15}
+				]
+			},
+			{
+				"Title": "В ваших словах есть смысл",
+				"Modifiers": [
+					{"Type": "FederationistsLoyalty", "Value": 10},
+					{"Type": "NationalistsLoyalty", "Value": -15, "Limit": {"Type": "PM_Nationalists"}},
+					{"Type": "DemocratsLoyalty", "Value": -15, "Limit": {"Type": "PM_Democrats"}}
+				]
+			}
+		]
+	},
+
+	{
+		"Title": "МинЭкономики, Алло Монтье:",
+		"Description": "Господин президент, между мной и главой внешней разведки возник серьёзный конфликт. Он клеймит всех наших партнёров агентами ОСНБ! Это мешает экономическому развитию!  Что вы на это скажете?",
+		"Type": "Default",
+		"TurnPosition": 17,
+
+		"Options": [
+			{
+				"Title": "Поддержать Министерство Экономического Развития",
+				"Modifiers": [
+					{"Type": "DemocratsLoyalty", "Value": 15},
+					{"Type": "NationalistsPower", "Value": -15}
+				]
+			},
+			{
+				"Title": "Поддержать Службу Внешней Разведки",
+				"Modifiers": [
+					{"Type": "DemocratsPower", "Value": -15},
+					{"Type": "NationalistsLoyalty", "Value": 15}
+				]
+			}
+		]
+	},
+
+	{
+		"Title": "МВД, Кендри Роллерн:",
+		"Description": "Господин президент, может быть это не моё дело, однако, с вашего позволения, доложу. Гхм-гхм. В государственной думе распространяются слухи о вашей некомпетентности в вопросах управления государством. К сожалению, установить личность источника этих идей пока не удалось. Что вы об этом думаете?",
+		"Type": "Default",
+		"TurnPosition": 26,
+
+		"Options": [
+			{
+				"Title": "Пустая говорильня",
+				"Modifiers": [
+					{"Type": "FederationistsPower", "Value": 5},
+					{"Type": "NationalistsPower", "Value": 5},
+					{"Type": "DemocratsPower", "Value": 5},
+					{"Type": "FederationistsLoyalty", "Value": -5},
+					{"Type": "NationalistsLoyalty", "Value": -5},
+					{"Type": "DemocratsLoyalty", "Value": -5}
+				]
+			},
+			{
+				"Title": "Пусть выступят открыто!",
+				"Modifiers": [
+					{"Type": "FederationistsLoyalty", "Value": -5},
+					{"Type": "NationalistsLoyalty", "Value": -5},
+					{"Type": "DemocratsLoyalty", "Value": -5}
+				]
+			}
+		]
+	},
+
+	{
+		"Title": "Премьер-министр:",
+		"Description": "Господин президент, Служба Безопасности завела очередное уголовное дело на генерального директора гос-телеканала «ANT». Это уже далеко не первое дело, причём все они против тех, кто поддержал вашу кандидатуру на выборах.",
+		"Type": "Court",
+		"TurnPosition": 35,
+
+		"Options": [
+			{
+				"Title": "Просто совпадение",
+				"Modifiers": [
+					{"Type": "FederationistsPower", "Value": 10}
+				]
+			},
+			{
+				"Title": "Парочка отстранений СБАшников их припугнет",
+				"Modifiers": [
+					{"Type": "FederationistsLoyalty", "Value": -10},
+					{"Type": "FederationPower", "Value": -15}
+				]
+			}
+		]
+	},
+
+	{
+		"Title": "СБА, Мих Солтон:",
+		"Description": "Господин президент, докладываю. Служба Безопасности собрала некоторые данные, компромитирующие премьер-министра и уличила его в финансовых махинациях. Что следует предпринять в первую очередь?",
+		"Type": "Appointment",
+		"TurnPosition": 44,
+
+		"Options": [
+			{
+				"Title": "Я ручаюсь за своих подчиненных. У них не найдется прямых доказательств",
+				"Modifiers": [
+					{"Type": "FederationistsLoyalty", "Value": -10},
+					{"Type": "FederationistsPower", "Value": 10},
+					{"Type": "NeutralLoyalty", "Value": -10},
+					{"Type": "DemocratsLoyalty", "Value": 10, "Limit": {"Type": "PM_Democrats"}},
+					{"Type": "NationalistsLoyalty", "Value": 10, "Limit": {"Type": "PM_Nationalists"}}
+				]
+			},
+			{
+				"Title": "Премьеру нужен лучший адвокат, свяжитесь с Генри Вудмаером.",
+				"Modifiers": [
+					{"Type": "FederationistsPower", "Value": 5},
+					{"Type": "NeutralLoyalty", "Value": -10},
+					{"Type": "DemocratsLoyalty", "Value": 10, "Limit": {"Type": "PM_Democrats"}},
+					{"Type": "NationalistsLoyalty", "Value": 10, "Limit": {"Type": "PM_Nationalists"}}
+				]
+			}
+		]
+	},
+
+	{
+		"Title": "СБА, Мих Солтон:",
+		"Description": "Господин президент, наверное вы уже слышали о том, что о вас думают некоторые представители парламента, не так ли? Как директор Службы Безопасности, несущий ответственность за ваше положение, хочу дать вам совет: постарайтесь оправдать ожидания, возложенные на вас аппаратом правления, иначе могут быть серьёзные проблемы.",
+		"Type": "Court",
+		"TurnPosition": 49,
+
+		"Options": [
+			{
+				"Title": "Я вас услышал",
+				"Modifiers": [
+					{"Type": "FederationistsLoyalty", "Value": -10},
+					{"Type": "FederationistsPower", "Value": 5}
+				]
+			},
+			{
+				"Title": "Как вы смеете говорить в таком тоне? Идите прочь!",
+				"Modifiers": [
+					{"Type": "FederationistsLoyalty", "Value": -15},
+					{"Type": "FederationPower", "Value": 5},
+					{"Type": "DemocratsLoyalty", "Value": 15},
+					{"Type": "NationalistsLoyalty", "Value": 15}
+				]
+			},
+			{
+				"Title": "... (*промолчать*)",
+				"Modifiers": [
+					{"Type": "FederationLoyalty", "Value": -10},
+					{"Type": "FederationPower", "Value": 5}
+				]
+			}
+		]
+	},
+
+	{
+		"Title": "Побережье оккупировано",
+		"Description": "После интервенции войск содружества на территорию бывшего ФШКБ, не все они покинули места своей дислокации. По сей день побережье нашей страны и крупнейший портовый город Дабрег остаются не под нашим контролем.",
+		"Category": "War",
+		"Limits": [
+			{"Type": "TURN", "Value": 5},
+			{"Type": "SouthIsFree", "CompareTo": 0, "Comparison": "LtE"}
+		],
+		"IsTrigger": true,
+		"Options": [
+			{
+				"Title": "Выразить ноту протеста ОсНБ и Сибурленду с требованием покинуть территорию Анракса",
+				"Modifiers": [
+					{"Type": "NationalistsLoyalty", "Value": 10},
+					{"Type": "FederationistsLoyalty", "Value": 10}
+				],
+				"Flags": [
+					{"Type": "CoastQuestion", "Value": 1}
+				]
+			},
+			{
+				"Title": "Инициировать переговоры с ОсНБ и Сибурлендом для обсуждения вывода их войск",
+				"Modifiers": [
+					{"Type": "DemocratsLoyalty", "Value": 10}
+				],
+				"Flags": [
+					{"Type": "CoastQuestion", "Value": 1}
+				]
+			},
+			{
+				"Title": "Мы не в состоянии сейчас затрагивать внешнюю политику",
+				"Modifiers": [
+					{"Type": "NationalistsLoyalty", "Value": -10},
+					{"Type": "DemocratsLoyalty", "Value": -10},
+					{"Type": "FederationistsLoyalty", "Value": -10}
+				],
+				"Flags": [
+					{"Type": "CoastQuestion", "Value": 1}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Националисты требуют ответить силой",
+		"Description": "Премьер-министр Далв Тисирский с фракцией националистов требует задействовать наши вооруженные силы для освобождения побережья страны от иностранных контингентов",
+		"Category": "War",
+		"Limits": [
+			{"Type": "TURN", "Value": 10},
+			{"Type": "SouthIsFree", "CompareTo": 0, "Comparison": "LtE"},
+			{"Type": "PM_Nationalists"},
+			{"Type": "CoastQuestion"}
+		],
+		"IsTrigger": true,
+		"Options": [
+			{
+				"Title": "Мы не пойдем на этот рисковый шаг",
+				"Modifiers": [
+					{"Type": "NationalistsLoyalty", "Value": -20},
+					{"Type": "NationalistsPower", "Value": -10},
+					{"Type": "DemocratsPower", "Value": 10},
+					{"Type": "FederationistsPower", "Value": 10}
+				]
+			},
+			{
+				"Title": "Иного выбора у нас нет, заряжайте винтовки!",
+				"Modifiers": [
+					{"Type": "NationalistsLoyalty", "Value": 30},
+					{"Type": "NationalistsPower", "Value": 10},
+					{"Type": "DemocratsPower", "Value": -20},
+					{"Type": "FederationistsPower", "Value": -20}
+				],
+				"Flags": [
+					{"Type": "PrepareToWar", "Value": 1}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Демократы предлагают выкупить побережье",
+		"Description": "Премьер-министр Ровуль Манора предлагает выкупить у ОсНБ побережье страны, чтобы избавить его от иностранных контингентов",
+		"Category": "War",
+		"Limits": [
+			{"Type": "TURN", "Value": 10},
+			{"Type": "SouthIsFree", "CompareTo": 0, "Comparison": "LtE"},
+			{"Type": "PM_Democrats"},
+			{"Type": "CoastQuestion"}
+		],
+		"IsTrigger": true,
+		"Options": [
+			{
+				"Title": "У нас нет средств на эту авантюру",
+				"Modifiers": [
+					{"Type": "DemocratsLoyalty", "Value": -20},
+					{"Type": "DemocratsPower", "Value": -10},
+					{"Type": "FederationistsPower", "Value": 10},
+					{"Type": "NationalistsPower", "Value": 10}
+				]
+			},
+			{
+				"Title": "Мы выдвинем предложение о сделке",
+				"Modifiers": [
+					{"Type": "DemocratsLoyalty", "Value": 30},
+					{"Type": "DemocratsPower", "Value": 10},
+					{"Type": "NationalistsPower", "Value": -20},
+					{"Type": "FederationistsPower", "Value": -20}
+				],
+				"Flags": [
+					{"Type": "BuyCoast", "Value": 1}
+				]
+			}
+		]
+	},
 	{
 		"Title": "Юг свободен!",
 		"Description": "МИД ОсНБ официально уведомил нас о том, что они приняли решение покинуть территорию Юга Анракса и вернуть его под наше управление",

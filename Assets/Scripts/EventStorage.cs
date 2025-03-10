@@ -99,7 +99,16 @@ public class EventStorage
     
     public GameEvent GetNext()
     {
-        if (_eventQueue.Count < 1) return null;
+        if (_eventQueue.Count < 1)
+        {
+            if (_timedEvents.Count > 0)
+            {
+                GameEvent e = _timedEvents[0];
+                _timedEvents.Remove(e);
+                return e;
+            }
+            return null;
+        }
 
         GameEvent res;
         

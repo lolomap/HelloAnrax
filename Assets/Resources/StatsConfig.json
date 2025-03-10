@@ -1,5 +1,5 @@
 {
-  "FAIL": "Power < 10",
+  "FAIL": "(Power < 25) | (NeutralLoyalty < 0.5)",
   "RANDOM": "№0",
   
   "TURN": "TURN + 1",
@@ -23,7 +23,7 @@
   "EconomicReport": "EconomicReportTiming * ((RANDOM < EconomicReportWorstChance) * 1 + ((RANDOM ≥ EconomicReportWorstChance) & (RANDOM < (EconomicReportMediumChance + EconomicReportWorstChance))) * 2 + (RANDOM ≥ (EconomicReportMediumChance + EconomicReportWorstChance)) * 3)",
   
   "PowerDelta": "(NationalistsLoyalty - 50) / 100 * NationalistsPower + (DemocratsLoyalty - 50) / 100 * DemocratsPower + (FederationistsLoyalty - 50) / 100 * FederationistsPower + (NeutralLoyalty - 50) / 100 * ExtremismLevel",
-  "Power": "Power + (PowerDelta * 0.5)",
+  "Power": "Power + (PowerDelta)",
   
   "HIGHLIGHT_Power": "Power"
 }
