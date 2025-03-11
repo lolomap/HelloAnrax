@@ -130,6 +130,8 @@
     <Compile Include="Assets\Modern UI Pack\Scripts\Rendering\UIGradient.cs" />
     <Compile Include="Assets\Modern UI Pack\Scripts\Horizontal Selector\HorizontalSelectorEditor.cs" />
     <Compile Include="Assets\Modern UI Pack\Scripts\ListView\ListViewItem.cs" />
+    <Compile Include="Assets\PlayerPrefsEditor\SimpleEncryption.cs" />
+    <Compile Include="Assets\PlayerPrefsEditor\PlayerPrefsUtility.cs" />
     <Compile Include="Assets\Modern UI Pack\Scripts\Window\WindowManager.cs" />
     <Compile Include="Assets\Modern UI Pack\Scripts\UI Manager\UIManagerDropdown.cs" />
     <Compile Include="Assets\Modern UI Pack\Scripts\UI Manager\UIManagerButton.cs" />
@@ -167,6 +169,7 @@
     <None Include="Assets\Resources\Glossary.json" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\PlayServicesResolver\play-services-resolver_v1.2.137.0.txt" />
+    <None Include="Assets\PlayerPrefsEditor\README.txt" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\Resources\Events\Common.json" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />

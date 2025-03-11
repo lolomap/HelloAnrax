@@ -9,6 +9,15 @@
 
     "Options": [
       {
+        "Title": "Закончим на сегодня",
+        "Limits": [
+          {"Type": "StartInfoEconomics"},
+          {"Type": "StartInfoSecurity"},
+          {"Type": "StartInfoWork"},
+          {"Type": "StartInfoInternational"}
+        ]
+      },
+      {
         "Title": "Служба Безопасности",
         "Flags": [{"Type": "StartInfoSecurity", "Value": 1}],
         "Limits": [{"Type": "StartInfoSecurity", "CompareTo": 0, "Comparison": "LtE"}]
@@ -39,6 +48,15 @@
     "SkipTurn": true,
 
     "Options": [
+      {
+        "Title": "Закончим на сегодня",
+        "Limits": [
+          {"Type": "StartInfoEconomics"},
+          {"Type": "StartInfoSecurity"},
+          {"Type": "StartInfoWork"},
+          {"Type": "StartInfoInternational"}
+        ]
+      },
       {
         "Title": "Служба Безопасности",
         "Flags": [{"Type": "StartInfoSecurity", "Value": 1}],
@@ -71,6 +89,15 @@
 
     "Options": [
       {
+        "Title": "Закончим на сегодня",
+        "Limits": [
+          {"Type": "StartInfoEconomics"},
+          {"Type": "StartInfoSecurity"},
+          {"Type": "StartInfoWork"},
+          {"Type": "StartInfoInternational"}
+        ]
+      },
+      {
         "Title": "Служба Безопасности",
         "Flags": [{"Type": "StartInfoSecurity", "Value": 1}],
         "Limits": [{"Type": "StartInfoSecurity", "CompareTo": 0, "Comparison": "LtE"}]
@@ -102,6 +129,15 @@
 
     "Options": [
       {
+        "Title": "Закончим на сегодня",
+        "Limits": [
+          {"Type": "StartInfoEconomics"},
+          {"Type": "StartInfoSecurity"},
+          {"Type": "StartInfoWork"},
+          {"Type": "StartInfoInternational"}
+        ]
+      },
+      {
         "Title": "Служба Безопасности",
         "Flags": [{"Type": "StartInfoSecurity", "Value": 1}],
         "Limits": [{"Type": "StartInfoSecurity", "CompareTo": 0, "Comparison": "LtE"}]
@@ -131,6 +167,10 @@
       {"Type": "StartInfoSecurity"}
     ],
     "IsTrigger": true,
-    "SkipTurn": true
+    "SkipTurn": true,
+    
+    "Options": [
+      {"Title": "Спасибо"}
+    ]
   }
 ]

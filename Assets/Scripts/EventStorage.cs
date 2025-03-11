@@ -8,13 +8,15 @@ using Random = UnityEngine.Random;
 
 public class EventStorage
 {
-    private List<GameEvent> _events;
-    private List<GameEvent> _timedEvents;
-    private List<GameEvent> _eventQueue;
-    private List<GameEvent> _failEvents;
-    private List<GameEvent> _winEvents;
+    [JsonProperty] private List<GameEvent> _events;
+    [JsonProperty] private List<GameEvent> _timedEvents;
+    [JsonProperty] private List<GameEvent> _eventQueue;
+    [JsonProperty] private List<GameEvent> _failEvents;
+    [JsonProperty] private List<GameEvent> _winEvents;
 
-    private int _currentTurn;
+    [JsonProperty] private int _currentTurn;
+    
+    [JsonProperty] public GameEvent CurrentEvent;
 
     private static List<GameEvent> LoadFile(string path)
     {
@@ -51,6 +53,11 @@ public class EventStorage
         _winEvents = winEvents;
     }
 
+    public void Save()
+    {
+        PlayerPrefs.SetString("EventStorage", JsonConvert.SerializeObject(this));
+    }
+    
     public void Init()
     {
         foreach (GameEvent gameEvent in _events)
@@ -145,6 +152,8 @@ public class EventStorage
         
         if (!res.SkipTurn)
             _currentTurn++;
+
+        CurrentEvent = res;
         return res;
     }
 

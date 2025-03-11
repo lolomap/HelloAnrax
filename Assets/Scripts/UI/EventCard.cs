@@ -30,7 +30,7 @@ namespace UI
 
         private void Start()
         {
-            Data = GameManager.EventStorage.GetNext();
+            Data = GameManager.EventStorage.CurrentEvent ?? GameManager.EventStorage.GetNext();
             UpdateCard();
             
             GameManager.PlayerStats.UpdateUI();

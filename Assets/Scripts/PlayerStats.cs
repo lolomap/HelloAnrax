@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class PlayerStats
 {
+	[Serializable]
 	private class Stat
 	{
 		public float Min;
@@ -14,9 +15,11 @@ public class PlayerStats
 		public float Value;
 	}
 	
-	private Dictionary<string, Stat> _stats;
-	private Dictionary<string, float> _flags;
-	private Dictionary<string, string> _formulas;
+	[JsonProperty] private Dictionary<string, Stat> _stats;
+	[JsonProperty] private Dictionary<string, float> _flags;
+	[JsonProperty] private Dictionary<string, string> _formulas;
+
+	[JsonProperty] private Dictionary<string, float> _globalFlags;
 
 	public event Action Updated;
 	private bool _isReady;
@@ -27,11 +30,22 @@ public class PlayerStats
 		_stats = JsonConvert.DeserializeObject<Dictionary<string, Stat>>(defaultsRaw.text);
 
 		_flags = new();
+		_globalFlags = new();
 		
 		TextAsset formulasRaw = ResourceLoader.GetResource<TextAsset>("StatsConfig");
 		_formulas = JsonConvert.DeserializeObject<Dictionary<string, string>>(formulasRaw.text);
 
 		_isReady = true;
+	}
+
+	public void SaveGlobal()
+	{
+		PlayerPrefs.SetString("GlobalFlags", JsonConvert.SerializeObject(_globalFlags));
+	}
+
+	public void Save()
+	{
+		PlayerPrefs.SetString("PlayerStats", JsonConvert.SerializeObject(this));
 	}
 
 	public void UpdateUI()
@@ -121,6 +135,9 @@ public class PlayerStats
 	}
 	public void SetFlag(string flag, float value)
 	{
+		if (flag.StartsWith("GLOBAL_"))
+			_globalFlags[flag] = value;
+			
 		_flags[flag] = value;
 		TaggedValue.UpdateAll(flag, value);
 

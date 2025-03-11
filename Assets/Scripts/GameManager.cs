@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "EditorUtilities/GameManager", menuName = "Game/Manager")]
@@ -42,13 +43,38 @@ public class GameManager : ScriptableObject
 		Dictionary<string, string> adIds = ResourceLoader.GetAdIds();
 		BannerAdManager.AdUnitId = adIds["banner"];
 
-		PlayerStats = new();
-		PlayerStats.Init();
+		string saved;
+		if (PlayerPrefs.HasKey("PlayerStats") && (saved = PlayerPrefs.GetString("PlayerStats")) != "{}")
+		{
+			PlayerStats = JsonConvert.DeserializeObject<PlayerStats>(saved);
+		}
+		else
+		{
+			PlayerStats = new();
+			PlayerStats.Init();
+		}
+		
+		if (PlayerPrefs.HasKey("GlobalFlags") && (saved = PlayerPrefs.GetString("GlobalFlags")) != "{}")
+		{
+			foreach ((string flag, float value) in
+			         JsonConvert.DeserializeObject<Dictionary<string, float>>(saved))
+			{
+				PlayerStats.SetFlag(flag, value);
+			}
+		}
 		
 		ResourceLoader.ReloadGlossary();
+
+		if (PlayerPrefs.HasKey("EventStorage") && (saved = PlayerPrefs.GetString("EventStorage")) != "{}")
+		{
+			EventStorage = JsonConvert.DeserializeObject<EventStorage>(saved);
+		}
+		else
+		{
+			EventStorage = new();
+			EventStorage.Load();
+		}
 		
-		EventStorage = new();
-		EventStorage.Load();
 	}
 
 	public static void Restart()

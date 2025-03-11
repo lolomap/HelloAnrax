@@ -71,6 +71,7 @@
     <Compile Include="Assets\Scripts\EventStorage.cs" />
     <Compile Include="Assets\Scripts\UI\MapSelection.cs" />
     <Compile Include="Assets\Scripts\Utils.cs" />
+    <Compile Include="Assets\Scripts\DiskManager.cs" />
     <Compile Include="Assets\Scripts\FrameRateManager.cs" />
     <Compile Include="Assets\Scripts\PlayerStats.cs" />
     <Compile Include="Assets\Scripts\UI\SegmentBar.cs" />
