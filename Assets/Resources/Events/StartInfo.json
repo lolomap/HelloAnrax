@@ -1,0 +1,136 @@
+﻿[
+  {
+    "Title": "СБА, Мих Солтон:",
+    "Description": "Докладываю господин президент, ситуация в стране продолжает оставаться напряженной, правоохранительные органы слабы и страдают от нехватки финансирования, что приводит к расцвету коррупции. Отдаленные уголки страны больше всего страдают от беззакония местных авторитетов. Я жду от вас принятия смелых и результативных решений, вместе мы восстановим в стране порядок.",
+
+    "Limits": [{"Type": "StartInfoSecurity"}],
+    "IsTrigger": true,
+    "SkipTurn": true,
+
+    "Options": [
+      {
+        "Title": "Служба Безопасности",
+        "Flags": [{"Type": "StartInfoSecurity", "Value": 1}],
+        "Limits": [{"Type": "StartInfoSecurity", "CompareTo": 0, "Comparison": "LtE"}]
+      },
+      {
+        "Title": "Министерство Труда",
+        "Flags": [{"Type": "StartInfoWork", "Value": 1}],
+        "Limits": [{"Type": "StartInfoWork", "CompareTo": 0, "Comparison": "LtE"}]
+      },
+      {
+        "Title": "Министерство Экономики",
+        "Flags": [{"Type": "StartInfoEconomics", "Value": 1}],
+        "Limits": [{"Type": "StartInfoEconomics", "CompareTo": 0, "Comparison": "LtE"}]
+      },
+      {
+        "Title": "Министерство Иностранных Дел",
+        "Flags": [{"Type": "StartInfoInternational", "Value": 1}],
+        "Limits": [{"Type": "StartInfoInternational", "CompareTo": 0, "Comparison": "LtE"}]
+      }
+    ]
+  },
+  {
+    "Title": "МинТруда, Эрмий Рауль:",
+    "Description": "Господин президент, социальная обстановка в стране катастрофическая, огромное количество граджан находятся на грани бедствия. Элементарные товары потребления стали менее доступны, а из самых бедных регионов пропали вовсе. В государстве процветает безработица, многие предприятия разрушены после войны гражданской и войны с коалицией. Народ ждет от вас расширение социальных программ и организацию государственной помощи в поиске работы.",
+
+    "Limits": [{"Type": "StartInfoWork"}],
+    "IsTrigger": true,
+    "SkipTurn": true,
+
+    "Options": [
+      {
+        "Title": "Служба Безопасности",
+        "Flags": [{"Type": "StartInfoSecurity", "Value": 1}],
+        "Limits": [{"Type": "StartInfoSecurity", "CompareTo": 0, "Comparison": "LtE"}]
+      },
+      {
+        "Title": "Министерство Труда",
+        "Flags": [{"Type": "StartInfoWork", "Value": 1}],
+        "Limits": [{"Type": "StartInfoWork", "CompareTo": 0, "Comparison": "LtE"}]
+      },
+      {
+        "Title": "Министерство Экономики",
+        "Flags": [{"Type": "StartInfoEconomics", "Value": 1}],
+        "Limits": [{"Type": "StartInfoEconomics", "CompareTo": 0, "Comparison": "LtE"}]
+      },
+      {
+        "Title": "Министерство Иностранных Дел",
+        "Flags": [{"Type": "StartInfoInternational", "Value": 1}],
+        "Limits": [{"Type": "StartInfoInternational", "CompareTo": 0, "Comparison": "LtE"}]
+      }
+    ]
+  },
+  {
+    "Title": "МинЭкономики, Алло Монтье:",
+    "Description": "Господин президент, разрешите доложить, что мы на грани краха! Анракс не в состоянии исполнять свои бюджетные обязательства в нынешних условиях. Практически все программы предложенные временным правительством необходимо отменить, несмотря на непопулярность подобных решений. Несмотря на шаткое положение, правительство готово сделать всё возможное для стабилизации обстановки в стране.",
+
+    "Limits": [{"Type": "StartInfoEconomics"}],
+    "IsTrigger": true,
+    "SkipTurn": true,
+
+    "Options": [
+      {
+        "Title": "Служба Безопасности",
+        "Flags": [{"Type": "StartInfoSecurity", "Value": 1}],
+        "Limits": [{"Type": "StartInfoSecurity", "CompareTo": 0, "Comparison": "LtE"}]
+      },
+      {
+        "Title": "Министерство Труда",
+        "Flags": [{"Type": "StartInfoWork", "Value": 1}],
+        "Limits": [{"Type": "StartInfoWork", "CompareTo": 0, "Comparison": "LtE"}]
+      },
+      {
+        "Title": "Министерство Экономики",
+        "Flags": [{"Type": "StartInfoEconomics", "Value": 1}],
+        "Limits": [{"Type": "StartInfoEconomics", "CompareTo": 0, "Comparison": "LtE"}]
+      },
+      {
+        "Title": "Министерство Иностранных Дел",
+        "Flags": [{"Type": "StartInfoInternational", "Value": 1}],
+        "Limits": [{"Type": "StartInfoInternational", "CompareTo": 0, "Comparison": "LtE"}]
+      }
+    ]
+  },
+  {
+    "Title": "МИД, Клеон Хьюз:",
+    "Description": "Приетствую, Господин президент! Довожу до вашего сведения, что на побережье страны попрежнему остаются войска Этредийского Содружества. К тому же они продолжают попеременно игнорировать интересы Анракса, находясь в поиске вариантов извлечения выгоды из нашей страны. Одной из крупнейших угроз национальной безопасности остается Империя Имени Дукса, которая уже аннексировала территории Кулиштии и часть Террапильи. С НДРО и Террапильей удалось установить дружественные отношения по окончании гражданской войны, в то время как Нерия была насильно включена в состав МСАС и более не является независимым субъектом.",
+
+    "Limits": [{"Type": "StartInfoInternational"}],
+    "IsTrigger": true,
+    "SkipTurn": true,
+
+    "Options": [
+      {
+        "Title": "Служба Безопасности",
+        "Flags": [{"Type": "StartInfoSecurity", "Value": 1}],
+        "Limits": [{"Type": "StartInfoSecurity", "CompareTo": 0, "Comparison": "LtE"}]
+      },
+      {
+        "Title": "Министерство Труда",
+        "Flags": [{"Type": "StartInfoWork", "Value": 1}],
+        "Limits": [{"Type": "StartInfoWork", "CompareTo": 0, "Comparison": "LtE"}]
+      },
+      {
+        "Title": "Министерство Экономики",
+        "Flags": [{"Type": "StartInfoEconomics", "Value": 1}],
+        "Limits": [{"Type": "StartInfoEconomics", "CompareTo": 0, "Comparison": "LtE"}]
+      },
+      {
+        "Title": "Министерство Иностранных Дел",
+        "Flags": [{"Type": "StartInfoInternational", "Value": 1}],
+        "Limits": [{"Type": "StartInfoInternational", "CompareTo": 0, "Comparison": "LtE"}]
+      }
+    ]
+  },
+  {
+    "Title": "Секретарша:",
+    "Description": "Господин президент, вы наверное устали от такого обилия дел и приёмов. Я сделала вам кофе.",
+    "Limits": [
+      {"Type": "StartInfoEconomics"},
+      {"Type": "StartInfoSecurity"}
+    ],
+    "IsTrigger": true,
+    "SkipTurn": true
+  }
+]

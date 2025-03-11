@@ -1,7 +1,7 @@
 {
-  "FAIL": "(Power < 25) | (NeutralLoyalty < 0.5)",
   "RANDOM": "№0",
   "Kzhachich": "RANDOM < 0.11",
+  "FAIL": "(Power < 15) | (NeutralLoyalty < 0.5) | (Kzhachich > 0)",
   
   "TURN": "TURN + 1",
   "EVERY2": "TURN % 2",

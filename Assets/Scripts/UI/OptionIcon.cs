@@ -27,6 +27,8 @@ namespace UI
 				_sprite.sprite = ResourceLoader.GetResource<Sprite>("Icons/Options/" + value.Category);
 
 				_blocked = !value.IsAvailable();
+				if (_blocked)
+					_sprite.color = _blockedTint;
 			}
 		}
 

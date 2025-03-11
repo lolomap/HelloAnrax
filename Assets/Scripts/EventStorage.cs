@@ -28,13 +28,16 @@ public class EventStorage
         _timedEvents = new();
         _eventQueue = new();
         
-        _events.AddRange(LoadFile("CommonEvents"));
-        _timedEvents = LoadFile("TimedEvents");
+        _events.AddRange(LoadFile("Events/Common"));
+        _events.AddRange(LoadFile("Events/StartInfo"));
+        _events.AddRange(LoadFile("Events/SouthWar"));
+        
+        _timedEvents = LoadFile("Events/Story");
         ResourceLoader.AddGlossaryLinks(_events);
         ResourceLoader.AddGlossaryLinks(_timedEvents);
         
-        _failEvents = LoadFile("FailEvents");
-        _winEvents = LoadFile("WinEvents");
+        _failEvents = LoadFile("Events/Fail");
+        _winEvents = LoadFile("Events/Win");
     }
 
     public void Load(List<GameEvent> events, List<GameEvent> timedEvents,
@@ -64,6 +67,8 @@ public class EventStorage
         }
         
         _eventQueue.Shuffle();
+        
+        _timedEvents.Sort((a, b) => a.TurnPosition.CompareTo(b.TurnPosition));
     }
 
     public void EnqueueEvent(GameEvent gameEvent, bool toEnd = false)
@@ -112,12 +117,15 @@ public class EventStorage
 
         GameEvent res;
         
-        _currentTurn++;
         if (_timedEvents.Count > 0 && _timedEvents[0].TurnPosition <= _currentTurn)
         {
             res = _timedEvents[0];
-
             _timedEvents.Remove(res);
+            
+            if (!res.IsAvailable())
+            {
+                return GetNext();
+            }
         }
         else
         {
@@ -135,6 +143,8 @@ public class EventStorage
             }
         }
         
+        if (!res.SkipTurn)
+            _currentTurn++;
         return res;
     }
 

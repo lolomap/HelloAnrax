@@ -8,7 +8,9 @@ namespace UI
     public class EventCard : MonoBehaviour
     {
         public TMP_Text EventTitle;
+        public TMP_Text EventDescriptionBoxDummy;
         public TMP_Text EventDescription;
+        public ScrollRect EventDescriptionScroll;
         public TMP_Text EventOptionTitle;
         public RoundList EventOptionsList;
         public Image EventPicture;
@@ -35,7 +37,11 @@ namespace UI
             TaggedValue.UpdateAll("BuildVersion", GameManager.GetVersion());
         }
 
-        private void ProcessOption()
+        /// <summary>
+        /// Try to process modifiers and flags of option if it is available
+        /// </summary>
+        /// <returns>true - if option is available</returns>
+        private bool ProcessOption()
         {
             if (!_selectedOption.IsAvailable(out List<Flag> blockedFlags))
             {
@@ -46,7 +52,7 @@ namespace UI
                     TaggedValue.AnimateAll(flag.Type, UIGenericAnimation.Animation.ButtonShake);
                 }
                 
-                return;
+                return false;
             }
             
             List<Modifier> modifiers = _selectedOption.Modifiers;
@@ -78,8 +84,10 @@ namespace UI
                 Data = GameManager.EventStorage.GetNext();
                 UpdateCard();
                 GameManager.PlayerStats.UpdateUI();
-                return;
+                return false;
             }
+
+            return true;
         }
         
         public void AcceptOption()
@@ -91,7 +99,7 @@ namespace UI
 
                 if (_tldrPosition < _tldrData.TLDR.Count)
                 {
-                    ProcessOption();
+                    if (!ProcessOption()) return;
                     
                     Data = _tldrData.TLDR[_tldrPosition];
                     if (Data.Title == "")
@@ -106,7 +114,7 @@ namespace UI
             _tldrData = null;
             _tldrPosition = 0;
             
-            ProcessOption();
+            if (!ProcessOption()) return;
             
             GameManager.PlayerStats.CalculateFormulas();
             
@@ -152,6 +160,9 @@ namespace UI
         private void UpdateCard()
         {
             EventDescription.text = Data.Description;
+            EventDescriptionBoxDummy.text = Data.Description;
+            if (EventDescriptionScroll.verticalNormalizedPosition > 0.1f)
+                EventDescriptionScroll.verticalNormalizedPosition = 0f;
             EventTitle.text = Data.Title;
             EventPicture.sprite = ResourceLoader.GetResource<Sprite>("Icons/Events/" + Data.Category);
             if (EventPicture.sprite == null)

@@ -89,6 +89,7 @@ public class GameEvent
     public List<Flag> Limits;
     
     public int TurnPosition = -1;
+    public bool SkipTurn;
     public string Soundtrack = "MainTheme";
 
     public List<GameEvent> TLDR;
