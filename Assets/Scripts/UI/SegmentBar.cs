@@ -40,10 +40,28 @@ namespace UI
 			{
 				for (int i = Value - 1; i > value - 1 && i > 0; i--)
 				{
-					_segments[i].material = _segments[i].material != blinkMat ? blinkMat : null;
+					_segments[i].material = blinkMat;
+				}
+			}
+			else
+			{
+				for (int i = Value; i < Value + value && i < MaxValue; i++)
+				{
+					_segments[i].material = blinkMat;
+					_segments[i].color = Color.white;
 				}
 			}
 			
+		}
+
+		public void ClearPreview()
+		{
+			foreach (Image segment in _segments)
+			{
+				if (segment != null)
+					segment.material = null;
+			}
+			Set(Value);
 		}
 
 		private void Awake()

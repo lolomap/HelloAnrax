@@ -133,15 +133,7 @@ namespace UI
         {
             if (option == null) return;
 
-            // Disable all modifiers of previous option
-            if (_selectedOption is {Modifiers: not null})
-            {
-                foreach (Modifier modifier in _selectedOption.Modifiers)
-                {
-                    TaggedValue.PreviewAll(modifier.Type,
-                        GameManager.PlayerStats.GetStat(modifier.Type) + modifier.Value);
-                }
-            }
+            TaggedValue.ClearPreviewAll();
             
             _selectedOption = option;
             EventOptionTitle.text = option.Title;

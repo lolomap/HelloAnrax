@@ -2647,7 +2647,7 @@
 				"Title": "Мы воспользуемся этой возможностью",
 				"Modifiers": [
 					{"Type": "DemocratsPower", "Value": -999},
-					{"Type": "NationalistsLoyalty", "Value": -999},
+					{"Type": "DemocratsLoyalty", "Value": -999},
 					{"Type": "NeutralLoyalty", "Value": -10},
 					{"Type": "NationalistsPower", "Value": 15},
 					{"Type": "FederationistsPower", "Value": 15}

@@ -135,6 +135,7 @@ public class PlayerStats
 	}
 	public void SetFlag(string flag, float value)
 	{
+		if (flag == null) return;
 		if (flag.StartsWith("GLOBAL_"))
 			_globalFlags[flag] = value;
 			

@@ -14,6 +14,7 @@ namespace UI
 		private static event UpdateEventHandler UpdateUI;
 		private static event AnimateEventHandler Animate;
 		private static event PreviewEventHandler PreviewUI;
+		private static event ClearPreviewEventHandler ClearPreviewUI;
 		
 		public string Tag;
 
@@ -28,6 +29,7 @@ namespace UI
 		{
 			UpdateUI += OnUpdate;
 			PreviewUI += OnPreview;
+			ClearPreviewUI += OnClearPreview;
 			Animate += OnAnimate;
 
 			_animation = GetComponent<UIGenericAnimation>();
@@ -46,6 +48,7 @@ namespace UI
 			{
 				case int:
 					if (_segmentBar != null) _segmentBar.Set(Convert.ToInt32(value));
+					if (_text != null) _text.text = value.ToString();
 					break;
 				
 				case decimal:
@@ -54,6 +57,7 @@ namespace UI
 						_slider.Set(Convert.ToSingle(value),
 							uiTag.StartsWith("HIGHLIGHT_") ? GameManager.Instance.UI.AnimationDelaySec : 0);
 					if (_segmentBar != null) _segmentBar.Set(Convert.ToInt32(value));
+					if (_text != null) _text.text = value.ToString();
 					break;
 			
 				case string:
@@ -68,6 +72,11 @@ namespace UI
 				return;
 
 			if (_segmentBar != null) _segmentBar.Preview(Convert.ToInt32(value));
+		}
+
+		private void OnClearPreview()
+		{
+			if (_segmentBar != null) _segmentBar.ClearPreview();
 		}
 
 		private void OnAnimate(string uiTag, UIGenericAnimation.Animation anim)
@@ -91,6 +100,11 @@ namespace UI
 		public static void PreviewAll(string uiTag, object value)
 		{
 			PreviewUI?.Invoke(uiTag, value);
+		}
+
+		public static void ClearPreviewAll()
+		{
+			ClearPreviewUI?.Invoke();
 		}
 	}
 }

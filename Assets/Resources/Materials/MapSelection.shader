@@ -57,7 +57,7 @@ Shader "Unlit/MapSelection"
                 if (distance(col, _SelectedColor) <= 0.05f)
                 {
                     //out_col = clamp(col + _SelectionTint * _TintForce, col, _SelectionTint);
-                    fixed time = frac(_Time.y);
+                    fixed time = 1. - frac(_Time.y);
                     if (time > 0.5)
                         time = 1. - time;
                     out_col = col + _SelectionTint * _TintForce * time;
