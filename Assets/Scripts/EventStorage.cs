@@ -15,6 +15,7 @@ public class EventStorage
     [JsonProperty] private List<GameEvent> _winEvents;
 
     [JsonProperty] private int _currentTurn;
+    [JsonProperty] private bool _isReady;
     
     [JsonProperty] public GameEvent CurrentEvent;
 
@@ -30,16 +31,16 @@ public class EventStorage
         _timedEvents = new();
         _eventQueue = new();
         
-        _events.AddRange(LoadFile("Events/Common"));
-        _events.AddRange(LoadFile("Events/StartInfo"));
-        _events.AddRange(LoadFile("Events/SouthWar"));
+        _events.AddRange(LoadFile("Events/Common.events"));
+        _events.AddRange(LoadFile("Events/StartInfo.events"));
+        _events.AddRange(LoadFile("Events/SouthWar.events"));
         
-        _timedEvents = LoadFile("Events/Story");
+        _timedEvents = LoadFile("Events/Story.events");
         ResourceLoader.AddGlossaryLinks(_events);
         ResourceLoader.AddGlossaryLinks(_timedEvents);
         
-        _failEvents = LoadFile("Events/Fail");
-        _winEvents = LoadFile("Events/Win");
+        _failEvents = LoadFile("Events/Fail.events");
+        _winEvents = LoadFile("Events/Win.events");
     }
 
     public void Load(List<GameEvent> events, List<GameEvent> timedEvents,
@@ -60,6 +61,8 @@ public class EventStorage
     
     public void Init()
     {
+        if (_isReady) return;
+        
         foreach (GameEvent gameEvent in _events)
         {
             gameEvent.EnableDynamicChecking();
@@ -76,6 +79,8 @@ public class EventStorage
         _eventQueue.Shuffle();
         
         _timedEvents.Sort((a, b) => a.TurnPosition.CompareTo(b.TurnPosition));
+
+        _isReady = true;
     }
 
     public void EnqueueEvent(GameEvent gameEvent, bool toEnd = false)

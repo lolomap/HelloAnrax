@@ -10,7 +10,7 @@
     "Options": [
       {
         "Title": "Попробовать снова",
-        "Flags": [{"Title": "RESTART_GAME", "Value": 1}]
+        "Flags": [{"Type": "RESTART_GAME", "Value": 1}]
       }
     ]
   },
@@ -26,7 +26,7 @@
     "Options": [
       {
         "Title": "Попробовать снова",
-        "Flags": [{"Title": "RESTART_GAME", "Value": 1}]
+        "Flags": [{"Type": "RESTART_GAME", "Value": 1}]
       }
     ]
   },
@@ -50,14 +50,14 @@
         "Options": [
           {
             "Title": "Попробовать снова",
-            "Flags": [{"Title": "RESTART_GAME", "Value": 1}]
+            "Flags": [{"Type": "RESTART_GAME", "Value": 1}]
           }
         ]
       }
     ]
   },
   {
-    "Title": "Триумф НПC",
+    "Title": "Триумф НПЗC",
     "Description": "Сегодня машина не приезжает за Президентом. Никто не отвезет вас в правительственный дворец.",
 
     "Limits": [
@@ -76,7 +76,7 @@
         "Options": [
           {
             "Title": "Попробовать снова",
-            "Flags": [{"Title": "RESTART_GAME", "Value": 1}]
+            "Flags": [{"Type": "RESTART_GAME", "Value": 1}]
           }
         ]
       }
@@ -102,7 +102,7 @@
         "Options": [
           {
             "Title": "Попробовать снова",
-            "Flags": [{"Title": "RESTART_GAME", "Value": 1}]
+            "Flags": [{"Type": "RESTART_GAME", "Value": 1}]
           }
         ]
       }
@@ -115,7 +115,7 @@
     "Options": [
       {
         "Title": "Попробовать снова",
-        "Flags": [{"Title": "RESTART_GAME", "Value": 1}]
+        "Flags": [{"Type": "RESTART_GAME", "Value": 1}]
       }
     ]
   }

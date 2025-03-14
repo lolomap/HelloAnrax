@@ -123,15 +123,11 @@ public class PlayerStats
 	}
 	public bool HasFlag(Flag flag)
 	{
-		if (flag.Type == null) return true;
-		
-		float flagValue = 0;
-		if (_flags.ContainsKey(flag.Type))
-			flagValue = _flags[flag.Type];
-		
-		return _stats.ContainsKey(flag.Type) && Utils.Compare(_stats[flag.Type].Value, flag.CompareTo, flag.Comparison)
-		       ||
-		       Utils.Compare(flagValue, flag.CompareTo, flag.Comparison);
+		// If player has no flag, it was 0 and we need to set it for Lt/LtE checks
+		_flags.TryGetValue(flag.Type, out float flagValue);
+
+		return Utils.Compare(_stats.TryGetValue(flag.Type, out Stat stat) ? stat.Value : flagValue,
+			flag.CompareTo, flag.Comparison);
 	}
 	public void SetFlag(string flag, float value)
 	{

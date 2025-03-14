@@ -79,15 +79,20 @@ namespace UI
             
             if (GameManager.PlayerStats.HasFlag("RESTART_GAME"))
             {
-                GameManager.Restart();
-                GameManager.EventStorage.Init();
-                Data = GameManager.EventStorage.GetNext();
-                UpdateCard();
-                GameManager.PlayerStats.UpdateUI();
+                AcceptRestart();
                 return false;
             }
 
             return true;
+        }
+
+        public void AcceptRestart()
+        {
+            GameManager.Restart();
+            GameManager.EventStorage.Init();
+            Data = GameManager.EventStorage.GetNext();
+            UpdateCard();
+            GameManager.PlayerStats.UpdateUI();
         }
         
         public void AcceptOption()
@@ -116,7 +121,8 @@ namespace UI
             
             if (!ProcessOption()) return;
             
-            GameManager.PlayerStats.CalculateFormulas();
+            if (!Data.SkipTurn)
+                GameManager.PlayerStats.CalculateFormulas();
             
             Data = (
                     GameManager.PlayerStats.HasFlag("FAIL")

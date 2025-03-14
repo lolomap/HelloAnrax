@@ -20,22 +20,22 @@
       {
         "Title": "Служба Безопасности",
         "Flags": [{"Type": "StartInfoSecurity", "Value": 1}],
-        "Limits": [{"Type": "StartInfoSecurity", "CompareTo": 0, "Comparison": "LtE"}]
+        "Limits": [{"Type": "StartInfoSecurity", "Comparison": "Lt"}]
       },
       {
         "Title": "Министерство Труда",
         "Flags": [{"Type": "StartInfoWork", "Value": 1}],
-        "Limits": [{"Type": "StartInfoWork", "CompareTo": 0, "Comparison": "LtE"}]
+        "Limits": [{"Type": "StartInfoWork", "Comparison": "Lt"}]
       },
       {
         "Title": "Министерство Экономики",
         "Flags": [{"Type": "StartInfoEconomics", "Value": 1}],
-        "Limits": [{"Type": "StartInfoEconomics", "CompareTo": 0, "Comparison": "LtE"}]
+        "Limits": [{"Type": "StartInfoEconomics", "Comparison": "Lt"}]
       },
       {
         "Title": "Министерство Иностранных Дел",
         "Flags": [{"Type": "StartInfoInternational", "Value": 1}],
-        "Limits": [{"Type": "StartInfoInternational", "CompareTo": 0, "Comparison": "LtE"}]
+        "Limits": [{"Type": "StartInfoInternational", "Comparison": "Lt"}]
       }
     ]
   },
@@ -60,22 +60,22 @@
       {
         "Title": "Служба Безопасности",
         "Flags": [{"Type": "StartInfoSecurity", "Value": 1}],
-        "Limits": [{"Type": "StartInfoSecurity", "CompareTo": 0, "Comparison": "LtE"}]
+        "Limits": [{"Type": "StartInfoSecurity", "Comparison": "Lt"}]
       },
       {
         "Title": "Министерство Труда",
         "Flags": [{"Type": "StartInfoWork", "Value": 1}],
-        "Limits": [{"Type": "StartInfoWork", "CompareTo": 0, "Comparison": "LtE"}]
+        "Limits": [{"Type": "StartInfoWork", "Comparison": "Lt"}]
       },
       {
         "Title": "Министерство Экономики",
         "Flags": [{"Type": "StartInfoEconomics", "Value": 1}],
-        "Limits": [{"Type": "StartInfoEconomics", "CompareTo": 0, "Comparison": "LtE"}]
+        "Limits": [{"Type": "StartInfoEconomics", "Comparison": "Lt"}]
       },
       {
         "Title": "Министерство Иностранных Дел",
         "Flags": [{"Type": "StartInfoInternational", "Value": 1}],
-        "Limits": [{"Type": "StartInfoInternational", "CompareTo": 0, "Comparison": "LtE"}]
+        "Limits": [{"Type": "StartInfoInternational", "Comparison": "Lt"}]
       }
     ]
   },
@@ -100,22 +100,22 @@
       {
         "Title": "Служба Безопасности",
         "Flags": [{"Type": "StartInfoSecurity", "Value": 1}],
-        "Limits": [{"Type": "StartInfoSecurity", "CompareTo": 0, "Comparison": "LtE"}]
+        "Limits": [{"Type": "StartInfoSecurity", "Comparison": "Lt"}]
       },
       {
         "Title": "Министерство Труда",
         "Flags": [{"Type": "StartInfoWork", "Value": 1}],
-        "Limits": [{"Type": "StartInfoWork", "CompareTo": 0, "Comparison": "LtE"}]
+        "Limits": [{"Type": "StartInfoWork", "Comparison": "Lt"}]
       },
       {
         "Title": "Министерство Экономики",
         "Flags": [{"Type": "StartInfoEconomics", "Value": 1}],
-        "Limits": [{"Type": "StartInfoEconomics", "CompareTo": 0, "Comparison": "LtE"}]
+        "Limits": [{"Type": "StartInfoEconomics", "Comparison": "Lt"}]
       },
       {
         "Title": "Министерство Иностранных Дел",
         "Flags": [{"Type": "StartInfoInternational", "Value": 1}],
-        "Limits": [{"Type": "StartInfoInternational", "CompareTo": 0, "Comparison": "LtE"}]
+        "Limits": [{"Type": "StartInfoInternational", "Comparison": "Lt"}]
       }
     ]
   },
@@ -140,22 +140,22 @@
       {
         "Title": "Служба Безопасности",
         "Flags": [{"Type": "StartInfoSecurity", "Value": 1}],
-        "Limits": [{"Type": "StartInfoSecurity", "CompareTo": 0, "Comparison": "LtE"}]
+        "Limits": [{"Type": "StartInfoSecurity", "Comparison": "Lt"}]
       },
       {
         "Title": "Министерство Труда",
         "Flags": [{"Type": "StartInfoWork", "Value": 1}],
-        "Limits": [{"Type": "StartInfoWork", "CompareTo": 0, "Comparison": "LtE"}]
+        "Limits": [{"Type": "StartInfoWork", "Comparison": "Lt"}]
       },
       {
         "Title": "Министерство Экономики",
         "Flags": [{"Type": "StartInfoEconomics", "Value": 1}],
-        "Limits": [{"Type": "StartInfoEconomics", "CompareTo": 0, "Comparison": "LtE"}]
+        "Limits": [{"Type": "StartInfoEconomics", "Comparison": "Lt"}]
       },
       {
         "Title": "Министерство Иностранных Дел",
         "Flags": [{"Type": "StartInfoInternational", "Value": 1}],
-        "Limits": [{"Type": "StartInfoInternational", "CompareTo": 0, "Comparison": "LtE"}]
+        "Limits": [{"Type": "StartInfoInternational", "Comparison": "Lt"}]
       }
     ]
   },

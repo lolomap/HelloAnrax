@@ -45,7 +45,7 @@ namespace UI
 			}
 			else
 			{
-				for (int i = Value; i < Value + value && i < MaxValue; i++)
+				for (int i = Value; i < value && i < MaxValue; i++)
 				{
 					_segments[i].material = blinkMat;
 					_segments[i].color = Color.white;

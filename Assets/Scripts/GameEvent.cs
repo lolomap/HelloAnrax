@@ -93,15 +93,23 @@ public class GameEvent
     public string Soundtrack = "MainTheme";
 
     public List<GameEvent> TLDR;
+
+    [JsonProperty]
+    private bool _isDynamicChecking;
     
     public void EnableDynamicChecking()
     {
-        GameManager.PlayerStats.Updated += CheckLimits;
+        if (!_isDynamicChecking)
+        {
+            GameManager.PlayerStats.Updated += CheckLimits;
+            _isDynamicChecking = true;
+        }
     }
 
     public void DisableDynamicChecking()
     {
         GameManager.PlayerStats.Updated -= CheckLimits;
+        _isDynamicChecking = false;
     }
 
     ~GameEvent()
