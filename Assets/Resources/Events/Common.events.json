@@ -329,16 +329,17 @@
 		"Category": "Financial",
 		"Options": [
 			{
-				"Title": "Отправить коррупционеров в отставку",
+				"Title": "Отправить коррупционеров под суд",
 				"Modifiers": [
 					{"Type":  "NationalistsLoyalty", "Value": -10},
 					{"Type":  "DemocratsLoyalty", "Value": -10},
 					{"Type":  "FederationistsLoyalty", "Value": -10},
-					{"Type":  "NeutralLoyalty", "Value": 15}
+					{"Type":  "NeutralLoyalty", "Value": 10},
+					{"Type":  "EconomicPower", "Value": 10}
 				]
 			},
 			{
-				"Title": "Увеличить финансирование ответственных органов",
+				"Title": "Увеличить финансирование комитета по борьбе с коррупцией",
 				"Modifiers": [
 					{"Type":  "EconomicPower", "Value": 20},
 					{"Type":  "Treasury", "Value": -1}
@@ -351,9 +352,12 @@
 			{
 				"Title": "Шантажировать коррупционеров ради лояльности",
 				"Modifiers": [
-					{"Type":  "NationalistsLoyalty", "Value": 5},
-					{"Type":  "DemocratsLoyalty", "Value": 5},
-					{"Type":  "FederationistsLoyalty", "Value": 5},
+					{"Type":  "NationalistsPower", "Value": -10},
+					{"Type":  "DemocratsPower", "Value": -10},
+					{"Type":  "FederationistsPower", "Value": -10},
+					{"Type":  "NationalistsLoyalty", "Value": 6},
+					{"Type":  "DemocratsLoyalty", "Value": 6},
+					{"Type":  "FederationistsLoyalty", "Value": 6},
 					{"Type":  "EconomicPower", "Value": -10}
 				]
 			},
@@ -363,6 +367,9 @@
 					{"Type":  "NationalistsPower", "Value": 5},
 					{"Type":  "DemocratsPower", "Value": 5},
 					{"Type":  "FederationistsPower", "Value": 5},
+					{"Type":  "NationalistsLoyalty", "Value": 15},
+					{"Type":  "DemocratsLoyalty", "Value":  15},
+					{"Type":  "FederationistsLoyalty", "Value": 15},
 					{"Type":  "EconomicPower", "Value": -20}
 				]
 			}
@@ -377,7 +384,8 @@
 				"Title": "Льготные ипотеки и кредиты",
 				"Modifiers": [
 					{"Type":  "Treasury", "Value":  -1},
-					{"Type":  "EconomicPower", "Value":  10}
+					{"Type":  "NeutralLoyalty", "Value": 10},
+					{"Type":  "EconomicPower", "Value":  -5}
 				],
 				"Limits": [
 					{"Type": "Treasury", "CompareTo": 1}
@@ -400,7 +408,10 @@
 				]
 			},
 			{
-				"Title": "Льготные места в ВУЗах"
+				"Title": "Льготные места в ВУЗах",
+				"Modifiers": [
+					{"Type":  "NeutralLoyalty", "Value":  5}
+				]
 			}
 		]
 	},
@@ -411,30 +422,39 @@
 		"Limits": [{"Type":  "CorruptionAgain"}],
 		"Options": [
 			{
-				"Title": "Отправить коррупционеров в отставку",
+				"Title": "Отправить коррупционеров под суд",
 				"Modifiers": [
 					{"Type":  "NationalistsLoyalty", "Value": -10},
 					{"Type":  "DemocratsLoyalty", "Value": -10},
 					{"Type":  "FederationistsLoyalty", "Value": -10},
-					{"Type":  "NeutralLoyalty", "Value": 15}
+					{"Type":  "NationalistsPower", "Value": -5},
+					{"Type":  "DemocratsPower", "Value": -5},
+					{"Type":  "FederationistsPower", "Value": -5},
+					{"Type":  "NeutralLoyalty", "Value": 10}
 				]
 			},
 			{
 				"Title": "Шантажировать коррупционеров ради лояльности",
 				"Modifiers": [
-					{"Type":  "NationalistsLoyalty", "Value": 5},
-					{"Type":  "DemocratsLoyalty", "Value": 5},
-					{"Type":  "FederationistsLoyalty", "Value": 5},
-					{"Type":  "EconomicPower", "Value": -10}
+					{"Type":  "NationalistsLoyalty", "Value": 10},
+					{"Type":  "DemocratsLoyalty", "Value": 10},
+					{"Type":  "FederationistsLoyalty", "Value": 10},
+					{"Type":  "NationalistsPower", "Value": -5},
+					{"Type":  "DemocratsPower", "Value": -5},
+					{"Type":  "FederationistsPower", "Value": -5},
+					{"Type":  "EconomicPower", "Value": -5}
 				]
 			},
 			{
 				"Title": "Хапаем пока есть возможность",
 				"Modifiers": [
+					{"Type":  "NationalistsLoyalty", "Value": 10},
+					{"Type":  "DemocratsLoyalty", "Value": 10},
+					{"Type":  "FederationistsLoyalty", "Value": 10},
 					{"Type":  "NationalistsPower", "Value": 5},
 					{"Type":  "DemocratsPower", "Value": 5},
 					{"Type":  "FederationistsPower", "Value": 5},
-					{"Type":  "EconomicPower", "Value": -20}
+					{"Type":  "EconomicPower", "Value": -10}
 				]
 			}
 		]
@@ -450,7 +470,8 @@
 			{
 				"Title": "Выделить средства на проведение антисанкционных мер",
 				"Modifiers": [
-					{"Type": "Treasury", "Value": -2}
+					{"Type": "Treasury", "Value": -2},
+					{"Type":  "EconomicPower", "Value":  -10}
 				],
 				"Limits": [
 					{"Type": "Treasury", "CompareTo": 2}
@@ -460,7 +481,7 @@
 				"Title": "Нам это не навредит!",
 				"Modifiers": [
 					{"Type": "Treasury", "Value": -1},
-					{"Type":  "EconomicPower", "Value":  -15}
+					{"Type":  "EconomicPower", "Value":  -20}
 				],
 				"Flags": [
 					{"Type":  "NoIIDTrade", "Value":  1}
@@ -486,7 +507,7 @@
 			{
 				"Title": "Следует стимулировать развитие малого бизнеса с помощью льготного налогообложения",
 				"Modifiers": [
-					{"Type": "NeutralLoyalty", "Value": 5},
+					{"Type": "NeutralLoyalty", "Value": 10},
 					{"Type":  "Treasury", "Value": -1}
 				],
 				"Limits": [
@@ -497,7 +518,7 @@
 				"Title": "Сосредоточимся на привлечении инвестиций из-за рубежа",
 				"Modifiers": [
 					{"Type": "DemocratsLoyalty", "Value": 10},
-					{"Type": "DemocratsPower", "Value":  10},
+					{"Type": "DemocratsPower", "Value":  5},
 					{"Type": "NationalistsLoyalty", "Value":  -10}
 				]
 			},
