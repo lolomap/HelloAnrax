@@ -60,6 +60,22 @@ public static class ResourceLoader
 						$"<style=\"{style}\">{match.Value}</style>"
 					);
 				}
+
+				if (gameEvent.Options != null)
+				{
+					foreach (Option option in gameEvent.Options)
+					{
+						matches = regex.Matches(option.Title);
+
+						foreach (Match match in matches)
+						{
+							option.Title = option.Title.Replace(
+								match.Value,
+								$"<style=\"{style}\">{match.Value}</style>"
+							);
+						}
+					}
+				}
 			}
 
 			if (gameEvent.TLDR is {Count: > 0})
