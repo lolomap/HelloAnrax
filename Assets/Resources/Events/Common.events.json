@@ -715,7 +715,7 @@
 					{"Type": "DemocratsPower", "Value": 5},
 					{"Type": "MilitaryPower", "Value": -5}
 				]
-			}
+			},
 			{
 				"Title": "Обвинить во всём ЭС",
 				"Modifiers": [
@@ -739,7 +739,7 @@
 			{
 				"Title": "Увеличить на год",
 				"Modifiers": [
-					{"Type": "NeutralLoyalty", "Value": -5},
+					{"Type": "NeutralLoyalty", "Value": -5}
 				]
 			},
 			{
@@ -777,7 +777,7 @@
 				"Modifiers": [
 					{"Type": "MilitaryPower", "Value": 10},
 					{"Type": "NationalistsLoyalty", "Value": 10},
-					{"Type": "DemocratsLoyalty", "Value": -5}
+					{"Type": "DemocratsLoyalty", "Value": -5},
 					{"Type": "Treasury", "Value": -1}
 				],
 				"Limits": [
