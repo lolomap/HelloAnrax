@@ -144,8 +144,10 @@
 				"Modifiers": [
 					{"Type": "NationalistsLoyalty", "Value": 30},
 					{"Type": "NationalistsPower", "Value": 10},
-					{"Type": "FederationistsLoyalty", "Value": -10},
-					{"Type": "DemocratsLoyalty", "Value": -10}
+					{"Type": "FederationistsLoyalty", "Value": -20},
+					{"Type": "DemocratsLoyalty", "Value": -20},
+					{"Type": "FederationistsPower", "Value": -20},
+					{"Type": "DemocratsPower", "Value": -20}
 				],
 				"Flags": [
 					{"Type": "PM_Nationalists", "Value":	1}
@@ -156,8 +158,10 @@
 				"Modifiers": [
 					{"Type": "FederationistsLoyalty", "Value": 30},
 					{"Type": "FederationistsPower", "Value": 10},
-					{"Type": "NationalistsLoyalty", "Value": -10},
-					{"Type": "DemocratsLoyalty", "Value": -10}
+					{"Type": "NationalistsLoyalty", "Value": -20},
+					{"Type": "DemocratsLoyalty", "Value": -20},
+					{"Type": "NationalistsPower", "Value": -20},
+					{"Type": "DemocratsPower", "Value": -20}
 				],
 				"Limits": [
 					{"Type": "== HIDDEN =="}
@@ -171,8 +175,10 @@
 				"Modifiers": [
 					{"Type": "DemocratsLoyalty", "Value": 30},
 					{"Type": "DemocratsPower", "Value": 10},
-					{"Type": "FederationistsLoyalty", "Value": -10},
-					{"Type": "NationalistsLoyalty", "Value": -10}
+					{"Type": "FederationistsLoyalty", "Value": -20},
+					{"Type": "NationalistsLoyalty", "Value": -20},
+					{"Type": "NationalistsPower", "Value": -20},
+					{"Type": "FederationistPower", "Value": -20}
 				],
 				"Flags": [
 					{"Type": "PM_Democrats", "Value":	1}

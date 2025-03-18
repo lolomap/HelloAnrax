@@ -538,19 +538,19 @@
 			{
 				"Title": "Оставить все как есть",
 				"Modifiers": [
-					{"Type": "FederationistsPower", "Value": 5},
-					{"Type": "DemocratsPower", "Value": 5},
-					{"Type": "NationalistsPower", "Value": 5},
-					{"Type": "NeutralLoyalty", "Value": -5}
+					{"Type": "FederationistsLoyalty", "Value": 10},
+					{"Type": "DemocratsLoyalty", "Value": 10},
+					{"Type": "NationalistsLoyalty", "Value": 10},
+					{"Type": "NeutralLoyalty", "Value": -10}
 				]
 			},
 			{
 				"Title": "Снизить жалованья",
 				"Modifiers": [
-					{"Type": "FederationistsLoyalty", "Value": -8},
-					{"Type": "DemocratsLoyalty", "Value": -8},
-					{"Type": "NationalistsLoyalty", "Value": -8},
-					{"Type": "NeutralLoyalty", "Value": -5}
+					{"Type": "FederationistsLoyalty", "Value": -10},
+					{"Type": "DemocratsLoyalty", "Value": -10},
+					{"Type": "NationalistsLoyalty", "Value": -10},
+					{"Type": "NeutralLoyalty", "Value": 10}
 				]
 			}
 		]
@@ -619,7 +619,7 @@
 			{
 				"Title": "Увеличить срок службы",
 				"Modifiers": [
-					{"Type": "MilitaryPower", "Value": 15},
+					{"Type": "MilitaryPower", "Value": 5},
 					{"Type": "NeutralLoyalty", "Value": -5}
 				],
 				"Flags": [
@@ -631,7 +631,8 @@
 				"Modifiers": [
 					{"Type": "MilitaryPower", "Value": 5},
 					{"Type": "DemocratsLoyalty", "Value": -5},
-					{"Type":  "FederationistsPower", "Value":  5}
+					{"Type": "NeutralLoyalty", "Value": -5},
+					{"Type":  "FederationistsPower", "Value": 5}
 				]
 			}
 		]
@@ -656,7 +657,7 @@
 				"Modifiers": [
 					{"Type": "MilitaryPower", "Value": 10},
 					{"Type": "Treasury", "Value": -1},
-					{"Type": "NeutralLoyalty", "Value": 15}
+					{"Type": "NeutralLoyalty", "Value": 5}
 				],
 				"Limits": [
 					{"Type": "Treasury", "CompareTo": 1}
@@ -668,10 +669,10 @@
 					{"Type":  "Treasury", "CompareTo": 3}
 				],
 				"Modifiers": [
-					{"Type": "MilitaryPower", "Value": 30},
+					{"Type": "MilitaryPower", "Value": 25},
 					{"Type": "Treasury", "Value": -3},
 					{"Type": "NeutralLoyalty", "Value": 15},
-					{"Type": "DemocratsLoyalty", "Value": -15},
+					{"Type": "DemocratsLoyalty", "Value": -10},
 					{"Type": "NationalistsPower", "Value": 5},
 					{"Type": "NationalistsLoyalty", "Value": 5}
 				]
@@ -679,16 +680,16 @@
 			{
 				"Title": "Сократите бюджет воякам",
 				"Modifiers": [
-					{"Type": "MilitaryPower", "Value": -15},
+					{"Type": "MilitaryPower", "Value": -10},
 					{"Type": "Treasury", "Value": 1},
-					{"Type": "EconomicPower", "Value": 15}
+					{"Type": "EconomicPower", "Value": 5}
 				]
 			}
 		]
 	},
 	{
 		"Title": "Волнения на побережье",
-		"Description": "На границе окупированного побережья произошли провокации между войсками ЭС и пограничниками Анракса. Это событие вызовет ненужные волнения общественности...",
+		"Description": "На границе окупированного побережья произошли столкновения между войсками ЭС и пограничниками Анракса. Это событие вызовет ненужные волнения общественности...",
 		"Category": "MilitaryArmy",
 		"Limits": [
 			{"Type": "SouthIsFree", "Comparison":  "Lt"}
@@ -698,19 +699,31 @@
 				"Title": "Компенсировать ущерб материально",
 				"Modifiers": [
 					{"Type": "Treasury", "Value": -1},
-					{"Type": "NationalistsPower", "Value": 10},
-					{"Type": "DemocratsLoyalty", "Value": -5}
+					{"Type": "NeutralLoyalty", "Value": -5},
+					{"Type": "DemocratsLoyalty", "Value": -5},
+					{"Type": "RelationsUCB", "Value": 5},
+					{"Type": "RelationsSBU", "Value": 5}
 				],
 				"Limits": [
 					{"Type": "Treasury", "CompareTo": 1}
 				]
 			},
 			{
-				"Title": "Наказть пограничников",
+				"Title": "Наказать пограничников",
 				"Modifiers": [
 					{"Type": "NationalistsLoyalty", "Value": -5},
-					{"Type": "DemocratsPower", "Value": 10},
-					{"Type": "MilitaryPower", "Value": -15}
+					{"Type": "DemocratsPower", "Value": 5},
+					{"Type": "MilitaryPower", "Value": -5}
+				]
+			}
+			{
+				"Title": "Обвинить во всём ЭС",
+				"Modifiers": [
+					{"Type": "NationalistsLoyalty", "Value": 10},
+					{"Type": "DemocratsLoyalty", "Value": -10},
+					{"Type": "DemocratsPower", "Value": -5},
+					{"Type": "RelationsUCB", "Value": -10},
+					{"Type": "RelationsSBU", "Value": -10}
 				]
 			}
 		]
@@ -726,13 +739,14 @@
 			{
 				"Title": "Увеличить на год",
 				"Modifiers": [
-					{"Type": "EconomicPower", "Value": -5}
+					{"Type": "NeutralLoyalty", "Value": -5},
 				]
 			},
 			{
 				"Title": "Увеличить на 2 года",
 				"Modifiers": [
-					{"Type": "EconomicPower", "Value": -10},
+					{"Type": "EconomicPower", "Value": -5},
+					{"Type": "NeutralLoyalty", "Value": -10},
 					{"Type": "Treasury", "Value": -1}
 				],
 				"Limits": [
@@ -742,8 +756,9 @@
 			{
 				"Title": "Есть такая профессия - Родину защищать",
 				"Modifiers": [
-					{"Type": "EconomicPower", "Value": -15},
-					{"Type": "NeutralLoyalty", "Value": -10},
+					{"Type": "EconomicPower", "Value": -10},
+					{"Type": "MilitaryPower", "Value": 5},
+					{"Type": "NeutralLoyalty", "Value": -20},
 					{"Type": "Treasury", "Value": -1}
 				],
 				"Limits": [
@@ -760,22 +775,30 @@
 			{
 				"Title": "Организовать специализированные учреждения",
 				"Modifiers": [
-					{"Type": "MilitaryPower", "Value": 15},
+					{"Type": "MilitaryPower", "Value": 10},
+					{"Type": "NationalistsLoyalty", "Value": 10},
 					{"Type": "DemocratsLoyalty", "Value": -5}
+					{"Type": "Treasury", "Value": -1}
+				],
+				"Limits": [
+					{"Type": "Treasury", "CompareTo": 1}
 				]
 			},
 			{
 				"Title": "Ввести военную подготовку в школах и ВУЗах",
 				"Modifiers": [
-					{"Type": "MilitaryPower", "Value": 10},
+					{"Type": "MilitaryPower", "Value": 5},
+					{"Type": "FederationistsLoyalty", "Value": 5},
+					{"Type": "DemocratsLoyalty", "Value": -5},
 					{"Type": "NeutralLoyalty", "Value": -5}
 				]
 			},
 			{
 				"Title": "Довольно штыков",
 				"Modifiers": [
-					{"Type": "MilitaryPower", "Value": -10},
-					{"Type": "DemocratsLoyalty", "Value": 10}
+					{"Type": "DemocratsLoyalty", "Value": 10},
+					{"Type": "NationalistsLoyalty", "Value": -5},
+					{"Type": "FederationistsLoyalty", "Value": -5}
 				]
 			}
 		]
@@ -790,7 +813,7 @@
 				"Modifiers": [
 					{"Type": "MilitaryPower", "Value": -5},
 					{"Type": "DemocratsLoyalty", "Value": 10},
-					{"Type": "DemocratsPower", "Value": 10}
+					{"Type": "DemocratsPower", "Value": 5}
 				]
 			},
 			{
@@ -817,51 +840,47 @@
 				"Modifiers": [
 					{"Type": "MilitaryPower", "Value": -5},
 					{"Type": "DemocratsLoyalty", "Value": 5},
-					{"Type": "DemocratsPower", "Value": 5}
+					{"Type": "DemocratsPower", "Value": 10}
 				]
 			},
 			{
 				"Title": "Всех под арест",
 				"Modifiers": [
 					{"Type": "DemocratsLoyalty", "Value": -10},
-					{"Type": "NeutralLoyalty", "Value": -10},
-					{"Type": "Power", "Value": 5}
+					{"Type": "NeutralLoyalty", "Value": -15},
+					{"Type": "Power", "Value": 15}
 				]
 			},
 			{
 				"Title": "Арестовать зачинщиков",
 				"Modifiers": [
 					{"Type": "DemocratsLoyalty", "Value": -10},
-					{"Type": "DemocratsPower", "Value": -10}
-				]
-			},
-			{
-				"Title": "Выполнить небольшую часть условий",
-				"Modifiers": [
-					{"Type": "FederationistsLoyalty", "Value": 5},
-					{"Type": "DemocratsLoyalty", "Value": 5},
-					{"Type": "NationalistsLoyalty", "Value": 5},
-					{"Type": "NeutralLoyalty", "Value": 5}
+					{"Type": "DemocratsPower", "Value": -10},
+					{"Type": "NeutralLoyalty", "Value": -10},
+					{"Type": "Power", "Value": 10}
 				]
 			}
 		]
 	},
 	{
 		"Title": "Всегда на страже порядка",
-		"Description": "Главное управление полиции просит выделить несколько единиц военного транспорта для патрулирования улиц по ночам для предотвращения ночных беспорядков и понижения уровня преступности.",
+		"Description": "Главное управление полиции просит выделить несколько единиц военного транспорта для патрулирования улиц по ночам для предотвращения ночных беспорядков и снижения уровня преступности.",
 		"Category": "Default",
 		"Options": [
 			{
 				"Title": "Выделить военный транспорт",
 				"Modifiers": [
-					{"Type": "FederationistsPower", "Value": 15},
+					{"Type": "FederationistsPower", "Value": 10},
+					{"Type": "ExtremismLevel", "Value": -5},
 					{"Type":  "Treasury", "Value":  1}
 				]
 			},
 			{
 				"Title": "Отказать",
 				"Modifiers": [
-					{"Type": "ExtremismLevel", "Value": 15}
+					{"Type": "ExtremismLevel", "Value": 10},
+					{"Type": "FederationistsPower", "Value": -5},
+					{"Type": "FederationistsLoyalty", "Value": -10}
 				],
 				"Flags": [
 					{"Type": "PoliceNoTransport", "Value": 1}
