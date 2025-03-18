@@ -3,19 +3,26 @@
 		"Title": "Здравствуй, Анракс",
 		"Description": "Приветствую! Перед началом, позволь объяснить тебе управление и правила игры. Нажми на кнопку в центральной части экрана, чтобы продолжить.",
 		"TurnPosition": 0,
-		
 		"Limits": [
-			{"Type": "GLOBAL_TRAINING_SKIP", "CompareTo": 0, "Comparison": "LtE"}
+			{
+				"Type": "GLOBAL_TRAINING_SKIP",
+				"CompareTo": 0,
+				"Comparison": "LtE"
+			}
 		],
-
 		"TLDR": [
 			{
 				"Description": "Это текстовая стратегия, поэтому зачастую тебе нужно будет сделать выбор между несколькими опциями. Попробуй выбрать любую понравившуюся, для этого вращай колесо ответов. Текст выбранного ответа будет отображаться в верхней части экрана. После этого нажми на кнопку, чтобы подтвердить свой выбор.",
-				
 				"Options": [
-					{"Title": "Я люблю котов"},
-					{"Title": "Я люблю собак"},
-					{"Title": "Я никого не люблю >:("}
+					{
+						"Title": "Я люблю котов"
+					},
+					{
+						"Title": "Я люблю собак"
+					},
+					{
+						"Title": "Я никого не люблю >:("
+					}
 				]
 			},
 			{
@@ -25,27 +32,45 @@
 				"Description": "Три шкалы слева отражают каждую из трех политических фракций: националистов, демократов и федералистов. Белая внутренняя шкала показывает лояльность фракции к тебе, а внешняя желтая - ее силу."
 			},
 			{
-				"Description": "Фракции с высокой лояльностью будут использовать свою силу, чтобы укрепить твою власть, а фракции с низкой - будут ее уменьшать. Сделай выбор и обрати внимание как меняются шкалы.",
+				"Description": "Фракции с высокой лояльностью будут использовать свою силу, чтобы укрепить твою власть, а фракции с низкой - будут ее уменьшать. Но они также конкурируют друг с другом, поэтому каждый ход примерно равные по силе фракции будут взаимно ослаблять друг друга. Сделай выбор и обрати внимание как меняются шкалы.",
 				"Options": [
 					{
 						"Title": "Я поддержу националистов!",
 						"Modifiers": [
-							{"Type": "NationalistsLoyalty", "Value": 30},
-							{"Type": "NationalistsPower", "Value": -15}
+							{
+								"Type": "NationalistsLoyalty",
+								"Value": 30
+							},
+							{
+								"Type": "NationalistsPower",
+								"Value": -15
+							}
 						]
 					},
 					{
 						"Title": "Я поддержу демократов!",
 						"Modifiers": [
-							{"Type": "DemocratsLoyalty", "Value": 30},
-							{"Type": "DemocratsPower", "Value": -15}
+							{
+								"Type": "DemocratsLoyalty",
+								"Value": 30
+							},
+							{
+								"Type": "DemocratsPower",
+								"Value": -15
+							}
 						]
 					},
 					{
 						"Title": "Я поддержу федералистов!",
 						"Modifiers": [
-							{"Type": "FederationistsLoyalty", "Value": 30},
-							{"Type": "FederationistsPower", "Value": -15}
+							{
+								"Type": "FederationistsLoyalty",
+								"Value": 30
+							},
+							{
+								"Type": "FederationistsPower",
+								"Value": -15
+							}
 						]
 					}
 				]
@@ -55,7 +80,12 @@
 				"Options": [
 					{
 						"Title": "Всем за мой счет!",
-						"Modifiers": [{"Type": "NeutralLoyalty", "Value": 30}]
+						"Modifiers": [
+							{
+								"Type": "NeutralLoyalty",
+								"Value": 30
+							}
+						]
 					}
 				]
 			},
@@ -77,8 +107,14 @@
 					{
 						"Title": "Начать игру!",
 						"Flags": [
-							{"Type": "RESTART_GAME", "Value": 1},
-							{"Type": "GLOBAL_TRAINING_SKIP", "Value": 1}
+							{
+								"Type": "RESTART_GAME",
+								"Value": 1
+							},
+							{
+								"Type": "GLOBAL_TRAINING_SKIP",
+								"Value": 1
+							}
 						]
 					}
 				]
@@ -89,7 +125,6 @@
 		"Title": "Рассвет Независимости",
 		"Description": "Огонь озаряет столицу страны Скарну",
 		"TurnPosition": 0,
-
 		"TLDR": [
 			{
 				"Description": "Дом народов потерпел поражение и теперь его остатки разбирают самые сильные и ловкие"
@@ -105,39 +140,55 @@
 			}
 		]
 	},
-	
 	{
 		"Title": "Секретарша:",
 		"Description": "Сегодня у вас назначана встреча с министрами, они подготовили для вас доклады по состоянию Анракса. Кого вы пригласите первым?",
 		"TurnPosition": 1,
 		"SkipTurn": true,
-		
 		"Options": [
 			{
 				"Title": "Служба Безопасности",
-				"Flags": [{"Type": "StartInfoSecurity", "Value": 1}]
+				"Flags": [
+					{
+						"Type": "StartInfoSecurity",
+						"Value": 1
+					}
+				]
 			},
 			{
 				"Title": "Министерство Труда",
-				"Flags": [{"Type": "StartInfoWork", "Value": 1}]
+				"Flags": [
+					{
+						"Type": "StartInfoWork",
+						"Value": 1
+					}
+				]
 			},
 			{
 				"Title": "Министерство Экономики",
-				"Flags": [{"Type": "StartInfoEconomics", "Value": 1}]
+				"Flags": [
+					{
+						"Type": "StartInfoEconomics",
+						"Value": 1
+					}
+				]
 			},
 			{
 				"Title": "Министерство Иностранных Дел",
-				"Flags": [{"Type": "StartInfoInternational", "Value": 1}]
+				"Flags": [
+					{
+						"Type": "StartInfoInternational",
+						"Value": 1
+					}
+				]
 			}
 		]
 	},
-	
 	{
 		"Title": "Выбор главы правительства",
 		"Description": "Господин президент, поскольку фракции в парламенте имеют равную силу, именно за вами остаётся решающее право голоса - кто встанет на должность главы правительства",
-		"Type": "Appointment",
+		"Category": "Appointment",
 		"TurnPosition": 4,
-
 		"Options": [
 			{
 				"Title": "Далв Тисирский",
@@ -150,7 +201,10 @@
 					{"Type": "DemocratsPower", "Value": -20}
 				],
 				"Flags": [
-					{"Type": "PM_Nationalists", "Value":	1}
+					{
+						"Type": "PM_Nationalists",
+						"Value": 1
+					}
 				]
 			},
 			{
@@ -164,10 +218,15 @@
 					{"Type": "DemocratsPower", "Value": -20}
 				],
 				"Limits": [
-					{"Type": "== HIDDEN =="}
+					{
+						"Type": "== HIDDEN =="
+					}
 				],
 				"Flags": [
-					{"Type": "PM_Federationists", "Value":	1}
+					{
+						"Type": "PM_Federationists",
+						"Value": 1
+					}
 				]
 			},
 			{
@@ -181,172 +240,784 @@
 					{"Type": "FederationistPower", "Value": -20}
 				],
 				"Flags": [
-					{"Type": "PM_Democrats", "Value":	1}
+					{
+						"Type": "PM_Democrats",
+						"Value": 1
+					}
 				]
 			}
 		]
 	},
-
 	{
 		"Title": "СБА, Мих Солтон:",
 		"Description": "Господин президент, я, как директор службы безопасности, по долгу службы обязан присматриваться к людям и делать выводы. Не сочтите за грубость, но, я считаю ваше решение о назначении премьер-министра весьма опрометчивым.",
 		"Type": "Appointment",
 		"TurnPosition": 8,
-
 		"Options": [
 			{
 				"Title": "Это не вам решать",
 				"Modifiers": [
-					{"Type": "FederationistsLoyalty", "Value": -15}
+					{
+						"Type": "FederationistsLoyalty",
+						"Value": -15
+					}
 				]
 			},
 			{
 				"Title": "В ваших словах есть смысл",
 				"Modifiers": [
-					{"Type": "FederationistsLoyalty", "Value": 10},
-					{"Type": "NationalistsLoyalty", "Value": -15, "Limit": {"Type": "PM_Nationalists"}},
-					{"Type": "DemocratsLoyalty", "Value": -15, "Limit": {"Type": "PM_Democrats"}}
+					{
+						"Type": "FederationistsLoyalty",
+						"Value": 10
+					},
+					{
+						"Type": "NationalistsLoyalty",
+						"Value": -15,
+						"Limit": {
+							"Type": "PM_Nationalists"
+						}
+					},
+					{
+						"Type": "DemocratsLoyalty",
+						"Value": -15,
+						"Limit": {
+							"Type": "PM_Democrats"
+						}
+					}
 				]
 			}
 		]
 	},
-
 	{
 		"Title": "МинЭкономики, Алло Монтье:",
 		"Description": "Господин президент, между мной и главой внешней разведки возник серьёзный конфликт. Он клеймит всех наших партнёров агентами ОСНБ! Это мешает экономическому развитию!  Что вы на это скажете?",
 		"Type": "Default",
 		"TurnPosition": 17,
-
 		"Options": [
 			{
 				"Title": "Поддержать Министерство Экономического Развития",
 				"Modifiers": [
-					{"Type": "DemocratsLoyalty", "Value": 15},
-					{"Type": "NationalistsPower", "Value": -15}
+					{
+						"Type": "DemocratsLoyalty",
+						"Value": 15
+					},
+					{
+						"Type": "NationalistsPower",
+						"Value": -15
+					}
 				]
 			},
 			{
 				"Title": "Поддержать Службу Внешней Разведки",
 				"Modifiers": [
-					{"Type": "DemocratsPower", "Value": -15},
-					{"Type": "NationalistsLoyalty", "Value": 15}
+					{
+						"Type": "DemocratsPower",
+						"Value": -15
+					},
+					{
+						"Type": "NationalistsLoyalty",
+						"Value": 15
+					}
 				]
 			}
 		]
 	},
-
 	{
 		"Title": "МВД, Кендри Роллерн:",
 		"Description": "Господин президент, может быть это не моё дело, однако, с вашего позволения, доложу. Гхм-гхм. В государственной думе распространяются слухи о вашей некомпетентности в вопросах управления государством. К сожалению, установить личность источника этих идей пока не удалось. Что вы об этом думаете?",
 		"Type": "Default",
 		"TurnPosition": 26,
-
 		"Options": [
 			{
 				"Title": "Пустая говорильня",
 				"Modifiers": [
-					{"Type": "FederationistsPower", "Value": 5},
-					{"Type": "NationalistsPower", "Value": 5},
-					{"Type": "DemocratsPower", "Value": 5},
-					{"Type": "FederationistsLoyalty", "Value": -5},
-					{"Type": "NationalistsLoyalty", "Value": -5},
-					{"Type": "DemocratsLoyalty", "Value": -5}
+					{
+						"Type": "FederationistsPower",
+						"Value": 5
+					},
+					{
+						"Type": "NationalistsPower",
+						"Value": 5
+					},
+					{
+						"Type": "DemocratsPower",
+						"Value": 5
+					},
+					{
+						"Type": "FederationistsLoyalty",
+						"Value": -5
+					},
+					{
+						"Type": "NationalistsLoyalty",
+						"Value": -5
+					},
+					{
+						"Type": "DemocratsLoyalty",
+						"Value": -5
+					}
 				]
 			},
 			{
 				"Title": "Пусть выступят открыто!",
 				"Modifiers": [
-					{"Type": "FederationistsLoyalty", "Value": -5},
-					{"Type": "NationalistsLoyalty", "Value": -5},
-					{"Type": "DemocratsLoyalty", "Value": -5}
+					{
+						"Type": "FederationistsLoyalty",
+						"Value": -5
+					},
+					{
+						"Type": "NationalistsLoyalty",
+						"Value": -5
+					},
+					{
+						"Type": "DemocratsLoyalty",
+						"Value": -5
+					},
+					{
+						"Type": "NeutralLoyalty",
+						"Value": -5
+					}
 				]
 			}
 		]
 	},
-
 	{
 		"Title": "Премьер-министр:",
 		"Description": "Господин президент, Служба Безопасности завела очередное уголовное дело на генерального директора гос-телеканала «ANT». Это уже далеко не первое дело, причём все они против тех, кто поддержал вашу кандидатуру на выборах.",
 		"Type": "Court",
 		"TurnPosition": 35,
-
 		"Options": [
 			{
 				"Title": "Просто совпадение",
 				"Modifiers": [
-					{"Type": "FederationistsPower", "Value": 10}
+					{
+						"Type": "FederationistsPower",
+						"Value": 10
+					}
 				]
 			},
 			{
 				"Title": "Парочка отстранений СБАшников их припугнет",
 				"Modifiers": [
-					{"Type": "FederationistsLoyalty", "Value": -10},
-					{"Type": "FederationistsPower", "Value": -15}
+					{
+						"Type": "FederationistsLoyalty",
+						"Value": -10
+					},
+					{
+						"Type": "FederationistsPower",
+						"Value": -15
+					}
 				]
 			}
 		]
 	},
-
 	{
 		"Title": "СБА, Мих Солтон:",
 		"Description": "Господин президент, докладываю. Служба Безопасности собрала некоторые данные, компромитирующие премьер-министра и уличила его в финансовых махинациях. Что следует предпринять в первую очередь?",
 		"Type": "Appointment",
 		"TurnPosition": 44,
-
 		"Options": [
 			{
 				"Title": "Я ручаюсь за своих подчиненных. У них не найдется прямых доказательств",
 				"Modifiers": [
-					{"Type": "FederationistsLoyalty", "Value": -10},
-					{"Type": "FederationistsPower", "Value": 10},
-					{"Type": "NeutralLoyalty", "Value": -10},
-					{"Type": "DemocratsLoyalty", "Value": 10, "Limit": {"Type": "PM_Democrats"}},
-					{"Type": "NationalistsLoyalty", "Value": 10, "Limit": {"Type": "PM_Nationalists"}}
+					{
+						"Type": "FederationistsLoyalty",
+						"Value": -10
+					},
+					{
+						"Type": "FederationistsPower",
+						"Value": 10
+					},
+					{
+						"Type": "NeutralLoyalty",
+						"Value": -10
+					},
+					{
+						"Type": "DemocratsLoyalty",
+						"Value": 10,
+						"Limit": {
+							"Type": "PM_Democrats"
+						}
+					},
+					{
+						"Type": "NationalistsLoyalty",
+						"Value": 10,
+						"Limit": {
+							"Type": "PM_Nationalists"
+						}
+					}
 				]
 			},
 			{
 				"Title": "Премьеру нужен лучший адвокат, свяжитесь с Генри Вудмаером.",
 				"Modifiers": [
-					{"Type": "FederationistsPower", "Value": 5},
-					{"Type": "NeutralLoyalty", "Value": -10},
-					{"Type": "DemocratsLoyalty", "Value": 10, "Limit": {"Type": "PM_Democrats"}},
-					{"Type": "NationalistsLoyalty", "Value": 10, "Limit": {"Type": "PM_Nationalists"}}
+					{
+						"Type": "FederationistsPower",
+						"Value": 5
+					},
+					{
+						"Type": "NeutralLoyalty",
+						"Value": -10
+					},
+					{
+						"Type": "DemocratsLoyalty",
+						"Value": 10,
+						"Limit": {
+							"Type": "PM_Democrats"
+						}
+					},
+					{
+						"Type": "NationalistsLoyalty",
+						"Value": 10,
+						"Limit": {
+							"Type": "PM_Nationalists"
+						}
+					}
+				]
+			}
+		]
+	},
+	{
+		"Title": "СБА, Мих Солтон:",
+		"Description": "Господин президент, наверное вы уже слышали о том, что о вас думают некоторые представители парламента, не так ли? Как директор Службы Безопасности, несущий ответственность за ваше положение, хочу дать вам совет: постарайтесь оправдать ожидания, возложенные на вас аппаратом правления, иначе могут быть серьёзные проблемы.",
+		"Type": "Court",
+		"TurnPosition": 49,
+		"Options": [
+			{
+				"Title": "Я вас услышал",
+				"Modifiers": [
+					{
+						"Type": "FederationistsLoyalty",
+						"Value": -10
+					},
+					{
+						"Type": "FederationistsPower",
+						"Value": 5
+					}
+				]
+			},
+			{
+				"Title": "Как вы смеете говорить в таком тоне? Идите прочь!",
+				"Modifiers": [
+					{
+						"Type": "FederationistsLoyalty",
+						"Value": -15
+					},
+					{
+						"Type": "FederationistsPower",
+						"Value": 5
+					},
+					{
+						"Type": "DemocratsLoyalty",
+						"Value": 15
+					},
+					{
+						"Type": "NationalistsLoyalty",
+						"Value": 15
+					}
+				]
+			},
+			{
+				"Title": "... (*промолчать*)",
+				"Modifiers": [
+					{
+						"Type": "FederationistsLoyalty",
+						"Value": -10
+					},
+					{
+						"Type": "FederationistsPower",
+						"Value": 5
+					}
+				]
+			}
+		]
+	},
+	
+	{
+		"Title": "Интервьюер:",
+		"Description": "Господин президент, я задам вам несколько самых интересных для нас вопросов. Мы бы хотели, чтобы вы были с нами откровенны.",
+		"TurnPosition": 58,
+		"SkipTurn": true,
+		
+		"Options": [
+			{
+				"Title": "Конечно"
+			}
+		]
+	},
+	{
+		"Title": "Интервьюер:",
+		"Description": "Каково вам занимать должность главы государства? Что вы сделаете, чтобы изменить Анракс к лучшему?",
+		"TurnPosition": 58,
+
+		"Options": [
+			{
+				"Title": "(Оптимичтично)",
+				"Modifiers": [
+					{ "Type": "NeutralLoyalty", "Value": 5 }
+				],
+				"Flags": [
+					{ "Type": "Interview", "Value": 1 }
+				]
+			},
+			{
+				"Title": "(Сдержано)",
+				"Modifiers": [
+					{ "Type": "DemocratsLoyalty","Value": 5},
+					{ "Type": "NationalistsLoyalty", "Value": 5 },
+					{ "Type": "FederationistsLoyalty",  "Value": 5 }
+				],
+				"Flags": [
+					{ "Type": "Interview", "Value": 2 }
 				]
 			}
 		]
 	},
 
 	{
-		"Title": "СБА, Мих Солтон:",
-		"Description": "Господин президент, наверное вы уже слышали о том, что о вас думают некоторые представители парламента, не так ли? Как директор Службы Безопасности, несущий ответственность за ваше положение, хочу дать вам совет: постарайтесь оправдать ожидания, возложенные на вас аппаратом правления, иначе могут быть серьёзные проблемы.",
-		"Type": "Court",
-		"TurnPosition": 49,
+		"Title": "Вы:",
+		"Description": "Я рад исполнять обязанности президента и сделаю всё, чтобы Анракс процветал",
+		"Limits": [{"Type": "Interview", "CompareTo": 1, "Comparison": "Eq"}],
+		"SkipTurn": true,
+		"TurnPosition": 59
+	},
+	{
+		"Title": "Вы:",
+		"Description": "Исполнять обязанности президента страны непросто, я постараюсь приложить свою руку к восстановлению нашего государства в этот сложный период",
+		"Limits": [{"Type": "Interview", "CompareTo": 2, "Comparison": "Eq"}],
+		"SkipTurn": true,
+		"TurnPosition": 59
+	},
+
+	{
+		"Title": "Интервьюер:",
+		"Description": "На какую сферу деятельности вы планируете сделать упор в руководстве государством?",
+		"TurnPosition": 59,
 
 		"Options": [
 			{
-				"Title": "Я вас услышал",
+				"Title": "На социальную",
 				"Modifiers": [
-					{"Type": "FederationistsLoyalty", "Value": -10},
-					{"Type": "FederationistsPower", "Value": 5}
+					{ "Type": "DemocratsLoyalty", "Value": -10 },
+					{ "Type": "NationalistsLoyalty", "Value": 10 },
+					{ "Type": "FederationistsLoyalty", "Value": -10 },
+					{ "Type": "DemocratsPower", "Value": -5 },
+					{ "Type": "NationalistsPower", "Value": 5 },
+					{ "Type": "FederationistsPower", "Value": -5 }
+				],
+				"Flags": [
+					{ "Type": "Interview", "Value": 1 }
 				]
 			},
 			{
-				"Title": "Как вы смеете говорить в таком тоне? Идите прочь!",
+				"Title": "На военнопромышленную",
 				"Modifiers": [
-					{"Type": "FederationistsLoyalty", "Value": -15},
-					{"Type": "FederationistsPower", "Value": 5},
-					{"Type": "DemocratsLoyalty", "Value": 15},
-					{"Type": "NationalistsLoyalty", "Value": 15}
+					{ "Type": "DemocratsLoyalty", "Value": -10 },
+					{ "Type": "NationalistsLoyalty", "Value": -10 },
+					{ "Type": "FederationistsLoyalty", "Value": 10 },
+					{ "Type": "DemocratsPower", "Value": -5 },
+					{ "Type": "NationalistsPower", "Value": -5 },
+					{ "Type": "FederationistsPower", "Value": 5 }
+				],
+				"Flags": [
+					{ "Type": "Interview", "Value": 2 }
 				]
 			},
 			{
-				"Title": "... (*промолчать*)",
+				"Title": "На экономическую.",
 				"Modifiers": [
-					{"Type": "FederationistsLoyalty", "Value": -10},
-					{"Type": "FederationistsPower", "Value": 5}
+					{ "Type": "DemocratsLoyalty", "Value": 10 },
+					{ "Type": "NationalistsLoyalty", "Value": -10 },
+					{ "Type": "FederationistsLoyalty", "Value": -10 },
+					{ "Type": "DemocratsPower", "Value": 5 },
+					{ "Type": "NationalistsPower", "Value": -5 },
+					{ "Type": "FederationistsPower", "Value": -5 }
+				],
+				"Flags": [
+					{ "Type": "Interview", "Value": 3 }
 				]
 			}
 		]
+	},
+
+	{
+		"Title": "Вы:",
+		"Description": "На социальную. В поствоенный период нужно поддержать граждан и обеспечить им всё необходимое для достойной жизни",
+		"Limits": [{"Type": "Interview", "CompareTo": 1, "Comparison": "Eq"}],
+		"SkipTurn": true,
+		"TurnPosition": 60
+	},
+	{
+		"Title": "Вы:",
+		"Description": "На военнопромышленную. В такое сложное время нужно быть полностью готовыми принять новый удар от любого потенциального противника",
+		"Limits": [{"Type": "Interview", "CompareTo": 2, "Comparison": "Eq"}],
+		"SkipTurn": true,
+		"TurnPosition": 60
+	},
+	{
+		"Title": "Вы:",
+		"Description": "На экономическую. Анраксу нужны новые торговые связи и активное пополнение государственного бюджета",
+		"Limits": [{"Type": "Interview", "CompareTo": 3, "Comparison": "Eq"}],
+		"SkipTurn": true,
+		"TurnPosition": 60
+	},
+
+	{
+		"Title": "Интервьюер:",
+		"Description": "Что вы можете сказать о Ровуле Маноре?",
+		"TurnPosition": 60,
+		"Limits": [{"Type": "PM_Democrats"}],
+
+		"Options": [
+			{
+				"Title": "(Похвалить)",
+				"Modifiers": [
+					{ "Type": "DemocratsLoyalty", "Value": 15 },
+					{ "Type": "DemocratsPower", "Value": 5 }
+				],
+				"Flags": [
+					{ "Type": "Interview", "Value": 1 }
+				]
+			},
+			{
+				"Title": "(Отчитать нейтрально)",
+				"Modifiers": [
+					{ "Type": "DemocratsLoyalty", "Value": -10 },
+					{ "Type": "DemocratsPower", "Value": -5 },
+					{ "Type": "NeutralLoyalty", "Value": 5 }
+				],
+				"Flags": [
+					{ "Type": "Interview", "Value": 2 }
+				]
+			},
+			{
+				"Title": "(Отчитать как демократа)",
+				"Modifiers": [
+					{ "Type": "DemocratsLoyalty", "Value": -15 },
+					{ "Type": "NationalistsLoyalty", "Value": 10 },
+					{ "Type": "DemocratsPower", "Value": -10 },
+					{ "Type": "NationalistsPower", "Value": 5 }
+				],
+				"Flags": [
+					{ "Type": "Interview", "Value": 3 }
+				]
+			}
+		]
+	},
+
+	{
+		"Title": "Вы:",
+		"Description": "Я считаю, что Манора отлично выполняет обязанности премьер-министра страны, несмотря на все нападки на него со стороны службы безопасности",
+		"Limits": [
+			{"Type": "Interview", "CompareTo": 1, "Comparison": "Eq"},
+			{"Type": "PM_Democrats"}
+		],
+		"SkipTurn": true,
+		"TurnPosition": 61
+	},
+	{
+		"Title": "Вы:",
+		"Description": "Безусловно, Ровуль Манора мог бы достичь большего на своей должности к этому моменту, стоит ли говорить, что возможно он работал не в полную силу? Возможно",
+		"Limits": [
+			{"Type": "Interview", "CompareTo": 2, "Comparison": "Eq"},
+			{"Type": "PM_Democrats"}
+		],
+		"SkipTurn": true,
+		"TurnPosition": 61
+	},
+	{
+		"Title": "Вы:",
+		"Description": "Приверженность Маноры демократическим ценностям похвальна, однако зачастую его предложения диаметрально противоположны идеям и ценностям нашего народа. Это может быть довольно опасно",
+		"Limits": [
+			{"Type": "Interview", "CompareTo": 3, "Comparison": "Eq"},
+			{"Type": "PM_Democrats"}
+		],
+		"SkipTurn": true,
+		"TurnPosition": 61
+	},
+
+	{
+		"Title": "Интервьюер:",
+		"Description": "Что вы можете сказать о Ровуле Маноре?",
+		"TurnPosition": 60,
+		"Limits": [{"Type": "PM_Democrats", "Comparison": "Lt"}],
+
+		"Options": [
+			{
+				"Title": "(Похвалить)",
+				"Modifiers": [
+					{ "Type": "DemocratsLoyalty", "Value": 15 },
+					{ "Type": "NationalistsLoyalty", "Value": -10 },
+					{ "Type": "NeutralLoyalty", "Value": 5 }
+				],
+				"Flags": [
+					{ "Type": "Interview", "Value": 1 }
+				]
+			},
+			{
+				"Title": "(Осудить идеи)",
+				"Modifiers": [
+					{ "Type": "DemocratsLoyalty", "Value": -15 },
+					{ "Type": "NationalistsLoyalty", "Value": 15 },
+					{ "Type": "NeutralLoyalty", "Value": 10 }
+				],
+				"Flags": [
+					{ "Type": "Interview", "Value": 2 }
+				]
+			},
+			{
+				"Title": "(Поставить под сомнение)",
+				"Modifiers": [
+					{ "Type": "DemocratsLoyalty", "Value": -10 },
+					{ "Type": "NationalistsLoyalty", "Value": 10 },
+					{ "Type": "NeutralLoyalty", "Value": 5 }
+				],
+				"Flags": [
+					{ "Type": "Interview", "Value": 3 }
+				]
+			}
+		]
+	},
+
+
+	{
+		"Title": "Вы:",
+		"Description": "Бесспорно, Манора внес неоценимый вклад в развитие демократии в Анраксе. Поэтому я не удивлен, что он так популярен среди народа.",
+		"Limits": [
+			{"Type": "Interview", "CompareTo": 1, "Comparison": "Eq"},
+			{"Type": "PM_Democrats", "Comparison": "Lt"}
+		],
+		"SkipTurn": true,
+		"TurnPosition": 61
+	},
+	{
+		"Title": "Вы:",
+		"Description": "Лидер НПЗС абсолютно некомпетентный политик, его идеи вредны для нашего общества. Он собирается строить страну по ливерейскому образцу?! Это кощунство!",
+		"Limits": [
+			{"Type": "Interview", "CompareTo": 2, "Comparison": "Eq"},
+			{"Type": "PM_Democrats", "Comparison": "Lt"}
+		],
+		"SkipTurn": true,
+		"TurnPosition": 61
+	},
+	{
+		"Title": "Вы:",
+		"Description": "Я давно знаком с Манорой и очень хорошо его знаю. Он интересный человек, но я никогда не рассматривал его как серьезную кандидатуру в политике.",
+		"Limits": [
+			{"Type": "Interview", "CompareTo": 3, "Comparison": "Eq"},
+			{"Type": "PM_Democrats", "Comparison": "Lt"}
+		],
+		"SkipTurn": true,
+		"TurnPosition": 61
+	},
+
+
+	{
+		"Title": "Интервьюер:",
+		"Description": "Устраивает ли вас работа Далва Тисирского?",
+		"TurnPosition": 61,
+		"Limits": [{"Type": "PM_Nationalists"}],
+
+		"Options": [
+			{
+				"Title": "(Похвалить)",
+				"Modifiers": [
+					{ "Type": "NationalistsLoyalty", "Value": 15 },
+					{ "Type": "NationalistsPower", "Value": 5 }
+				],
+				"Flags": [
+					{ "Type": "Interview", "Value": 1 }
+				]
+			},
+			{
+				"Title": "(Отчитать нейтрально)",
+				"Modifiers": [
+					{ "Type": "NationalistsLoyalty", "Value": -10 },
+					{ "Type": "NationalistsPower", "Value": -5 },
+					{ "Type": "NeutralLoyalty", "Value": 5 }
+				],
+				"Flags": [
+					{ "Type": "Interview", "Value": 2 }
+				]
+			},
+			{
+				"Title": "(Отчитать как националиста)",
+				"Modifiers": [
+					{ "Type": "NationalistsLoyalty", "Value": -15 },
+					{ "Type": "DemocratsLoyalty", "Value": 10 },
+					{ "Type": "NationalistsPower", "Value": -10 },
+					{ "Type": "DemocratsPower", "Value": 5 }
+				],
+				"Flags": [
+					{ "Type": "Interview", "Value": 3 }
+				]
+			}
+		]
+	},
+
+	{
+		"Title": "Вы:",
+		"Description": "Я категорически убежден в том, что Далв Тисирский находится именно на той должности, на которой и должен быть. Человек твердой руки был необходим стране в столь сложный период",
+		"Limits": [{"Type": "Interview", "CompareTo": 1, "Comparison": "Eq"}],
+		"SkipTurn": true,
+		"TurnPosition": 62
+	},
+	{
+		"Title": "Вы:",
+		"Description": "Безусловно, Далв Тисирский мог бы достичь большего на своей должности к этому моменту, стоит ли говорить, что возможно он работал не в полную силу? Возможно",
+		"Limits": [{"Type": "Interview", "CompareTo": 2, "Comparison": "Eq"}],
+		"SkipTurn": true,
+		"TurnPosition": 62
+	},
+	{
+		"Title": "Вы:",
+		"Description": "Тисирский достаточно часто указывает на исключительность анраксцев, забывая о том, что наша страна всегда была домом для всех каратенцев. Неужели мы должны просто взять и забыть о нашем общем прошлом с кулиштийцами, нерийцами и ортостанцами?",
+		"Limits": [{"Type": "Interview", "CompareTo": 3, "Comparison": "Eq"}],
+		"SkipTurn": true,
+		"TurnPosition": 62
+	},
+
+	{
+		"Title": "Интервьюер:",
+		"Description": "Устраивает ли вас работа Далва Тисирского?",
+		"TurnPosition": 61,
+		"Limits": [{"Type": "PM_Nationalists", "Comparison": "Lt"}],
+
+		"Options": [
+			{
+				"Title": "(Похвалить)",
+				"Modifiers": [
+					{ "Type": "NationalistsLoyalty", "Value": 15 },
+					{ "Type": "DemocratsLoyalty", "Value": -10 },
+					{ "Type": "NeutralLoyalty", "Value": 5 }
+				],
+				"Flags": [
+					{ "Type": "Interview", "Value": 1 }
+				]
+			},
+			{
+				"Title": "(Осудить идеи)",
+				"Modifiers": [
+					{ "Type": "NationalistsLoyalty", "Value": -15 },
+					{ "Type": "DemocratsLoyalty", "Value": 15 },
+					{ "Type": "NeutralLoyalty", "Value": 10 }
+				],
+				"Flags": [
+					{ "Type": "Interview", "Value": 2 }
+				]
+			},
+			{
+				"Title": "(Поставить под сомнение)",
+				"Modifiers": [
+					{ "Type": "NationalistsLoyalty", "Value": -10 },
+					{ "Type": "DemocratsLoyalty", "Value": 10 },
+					{ "Type": "NeutralLoyalty", "Value": 5 }
+				],
+				"Flags": [
+					{ "Type": "Interview", "Value": 3 }
+				]
+			}
+		]
+	},
+	
+	{
+		"Title": "Вы:",
+		"Description": "Я уважаю его и идеи, за которые он борется. Тисирский достойный человек достойной страны.",
+		"Limits": [
+			{"Type": "Interview", "CompareTo": 1, "Comparison": "Eq"},
+			{"Type": "PM_Nationalists", "Comparison": "Lt"}
+		],
+		"SkipTurn": true,
+		"TurnPosition": 62
+	},
+	{
+		"Title": "Вы:",
+		"Description": "Знаете, я могу понять за что его любят бездари и преступники с улицы, но мне его идеи противны",
+		"Limits": [
+			{"Type": "Interview", "CompareTo": 2, "Comparison": "Eq"},
+			{"Type": "PM_Nationalists", "Comparison": "Lt"}
+		],
+		"SkipTurn": true,
+		"TurnPosition": 62
+	},
+	{
+		"Title": "Вы:",
+		"Description": "Тисирский искренне защищает свои идеи, но я их не понимаю. Что он будет говорить в лицо кулиштийцам и ортостанцам после этого?",
+		"Limits": [
+			{"Type": "Interview", "CompareTo": 3, "Comparison": "Eq"},
+			{"Type": "PM_Nationalists", "Comparison": "Lt"}
+		],
+		"SkipTurn": true,
+		"TurnPosition": 62
+	},
+
+
+	{
+		"Title": "Интервьюер:",
+		"Description": "На сколько деятельность Анжа Нивича оправдывает ваши ожидания?",
+		"TurnPosition": 62,
+
+		"Options": [
+			{
+				"Title": "(Похвалить)",
+				"Modifiers": [
+					{ "Type": "FederationistsLoyalty", "Value": 15 },
+					{ "Type": "NeutralLoyalty", "Value": 5 }
+				],
+				"Flags": [
+					{ "Type": "Interview", "Value": 1 }
+				]
+			},
+			{
+				"Title": "(Осудить идеи)",
+				"Modifiers": [
+					{ "Type": "FederationistsLoyalty", "Value": -10 },
+					{ "Type": "FederationistsPower", "Value": -15 },
+					{ "Type": "NeutralLoyalty", "Value": 10 }
+				],
+				"Flags": [
+					{ "Type": "Interview", "Value": 2 }
+				]
+			},
+			{
+				"Title": "(Поставить под сомнение)",
+				"Modifiers": [
+					{ "Type": "FederationistsLoyalty", "Value": -10 },
+					{ "Type": "FederationistsPower", "Value": -5 },
+					{ "Type": "NeutralLoyalty", "Value": 5 }
+				],
+				"Flags": [
+					{ "Type": "Interview", "Value": 3 }
+				]
+			}
+		]
+	},
+
+	{
+		"Title": "Вы:",
+		"Description": "Анж Нивич заслуживает высоких похвал, никто не сделал большего для воссоединения братских народов Каратена!",
+		"Limits": [
+			{"Type": "Interview", "CompareTo": 1, "Comparison": "Eq"}
+		],
+		"SkipTurn": true,
+		"TurnPosition": 63
+	},
+	{
+		"Title": "Вы:",
+		"Description": "Деятельность Нивича имеет экспансионистский характер. Он вредит как интересам самих анраксовцев, многие годы требовавших признания их титульной нацией в ФШКБ и в дальнейшем проливавших кровь за независимость, так он подрывает тем самым наши отношения с Содружеством.",
+		"Limits": [
+			{"Type": "Interview", "CompareTo": 2, "Comparison": "Eq"}
+		],
+		"SkipTurn": true,
+		"TurnPosition": 63
+	},
+	{
+		"Title": "Вы:",
+		"Description": "Анж Нивич хорошо справляется со своими обязанностями в рамках военно-промышленного комплекса, но его высказывания в Парламенте вызывают у меня опасения.",
+		"Limits": [
+			{"Type": "Interview", "CompareTo": 3, "Comparison": "Eq"}
+		],
+		"SkipTurn": true,
+		"TurnPosition": 63
 	},
 
 	
@@ -355,16 +1026,24 @@
 		"Description": "МИД ОсНБ официально уведомил нас о том, что они приняли решение покинуть территорию Юга Анракса и вернуть его под наше управление",
 		"Category": "War",
 		"TurnPosition": 30,
-		
 		"Options": [
 			{
 				"Title": "Это наша победа! Победа выдержанная временем!",
 				"Modifiers": [
-					{"Type": "Treasury", "Value": 1},
-					{"Type": "NeutralLoyalty", "Value": 15}
+					{
+						"Type": "Treasury",
+						"Value": 1
+					},
+					{
+						"Type": "NeutralLoyalty",
+						"Value": 15
+					}
 				],
 				"Flags": [
-					{"Type": "SouthIsFree", "Value": 1}
+					{
+						"Type": "SouthIsFree",
+						"Value": 1
+					}
 				]
 			}
 		]

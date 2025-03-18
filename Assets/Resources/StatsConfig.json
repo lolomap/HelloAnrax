@@ -9,21 +9,23 @@
   "EVERY5": "TURN % 5",
   "EVERY10": "TURN % 10",
   
-  "NationalistsDemocratsConcurrency": "|(DemocratsPower - NationalistsPower)",
-  "NationalistsFederationistsConcurrency": "|(FederationistsPower - NationalistsPower)",
-  "DemocratsFederationistsConcurrency": "|(DemocratsPower - FederationistsPower)",
-  
   "EconomicReportBestChance": "(EconomicPower < 25) * 10 + ((EconomicPower ≥ 25) & (EconomicPower ≤ 75)) * 20 + (EconomicPower > 75) * 25",
   "EconomicReportMediumChance": "(EconomicPower < 25) * 45 + ((EconomicPower ≥ 25) & (EconomicPower ≤ 75)) * 60 + (EconomicPower > 75) * 65",
   "EconomicReportWorstChance": "(EconomicPower < 25) * 35 + ((EconomicPower ≥ 25) & (EconomicPower ≤ 75)) * 20 + (EconomicPower > 75) * 10",
   "EconomicReportTiming": "(TURN % 20) = 0",
   "EconomicReport": "EconomicReportTiming * ((RANDOM < EconomicReportWorstChance) * 1 + ((RANDOM ≥ EconomicReportWorstChance) & (RANDOM < (EconomicReportMediumChance + EconomicReportWorstChance))) * 2 + (RANDOM ≥ (EconomicReportMediumChance + EconomicReportWorstChance)) * 3)",
+
+  "PositiveBlock": "(NationalistsLoyalty > 50) * NationalistsPower + (DemocratsLoyalty > 50) * DemocratsPower + (FederationistsLoyalty > 50) * FederationistsPower",
+  "NegativeBlock": "(NationalistsLoyalty < 50) * NationalistsPower + (DemocratsLoyalty < 50) * DemocratsPower + (FederationistsLoyalty < 50) * FederationistsPower",
+
+  "NationalistsDemocratsConcurrency": "|(DemocratsPower - NationalistsPower)",
+  "NationalistsFederationistsConcurrency": "|(FederationistsPower - NationalistsPower)",
+  "DemocratsFederationistsConcurrency": "|(DemocratsPower - FederationistsPower)",
+
+  "HIGHLIGHT_NationalistsPower": "NationalistsPower - (NationalistsDemocratsConcurrency ≤ 5 | NationalistsFederationistsConcurrency ≤ 5) * 5",
+  "HIGHLIGHT_DemocratsPower": "DemocratsPower - (NationalistsDemocratsConcurrency ≤ 5 | DemocratsFederationistsConcurrency ≤ 5) * 5",
+  "HIGHLIGHT_FederationistsPower": "FederationistsPower - (NationalistsFederationistsConcurrency ≤ 5 | DemocratsFederationistsConcurrency ≤ 5) * 5",
   
-  "//NO//PowerDelta": "(NationalistsLoyalty - 50) / 100 * NationalistsPower + (DemocratsLoyalty - 50) / 100 * DemocratsPower + (FederationistsLoyalty - 50) / 100 * FederationistsPower + (NeutralLoyalty - 50) / 100 * ExtremismLevel",
-  "//NO//Power": "Power + (PowerDelta)",
-  
-  "PowerDelta": "(NationalistsLoyalty - 1.1 * NationalistsPower) / 10 + (DemocratsLoyalty - 1.1 * DemocratsPower) / 10 + (FederationistsLoyalty - 1.1 * FederationistsPower) / 10",
-  "Power": "Power + (PowerDelta * 0.6)",
-  
-  "HIGHLIGHT_Power": "Power"
+  "PowerDelta": "(PositiveBlock > NegativeBlock) * PositiveBlock / 10 + (NegativeBlock > PositiveBlock) * NegativeBlock / 10 + (NeutralLoyalty < 50) * (NeutralLoyalty / 2)",
+  "HIGHLIGHT_Power": "Power + PowerDelta"
 }

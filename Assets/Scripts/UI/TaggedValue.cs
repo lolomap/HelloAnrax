@@ -41,6 +41,10 @@ namespace UI
 
 		private void OnUpdate(string uiTag, object value)
 		{
+			bool isHigligted = uiTag.StartsWith("HIGHLIGHT_");
+			if (isHigligted)
+				uiTag = uiTag.Split("HIGHLIGHT_")[1];
+			
 			if (uiTag != Tag)
 				return;
 			
@@ -55,7 +59,7 @@ namespace UI
 				case float:
 					if (_slider != null)
 						_slider.Set(Convert.ToSingle(value),
-							uiTag.StartsWith("HIGHLIGHT_") ? GameManager.Instance.UI.AnimationDelaySec : 0);
+							isHigligted ? GameManager.Instance.UI.AnimationDelaySec : 0);
 					if (_segmentBar != null) _segmentBar.Set(Convert.ToInt32(value));
 					if (_text != null) _text.text = value.ToString();
 					break;
