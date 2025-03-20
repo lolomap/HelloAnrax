@@ -192,6 +192,7 @@
 		"Options": [
 			{
 				"Title": "Далв Тисирский",
+				"Category": "Nationalists",
 				"Modifiers": [
 					{"Type": "NationalistsLoyalty", "Value": 30},
 					{"Type": "NationalistsPower", "Value": 10},
@@ -209,6 +210,7 @@
 			},
 			{
 				"Title": "Анж Нивич",
+				"Category": "Federationists",
 				"Modifiers": [
 					{"Type": "FederationistsLoyalty", "Value": 30},
 					{"Type": "FederationistsPower", "Value": 10},
@@ -231,13 +233,14 @@
 			},
 			{
 				"Title": "Ровуль Манора",
+				"Category": "Democrats",
 				"Modifiers": [
 					{"Type": "DemocratsLoyalty", "Value": 30},
 					{"Type": "DemocratsPower", "Value": 10},
 					{"Type": "FederationistsLoyalty", "Value": -20},
 					{"Type": "NationalistsLoyalty", "Value": -20},
 					{"Type": "NationalistsPower", "Value": -20},
-					{"Type": "FederationistPower", "Value": -20}
+					{"Type": "FederationistsPower", "Value": -20}
 				],
 				"Flags": [
 					{

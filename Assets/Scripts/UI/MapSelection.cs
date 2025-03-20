@@ -41,7 +41,17 @@ namespace UI
 		{
 			Touch touch = Input.GetTouch(0);
 			
-			_rectTransform.anchoredPosition += touch.deltaPosition * ScrollSpeed * Vector2.right;
+			switch (touch.deltaPosition.x)
+			{
+				case > 0 when Camera.main!.orthographicSize * Camera.main!.aspect
+				              < _rectTransform.localPosition.x - _rectTransform.rect.width / 2f:
+				case < 0 when Camera.main!.orthographicSize * Camera.main!.aspect
+				              > _rectTransform.localPosition.x + _rectTransform.rect.width / 2f:
+					return;
+				default:
+					_rectTransform.anchoredPosition += touch.deltaPosition * ScrollSpeed * Vector2.right;
+					break;
+			}
 		}
 
 		public void Show()
