@@ -259,6 +259,7 @@
 		"Options": [
 			{
 				"Title": "Это не вам решать",
+				"Category": "Refuse",
 				"Modifiers": [
 					{
 						"Type": "FederationistsLoyalty",
@@ -268,6 +269,7 @@
 			},
 			{
 				"Title": "В ваших словах есть смысл",
+				"Category": "Federationists",
 				"Modifiers": [
 					{
 						"Type": "FederationistsLoyalty",
@@ -299,6 +301,7 @@
 		"Options": [
 			{
 				"Title": "Поддержать Министерство Экономического Развития",
+				"Category": "Democrats",
 				"Modifiers": [
 					{
 						"Type": "DemocratsLoyalty",
@@ -312,6 +315,7 @@
 			},
 			{
 				"Title": "Поддержать Службу Внешней Разведки",
+				"Category": "Nationalists",
 				"Modifiers": [
 					{
 						"Type": "DemocratsPower",
@@ -333,6 +337,7 @@
 		"Options": [
 			{
 				"Title": "Пустая говорильня",
+				"Category": "Ban",
 				"Modifiers": [
 					{
 						"Type": "FederationistsPower",
@@ -362,6 +367,7 @@
 			},
 			{
 				"Title": "Пусть выступят открыто!",
+				"Category": "Refuse",
 				"Modifiers": [
 					{
 						"Type": "FederationistsLoyalty",
@@ -391,6 +397,7 @@
 		"Options": [
 			{
 				"Title": "Просто совпадение",
+				"Category": "Federationists",
 				"Modifiers": [
 					{
 						"Type": "FederationistsPower",
@@ -400,6 +407,7 @@
 			},
 			{
 				"Title": "Парочка отстранений СБАшников их припугнет",
+				"Category": "Refuse",
 				"Modifiers": [
 					{
 						"Type": "FederationistsLoyalty",
@@ -421,6 +429,7 @@
 		"Options": [
 			{
 				"Title": "Я ручаюсь за своих подчиненных. У них не найдется прямых доказательств",
+				"Category": "Ban",
 				"Modifiers": [
 					{
 						"Type": "FederationistsLoyalty",
@@ -452,6 +461,7 @@
 			},
 			{
 				"Title": "Премьеру нужен лучший адвокат, свяжитесь с Генри Вудмаером.",
+				"Category": "Refuse",
 				"Modifiers": [
 					{
 						"Type": "FederationistsPower",
@@ -487,6 +497,7 @@
 		"Options": [
 			{
 				"Title": "Я вас услышал",
+				"Category": "Federationists",
 				"Modifiers": [
 					{
 						"Type": "FederationistsLoyalty",
@@ -500,6 +511,7 @@
 			},
 			{
 				"Title": "Как вы смеете говорить в таком тоне? Идите прочь!",
+				"Category": "Ban",
 				"Modifiers": [
 					{
 						"Type": "FederationistsLoyalty",
@@ -520,7 +532,8 @@
 				]
 			},
 			{
-				"Title": "... (*промолчать*)",
+				"Title": "... (промолчать)",
+				"Category": "Unknown",
 				"Modifiers": [
 					{
 						"Type": "FederationistsLoyalty",
@@ -599,6 +612,7 @@
 		"Options": [
 			{
 				"Title": "На социальную",
+				"Category": "Nationalists",
 				"Modifiers": [
 					{ "Type": "DemocratsLoyalty", "Value": -10 },
 					{ "Type": "NationalistsLoyalty", "Value": 10 },
@@ -613,6 +627,7 @@
 			},
 			{
 				"Title": "На военнопромышленную",
+				"Category": "Federationists",
 				"Modifiers": [
 					{ "Type": "DemocratsLoyalty", "Value": -10 },
 					{ "Type": "NationalistsLoyalty", "Value": -10 },
@@ -627,6 +642,7 @@
 			},
 			{
 				"Title": "На экономическую.",
+				"Category": "Democrats",
 				"Modifiers": [
 					{ "Type": "DemocratsLoyalty", "Value": 10 },
 					{ "Type": "NationalistsLoyalty", "Value": -10 },
@@ -673,6 +689,7 @@
 		"Options": [
 			{
 				"Title": "(Похвалить)",
+				"Category": "Democrats",
 				"Modifiers": [
 					{ "Type": "DemocratsLoyalty", "Value": 15 },
 					{ "Type": "DemocratsPower", "Value": 5 }
@@ -683,6 +700,7 @@
 			},
 			{
 				"Title": "(Отчитать нейтрально)",
+				"Category": "Refuse",
 				"Modifiers": [
 					{ "Type": "DemocratsLoyalty", "Value": -10 },
 					{ "Type": "DemocratsPower", "Value": -5 },
@@ -694,6 +712,7 @@
 			},
 			{
 				"Title": "(Отчитать как демократа)",
+				"Category": "Ban",
 				"Modifiers": [
 					{ "Type": "DemocratsLoyalty", "Value": -15 },
 					{ "Type": "NationalistsLoyalty", "Value": 10 },
@@ -750,6 +769,7 @@
 		"Options": [
 			{
 				"Title": "(Похвалить)",
+				"Category": "Democrats",
 				"Modifiers": [
 					{ "Type": "DemocratsLoyalty", "Value": 15 },
 					{ "Type": "NationalistsLoyalty", "Value": -10 },
@@ -761,6 +781,7 @@
 			},
 			{
 				"Title": "(Осудить идеи)",
+				"Category": "Ban",
 				"Modifiers": [
 					{ "Type": "DemocratsLoyalty", "Value": -15 },
 					{ "Type": "NationalistsLoyalty", "Value": 15 },
@@ -772,6 +793,7 @@
 			},
 			{
 				"Title": "(Поставить под сомнение)",
+				"Category": "Unknown",
 				"Modifiers": [
 					{ "Type": "DemocratsLoyalty", "Value": -10 },
 					{ "Type": "NationalistsLoyalty", "Value": 10 },
@@ -829,6 +851,7 @@
 		"Options": [
 			{
 				"Title": "(Похвалить)",
+				"Category": "Nationalists",
 				"Modifiers": [
 					{ "Type": "NationalistsLoyalty", "Value": 15 },
 					{ "Type": "NationalistsPower", "Value": 5 }
@@ -839,6 +862,7 @@
 			},
 			{
 				"Title": "(Отчитать нейтрально)",
+				"Category": "Refuse",
 				"Modifiers": [
 					{ "Type": "NationalistsLoyalty", "Value": -10 },
 					{ "Type": "NationalistsPower", "Value": -5 },
@@ -850,6 +874,7 @@
 			},
 			{
 				"Title": "(Отчитать как националиста)",
+				"Category": "Ban",
 				"Modifiers": [
 					{ "Type": "NationalistsLoyalty", "Value": -15 },
 					{ "Type": "DemocratsLoyalty", "Value": 10 },
@@ -894,6 +919,7 @@
 		"Options": [
 			{
 				"Title": "(Похвалить)",
+				"Category": "Nationalists",
 				"Modifiers": [
 					{ "Type": "NationalistsLoyalty", "Value": 15 },
 					{ "Type": "DemocratsLoyalty", "Value": -10 },
@@ -905,6 +931,7 @@
 			},
 			{
 				"Title": "(Осудить идеи)",
+				"Category": "Ban",
 				"Modifiers": [
 					{ "Type": "NationalistsLoyalty", "Value": -15 },
 					{ "Type": "DemocratsLoyalty", "Value": 15 },
@@ -916,6 +943,7 @@
 			},
 			{
 				"Title": "(Поставить под сомнение)",
+				"Category": "Refuse",
 				"Modifiers": [
 					{ "Type": "NationalistsLoyalty", "Value": -10 },
 					{ "Type": "DemocratsLoyalty", "Value": 10 },
@@ -968,6 +996,7 @@
 		"Options": [
 			{
 				"Title": "(Похвалить)",
+				"Category": "Federationists",
 				"Modifiers": [
 					{ "Type": "FederationistsLoyalty", "Value": 15 },
 					{ "Type": "NeutralLoyalty", "Value": 5 }
@@ -978,6 +1007,7 @@
 			},
 			{
 				"Title": "(Осудить идеи)",
+				"Category": "Ban",
 				"Modifiers": [
 					{ "Type": "FederationistsLoyalty", "Value": -10 },
 					{ "Type": "FederationistsPower", "Value": -15 },
@@ -989,6 +1019,7 @@
 			},
 			{
 				"Title": "(Поставить под сомнение)",
+				"Category": "Refuse",
 				"Modifiers": [
 					{ "Type": "FederationistsLoyalty", "Value": -10 },
 					{ "Type": "FederationistsPower", "Value": -5 },
