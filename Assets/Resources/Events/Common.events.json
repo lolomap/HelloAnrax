@@ -174,24 +174,46 @@
 		]
 	},
 	{
-		"Title": "TODO Обезьяны с гранатами?",
+		"Title": "Вооруженное население",
 		"Description": "Вернувшиеся с Ортостанской войны снаряженные ветераны обеспечили нам избавление от оков ФШКБ. Как бы это оружие не обернулось теперь уже против нас.",
 		"Options": [
 			{
-				"Title": "С чего бы нам бояться?"
+				"Title": "С чего бы нам бояться?",
+				"Modifiers": [
+					{"Type": "NationalistsLoyalty", "Value": 5},
+					{"Type": "NationalistsPower", "Value": 10},
+					{"Type": "DemocratsPower", "Value": 10},
+					{"Type": "FederationistsPower", "Value": 10}
+				]
 			},
 			{
-				"Title": "Ужесточим закон о ношении"
+				"Title": "Ужесточим закон о ношении",
+				"Modifiers": [
+					{"Type": "NationalistsLoyalty", "Value": -15},
+					{"Type": "NationalistsPower", "Value": -20},
+					{"Type": "DemocratsPower", "Value": -20},
+					{"Type": "FederationistsPower", "Value": -20}
+				]
 			},
 			{
-				"Title": "Выкупим"
+				"Title": "Выкупим",
+				"Modifiers": [
+					{"Type": "DemocratsLoyalty", "Value": 10},
+					{"Type": "NationalistsPower", "Value": -20},
+					{"Type": "DemocratsPower", "Value": -20},
+					{"Type": "FederationistsPower", "Value": -20},
+					{"Type": "Treasury", "Value": -1}
+				],
+				"Limits": [{"Type": "Treasury", "CompareTo": 1}]
 			},
 			{
-				"Title": "Увеличить льготы ветеранам"
+				"Title": "Увеличить льготы ветеранам",
+				"Modifiers": [
+					{"Type": "NationalistsPower", "Value": -10},
+					{"Type": "DemocratsPower", "Value": -10},
+					{"Type": "FederationistsPower", "Value": -10}
+				]
 			}
-		],
-		"Limits": [
-			{"Type": "=== HIDDEN ==="}
 		]
 	},
 
@@ -315,10 +337,10 @@
 				"Modifiers": [
 					{"Type":  "EconomicPower", "Value": 15},
 					{"Type":  "NeutralLoyalty", "Value": 10},
-					{"Type":  "Treasury", "Value": 2}
+					{"Type":  "Treasury", "Value": -2}
 				],
 				"Limits": [
-					{"Type":  "Treasury", "CompareTo": 1}
+					{"Type":  "Treasury", "CompareTo": 2}
 				]
 			}
 		]
@@ -1060,6 +1082,49 @@
 				],
 				"Limits": [
 					{"Type": "Treasury", "CompareTo": 1}
+				]
+			},
+			{
+				"Title": "Эй ты, широкий! Давай раз на раз!",
+				"Flags": [
+					{"Type": "MinerFight", "Value": 1}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Президент - реальный мужик",
+		"Description": "Шахтер молча принимает ваш вызов и делает шаг вперёд. Вы снимаете пиджак и также показываете свою готовность к драке. Толпа освистывает вас и выкрикивает слова поддержки в сторону вашего оппонента, которого по-видимому зовут Олаф. Вы делаете шаг вперёд, намереваясь нанести точный удар в область лица противника. Хук правой, хук левой, всё так как в детстве вас учил отец и дикая улица голодных годов. Шахтёр отвечает вам стойкостью камни, непокалебимостью скалы. Поглощая удар за ударом , спустя пару секунд он контратакует пытаясь сбить вас с ног. Кто же знал, что спасением послужит пакет тухлых помидоров на асфальте, который до этого озверевшая толпа бросала в вас. Делая неудачный выпад вперед, Олаф подскальзывается и громогласно валится на дорогу, сотрясая асфальт. Это победа, кто-то из толпы отдает вам честь. ",
+		"Category": "Default",
+		"Limits": [
+			{"Type":  "MinerFight"},
+			{"Type": "RANDOM", "CompareTo": 50}
+		],
+		"IsTrigger": true,
+		"Options": [
+			{
+				"Title": "Так в стране решаются проблемы, по-мужски!",
+				"Modifiers": [
+					{"Type": "NeutralLoyalty", "Value": 15}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Фиаско на ринге",
+		"Description": "Шахтер молча принимает ваш вызов и делает шаг вперёд. Вы снимаете пиджак и также показываете свою готовность к драке. Толпа освистывает вас и выкрикивает слова поддержки в сторону вашего оппонента, которого по-видимому зовут Олаф. Вы делаете шаг вперёд, стараясь нанести точный удар в область лица противника, но внезапно ваш кулак увядает в его густой бороде. После непродолжительной паузы шахтёр берёт вас в захват левой рукой и атакует всепронзающим ароматом работника шахты. Долго вы этого не вынесете, белый флаг поднят.",
+		"Category": "Default",
+		"Limits": [
+			{"Type":  "MinerFight"},
+			{"Type": "RANDOM", "CompareTo": 50, "Comparison": "Lt"}
+		],
+		"IsTrigger": true,
+		"Options": [
+			{
+				"Title": "Вырежьте это из газет!",
+				"Modifiers": [
+					{"Type": "NeutralLoyalty", "Value": -15},
+					{"Type": "Treasury", "Value": -1}
 				]
 			}
 		]
@@ -1811,15 +1876,31 @@
 	},
 	{
 		"Title": "Священный долг",
-		"Description": "На окраинах Анракса наблюдаются вспышки конфликтов между радикальными религиозными группами. Эта ситуация повышает напряжённость на границах с другими государствами. Терапилья предлагает ввод миротворческих войск на территорию Анракса для урегулирования конфликта.",
+		"Description": "На окраинах Анракса наблюдаются вспышки конфликтов между радикальными религиозными группами. Эта ситуация повышает напряжённость на границах с другими государствами. ИИД предлагает ввод миротворческих войск на территорию Анракса для урегулирования конфликта.",
 		"Category": "Riots",
 		"Limits": [
-			{"Type": "== HIDDEN =="},
-			{"Type": "ExtremismLevel", "CompareTo": 20}
+			{"Type": "ExtremismLevel", "CompareTo": 25}
 		],
 		"Options": [
 			{
-				"Title": "1) Согласиться на предложение Терапильи 2) Мы справимся сами! 3) Мы не будем вмешиваться!"
+				"Title": "Согласиться на предложение ИИД",
+				"Modifiers": [
+					{"Type": "RelationsIID", "Value": 15},
+					{"Type": "NationalistsLoyalty", "Value": -20}
+				]
+			},
+			{
+				"Title": "Мы справимся сами!",
+				"Modifiers": [
+					{"Type": "NeutralLoyalty", "Value": 10},
+					{"Type": "ExtremismLevel", "Value": -10}
+				]
+			},
+			{
+				"Title": "Мы не будем вмешиваться",
+				"Modifiers": [
+					{"Type": "ExtremismLevel", "Value": 10}
+				]
 			}
 		]
 	},
@@ -1859,23 +1940,73 @@
 	},
 	{
 		"Title": "Националисты организуют карательные бригады",
-		"Description": "",
+		"Description": "Черная форма, кожанные сапоги: Десятки бритых молодых ребят теперь топчат улицы городов Анракса, стремясь «навести порядок». Они без каких бы то ни было причин нападают на прохожих и сочуствующих других политических партий помимо НПА. Нет никаких сомнений, за этим стоит фракция националистов!",
 		"Category": "Social",
-		"Limits": [{"Type": "== HIDDEN =="}],
 		"Options": [
 			{
-				"Title": ""
+				"Title": "Нам необходимо срочно восстановить порядок на улицах, разгоните их!",
+				"Modifiers": [
+					{"Type": "NationalistsLoyalty", "Value": -10},
+					{"Type": "NationalistsPower", "Value": -10},
+					{"Type": "FederationistsLoyalty", "Value": 5},
+					{"Type": "DemocratsLoyalty", "Value": 5},
+					{"Type": "Power", "Value": 10}
+				]
+			},
+			{
+				"Title": "Бритоголовые юнцы не представляют угрозы государству",
+				"Modifiers": [
+					{"Type": "NationalistsLoyalty", "Value": 10},
+					{"Type": "NationalistsPower", "Value": 10},
+					{"Type": "DemocratsPower", "Value": -10},
+					{"Type": "FederationistsPower", "Value": -10}
+				]
+			},
+			{
+				"Title": "Националисты зашли слишком далеко, срочно арестовать всех причастных!",
+				"Modifiers": [
+					{"Type": "NationalistsLoyalty", "Value": -25},
+					{"Type": "NationalistsPower", "Value": -20},
+					{"Type": "FederationistsLoyalty", "Value": 5},
+					{"Type": "DemocratsLoyalty", "Value": 5},
+					{"Type": "Power", "Value": 20}
+				]
 			}
 		]
 	},
 	{
 		"Title": "Демократы организуют штабы оппозиции",
-		"Description": "По всей стране открываются штабы \"Народной Партии за Справедливость\"",
+		"Description": "По всей стране открываются штабы «Народной Партии за Справедливость», даже в самых захолустных деревнях! Люди всех полов и возрастов активно записываюся в волонтеры и помогают демократам повсеместно распространять их идеи. И все было бы хорошо, если бы мудрейший человек в стране (Вы), не оказывались козлом отпущения в их бездарных пропагандистских листовках!",
 		"Category": "Social",
-		"Limits": [{"Type": "== HIDDEN =="}],
 		"Options": [
 			{
-				"Title": ""
+				"Title": "Это политика, тут ничего не поделаешь",
+				"Modifiers": [
+					{"Type": "DemocratsLoyalty", "Value": 15},
+					{"Type": "DemocratsPower", "Value": 15},
+					{"Type": "FederationistsPower", "Value": -10},
+					{"Type": "NationalistsPower", "Value": -10}
+				]
+			},
+			{
+				"Title": "Что за вздор и чепуху они несут! Закрыть эти притоны немедля!",
+				"Modifiers": [
+					{"Type": "NationalistsLoyalty", "Value": 5},
+					{"Type": "DemocratsLoyalty", "Value": -10},
+					{"Type": "DemocratsPower", "Value": -10},
+					{"Type": "FederationistsLoyalty", "Value": 5},
+					{"Type": "Power", "Value": 10}
+				]
+			},
+			{
+				"Title": "Демократам не помешает полицейская взбучка",
+				"Modifiers": [
+					{"Type": "NationalistsLoyalty", "Value": 5},
+					{"Type": "DemocratsPower", "Value": -20},
+					{"Type": "FederationistsLoyalty", "Value": 5},
+					{"Type": "DemocratsLoyalty", "Value": -25},
+					{"Type": "Power", "Value": 20}
+				]
 			}
 		]
 	},
@@ -2117,7 +2248,7 @@
 	{
 		"Title": "Враг внутри",
 		"Description": "Была обнаружена группа контрабандистов, которые незаконно распродают за границу краденое оружие и боеприпасы, оставшиеся после войны.",
-		"Category": "Default",
+		"Category": "Trade",
 		"Options": [
 			{
 				"Title": "Взять их немедленно и изъять краденое",
@@ -2132,20 +2263,32 @@
 					{"Type": "Treasury", "Value": 1},
 					{"Type": "NeutralLoyalty", "Value": 15},
 					{"Type": "ExtremismLevel", "Value": -15}
-				]
+				],
+				"Flags": [{"Type": "UCBMilitaryArrested", "Value": 1}]
 			}
 		]
 	},
 	{
 		"Title": "Виндетта",
-		"Description": "Заказчиками оказались военные ОСБН! Они ударят по военной части, если не освободить контрабандистов!",
+		"Description": "Заказчиками краденного вооружения оказались военные ОсНБ! Они грозят политическим скандалом, если мы не выдадим их граждан!",
 		"Limits": [
-			{"Type": "== HIDDEN =="}
+			{"Type": "UCBMilitaryArrested"}
 		],
-		"Category": "Trade",
+		"Category": "Relations",
 		"Options": [
 			{
-				"Title": "1) Освободить только людей ОСБН 2) Освободить всех"
+				"Title": "Освободить и замять дело",
+				"Modifiers": [
+					{"Type": "DemocratsLoyalty", "Value": 15}
+				]
+			},
+			{
+				"Title": "Раскрыть карты",
+				"Modifiers": [
+					{"Type": "RelationsUCB", "Value": -15},
+					{"Type": "DemocratsPower", "Value": -20},
+					{"Type": "NationalistsPower", "Value": 15}
+				]
 			}
 		]
 	},
@@ -2297,6 +2440,7 @@
 		"Category": "MilitaryIndustry",
 		"Limits": [
 			{"Type": "PrepareToWar"},
+			{"Type": "SouthIsFree", "Comparison": "Lt"},
 			{"Type": "EVERY3", "Comparison": "Lt"}
 		],
 		"Options": [
@@ -2328,6 +2472,7 @@
 		"Category": "MilitaryIndustry",
 		"Limits": [
 			{"Type": "PrepareToWar"},
+			{"Type": "SouthIsFree", "Comparison": "Lt"},
 			{"Type": "EVERY3", "Comparison": "Lt"}
 		],
 		"Options": [
@@ -2359,6 +2504,7 @@
 		"Category": "MilitaryIndustry",
 		"Limits": [
 			{"Type": "PrepareToWar"},
+			{"Type": "SouthIsFree", "Comparison": "Lt"},
 			{"Type": "EVERY3", "Comparison": "Lt"}
 		],
 		"Options": [
@@ -2390,6 +2536,7 @@
 		"Category": "MilitaryIndustry",
 		"Limits": [
 			{"Type": "PrepareToWar"},
+			{"Type": "SouthIsFree", "Comparison": "Lt"},
 			{"Type": "EVERY3", "Comparison": "Lt"}
 		],
 		"Options": [
@@ -2421,6 +2568,7 @@
 		"Category": "MilitaryIndustry",
 		"Limits": [
 			{"Type": "PrepareToWar"},
+			{"Type": "SouthIsFree", "Comparison": "Lt"},
 			{"Type": "EVERY3", "Comparison": "Lt"}
 		],
 		"Options": [

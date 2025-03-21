@@ -714,6 +714,7 @@
 			{"Type": "Interview", "CompareTo": 1, "Comparison": "Eq"},
 			{"Type": "PM_Democrats"}
 		],
+		"Options": [{"Title": "Далее", "Flags": [{"Type": "InterviewManora", "Value": 1}]}],
 		"SkipTurn": true,
 		"TurnPosition": 61
 	},
@@ -724,6 +725,7 @@
 			{"Type": "Interview", "CompareTo": 2, "Comparison": "Eq"},
 			{"Type": "PM_Democrats"}
 		],
+		"Options": [{"Title": "Далее", "Flags": [{"Type": "InterviewManora", "Value": 1}]}],
 		"SkipTurn": true,
 		"TurnPosition": 61
 	},
@@ -734,6 +736,7 @@
 			{"Type": "Interview", "CompareTo": 3, "Comparison": "Eq"},
 			{"Type": "PM_Democrats"}
 		],
+		"Options": [{"Title": "Далее", "Flags": [{"Type": "InterviewManora", "Value": 1}]}],
 		"SkipTurn": true,
 		"TurnPosition": 61
 	},
@@ -789,6 +792,7 @@
 			{"Type": "Interview", "CompareTo": 1, "Comparison": "Eq"},
 			{"Type": "PM_Democrats", "Comparison": "Lt"}
 		],
+		"Options": [{"Title": "Далее", "Flags": [{"Type": "InterviewManora", "Value": 1}]}],
 		"SkipTurn": true,
 		"TurnPosition": 61
 	},
@@ -799,6 +803,7 @@
 			{"Type": "Interview", "CompareTo": 2, "Comparison": "Eq"},
 			{"Type": "PM_Democrats", "Comparison": "Lt"}
 		],
+		"Options": [{"Title": "Далее", "Flags": [{"Type": "InterviewManora", "Value": 1}]}],
 		"SkipTurn": true,
 		"TurnPosition": 61
 	},
@@ -809,6 +814,7 @@
 			{"Type": "Interview", "CompareTo": 3, "Comparison": "Eq"},
 			{"Type": "PM_Democrats", "Comparison": "Lt"}
 		],
+		"Options": [{"Title": "Далее", "Flags": [{"Type": "InterviewManora", "Value": 1}]}],
 		"SkipTurn": true,
 		"TurnPosition": 61
 	},
@@ -818,7 +824,7 @@
 		"Title": "Интервьюер:",
 		"Description": "Устраивает ли вас работа Далва Тисирского?",
 		"TurnPosition": 61,
-		"Limits": [{"Type": "PM_Nationalists"}],
+		"Limits": [{"Type": "PM_Nationalists"}, {"Type": "InterviewManora"}],
 
 		"Options": [
 			{
@@ -1023,6 +1029,51 @@
 		"TurnPosition": 63
 	},
 
+	{
+		"Title": "Интервьюер:",
+		"Description": "Экономика продолжает стагнировать Как быть?",
+		"Limits": [{"Type": "EconomicPower", "CompareTo": 50, "Comparison": "Lt"}],
+		"TurnPosition": 63,
+
+		"Options": [
+			{
+				"Title": "Следующий вопрос",
+				"Modifiers": [
+					{ "Type": "NeutralLoyalty", "Value": -10 },
+					{ "Type": "Power", "Value": 5 }
+				]
+			},
+			{
+				"Title": "Здесь все зависит от того как поставить вопрос, стагнирует по сравнению с чем?",
+				"Modifiers": [
+					{ "Type": "Power", "Value": 10 },
+					{ "Type": "NeutralLoyalty", "Value": -5 }
+				]
+			},
+			{
+				"Title": "Я вас не совсем понял, быть кому?",
+				"Modifiers": [
+					{ "Type": "Power", "Value": 5 },
+					{ "Type": "NeutralLoyalty", "Value": -7 }
+				]
+			},
+			{
+				"Title": "Я считаю причиной этому являются действия враждебных к нам государств",
+				"Modifiers": [
+					{ "Type": "FederationistsLoyalty", "Value": 10 },
+					{ "Type": "NationalistsLoyalty", "Value": 10 },
+					{ "Type": "Power", "Value": 5 }
+				]
+			},
+			{
+				"Title": "Скажу честно - я облажался",
+				"Modifiers": [
+					{ "Type": "Power", "Value": 5 },
+					{ "Type": "NeutralLoyalty", "Value": -10 }
+				]
+			}
+		]
+	},
 	
 	{
 		"Title": "Юг свободен!",

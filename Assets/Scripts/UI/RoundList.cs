@@ -90,6 +90,36 @@ namespace UI
 
 		public RoundListElement GetSelected() => _selectedElement;
 
+		public void SelectNext()
+		{
+			if (_isAdjusting) return;
+			_selectedIndex++;
+			if (_selectedIndex > _elements.Count - 1) _selectedIndex = 0;
+			
+			if (_selectedElement != null)
+				_selectedElement.Unselect();
+			_selectedElement = _elements[_selectedIndex];
+			_selectedElement.Select();
+			
+			_isAdjusting = true;
+			StartCoroutine(Adjust(_selectedIndex));
+		}
+
+		public void SelectPrevious()
+		{
+			if (_isAdjusting) return;
+			_selectedIndex--;
+			if (_selectedIndex < 0) _selectedIndex = _elements.Count - 1;
+			
+			if (_selectedElement != null)
+				_selectedElement.Unselect();
+			_selectedElement = _elements[_selectedIndex];
+			_selectedElement.Select();
+			
+			_isAdjusting = true;
+			StartCoroutine(Adjust(_selectedIndex));
+		}
+
 		public void OnDrag()
 		{
 			if (_isAdjusting) return;
