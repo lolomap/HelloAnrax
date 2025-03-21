@@ -192,6 +192,7 @@
 		"Options": [
 			{
 				"Title": "Далв Тисирский",
+				"Category": "Nationalists",
 				"Modifiers": [
 					{"Type": "NationalistsLoyalty", "Value": 30},
 					{"Type": "NationalistsPower", "Value": 10},
@@ -209,6 +210,7 @@
 			},
 			{
 				"Title": "Анж Нивич",
+				"Category": "Federationists",
 				"Modifiers": [
 					{"Type": "FederationistsLoyalty", "Value": 30},
 					{"Type": "FederationistsPower", "Value": 10},
@@ -231,13 +233,14 @@
 			},
 			{
 				"Title": "Ровуль Манора",
+				"Category": "Democrats",
 				"Modifiers": [
 					{"Type": "DemocratsLoyalty", "Value": 30},
 					{"Type": "DemocratsPower", "Value": 10},
 					{"Type": "FederationistsLoyalty", "Value": -20},
 					{"Type": "NationalistsLoyalty", "Value": -20},
 					{"Type": "NationalistsPower", "Value": -20},
-					{"Type": "FederationistPower", "Value": -20}
+					{"Type": "FederationistsPower", "Value": -20}
 				],
 				"Flags": [
 					{
@@ -256,6 +259,7 @@
 		"Options": [
 			{
 				"Title": "Это не вам решать",
+				"Category": "Refuse",
 				"Modifiers": [
 					{
 						"Type": "FederationistsLoyalty",
@@ -265,6 +269,7 @@
 			},
 			{
 				"Title": "В ваших словах есть смысл",
+				"Category": "Federationists",
 				"Modifiers": [
 					{
 						"Type": "FederationistsLoyalty",
@@ -296,6 +301,7 @@
 		"Options": [
 			{
 				"Title": "Поддержать Министерство Экономического Развития",
+				"Category": "Democrats",
 				"Modifiers": [
 					{
 						"Type": "DemocratsLoyalty",
@@ -309,6 +315,7 @@
 			},
 			{
 				"Title": "Поддержать Службу Внешней Разведки",
+				"Category": "Nationalists",
 				"Modifiers": [
 					{
 						"Type": "DemocratsPower",
@@ -330,6 +337,7 @@
 		"Options": [
 			{
 				"Title": "Пустая говорильня",
+				"Category": "Ban",
 				"Modifiers": [
 					{
 						"Type": "FederationistsPower",
@@ -359,6 +367,7 @@
 			},
 			{
 				"Title": "Пусть выступят открыто!",
+				"Category": "Refuse",
 				"Modifiers": [
 					{
 						"Type": "FederationistsLoyalty",
@@ -388,6 +397,7 @@
 		"Options": [
 			{
 				"Title": "Просто совпадение",
+				"Category": "Federationists",
 				"Modifiers": [
 					{
 						"Type": "FederationistsPower",
@@ -397,6 +407,7 @@
 			},
 			{
 				"Title": "Парочка отстранений СБАшников их припугнет",
+				"Category": "Refuse",
 				"Modifiers": [
 					{
 						"Type": "FederationistsLoyalty",
@@ -418,6 +429,7 @@
 		"Options": [
 			{
 				"Title": "Я ручаюсь за своих подчиненных. У них не найдется прямых доказательств",
+				"Category": "Ban",
 				"Modifiers": [
 					{
 						"Type": "FederationistsLoyalty",
@@ -449,6 +461,7 @@
 			},
 			{
 				"Title": "Премьеру нужен лучший адвокат, свяжитесь с Генри Вудмаером.",
+				"Category": "Refuse",
 				"Modifiers": [
 					{
 						"Type": "FederationistsPower",
@@ -484,6 +497,7 @@
 		"Options": [
 			{
 				"Title": "Я вас услышал",
+				"Category": "Federationists",
 				"Modifiers": [
 					{
 						"Type": "FederationistsLoyalty",
@@ -497,6 +511,7 @@
 			},
 			{
 				"Title": "Как вы смеете говорить в таком тоне? Идите прочь!",
+				"Category": "Ban",
 				"Modifiers": [
 					{
 						"Type": "FederationistsLoyalty",
@@ -517,7 +532,8 @@
 				]
 			},
 			{
-				"Title": "... (*промолчать*)",
+				"Title": "... (промолчать)",
+				"Category": "Unknown",
 				"Modifiers": [
 					{
 						"Type": "FederationistsLoyalty",
@@ -596,6 +612,7 @@
 		"Options": [
 			{
 				"Title": "На социальную",
+				"Category": "Nationalists",
 				"Modifiers": [
 					{ "Type": "DemocratsLoyalty", "Value": -10 },
 					{ "Type": "NationalistsLoyalty", "Value": 10 },
@@ -610,6 +627,7 @@
 			},
 			{
 				"Title": "На военнопромышленную",
+				"Category": "Federationists",
 				"Modifiers": [
 					{ "Type": "DemocratsLoyalty", "Value": -10 },
 					{ "Type": "NationalistsLoyalty", "Value": -10 },
@@ -624,6 +642,7 @@
 			},
 			{
 				"Title": "На экономическую.",
+				"Category": "Democrats",
 				"Modifiers": [
 					{ "Type": "DemocratsLoyalty", "Value": 10 },
 					{ "Type": "NationalistsLoyalty", "Value": -10 },
@@ -670,6 +689,7 @@
 		"Options": [
 			{
 				"Title": "(Похвалить)",
+				"Category": "Democrats",
 				"Modifiers": [
 					{ "Type": "DemocratsLoyalty", "Value": 15 },
 					{ "Type": "DemocratsPower", "Value": 5 }
@@ -680,6 +700,7 @@
 			},
 			{
 				"Title": "(Отчитать нейтрально)",
+				"Category": "Refuse",
 				"Modifiers": [
 					{ "Type": "DemocratsLoyalty", "Value": -10 },
 					{ "Type": "DemocratsPower", "Value": -5 },
@@ -691,6 +712,7 @@
 			},
 			{
 				"Title": "(Отчитать как демократа)",
+				"Category": "Ban",
 				"Modifiers": [
 					{ "Type": "DemocratsLoyalty", "Value": -15 },
 					{ "Type": "NationalistsLoyalty", "Value": 10 },
@@ -711,6 +733,7 @@
 			{"Type": "Interview", "CompareTo": 1, "Comparison": "Eq"},
 			{"Type": "PM_Democrats"}
 		],
+		"Options": [{"Title": "Далее", "Flags": [{"Type": "InterviewManora", "Value": 1}]}],
 		"SkipTurn": true,
 		"TurnPosition": 61
 	},
@@ -721,6 +744,7 @@
 			{"Type": "Interview", "CompareTo": 2, "Comparison": "Eq"},
 			{"Type": "PM_Democrats"}
 		],
+		"Options": [{"Title": "Далее", "Flags": [{"Type": "InterviewManora", "Value": 1}]}],
 		"SkipTurn": true,
 		"TurnPosition": 61
 	},
@@ -731,6 +755,7 @@
 			{"Type": "Interview", "CompareTo": 3, "Comparison": "Eq"},
 			{"Type": "PM_Democrats"}
 		],
+		"Options": [{"Title": "Далее", "Flags": [{"Type": "InterviewManora", "Value": 1}]}],
 		"SkipTurn": true,
 		"TurnPosition": 61
 	},
@@ -744,6 +769,7 @@
 		"Options": [
 			{
 				"Title": "(Похвалить)",
+				"Category": "Democrats",
 				"Modifiers": [
 					{ "Type": "DemocratsLoyalty", "Value": 15 },
 					{ "Type": "NationalistsLoyalty", "Value": -10 },
@@ -755,6 +781,7 @@
 			},
 			{
 				"Title": "(Осудить идеи)",
+				"Category": "Ban",
 				"Modifiers": [
 					{ "Type": "DemocratsLoyalty", "Value": -15 },
 					{ "Type": "NationalistsLoyalty", "Value": 15 },
@@ -766,6 +793,7 @@
 			},
 			{
 				"Title": "(Поставить под сомнение)",
+				"Category": "Unknown",
 				"Modifiers": [
 					{ "Type": "DemocratsLoyalty", "Value": -10 },
 					{ "Type": "NationalistsLoyalty", "Value": 10 },
@@ -786,6 +814,7 @@
 			{"Type": "Interview", "CompareTo": 1, "Comparison": "Eq"},
 			{"Type": "PM_Democrats", "Comparison": "Lt"}
 		],
+		"Options": [{"Title": "Далее", "Flags": [{"Type": "InterviewManora", "Value": 1}]}],
 		"SkipTurn": true,
 		"TurnPosition": 61
 	},
@@ -796,6 +825,7 @@
 			{"Type": "Interview", "CompareTo": 2, "Comparison": "Eq"},
 			{"Type": "PM_Democrats", "Comparison": "Lt"}
 		],
+		"Options": [{"Title": "Далее", "Flags": [{"Type": "InterviewManora", "Value": 1}]}],
 		"SkipTurn": true,
 		"TurnPosition": 61
 	},
@@ -806,6 +836,7 @@
 			{"Type": "Interview", "CompareTo": 3, "Comparison": "Eq"},
 			{"Type": "PM_Democrats", "Comparison": "Lt"}
 		],
+		"Options": [{"Title": "Далее", "Flags": [{"Type": "InterviewManora", "Value": 1}]}],
 		"SkipTurn": true,
 		"TurnPosition": 61
 	},
@@ -815,11 +846,12 @@
 		"Title": "Интервьюер:",
 		"Description": "Устраивает ли вас работа Далва Тисирского?",
 		"TurnPosition": 61,
-		"Limits": [{"Type": "PM_Nationalists"}],
+		"Limits": [{"Type": "PM_Nationalists"}, {"Type": "InterviewManora"}],
 
 		"Options": [
 			{
 				"Title": "(Похвалить)",
+				"Category": "Nationalists",
 				"Modifiers": [
 					{ "Type": "NationalistsLoyalty", "Value": 15 },
 					{ "Type": "NationalistsPower", "Value": 5 }
@@ -830,6 +862,7 @@
 			},
 			{
 				"Title": "(Отчитать нейтрально)",
+				"Category": "Refuse",
 				"Modifiers": [
 					{ "Type": "NationalistsLoyalty", "Value": -10 },
 					{ "Type": "NationalistsPower", "Value": -5 },
@@ -841,6 +874,7 @@
 			},
 			{
 				"Title": "(Отчитать как националиста)",
+				"Category": "Ban",
 				"Modifiers": [
 					{ "Type": "NationalistsLoyalty", "Value": -15 },
 					{ "Type": "DemocratsLoyalty", "Value": 10 },
@@ -885,6 +919,7 @@
 		"Options": [
 			{
 				"Title": "(Похвалить)",
+				"Category": "Nationalists",
 				"Modifiers": [
 					{ "Type": "NationalistsLoyalty", "Value": 15 },
 					{ "Type": "DemocratsLoyalty", "Value": -10 },
@@ -896,6 +931,7 @@
 			},
 			{
 				"Title": "(Осудить идеи)",
+				"Category": "Ban",
 				"Modifiers": [
 					{ "Type": "NationalistsLoyalty", "Value": -15 },
 					{ "Type": "DemocratsLoyalty", "Value": 15 },
@@ -907,6 +943,7 @@
 			},
 			{
 				"Title": "(Поставить под сомнение)",
+				"Category": "Refuse",
 				"Modifiers": [
 					{ "Type": "NationalistsLoyalty", "Value": -10 },
 					{ "Type": "DemocratsLoyalty", "Value": 10 },
@@ -959,6 +996,7 @@
 		"Options": [
 			{
 				"Title": "(Похвалить)",
+				"Category": "Federationists",
 				"Modifiers": [
 					{ "Type": "FederationistsLoyalty", "Value": 15 },
 					{ "Type": "NeutralLoyalty", "Value": 5 }
@@ -969,6 +1007,7 @@
 			},
 			{
 				"Title": "(Осудить идеи)",
+				"Category": "Ban",
 				"Modifiers": [
 					{ "Type": "FederationistsLoyalty", "Value": -10 },
 					{ "Type": "FederationistsPower", "Value": -15 },
@@ -980,6 +1019,7 @@
 			},
 			{
 				"Title": "(Поставить под сомнение)",
+				"Category": "Refuse",
 				"Modifiers": [
 					{ "Type": "FederationistsLoyalty", "Value": -10 },
 					{ "Type": "FederationistsPower", "Value": -5 },
@@ -1020,6 +1060,51 @@
 		"TurnPosition": 63
 	},
 
+	{
+		"Title": "Интервьюер:",
+		"Description": "Экономика продолжает стагнировать Как быть?",
+		"Limits": [{"Type": "EconomicPower", "CompareTo": 50, "Comparison": "Lt"}],
+		"TurnPosition": 63,
+
+		"Options": [
+			{
+				"Title": "Следующий вопрос",
+				"Modifiers": [
+					{ "Type": "NeutralLoyalty", "Value": -10 },
+					{ "Type": "Power", "Value": 5 }
+				]
+			},
+			{
+				"Title": "Здесь все зависит от того как поставить вопрос, стагнирует по сравнению с чем?",
+				"Modifiers": [
+					{ "Type": "Power", "Value": 10 },
+					{ "Type": "NeutralLoyalty", "Value": -5 }
+				]
+			},
+			{
+				"Title": "Я вас не совсем понял, быть кому?",
+				"Modifiers": [
+					{ "Type": "Power", "Value": 5 },
+					{ "Type": "NeutralLoyalty", "Value": -7 }
+				]
+			},
+			{
+				"Title": "Я считаю причиной этому являются действия враждебных к нам государств",
+				"Modifiers": [
+					{ "Type": "FederationistsLoyalty", "Value": 10 },
+					{ "Type": "NationalistsLoyalty", "Value": 10 },
+					{ "Type": "Power", "Value": 5 }
+				]
+			},
+			{
+				"Title": "Скажу честно - я облажался",
+				"Modifiers": [
+					{ "Type": "Power", "Value": 5 },
+					{ "Type": "NeutralLoyalty", "Value": -10 }
+				]
+			}
+		]
+	},
 	
 	{
 		"Title": "Юг свободен!",

@@ -42,7 +42,10 @@ namespace UI
 	{
 		private RectTransform _rectTransform;
 
+		private RoundListElement _preSelectedElement;
 		private RoundListElement _selectedElement;
+		private int _selectedIndex;
+		private int _selectionDirection;
 		
 		private List<RoundListElement> _elements = new();
 		public List<RoundListElement> Elements
@@ -67,6 +70,8 @@ namespace UI
 		public bool FitWidth;
 		public bool FitHeight;
 		public float ExtraRadius;
+		public bool RotateByOne;
+		public float ByOneSelectionAngle = 15f;
 
 		public float AdjustSpeed;
 		
@@ -85,12 +90,42 @@ namespace UI
 
 		public RoundListElement GetSelected() => _selectedElement;
 
+		public void SelectNext()
+		{
+			if (_isAdjusting) return;
+			_selectedIndex++;
+			if (_selectedIndex > _elements.Count - 1) _selectedIndex = 0;
+			
+			if (_selectedElement != null)
+				_selectedElement.Unselect();
+			_selectedElement = _elements[_selectedIndex];
+			_selectedElement.Select();
+			
+			_isAdjusting = true;
+			StartCoroutine(Adjust(_selectedIndex));
+		}
+
+		public void SelectPrevious()
+		{
+			if (_isAdjusting) return;
+			_selectedIndex--;
+			if (_selectedIndex < 0) _selectedIndex = _elements.Count - 1;
+			
+			if (_selectedElement != null)
+				_selectedElement.Unselect();
+			_selectedElement = _elements[_selectedIndex];
+			_selectedElement.Select();
+			
+			_isAdjusting = true;
+			StartCoroutine(Adjust(_selectedIndex));
+		}
+
 		public void OnDrag()
 		{
 			if (_isAdjusting) return;
 
 			Touch touch = Input.GetTouch(0);
-			float angle = Vector2.SignedAngle(Vector2.up, Camera.main!.ScreenToWorldPoint(touch.position));
+			float angle = Vector2.SignedAngle(Vector2.up, (Vector2)Camera.main!.ScreenToWorldPoint(touch.position) - (Vector2)transform.position);
 			if (angle < 0) angle = 360 + angle;
 
 			angle -= _cursorStartAngle;
@@ -116,16 +151,21 @@ namespace UI
 				element.transform.eulerAngles = Vector3.zero;
 				
 				// Calculate new selection
-				float elementAngle = Vector2.Angle(element.localPosition, Vector2.up);
-				
-				if (elementAngle > _selectionAngle || _selectedElement == _elements[i]) continue;
+				if (!RotateByOne)
+				{
+					float elementAngle = Vector2.Angle(element.localPosition, Vector2.up);
 
-				if (_selectedElement != null)
-					_selectedElement.Unselect();
-				_selectedElement = _elements[i];
+					if (elementAngle > _selectionAngle || _selectedElement == _elements[i]) continue;
 
-				_selectedElement.Select();
+					if (_selectedElement != null)
+						_selectedElement.Unselect();
+					_selectedElement = _elements[i];
+
+					_selectedElement.Select();
+				}
 			}
+			if (RotateByOne)
+				CalculateSelection();
 		}
 
 		public void OnBeginDrag()
@@ -134,27 +174,74 @@ namespace UI
 
 			Touch touch = Input.GetTouch(0);
 			
-			_elementStartAngle = Vector2.SignedAngle(Vector2.up, _elements[0].RTransform.transform.position);
+			_elementStartAngle = Vector2.SignedAngle(Vector2.up, (Vector2)_elements[0].RTransform.transform.position - (Vector2)transform.position);
 			if (_elementStartAngle < 0) _elementStartAngle = 360 + _elementStartAngle;
 			
-			_cursorStartAngle = Vector2.SignedAngle(Vector2.up, Camera.main!.ScreenToWorldPoint(touch.position));
+			_cursorStartAngle = Vector2.SignedAngle(Vector2.up, (Vector2)Camera.main!.ScreenToWorldPoint(touch.position) - (Vector2)transform.position);
 			if (_cursorStartAngle < 0) _cursorStartAngle = 360 + _cursorStartAngle;
+
+			if (_preSelectedElement == null) _preSelectedElement = _selectedElement;
 		}
 
 		public void OnEndDrag()
 		{
 			_elementStartAngle = 0;
 			_cursorStartAngle = 0;
-			
-			for (int i = 0; i < _elements.Count; i++)
-			{
-				RoundListElement element = _elements[i];
-				float elementAngle = Vector2.Angle(element.RTransform.localPosition, Vector2.up);
-				if (elementAngle > _selectionAngle) continue;
 
-				_isAdjusting = true;
-				StartCoroutine(Adjust(i));
+			if (!RotateByOne)
+			{
+				for (int i = 0; i < _elements.Count; i++)
+				{
+					RoundListElement element = _elements[i];
+					float elementAngle = Vector2.Angle(element.RTransform.localPosition, Vector2.up);
+					if (elementAngle > _selectionAngle) continue;
+
+					_isAdjusting = true;
+					StartCoroutine(Adjust(i));
+				}
 			}
+			else
+			{
+				CalculateSelection();
+				_isAdjusting = true;
+				_selectionDirection = 0;
+				_preSelectedElement = _selectedElement;
+				StartCoroutine(Adjust(_selectedIndex));
+			}
+		}
+
+		private void CalculateSelection()
+		{
+			float selectedCurrentAngle = Vector2.SignedAngle(_preSelectedElement.RTransform.localPosition, Vector2.up);
+			if (selectedCurrentAngle > ByOneSelectionAngle)
+			{
+				if (_selectionDirection != 0) return;
+				_selectedIndex++;
+				if (_selectedIndex > _elements.Count - 1) _selectedIndex = 0;
+				_selectionDirection = 1;
+			}
+			else if (selectedCurrentAngle < -ByOneSelectionAngle)
+			{
+				if (_selectionDirection != 0) return;
+				_selectedIndex--;
+				if (_selectedIndex < 0) _selectedIndex = _elements.Count - 1;
+				_selectionDirection = -1;
+			}
+			else
+			{
+				/*if (_selectionDirection == 0) return;
+				_selectedIndex -= _selectionDirection;
+				if (_selectedIndex > _elements.Count - 1) _selectedIndex = 0;
+				if (_selectedIndex < 0) _selectedIndex = _elements.Count - 1;
+				_selectionDirection = 0;*/
+				
+			}
+
+			if (_selectedElement != null)
+				_selectedElement.Unselect();
+			_preSelectedElement = _selectedElement;
+			_selectedElement = _elements[_selectedIndex];
+			_selectedElement.Select();
 		}
 
 		private IEnumerator Adjust(int id)
@@ -192,7 +279,7 @@ namespace UI
 			for (int i = 0; i < _elements.Count; i++)
 			{
 				RectTransform element = _elements[i].RTransform;
-				element.transform.SetParent(transform.parent);
+				element.transform.SetParent(transform);
 				element.localPosition = Vector3.zero;
 				element.localScale = Vector3.one;
 

@@ -47,7 +47,7 @@
     "Category": "War",
     "Limits": [
       {"Type": "TURN", "Value": 10},
-      {"Type": "SouthIsFree", "CompareTo": 0, "Comparison": "LtE"},
+      {"Type": "SouthIsFree", "Comparison": "Lt"},
       {"Type": "PM_Nationalists"},
       {"Type": "CoastQuestion"}
     ],
@@ -82,7 +82,7 @@
     "Category": "War",
     "Limits": [
       {"Type": "TURN", "Value": 10},
-      {"Type": "SouthIsFree", "CompareTo": 0, "Comparison": "LtE"},
+      {"Type": "SouthIsFree", "Comparison": "Lt"},
       {"Type": "PM_Democrats"},
       {"Type": "CoastQuestion"}
     ],
