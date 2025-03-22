@@ -64,6 +64,7 @@ namespace UI
 				
 				_elements[0].Select(true);
 				_selectedElement = _elements[0];
+				_selectedIndex = 0;
 			}
 		}
 

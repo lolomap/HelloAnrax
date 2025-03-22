@@ -38,17 +38,17 @@ namespace Tests
 			storage.Init();
 			
 			// Limited event is not added
-			Assert.AreEqual(0, storage.GetQueue().Count);
+			Assert.AreEqual(0, storage.GetQueueCopy().Count);
 			
 			// Not all limits are passed
 			GameManager.PlayerStats.SetFlag("TEST_EXISTS", 1);
-			Assert.AreEqual(0, storage.GetQueue().Count);
+			Assert.AreEqual(0, storage.GetQueueCopy().Count);
 			GameManager.PlayerStats.SetStat("TEST_STAT", 15);
-			Assert.AreEqual(0, storage.GetQueue().Count);
+			Assert.AreEqual(0, storage.GetQueueCopy().Count);
 			
 			// Every limit is passed
 			GameManager.PlayerStats.SetStat("TEST_STAT", 9);
-			Assert.AreEqual(1, storage.GetQueue().Count);
+			Assert.AreEqual(1, storage.GetQueueCopy().Count);
 		}
 	}
 }

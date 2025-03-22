@@ -389,6 +389,35 @@
 			}
 		]
 	},
+
+	{
+		"Title": "Юг свободен!",
+		"Description": "МИД ОсНБ официально уведомил нас о том, что они приняли решение покинуть территорию Юга Анракса и вернуть его под наше управление",
+		"Category": "War",
+		"TurnPosition": 30,
+		"Options": [
+			{
+				"Title": "Это наша победа! Победа выдержанная временем!",
+				"Modifiers": [
+					{
+						"Type": "Treasury",
+						"Value": 1
+					},
+					{
+						"Type": "NeutralLoyalty",
+						"Value": 15
+					}
+				],
+				"Flags": [
+					{
+						"Type": "SouthIsFree",
+						"Value": 1
+					}
+				]
+			}
+		]
+	},
+	
 	{
 		"Title": "Премьер-министр:",
 		"Description": "Господин президент, Служба Безопасности завела очередное уголовное дело на генерального директора гос-телеканала «ANT». Это уже далеко не первое дело, причём все они против тех, кто поддержал вашу кандидатуру на выборах.",
@@ -572,7 +601,7 @@
 					{ "Type": "NeutralLoyalty", "Value": 5 }
 				],
 				"Flags": [
-					{ "Type": "Interview", "Value": 1 }
+					{ "Type": "Interview1", "Value": 1 }
 				]
 			},
 			{
@@ -583,7 +612,7 @@
 					{ "Type": "FederationistsLoyalty",  "Value": 5 }
 				],
 				"Flags": [
-					{ "Type": "Interview", "Value": 2 }
+					{ "Type": "Interview1", "Value": 2 }
 				]
 			}
 		]
@@ -592,22 +621,22 @@
 	{
 		"Title": "Вы:",
 		"Description": "Я рад исполнять обязанности президента и сделаю всё, чтобы Анракс процветал",
-		"Limits": [{"Type": "Interview", "CompareTo": 1, "Comparison": "Eq"}],
+		"Limits": [{"Type": "Interview1", "CompareTo": 1, "Comparison": "Eq"}],
 		"SkipTurn": true,
-		"TurnPosition": 59
+		"TurnPosition": 58
 	},
 	{
 		"Title": "Вы:",
 		"Description": "Исполнять обязанности президента страны непросто, я постараюсь приложить свою руку к восстановлению нашего государства в этот сложный период",
-		"Limits": [{"Type": "Interview", "CompareTo": 2, "Comparison": "Eq"}],
+		"Limits": [{"Type": "Interview1", "CompareTo": 2, "Comparison": "Eq"}],
 		"SkipTurn": true,
-		"TurnPosition": 59
+		"TurnPosition": 58
 	},
 
 	{
 		"Title": "Интервьюер:",
 		"Description": "На какую сферу деятельности вы планируете сделать упор в руководстве государством?",
-		"TurnPosition": 59,
+		"TurnPosition": 58,
 
 		"Options": [
 			{
@@ -622,7 +651,7 @@
 					{ "Type": "FederationistsPower", "Value": -5 }
 				],
 				"Flags": [
-					{ "Type": "Interview", "Value": 1 }
+					{ "Type": "Interview2", "Value": 1 }
 				]
 			},
 			{
@@ -637,7 +666,7 @@
 					{ "Type": "FederationistsPower", "Value": 5 }
 				],
 				"Flags": [
-					{ "Type": "Interview", "Value": 2 }
+					{ "Type": "Interview2", "Value": 2 }
 				]
 			},
 			{
@@ -652,7 +681,7 @@
 					{ "Type": "FederationistsPower", "Value": -5 }
 				],
 				"Flags": [
-					{ "Type": "Interview", "Value": 3 }
+					{ "Type": "Interview2", "Value": 3 }
 				]
 			}
 		]
@@ -661,29 +690,29 @@
 	{
 		"Title": "Вы:",
 		"Description": "На социальную. В поствоенный период нужно поддержать граждан и обеспечить им всё необходимое для достойной жизни",
-		"Limits": [{"Type": "Interview", "CompareTo": 1, "Comparison": "Eq"}],
+		"Limits": [{"Type": "Interview2", "CompareTo": 1, "Comparison": "Eq"}],
 		"SkipTurn": true,
-		"TurnPosition": 60
+		"TurnPosition": 58
 	},
 	{
 		"Title": "Вы:",
 		"Description": "На военнопромышленную. В такое сложное время нужно быть полностью готовыми принять новый удар от любого потенциального противника",
-		"Limits": [{"Type": "Interview", "CompareTo": 2, "Comparison": "Eq"}],
+		"Limits": [{"Type": "Interview2", "CompareTo": 2, "Comparison": "Eq"}],
 		"SkipTurn": true,
-		"TurnPosition": 60
+		"TurnPosition": 58
 	},
 	{
 		"Title": "Вы:",
 		"Description": "На экономическую. Анраксу нужны новые торговые связи и активное пополнение государственного бюджета",
-		"Limits": [{"Type": "Interview", "CompareTo": 3, "Comparison": "Eq"}],
+		"Limits": [{"Type": "Interview2", "CompareTo": 3, "Comparison": "Eq"}],
 		"SkipTurn": true,
-		"TurnPosition": 60
+		"TurnPosition": 58
 	},
 
 	{
 		"Title": "Интервьюер:",
 		"Description": "Что вы можете сказать о Ровуле Маноре?",
-		"TurnPosition": 60,
+		"TurnPosition": 58,
 		"Limits": [{"Type": "PM_Democrats"}],
 
 		"Options": [
@@ -695,7 +724,7 @@
 					{ "Type": "DemocratsPower", "Value": 5 }
 				],
 				"Flags": [
-					{ "Type": "Interview", "Value": 1 }
+					{ "Type": "Interview3", "Value": 1 }
 				]
 			},
 			{
@@ -707,7 +736,7 @@
 					{ "Type": "NeutralLoyalty", "Value": 5 }
 				],
 				"Flags": [
-					{ "Type": "Interview", "Value": 2 }
+					{ "Type": "Interview3", "Value": 2 }
 				]
 			},
 			{
@@ -720,7 +749,7 @@
 					{ "Type": "NationalistsPower", "Value": 5 }
 				],
 				"Flags": [
-					{ "Type": "Interview", "Value": 3 }
+					{ "Type": "Interview3", "Value": 3 }
 				]
 			}
 		]
@@ -730,40 +759,37 @@
 		"Title": "Вы:",
 		"Description": "Я считаю, что Манора отлично выполняет обязанности премьер-министра страны, несмотря на все нападки на него со стороны службы безопасности",
 		"Limits": [
-			{"Type": "Interview", "CompareTo": 1, "Comparison": "Eq"},
-			{"Type": "PM_Democrats"}
+			{"Type": "Interview3", "CompareTo": 1, "Comparison": "Eq"}
 		],
-		"Options": [{"Title": "Далее", "Flags": [{"Type": "InterviewManora", "Value": 1}]}],
 		"SkipTurn": true,
-		"TurnPosition": 61
+		"Options": [{"Title": "Далее", "Flags": [{"Type": "Interview3Complete", "Value": 1}]}],
+		"TurnPosition": 58
 	},
 	{
 		"Title": "Вы:",
 		"Description": "Безусловно, Ровуль Манора мог бы достичь большего на своей должности к этому моменту, стоит ли говорить, что возможно он работал не в полную силу? Возможно",
 		"Limits": [
-			{"Type": "Interview", "CompareTo": 2, "Comparison": "Eq"},
-			{"Type": "PM_Democrats"}
+			{"Type": "Interview3", "CompareTo": 2, "Comparison": "Eq"}
 		],
-		"Options": [{"Title": "Далее", "Flags": [{"Type": "InterviewManora", "Value": 1}]}],
+		"Options": [{"Title": "Далее", "Flags": [{"Type": "Interview3Complete", "Value": 1}]}],
 		"SkipTurn": true,
-		"TurnPosition": 61
+		"TurnPosition": 58
 	},
 	{
 		"Title": "Вы:",
 		"Description": "Приверженность Маноры демократическим ценностям похвальна, однако зачастую его предложения диаметрально противоположны идеям и ценностям нашего народа. Это может быть довольно опасно",
 		"Limits": [
-			{"Type": "Interview", "CompareTo": 3, "Comparison": "Eq"},
-			{"Type": "PM_Democrats"}
+			{"Type": "Interview3", "CompareTo": 3, "Comparison": "Eq"}
 		],
-		"Options": [{"Title": "Далее", "Flags": [{"Type": "InterviewManora", "Value": 1}]}],
+		"Options": [{"Title": "Далее", "Flags": [{"Type": "Interview3Complete", "Value": 1}]}],
 		"SkipTurn": true,
-		"TurnPosition": 61
+		"TurnPosition": 58
 	},
 
 	{
 		"Title": "Интервьюер:",
 		"Description": "Что вы можете сказать о Ровуле Маноре?",
-		"TurnPosition": 60,
+		"TurnPosition": 58,
 		"Limits": [{"Type": "PM_Democrats", "Comparison": "Lt"}],
 
 		"Options": [
@@ -776,7 +802,7 @@
 					{ "Type": "NeutralLoyalty", "Value": 5 }
 				],
 				"Flags": [
-					{ "Type": "Interview", "Value": 1 }
+					{ "Type": "Interview3-1", "Value": 1 }
 				]
 			},
 			{
@@ -788,7 +814,7 @@
 					{ "Type": "NeutralLoyalty", "Value": 10 }
 				],
 				"Flags": [
-					{ "Type": "Interview", "Value": 2 }
+					{ "Type": "Interview3-1", "Value": 2 }
 				]
 			},
 			{
@@ -800,7 +826,7 @@
 					{ "Type": "NeutralLoyalty", "Value": 5 }
 				],
 				"Flags": [
-					{ "Type": "Interview", "Value": 3 }
+					{ "Type": "Interview3-1", "Value": 3 }
 				]
 			}
 		]
@@ -811,42 +837,42 @@
 		"Title": "Вы:",
 		"Description": "Бесспорно, Манора внес неоценимый вклад в развитие демократии в Анраксе. Поэтому я не удивлен, что он так популярен среди народа.",
 		"Limits": [
-			{"Type": "Interview", "CompareTo": 1, "Comparison": "Eq"},
-			{"Type": "PM_Democrats", "Comparison": "Lt"}
+			{"Type": "Interview3-1", "CompareTo": 1, "Comparison": "Eq"}
 		],
-		"Options": [{"Title": "Далее", "Flags": [{"Type": "InterviewManora", "Value": 1}]}],
+		"Options": [{"Title": "Далее", "Flags": [{"Type": "Interview3Complete", "Value": 1}]}],
 		"SkipTurn": true,
-		"TurnPosition": 61
+		"TurnPosition": 58
 	},
 	{
 		"Title": "Вы:",
 		"Description": "Лидер НПЗС абсолютно некомпетентный политик, его идеи вредны для нашего общества. Он собирается строить страну по ливерейскому образцу?! Это кощунство!",
 		"Limits": [
-			{"Type": "Interview", "CompareTo": 2, "Comparison": "Eq"},
-			{"Type": "PM_Democrats", "Comparison": "Lt"}
+			{"Type": "Interview3-1", "CompareTo": 2, "Comparison": "Eq"}
 		],
-		"Options": [{"Title": "Далее", "Flags": [{"Type": "InterviewManora", "Value": 1}]}],
+		"Options": [{"Title": "Далее", "Flags": [{"Type": "Interview3Complete", "Value": 1}]}],
 		"SkipTurn": true,
-		"TurnPosition": 61
+		"TurnPosition": 58
 	},
 	{
 		"Title": "Вы:",
 		"Description": "Я давно знаком с Манорой и очень хорошо его знаю. Он интересный человек, но я никогда не рассматривал его как серьезную кандидатуру в политике.",
 		"Limits": [
-			{"Type": "Interview", "CompareTo": 3, "Comparison": "Eq"},
-			{"Type": "PM_Democrats", "Comparison": "Lt"}
+			{"Type": "Interview3-1", "CompareTo": 3, "Comparison": "Eq"}
 		],
-		"Options": [{"Title": "Далее", "Flags": [{"Type": "InterviewManora", "Value": 1}]}],
+		"Options": [{"Title": "Далее", "Flags": [{"Type": "Interview3Complete", "Value": 1}]}],
 		"SkipTurn": true,
-		"TurnPosition": 61
+		"TurnPosition": 58
 	},
 
 
 	{
 		"Title": "Интервьюер:",
 		"Description": "Устраивает ли вас работа Далва Тисирского?",
-		"TurnPosition": 61,
-		"Limits": [{"Type": "PM_Nationalists"}, {"Type": "InterviewManora"}],
+		"TurnPosition": 58,
+		"Limits": [
+			{"Type": "PM_Nationalists"},
+			{"Type": "Interview3Complete"}
+		],
 
 		"Options": [
 			{
@@ -857,7 +883,7 @@
 					{ "Type": "NationalistsPower", "Value": 5 }
 				],
 				"Flags": [
-					{ "Type": "Interview", "Value": 1 }
+					{ "Type": "Interview4", "Value": 1 }
 				]
 			},
 			{
@@ -869,7 +895,7 @@
 					{ "Type": "NeutralLoyalty", "Value": 5 }
 				],
 				"Flags": [
-					{ "Type": "Interview", "Value": 2 }
+					{ "Type": "Interview4", "Value": 2 }
 				]
 			},
 			{
@@ -882,7 +908,7 @@
 					{ "Type": "DemocratsPower", "Value": 5 }
 				],
 				"Flags": [
-					{ "Type": "Interview", "Value": 3 }
+					{ "Type": "Interview4", "Value": 3 }
 				]
 			}
 		]
@@ -891,30 +917,33 @@
 	{
 		"Title": "Вы:",
 		"Description": "Я категорически убежден в том, что Далв Тисирский находится именно на той должности, на которой и должен быть. Человек твердой руки был необходим стране в столь сложный период",
-		"Limits": [{"Type": "Interview", "CompareTo": 1, "Comparison": "Eq"}],
+		"Limits": [{"Type": "Interview4", "CompareTo": 1, "Comparison": "Eq"}],
 		"SkipTurn": true,
-		"TurnPosition": 62
+		"TurnPosition": 58
 	},
 	{
 		"Title": "Вы:",
 		"Description": "Безусловно, Далв Тисирский мог бы достичь большего на своей должности к этому моменту, стоит ли говорить, что возможно он работал не в полную силу? Возможно",
-		"Limits": [{"Type": "Interview", "CompareTo": 2, "Comparison": "Eq"}],
+		"Limits": [{"Type": "Interview4", "CompareTo": 2, "Comparison": "Eq"}],
 		"SkipTurn": true,
-		"TurnPosition": 62
+		"TurnPosition": 58
 	},
 	{
 		"Title": "Вы:",
 		"Description": "Тисирский достаточно часто указывает на исключительность анраксцев, забывая о том, что наша страна всегда была домом для всех каратенцев. Неужели мы должны просто взять и забыть о нашем общем прошлом с кулиштийцами, нерийцами и ортостанцами?",
-		"Limits": [{"Type": "Interview", "CompareTo": 3, "Comparison": "Eq"}],
+		"Limits": [{"Type": "Interview4", "CompareTo": 3, "Comparison": "Eq"}],
 		"SkipTurn": true,
-		"TurnPosition": 62
+		"TurnPosition": 58
 	},
 
 	{
 		"Title": "Интервьюер:",
 		"Description": "Устраивает ли вас работа Далва Тисирского?",
-		"TurnPosition": 61,
-		"Limits": [{"Type": "PM_Nationalists", "Comparison": "Lt"}],
+		"TurnPosition": 58,
+		"Limits": [
+			{"Type": "PM_Nationalists", "Comparison": "Lt"},
+			{"Type": "Interview3Complete"}
+		],
 
 		"Options": [
 			{
@@ -926,7 +955,7 @@
 					{ "Type": "NeutralLoyalty", "Value": 5 }
 				],
 				"Flags": [
-					{ "Type": "Interview", "Value": 1 }
+					{ "Type": "Interview4-1", "Value": 1 }
 				]
 			},
 			{
@@ -938,7 +967,7 @@
 					{ "Type": "NeutralLoyalty", "Value": 10 }
 				],
 				"Flags": [
-					{ "Type": "Interview", "Value": 2 }
+					{ "Type": "Interview4-1", "Value": 2 }
 				]
 			},
 			{
@@ -950,7 +979,7 @@
 					{ "Type": "NeutralLoyalty", "Value": 5 }
 				],
 				"Flags": [
-					{ "Type": "Interview", "Value": 3 }
+					{ "Type": "Interview4-1", "Value": 3 }
 				]
 			}
 		]
@@ -960,38 +989,35 @@
 		"Title": "Вы:",
 		"Description": "Я уважаю его и идеи, за которые он борется. Тисирский достойный человек достойной страны.",
 		"Limits": [
-			{"Type": "Interview", "CompareTo": 1, "Comparison": "Eq"},
-			{"Type": "PM_Nationalists", "Comparison": "Lt"}
+			{"Type": "Interview4-1", "CompareTo": 1, "Comparison": "Eq"}
 		],
 		"SkipTurn": true,
-		"TurnPosition": 62
+		"TurnPosition": 58
 	},
 	{
 		"Title": "Вы:",
 		"Description": "Знаете, я могу понять за что его любят бездари и преступники с улицы, но мне его идеи противны",
 		"Limits": [
-			{"Type": "Interview", "CompareTo": 2, "Comparison": "Eq"},
-			{"Type": "PM_Nationalists", "Comparison": "Lt"}
+			{"Type": "Interview4-1", "CompareTo": 2, "Comparison": "Eq"}
 		],
 		"SkipTurn": true,
-		"TurnPosition": 62
+		"TurnPosition": 58
 	},
 	{
 		"Title": "Вы:",
 		"Description": "Тисирский искренне защищает свои идеи, но я их не понимаю. Что он будет говорить в лицо кулиштийцам и ортостанцам после этого?",
 		"Limits": [
-			{"Type": "Interview", "CompareTo": 3, "Comparison": "Eq"},
-			{"Type": "PM_Nationalists", "Comparison": "Lt"}
+			{"Type": "Interview4-1", "CompareTo": 3, "Comparison": "Eq"}
 		],
 		"SkipTurn": true,
-		"TurnPosition": 62
+		"TurnPosition": 58
 	},
 
 
 	{
 		"Title": "Интервьюер:",
 		"Description": "На сколько деятельность Анжа Нивича оправдывает ваши ожидания?",
-		"TurnPosition": 62,
+		"TurnPosition": 58,
 
 		"Options": [
 			{
@@ -1002,7 +1028,7 @@
 					{ "Type": "NeutralLoyalty", "Value": 5 }
 				],
 				"Flags": [
-					{ "Type": "Interview", "Value": 1 }
+					{ "Type": "Interview5", "Value": 1 }
 				]
 			},
 			{
@@ -1014,7 +1040,7 @@
 					{ "Type": "NeutralLoyalty", "Value": 10 }
 				],
 				"Flags": [
-					{ "Type": "Interview", "Value": 2 }
+					{ "Type": "Interview5", "Value": 2 }
 				]
 			},
 			{
@@ -1026,7 +1052,7 @@
 					{ "Type": "NeutralLoyalty", "Value": 5 }
 				],
 				"Flags": [
-					{ "Type": "Interview", "Value": 3 }
+					{ "Type": "Interview5", "Value": 3 }
 				]
 			}
 		]
@@ -1036,35 +1062,35 @@
 		"Title": "Вы:",
 		"Description": "Анж Нивич заслуживает высоких похвал, никто не сделал большего для воссоединения братских народов Каратена!",
 		"Limits": [
-			{"Type": "Interview", "CompareTo": 1, "Comparison": "Eq"}
+			{"Type": "Interview5", "CompareTo": 1, "Comparison": "Eq"}
 		],
 		"SkipTurn": true,
-		"TurnPosition": 63
+		"TurnPosition": 58
 	},
 	{
 		"Title": "Вы:",
 		"Description": "Деятельность Нивича имеет экспансионистский характер. Он вредит как интересам самих анраксовцев, многие годы требовавших признания их титульной нацией в ФШКБ и в дальнейшем проливавших кровь за независимость, так он подрывает тем самым наши отношения с Содружеством.",
 		"Limits": [
-			{"Type": "Interview", "CompareTo": 2, "Comparison": "Eq"}
+			{"Type": "Interview5", "CompareTo": 2, "Comparison": "Eq"}
 		],
 		"SkipTurn": true,
-		"TurnPosition": 63
+		"TurnPosition": 58
 	},
 	{
 		"Title": "Вы:",
 		"Description": "Анж Нивич хорошо справляется со своими обязанностями в рамках военно-промышленного комплекса, но его высказывания в Парламенте вызывают у меня опасения.",
 		"Limits": [
-			{"Type": "Interview", "CompareTo": 3, "Comparison": "Eq"}
+			{"Type": "Interview5", "CompareTo": 3, "Comparison": "Eq"}
 		],
 		"SkipTurn": true,
-		"TurnPosition": 63
+		"TurnPosition": 58
 	},
 
 	{
 		"Title": "Интервьюер:",
-		"Description": "Экономика продолжает стагнировать Как быть?",
+		"Description": "Экономика продолжает стагнировать. Как быть?",
 		"Limits": [{"Type": "EconomicPower", "CompareTo": 50, "Comparison": "Lt"}],
-		"TurnPosition": 63,
+		"TurnPosition": 58,
 
 		"Options": [
 			{
@@ -1101,34 +1127,6 @@
 				"Modifiers": [
 					{ "Type": "Power", "Value": 5 },
 					{ "Type": "NeutralLoyalty", "Value": -10 }
-				]
-			}
-		]
-	},
-	
-	{
-		"Title": "Юг свободен!",
-		"Description": "МИД ОсНБ официально уведомил нас о том, что они приняли решение покинуть территорию Юга Анракса и вернуть его под наше управление",
-		"Category": "War",
-		"TurnPosition": 30,
-		"Options": [
-			{
-				"Title": "Это наша победа! Победа выдержанная временем!",
-				"Modifiers": [
-					{
-						"Type": "Treasury",
-						"Value": 1
-					},
-					{
-						"Type": "NeutralLoyalty",
-						"Value": 15
-					}
-				],
-				"Flags": [
-					{
-						"Type": "SouthIsFree",
-						"Value": 1
-					}
 				]
 			}
 		]

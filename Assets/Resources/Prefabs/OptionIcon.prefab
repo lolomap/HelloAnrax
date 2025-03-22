@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7638247079627403288}
   - component: {fileID: 1928253684779742070}
   - component: {fileID: 8766599621171098001}
+  - component: {fileID: 6950513905387080776}
   m_Layer: 5
   m_Name: OptionIcon
   m_TagString: Untagged
@@ -37,7 +38,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.00012207, y: 751}
-  m_SizeDelta: {x: 297.5, y: 297.5}
+  m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5197848968897458399
 CanvasRenderer:
@@ -69,7 +70,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 1c1bef4b40e990c42aed6432ebd324ef, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -92,6 +93,7 @@ MonoBehaviour:
   RTransform: {fileID: 5022783359169780245}
   AudioSource: {fileID: 8766599621171098001}
   SelectSound: {fileID: 8300000, guid: 540b6b34b5ff79148b2f2900c5e6159d, type: 3}
+  IsSelected: 0
 --- !u!82 &8766599621171098001
 AudioSource:
   m_ObjectHideFlags: 0
@@ -103,6 +105,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -188,3 +191,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6950513905387080776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6326866253184580465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e7abeb9796b1f4ea69e2c676c4e0f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

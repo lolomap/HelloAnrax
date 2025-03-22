@@ -1113,6 +1113,9 @@
 				"Title": "Так в стране решаются проблемы, по-мужски!",
 				"Modifiers": [
 					{"Type": "NeutralLoyalty", "Value": 15}
+				],
+				"Flags": [
+					{"Type": "MinerFight", "Value": 0}
 				]
 			}
 		]
@@ -1132,6 +1135,9 @@
 				"Modifiers": [
 					{"Type": "NeutralLoyalty", "Value": -15},
 					{"Type": "Treasury", "Value": -1}
+				],
+				"Flags": [
+					{"Type": "MinerFight", "Value": 0}
 				]
 			}
 		]

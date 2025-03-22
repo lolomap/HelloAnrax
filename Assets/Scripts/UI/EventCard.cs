@@ -24,6 +24,7 @@ namespace UI
         private void Awake()
         {
             GameManager.EventStorage.Init();
+            GameManager.Instance.EventUI = this;
             
             OptionIcon.SelectOption += OnSelectOption;
         }
@@ -155,7 +156,7 @@ namespace UI
             }
         }
 
-        private void UpdateCard()
+        public void UpdateCard()
         {
             EventDescription.text = Data.Description;
             EventDescriptionBoxDummy.text = Data.Description;

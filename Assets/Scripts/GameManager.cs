@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using UI;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(fileName = "EditorUtilities/GameManager", menuName = "Game/Manager")]
 public class GameManager : ScriptableObject
@@ -11,7 +13,13 @@ public class GameManager : ScriptableObject
 	// Options
 	public GlobalSettings Global;
 	public UISettings UI;
+
 	
+	// Runtime utilities
+	
+	public EventCard EventUI { get; set; }
+	public int TimedEventTurn { get; set; }
+
 	//public static FrameRateManager FrameRateManager { get; private set; }
 	
 	public static EventStorage EventStorage { get; private set; }

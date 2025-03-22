@@ -80,7 +80,7 @@ public class EventStorage
         
         _eventQueue.Shuffle();
         
-        _timedEvents.Sort((a, b) => a.TurnPosition.CompareTo(b.TurnPosition));
+        //_timedEvents.Sort((a, b) => a.TurnPosition.CompareTo(b.TurnPosition));
 
         _isReady = true;
     }
@@ -109,10 +109,25 @@ public class EventStorage
         _eventQueue.Remove(gameEvent);
     }
 
-    public List<GameEvent> GetQueue()
+    public List<GameEvent> GetQueueCopy()
     {
         List<GameEvent> res = new();
         res.AddRange(_eventQueue);
+        return res;
+    }
+
+    public GameEvent GetTimedByTurn(int turn)
+    {
+        GameEvent res = _timedEvents.FirstOrDefault(x => x.TurnPosition == turn && x.IsAvailable());
+        if (res != null)
+        {
+            _timedEvents.RemoveRange(0, _timedEvents.FindIndex(e => e == res));
+            _timedEvents.Remove(res);
+        }
+
+        CurrentEvent = res;
+        _currentTurn = turn;
+        
         return res;
     }
     
