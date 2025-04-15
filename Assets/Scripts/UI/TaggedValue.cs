@@ -17,6 +17,7 @@ namespace UI
 		private static event ClearPreviewEventHandler ClearPreviewUI;
 		
 		public string Tag;
+		private object _value;
 
 		private UIGenericAnimation _animation;
 		
@@ -45,7 +46,7 @@ namespace UI
 			if (isHigligted)
 				uiTag = uiTag.Split("HIGHLIGHT_")[1];
 			
-			if (uiTag != Tag)
+			if (uiTag != Tag || _value == value)
 				return;
 			
 			switch (value)
@@ -68,6 +69,8 @@ namespace UI
 					if (_text != null) _text.text = value.ToString();
 					break;
 			}
+
+			_value = value;
 		}
 
 		private void OnPreview(string uiTag, object value)

@@ -22,10 +22,10 @@
   "NationalistsFederationistsConcurrency": "|(FederationistsPower - NationalistsPower)",
   "DemocratsFederationistsConcurrency": "|(DemocratsPower - FederationistsPower)",
 
-  "HIGHLIGHT_NationalistsPower": "NationalistsPower - (NationalistsDemocratsConcurrency ≤ 5 | NationalistsFederationistsConcurrency ≤ 5) * 5",
-  "HIGHLIGHT_DemocratsPower": "DemocratsPower - (NationalistsDemocratsConcurrency ≤ 5 | DemocratsFederationistsConcurrency ≤ 5) * 5",
-  "HIGHLIGHT_FederationistsPower": "FederationistsPower - (NationalistsFederationistsConcurrency ≤ 5 | DemocratsFederationistsConcurrency ≤ 5) * 5",
+  "HIGHLIGHT_NationalistsPower": "NationalistsPower - (NationalistsDemocratsConcurrency ≤ 5 | NationalistsFederationistsConcurrency ≤ 5) * 2",
+  "HIGHLIGHT_DemocratsPower": "DemocratsPower - (NationalistsDemocratsConcurrency ≤ 5 | DemocratsFederationistsConcurrency ≤ 5) * 2",
+  "HIGHLIGHT_FederationistsPower": "FederationistsPower - (NationalistsFederationistsConcurrency ≤ 5 | DemocratsFederationistsConcurrency ≤ 5) * 2",
   
-  "PowerDelta": "(PositiveBlock > NegativeBlock) * PositiveBlock / 10 - (NegativeBlock > PositiveBlock) * NegativeBlock / 10 - (NeutralLoyalty < 50) * (NeutralLoyalty / 2)",
+  "PowerDelta": "(PositiveBlock > NegativeBlock) * PositiveBlock / 5 - (NegativeBlock > PositiveBlock) * NegativeBlock / 5 - (NeutralLoyalty < 50) * (NeutralLoyalty / 3)",
   "HIGHLIGHT_Power": "Power + PowerDelta"
 }

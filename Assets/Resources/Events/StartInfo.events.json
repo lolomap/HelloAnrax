@@ -10,6 +10,10 @@
     "Options": [
       {
         "Title": "Закончим на сегодня",
+        "Flags": [
+          {"Type": "GLOBAL_INTRO_SKIP", "Value": 1},
+          {"Type": "RELOAD_GAME", "Value": 1}
+        ],
         "Limits": [
           {"Type": "StartInfoEconomics"},
           {"Type": "StartInfoSecurity"},
@@ -50,6 +54,10 @@
     "Options": [
       {
         "Title": "Закончим на сегодня",
+        "Flags": [
+          {"Type": "GLOBAL_INTRO_SKIP", "Value": 1},
+          {"Type": "RELOAD_GAME", "Value": 1}
+        ],
         "Limits": [
           {"Type": "StartInfoEconomics"},
           {"Type": "StartInfoSecurity"},
@@ -90,6 +98,10 @@
     "Options": [
       {
         "Title": "Закончим на сегодня",
+        "Flags": [
+          {"Type": "GLOBAL_INTRO_SKIP", "Value": 1},
+          {"Type": "RELOAD_GAME", "Value": 1}
+        ],
         "Limits": [
           {"Type": "StartInfoEconomics"},
           {"Type": "StartInfoSecurity"},
@@ -130,6 +142,10 @@
     "Options": [
       {
         "Title": "Закончим на сегодня",
+        "Flags": [
+          {"Type": "GLOBAL_INTRO_SKIP", "Value": 1},
+          {"Type": "RELOAD_GAME", "Value": 1}
+        ],
         "Limits": [
           {"Type": "StartInfoEconomics"},
           {"Type": "StartInfoSecurity"},

@@ -125,6 +125,8 @@
 		"Title": "Рассвет Независимости",
 		"Description": "Огонь озаряет столицу страны Скарну",
 		"TurnPosition": 0,
+		"Limits": [{"Type": "GLOBAL_INTRO_SKIP", "Comparison": "Lt"}],
+		
 		"TLDR": [
 			{
 				"Description": "Дом народов потерпел поражение и теперь его остатки разбирают самые сильные и ловкие"
@@ -145,6 +147,7 @@
 		"Description": "Сегодня у вас назначана встреча с министрами, они подготовили для вас доклады по состоянию Анракса. Кого вы пригласите первым?",
 		"TurnPosition": 1,
 		"SkipTurn": true,
+		"Limits": [{"Type": "GLOBAL_INTRO_SKIP", "Comparison": "Lt"}],
 		"Options": [
 			{
 				"Title": "Служба Безопасности",
@@ -1127,6 +1130,327 @@
 				"Modifiers": [
 					{ "Type": "Power", "Value": 5 },
 					{ "Type": "NeutralLoyalty", "Value": -10 }
+				]
+			}
+		]
+	},
+	{
+		"Title": "Интервьюер:",
+		"Description": "Как вы видите будущее Анракса после нашего экономического чуда?",
+		"Limits": [{"Type": "EconomicPower", "CompareTo": 50, "Comparison": "GtE"}],
+		"TurnPosition": 58,
+
+		"Options": [
+			{
+				"Title": "Анракс ждут еще более великие дни при моем президентстве",
+				"Modifiers": [
+					{ "Type": "NeutralLoyalty", "Value": 10 },
+					{ "Type": "Power", "Value": 50 },
+					{"Type": "NationalistsPower", "Value": -15 },
+					{"Type": "DemocratsPower", "Value": -15 },
+					{"Type": "FederationistsPower", "Value": -15 }
+				]
+			},
+			{
+				"Title": "Успех достигнут благодаря нашему народу, так будет и впредь",
+				"Modifiers": [
+					{ "Type": "Power", "Value": 25 },
+					{ "Type": "NeutralLoyalty", "Value": 30 },
+					{ "Type": "NationalistsPower", "Value": -10 },
+					{ "Type": "DemocratsPower", "Value": -10 },
+					{ "Type": "FederationistsPower", "Value": -10 }
+				]
+			},
+			{
+				"Title": "Анракс вскоре выйдет на мировой уровень и будет диктовать свою волю",
+				"Modifiers": [
+					{ "Type": "Power", "Value": 25 },
+					{ "Type": "FederationistsLoyalty", "Value": 20 },
+					{ "Type": "NationalistsLoyalty", "Value": 10 },
+					{ "Type": "NeutralLoyalty", "Value": 20 },
+					{ "Type": "NationalistsPower", "Value": -10 },
+					{ "Type": "DemocratsPower", "Value": -10 },
+					{ "Type": "FederationistsPower", "Value": -10 }
+				]
+			}
+		]
+	},
+
+	{
+		"Title": "Интервьюер:",
+		"Description": "Анракс наводнили радикалы и экстремисты. Как вы будете держать их в узде?",
+		"Limits": [{"Type": "ExtremismLevel", "CompareTo": 25, "Comparison": "GtE"}],
+		"TurnPosition": 58,
+
+		"Options": [
+			{
+				"Title": "Следующий вопрос",
+				"Modifiers": [
+					{ "Type": "NeutralLoyalty", "Value": -10 },
+					{ "Type": "Power", "Value": 5 }
+				]
+			},
+			{
+				"Title": "При Соланде Вланоре был полный беспредел, сейчас этого нет",
+				"Modifiers": [
+					{ "Type": "Power", "Value": 10 },
+					{ "Type": "FederationistsLoyalty", "Value": -10 },
+					{ "Type": "DemocratsLoyalty", "Value": 10 },
+					{ "Type": "NationalistsLoyalty", "Value": 10 }
+				]
+			},
+			{
+				"Title": "Я вас не совсем понял, эти экстремисты сейчас в этой комнате?",
+				"Modifiers": [
+					{ "Type": "Power", "Value": 5 },
+					{ "Type": "NeutralLoyalty", "Value": -10 }
+				]
+			},
+			{
+				"Title": "Я об этом ничего не знаю, обратитесь к Службе Безопасности",
+				"Modifiers": [
+					{ "Type": "FederationistsLoyalty", "Value": -5 },
+					{ "Type": "NeutralLoyalty", "Value": -5 },
+					{ "Type": "Power", "Value": 5 }
+				]
+			},
+			{
+				"Title": "Всех экстремистов мы будем мочить в сортирах",
+				"Modifiers": [
+					{ "Type": "Power", "Value": 10 },
+					{ "Type": "NeutralLoyalty", "Value": 5 },
+					{ "Type": "NationalistsLoyalty", "Value": -5 },
+					{ "Type": "DemocratsLoyalty", "Value": -5 },
+					{ "Type": "FederationistsLoyalty", "Value": -5 }
+				]
+			}
+		]
+	},
+	{
+		"Title": "Интервьюер:",
+		"Description": "За время вашего президенства уровень преступности Анракса в разы упал, как вы этого добились?",
+		"Limits": [{"Type": "EconomicPower", "CompareTo": 25, "Comparison": "Lt"}],
+		"TurnPosition": 58,
+
+		"Options": [
+			{
+				"Title": "Все благодаря взаимопонимаю и кооперации правительственных органов между собой",
+				"Modifiers": [
+					{ "Type": "NeutralLoyalty", "Value": 10 },
+					{ "Type": "Power", "Value": 10 },
+					{"Type": "NationalistsLoyalty", "Value": 10 },
+					{"Type": "DemocratsLoyalty", "Value": 10 },
+					{"Type": "FederationistsLoyalty", "Value": 10 }
+				]
+			},
+			{
+				"Title": "Я добился этого сильной президентской рукой",
+				"Modifiers": [
+					{ "Type": "Power", "Value": 25 },
+					{ "Type": "NeutralLoyalty", "Value": 20 }
+				]
+			},
+			{
+				"Title": "Всего то стоило усмирить пыл оппозиционных партий",
+				"Modifiers": [
+					{ "Type": "Power", "Value": 25 },
+					{ "Type": "NeutralLoyalty", "Value": 10 },
+					{ "Type": "FederationistsLoyalty", "Value": -10 },
+					{ "Type": "NationalistsLoyalty", "Value": -10 },
+					{ "Type": "DemocratsLoyalty", "Value": -10 },
+					{ "Type": "NationalistsPower", "Value": -10 },
+					{ "Type": "DemocratsPower", "Value": -10 },
+					{ "Type": "FederationistsPower", "Value": -10 }
+				]
+			}
+		]
+	},
+
+	{
+		"Title": "Интервьюер:",
+		"Description": "В обществе продолжают ходить идеи о новой Федерации. Вы не боитесь, что история повторится?",
+		"TurnPosition": 58,
+
+		"Options": [
+			{
+				"Title": "Только через мой труп",
+				"Modifiers": [
+					{ "Type": "NeutralLoyalty", "Value": -5 },
+					{ "Type": "Power", "Value": 15 }
+				]
+			},
+			{
+				"Title": "Анракс выбрал путь суверенного государства, иного не дано",
+				"Modifiers": [
+					{ "Type": "DemocratsLoyalty", "Value": 15 },
+					{ "Type": "NationalistsLoyalty", "Value": 15 },
+					{ "Type": "FederationistsLoyalty", "Value": -10 },
+					{ "Type": "FederationistsPower", "Value": -10 },
+					{ "Type": "NeutralLoyalty", "Value": 10 }
+				]
+			},
+			{
+				"Title": "Я этого не боюсь, это моя мечта",
+				"Modifiers": [
+					{ "Type": "DemocratsLoyalty", "Value": -15 },
+					{ "Type": "NationalistsLoyalty", "Value": -15},
+					{ "Type": "FederationistsLoyalty", "Value": 10 },
+					{ "Type": "FederationistsPower", "Value": 10 },
+					{ "Type": "NeutralLoyalty", "Value": 5 }
+				]
+			},
+			{
+				"Title": "Я вас не совсем понял...",
+				"Modifiers": [
+					{"Type": "NeutralLoyalty", "Value": -10},
+					{"Type": "Power", "Value": 5}
+				]
+			}
+		]
+	},
+
+	{
+		"Title": "Интервьюер:",
+		"Description": "Отношения с Сибурлендом продолжают ухудшаться, вы не боитесь повторения операции «Альдеко» но уже против Анракса? Сибурская авиация базируется в Лангате, а их ближайший союзник - ОсНБ.",
+		"TurnPosition": 58,
+		"Limits": [
+			{"Type": "RelationsSBU", "CompareTo": 40, "Comparison": "Lt"}
+		],
+
+		"Options": [
+			{
+				"Title": "Я не боюсь вторжения соседей, не захватили тогда - не захватят и сейчас",
+				"Modifiers": [
+					{ "Type": "DemocratsLoyalty", "Value": 5 },
+					{ "Type": "NationalistsLoyalty", "Value": 5},
+					{ "Type": "FederationistsLoyalty", "Value": 5 },
+					{ "Type": "NeutralLoyalty", "Value": 10 },
+					{ "Type": "Power", "Value": 10 }
+				]
+			},
+			{
+				"Title": "Я вас не понял, вы знаете о чем говорите?",
+				"Modifiers": [
+					{ "Type": "Power", "Value": 5 },
+					{ "Type": "NeutralLoyalty", "Value": -5 }
+				]
+			},
+			{
+				"Title": "На любую угрозку извне - мы ответим троекратно",
+				"Modifiers": [
+					{ "Type": "Power", "Value": 10 },
+					{ "Type": "NationalistsLoyalty", "Value": 15},
+					{ "Type": "FederationistsLoyalty", "Value": 10 },
+					{ "Type": "NeutralLoyalty", "Value": 15 }
+				]
+			},
+			{
+				"Title": "Опасность со стороны Содружества преувеличена, у нас больше общего чем вы думаете",
+				"Modifiers": [
+					{ "Type": "RelationsUCB", "Value": 10 },
+					{ "Type": "RelationsSBU", "Value": 10 },
+					{ "Type": "DemocratsLoyalty", "Value": 15 },
+					{ "Type": "NationalistsLoyalty", "Value": -10 },
+					{ "Type": "FederationistsLoyalty", "Value": -10 },
+					{ "Type": "NeutralLoyalty", "Value": 5 },
+					{ "Type": "Power", "Value": 10}
+				]
+			}
+		]
+	},
+
+	{
+		"Title": "Интервьюер:",
+		"Description": "Как вы относитесь к последним резким заявлениям главы СБА в адрес республик бывшего ФШКБ?",
+		"TurnPosition": 58,
+
+		"Options": [
+			{
+				"Title": "Он говорит четко и стандартно",
+				"Modifiers": [
+					{ "Type": "NeutralLoyalty", "Value": 5},
+					{ "Type": "FederationistsLoyalty", "Value": 5 },
+					{ "Type": "Power", "Value": 5 }
+				]
+			},
+			{
+				"Title": "Возможно часть из его заявлений была резковата",
+				"Modifiers": [
+					{ "Type": "DemocratsLoyalty", "Value": 5 },
+					{ "Type": "NeutralLoyalty", "Value": 5 }
+				]
+			},
+			{
+				"Title": "Нас окружают естественные враги, что еще он должен говорить?",
+				"Modifiers": [
+					{ "Type": "Power", "Value": 10 },
+					{ "Type": "DemocratsLoyalty", "Value": -5},
+					{ "Type": "FederationistsLoyalty", "Value": 10 },
+					{ "Type": "NeutralLoyalty", "Value": 10 }
+				]
+			},
+			{
+				"Title": "Я категорически против подобных выпадов в адрес наших братьев",
+				"Modifiers": [
+					{ "Type": "DemocratsLoyalty", "Value": 10 },
+					{ "Type": "FederationistsLoyalty", "Value": -10 },
+					{ "Type": "NeutralLoyalty", "Value": 10 },
+					{ "Type": "Power", "Value": 10}
+				]
+			}
+		]
+	},
+
+	{
+		"Title": "Консерватизм в массы",
+		"Description": "Отставной политик Валенс Конон выпустил автобиографическую книгу, в которой осуждает войну за независимость от Штатов. Он заявляет, что существование ФШКБ было единственным шансом на суверенное будущее народов восточной Каратении, а Соланд Вланора - лишь жертва обстоятельств. Такое его «творчество» может вызвать волну популярности идей реваншизма в Анраксе.",
+		"TurnPosition": 77,
+
+		"Options": [
+			{
+				"Title": "Если народ поддерживает его идеи, то и я тоже!",
+				"Modifiers": [
+					{ "Type": "NeutralLoyalty", "Value": 5},
+					{ "Type": "FederationistsLoyalty", "Value": 5 },
+					{ "Type": "FederationistsPower", "Value": 5 }
+				]
+			},
+			{
+				"Title": "Его идеи полная...",
+				"Modifiers": [
+					{ "Type": "FederationistsLoyalty", "Value": -5 },
+					{ "Type": "NeutralLoyalty", "Value": -10 }
+				]
+			},
+			{
+				"Title": "Реваншизм слишком опасен, ввести цензуру на его книги!",
+				"Modifiers": [
+					{ "Type": "FederationistsPower", "Value": -10},
+					{ "Type": "FederationistsLoyalty", "Value": -10 },
+					{ "Type": "NeutralLoyalty", "Value": -15 }
+				]
+			}
+		]
+	},
+
+	{
+		"Title": "Покушение!",
+		"Description": "Вы спокойно сидите у себя кабинете и перебираете документы, как вдруг, разбивая оконное стекло и ломая жалюзи, прямо в зеркало, стоящее справа от стола напротив окна, в отражение головы влетает пуля. Осколки зеркала разлетаются в разные стороны. Несколько из них оставляют на вашем лице и кистях тонкие царапины, в нескольких местах надрывая костюм.",
+		"TurnPosition": 86,
+
+		"TLDR": [
+			{
+				"Description": "После выстрела дверь распахивается и в кабинет вбегают два телохранителя и секретарь. Вас прикрывают и помогают покинуть кабинет. В течении некоторого времени охрана прочёсывает периметр, пытаясь найти снайпера, но всё тщетно. На окна в вашем кабинете устанавливают бронированную пластину.",
+				
+				"Options": [
+					{
+						"Title": "Немедленно провести расследование и найти виновных!",
+						"Modifiers": [
+							{ "Type": "FederationistsPower", "Value": 10 },
+							{ "Type": "NeutralLoyalty", "Value": 5 },
+							{ "Type": "ExtremismLevel", "Value": 5 }
+						]
+					}
 				]
 			}
 		]
