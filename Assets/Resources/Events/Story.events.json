@@ -1409,6 +1409,7 @@
 		"Options": [
 			{
 				"Title": "Если народ поддерживает его идеи, то и я тоже!",
+				"Category": "Federationists",
 				"Modifiers": [
 					{ "Type": "NeutralLoyalty", "Value": 5},
 					{ "Type": "FederationistsLoyalty", "Value": 5 },
@@ -1417,6 +1418,7 @@
 			},
 			{
 				"Title": "Его идеи полная...",
+				"Category": "Refuse",
 				"Modifiers": [
 					{ "Type": "FederationistsLoyalty", "Value": -5 },
 					{ "Type": "NeutralLoyalty", "Value": -10 }
@@ -1424,6 +1426,7 @@
 			},
 			{
 				"Title": "Реваншизм слишком опасен, ввести цензуру на его книги!",
+				"Category": "Ban",
 				"Modifiers": [
 					{ "Type": "FederationistsPower", "Value": -10},
 					{ "Type": "FederationistsLoyalty", "Value": -10 },
@@ -1451,6 +1454,254 @@
 							{ "Type": "ExtremismLevel", "Value": 5 }
 						]
 					}
+				]
+			}
+		]
+	},
+
+	{
+		"Title": "Завод-призрак",
+		"Description": "Господин президент, докладываю. Группа безработных граждан жалуются на отсутствие оборонного предприятия в Сценре, которое по имеющимся у нас бумагам уже как полгода исправно функционирует. Возможно, нам подсунули фальшивые документы. Что прикажете делать?",
+		"TurnPosition": 92,
+
+		"Options": [
+			{
+				"Title": "Отправить ответственных за строительство объекта под суд",
+				"Category": "Ban",
+				"Modifiers": [
+					{"Type": "DemocratsLoyalty", "Value": 10},
+					{"Type": "NationalistsLoyalty", "Value": 10},
+					{"Type": "FederationistsLoyalty", "Value": -10},
+					{"Type": "FederationistsPower", "Value": -10}
+				]
+			},
+			{
+				"Title": "Шантажировать местное правительство ради лояльности",
+				"Category": "Refuse",
+				"Modifiers": [
+					{"Type": "NeutralLoyalty", "Value": -10},
+					{"Type": "FederationistsLoyalty", "Value": 15}
+				]
+			},
+			{
+				"Title": "Поручить решить этот вопрос Службе Безопасности",
+				"Category": "Federationists",
+				"Modifiers": [
+					{"Type": "NeutralLoyalty", "Value": -5},
+					{"Type": "FederationistsLoyalty", "Value": 10},
+					{"Type": "FederationistsPower", "Value": 10}
+				]
+			},
+			{
+				"Title": "Дайте этим безработным должности в администрации президента!",
+				"Modifiers": [
+					{"Type": "NeutralLoyalty", "Value": 10},
+					{"Type": "NationalistsLoyalty", "Value": -15},
+					{"Type": "DemocratsLoyalty", "Value": -15},
+					{"Type": "FederationistsLoyalty", "Value": -15},
+					{"Type": "ExtremismLevel", "Value": -10}
+				]
+			}
+		]
+	},
+
+	{
+		"Title": "Утечка бюджета",
+		"Description": "Господин президент, в ходе пересчета выяснилось, что средства, выделяемые на восстановление страны, бесследно исчезают, когда проводятся проверки Службы Безопасности Анракса. Как мы отреагируем на данный саботаж?",
+		"TurnPosition": 98,
+		
+		"Options": [
+			{
+				"Title": "Немедленно вызвать сюда директора СБА!",
+				"Category": "Ban",
+				"Limits": [
+					{"Type": "== HIDDEN =="}
+				]
+			},
+			{
+				"Title": "Демонстративно отправить в отставку видных СБАшников",
+				"Category": "Refuse",
+				"Modifiers": [
+					{"Type": "FederationistsLoyalty", "Value": -50},
+					{"Type": "FederationistsPower", "Value": -30},
+					{"Type": "DemocratsLoyalty", "Value": 5},
+					{"Type": "NationalistsLoyalty", "Value": 5}
+				],
+				"Limits": [
+					{"Type": "FederationistsPower", "CompareTo": 70, "Comparison": "Lt"}
+				]
+			},
+			{
+				"Title": "Рассказать об этом крупнейшим новостным изданиям",
+				"Category": "Logging",
+				"Modifiers": [
+					{"Type": "NationalistsLoyalty", "Value": 5},
+					{"Type": "ExtremismLevel", "Value": 10},
+					{"Type": "FederationistsLoyalty", "Value": -25},
+					{"Type": "FederationistsPower", "Value": -10}
+				]
+			},
+			{
+				"Title": "Выждать",
+				"Category": "Unknown",
+				"Modifiers": [
+					{"Type": "FederationistsPower", "Value": 5}
+				]
+			}
+		]
+	},
+
+	{
+		"Title": "Оппозиция вещает",
+		"Description": "Господин президент, средства массовой информации все как один порочат ваше имя и статус своими статьями и интернет-публикациями! Тут и там выстреливают обвинения и критика в вашу сторону. Больше всех отличился Анж Нивич с канала «Голос Федерации»",
+		"TurnPosition": 102,
+		
+		"Options": [
+			{
+				"Title": "Вот подонок...",
+				"Category": "Unknown",
+				"Modifiers": [
+					{"Type": "NeutralLoyalty", "Value": -15},
+					{"Type": "ExtremismLevel", "Value": 5},
+					{"Type": "FederationistsLoyalty", "Value": -10},
+					{"Type": "DemocratsLoyalty", "Value": -10},
+					{"Type": "NeutralLoyalty", "Value": -10},
+					{"Type": "FederationistsPower", "Value": 5}
+				]
+			}
+		]
+	},
+
+	{
+		"Title": "Глава правительства за решеткой",
+		"Description": "Господин президент, СБА инициировала арест премьер-министра. Уже который раз они вставляют правительству палки в колёса, играя в какую-то свою игру! Каков будет наш ход?",
+		"TurnPosition": 106,
+		
+		"Options": [
+			{
+				"Title": "Немедленно отправить директора СБА под стражу",
+				"Category": "Ban",
+				"Modifiers": [
+					{"Type": "FederationistsLoyalty", "Value": -15},
+					{"Type": "FederationistsPower", "Value": -20},
+					{"Type": "NeutralLoyalty", "Value": -15}
+				],
+				"Limits": [
+					{"Type": "FederationistsPower", "CompareTo": 70, "Comparison": "Lt"}
+				]
+			},
+			{
+				"Title": "Силой высвободить премьер-министра из под ареста",
+				"Category": "Refuse",
+				"Flags": [
+					{"Type": "TryBreakOutPM", "Value": 1}
+				]
+			},
+			{
+				"Title": "Делаем шаг назад",
+				"Modifiers": [
+					{"Type": "FederationistsLoyalty", "Value": 10},
+					{"Type": "FederationistsPower", "Value": 25},
+					{"Type": "DemocratsLoyalty", "Value": -20},
+					{"Type": "NationalistsLoyalty", "Value": -20},
+					{"Type": "DemocratsPower", "Value": -25},
+					{"Type": "NationalistsPower", "Value": -25}
+				]
+			},
+			{
+				"Title": "Открыто потребовать освобождения премьер-министра",
+				"Modifiers": [
+					{"Type": "FederationistsLoyalty", "Value": -5},
+					{"Type": "FederationistsPower", "Value": 15},
+					{"Type": "DemocratsLoyalty", "Value": 10},
+					{"Type": "NationalistsLoyalty", "Value": 10},
+					{"Type": "DemocratsPower", "Value": -25},
+					{"Type": "NationalistsPower", "Value": -25}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Премьер-министр на свободе",
+		"Description": "Вы связываетесь с начальником генерального штаба Анракса для обсуждения проведения операции по освобождению премьер-министра из центра временного содержания. Эквил Маншнер становится на вашу сторону и отдает приказ Скарнскому гарнизону оцепить СИЗО.  Местные органы правопорядка не оказывают сопротивления армии и добровольно освобождают главу правительства. СБА явно не были готовы к такому.",
+		"TurnPosition": 106,
+		"Limits": [
+			{"Type": "TryBreakOutPM"},
+			{"Type": "RANDOM", "CompareTo": 50}
+		],
+		"Options": [
+			{
+				"Title": "Солтон должен знать свое место",
+				"Modifiers": [
+					{"Type": "FederationistsPower", "Value": -20},
+					{"Type": "FederationistsLoyalty", "Value": -15}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Десница в темнице",
+		"Description": "Вы связываетесь с начальником генерального штаба Анракса для обсуждения проведения операции по освобождению премьер-министра из центра временного содержания. Эквил Маншнер становится на вашу сторону и отдает приказ Скарнскому гарнизону оцепить СИЗО. Однако, местные сотрудники отказались от переговоров и даже открыли предупредительный огонь из автоматов под ноги солдат. Видимо, глава СБА не боится открытого противостояния с властями. Напряжение в стране возрастает.",
+		"TurnPosition": 106,
+		"Limits": [
+			{"Type": "TryBreakOutPM"},
+			{"Type": "RANDOM", "CompareTo": 50, "Comparison": "Lt"}
+		],
+		"Options": [
+			{
+				"Title": "Солтон должен знать свое место",
+				"Modifiers": [
+					{"Type": "FederationistsLoyalty", "Value": -15},
+					{"Type": "ExtremismLevel", "Value": 15}
+				]
+			}
+		]
+	},
+
+	{
+		"Title": "Ультиматум",
+		"Description": "На телефон поступил звонок с неизвестного номера. Ответив на вызов, вы слышите знакомый голос директора СБА: «Слушай внимательно и выполняй то, что я скажу, если хочешь ещё когда-нибудь услышать голоса своих родных. Ты должен публично скомпромитировать себя, заявив, что ты именно ты, самолично, отвественен за нынешнее положение страны. Именно в следствии твоей политики Анракс ломится от представителей организованной преступности и радикальных политических элементов! Те, кого ты любишь у нас на мушке, счёт идёт на минуты. Поторопись!» Вызов завершается.",
+		"TurnPosition": 107,
+		"Soundtrack": "Crisis",
+		
+		"Options": [
+			{
+				"Title": "Принять условия",
+				"Category": "Unknown",
+				"Flags": [
+					{"Type": "MainQuestCompleteAlternative", "Value": 1}
+				],
+				"Modifiers": [
+					{"Type": "Power", "Value": -999}
+				]
+			},
+			{
+				"Title": "Не принимать условия",
+				"Category": "Unknown",
+				"Flags": [
+					{"Type": "MainQuestComplete", "Value": 1}
+				],
+				"Modifiers": [
+					{ "Type":  "Power", "Value": -999, "Limit": { "Type": "WIN", "Comparison": "Lt" } }
+				],
+				"Limits": [
+					{"Type": "Power", "CompareTo": 30}
+				]
+			}
+		]
+	},
+
+	{
+		"Title": "Несгибаемая воля",
+		"Description": "Не все в СБА поддержали провокационные действия директора против Президента. Это стало причиной успешного проведения операции по освобождению заложников и взятия директора службы безопасности под стражу.",
+		"TurnPosition": 108,
+		"Soundtrack": "Conclusions",
+
+		"Options": [
+			{
+				"Title": "Здравствуй, Анракс!",
+				"Modifiers": [
+					{"Type": "Power", "Value": 30}
 				]
 			}
 		]

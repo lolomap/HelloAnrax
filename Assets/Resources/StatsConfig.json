@@ -2,6 +2,7 @@
   "RANDOM": "№0",
   "Kzhachich": "RANDOM < 0.11",
   "FAIL": "(Power < 15) | (NeutralLoyalty < 0.5) | (Kzhachich > 0)",
+  "WIN": "(FederationistsPower < 30) + (FederationistsLoyalty > 60)",
   
   "TURN": "TURN + 1",
   "EVERY2": "TURN % 2",

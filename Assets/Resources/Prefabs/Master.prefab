@@ -68,7 +68,7 @@ MonoBehaviour:
     - Key: MUSIC_Crisis
       Value: Crisis
   InitVolume: 0.51
-  TransitionTime: 0.5
+  TransitionTime: 2
 --- !u!114 &6725481802671729235
 MonoBehaviour:
   m_ObjectHideFlags: 0
