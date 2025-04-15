@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace UI
@@ -27,6 +26,8 @@ namespace UI
 		{
 			_image = GetComponent<Image>();
 			_texture = _image.sprite.texture;
+			Material material = new(_image.material); // Instantiate new material to change it without affecting asset
+			_image.material = material;
 			_rectTransform = GetComponent<RectTransform>();
 
 			_glossaryBindings =
