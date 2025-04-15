@@ -35,6 +35,7 @@ namespace UI
             UpdateCard();
             
             GameManager.PlayerStats.UpdateUI();
+            GameManager.PlayerStats.Updated += MusicManager.Instance.TriggerAudio;
             TaggedValue.UpdateAll("BuildVersion", GameManager.GetVersion());
         }
 
@@ -61,7 +62,7 @@ namespace UI
             {
                 foreach (Modifier modifier in modifiers)
                 {
-                    if (modifier.Limit == null || GameManager.PlayerStats.HasFlag(modifier.Limit))
+                    if (string.IsNullOrEmpty(modifier.Limit?.Type) || GameManager.PlayerStats.HasFlag(modifier.Limit))
                     {
                         GameManager.PlayerStats.SetStat(modifier.Type,
                             GameManager.PlayerStats.GetStat(modifier.Type) + modifier.Value);
@@ -90,6 +91,7 @@ namespace UI
         public void AcceptRestart()
         {
             GameManager.Restart();
+            GameManager.PlayerStats.Updated += MusicManager.Instance.TriggerAudio;
             GameManager.EventStorage.Init();
             Data = GameManager.EventStorage.GetNext();
             UpdateCard();

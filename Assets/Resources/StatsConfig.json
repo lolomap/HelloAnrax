@@ -27,5 +27,9 @@
   "HIGHLIGHT_FederationistsPower": "FederationistsPower - (NationalistsFederationistsConcurrency ≤ 5 | DemocratsFederationistsConcurrency ≤ 5) * 2",
   
   "PowerDelta": "(PositiveBlock > NegativeBlock) * PositiveBlock / 5 - (NegativeBlock > PositiveBlock) * NegativeBlock / 5 - (NeutralLoyalty < 50) * (NeutralLoyalty / 3)",
-  "HIGHLIGHT_Power": "Power + PowerDelta"
+  "HIGHLIGHT_Power": "Power + PowerDelta",
+  
+  "MUSIC_Crisis": "(Power < 30) * (FAIL < 1)",
+  "MUSIC_Edge": "((NationalistsLoyalty < 50) * 1 + (DemocratsLoyalty < 50) * 1 + (FederationistsLoyalty < 50) * 1 + (NeutralLoyalty < 50) * 1) > 2",
+  "MUSIC_Conclusions": "FAIL > 0"
 }

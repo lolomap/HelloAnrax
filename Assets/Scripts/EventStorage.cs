@@ -63,8 +63,6 @@ public class EventStorage
     
     public void Init()
     {
-        if (_isReady) return;
-        
         foreach (GameEvent gameEvent in _events)
         {
             gameEvent.EnableDynamicChecking();
@@ -77,6 +75,8 @@ public class EventStorage
         {
             gameEvent.CheckLimits();
         }
+        
+        if (_isReady) return;
         
         _eventQueue.Shuffle();
         

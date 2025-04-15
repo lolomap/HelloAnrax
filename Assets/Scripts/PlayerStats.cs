@@ -22,6 +22,7 @@ public class PlayerStats
 	[JsonProperty] private Dictionary<string, float> _globalFlags;
 
 	public event Action Updated;
+	[JsonProperty]
 	private bool _isReady;
 
 	public void Init()
@@ -114,12 +115,11 @@ public class PlayerStats
 	}
 	public bool HasFlag(string flag)
 	{
-		if (_flags.TryGetValue(flag, out float flagValue))
-			return flagValue > 0;
-		if (_stats.TryGetValue(flag, out Stat stat))
-			return stat.Value > 0;
+		// If player has no flag, it was 0 and we need to set it for Lt/LtE checks
+		_flags.TryGetValue(flag, out float flagValue);
 
-		return false;
+		return Utils.Compare(_stats.TryGetValue(flag, out Stat stat) ? stat.Value : flagValue,
+			1, Utils.Comparison.GtE);
 	}
 	public bool HasFlag(Flag flag)
 	{

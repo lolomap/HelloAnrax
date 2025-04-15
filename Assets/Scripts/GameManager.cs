@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using UI;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 [CreateAssetMenu(fileName = "EditorUtilities/GameManager", menuName = "Game/Manager")]
 public class GameManager : ScriptableObject

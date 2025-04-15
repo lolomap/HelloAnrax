@@ -53,6 +53,20 @@ MonoBehaviour:
     _serializedList:
     - Key: MainTheme
       Value: {fileID: 8300000, guid: 5910239a3cd64e24ba87d88c6609a634, type: 3}
+    - Key: Crisis
+      Value: {fileID: 8300000, guid: 01eeb0337e073114e863e85e7dfb476e, type: 3}
+    - Key: Edge
+      Value: {fileID: 8300000, guid: 89e5b17713ce4b14f9ca9b115ba7c650, type: 3}
+    - Key: Conclusions
+      Value: {fileID: 8300000, guid: 747046bff63e0b5419c422a4b8585742, type: 3}
+  TrackTriggers:
+    _serializedList:
+    - Key: MUSIC_Conclusions
+      Value: Conclusions
+    - Key: MUSIC_Edge
+      Value: Edge
+    - Key: MUSIC_Crisis
+      Value: Crisis
   InitVolume: 0.51
   TransitionTime: 0.5
 --- !u!114 &6725481802671729235

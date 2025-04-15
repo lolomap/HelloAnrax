@@ -94,7 +94,7 @@ public class GameEvent
 
     public List<GameEvent> TLDR;
 
-    [JsonProperty]
+    [NonSerialized]
     private bool _isDynamicChecking;
     
     public void EnableDynamicChecking()

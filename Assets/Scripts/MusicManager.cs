@@ -1,8 +1,6 @@
-using System;
 using AYellowpaper.SerializedCollections;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 [RequireComponent(typeof(AudioSource))]
 public class MusicManager : MonoBehaviour
@@ -13,10 +11,14 @@ public class MusicManager : MonoBehaviour
     public AudioSource SecondaryTrack;
 
     private string _currentTrack;
+    private bool _isTriggeredMusic;
 
     [SerializedDictionary("Name", "Audio")]
     public SerializedDictionary<string, AudioClip> Tracks;
 
+    [SerializedDictionary("PlayerFlag", "AudioName")]
+    public SerializedDictionary<string, string> TrackTriggers;
+    
     [Range(0f, 1f)]
     public float InitVolume = 1f;
     
@@ -44,6 +46,8 @@ public class MusicManager : MonoBehaviour
 
     public void PlayAudio(string trackName)
     {
+        if (_currentTrack == trackName || _isTriggeredMusic) return;
+        
         _currentTrack = trackName;
         
         AudioSource nowPlaying = MainTrack;
@@ -90,5 +94,22 @@ public class MusicManager : MonoBehaviour
             percentage += Time.deltaTime / TransitionTime;
             yield return null;
         }
+    }
+
+    public void TriggerAudio()
+    {
+        _isTriggeredMusic = false;
+        
+        foreach ((string trigger, string trackName) in TrackTriggers)
+        {
+            if (GameManager.PlayerStats.HasFlag(trigger))
+            {
+                PlayAudio(trackName);
+                _isTriggeredMusic = true;
+                return;
+            }
+        }
+
+        _isTriggeredMusic = false;
     }
 }
