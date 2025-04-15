@@ -893,6 +893,10 @@
       <Project>{10a90698-34bb-3d77-d6d9-316029c70467}</Project>
       <Name>YandexMobileAds</Name>
     </ProjectReference>
+    <ProjectReference Include="DOTween.Modules.csproj">
+      <Project>{33a81380-1631-c0db-a469-e2fa72ddcfe6}</Project>
+      <Name>DOTween.Modules</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

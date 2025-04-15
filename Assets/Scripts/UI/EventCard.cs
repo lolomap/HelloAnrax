@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -162,8 +163,8 @@ namespace UI
         {
             EventDescription.text = Data.Description;
             EventDescriptionBoxDummy.text = Data.Description;
-            if (EventDescriptionScroll.verticalNormalizedPosition > 0.1f)
-                EventDescriptionScroll.verticalNormalizedPosition = 0f;
+
+            EventDescriptionScroll.DOVerticalNormalizedPos(1f, 0.75f);
             EventTitle.text = Data.Title;
             EventPicture.sprite = ResourceLoader.GetResource<Sprite>("Icons/Events/" + Data.Category);
             if (EventPicture.sprite == null)

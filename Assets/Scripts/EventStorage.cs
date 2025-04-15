@@ -70,13 +70,13 @@ public class EventStorage
         // No dynamic checks for win/fail events (they use another queue)
         // No dynamic checks for timed events (they use another queue)
         
+        if (_isReady) return; // No need to reload event queue on loading saved game
+        
         // Add to initial queue only available events
         foreach (GameEvent gameEvent in _events)
         {
             gameEvent.CheckLimits();
         }
-        
-        if (_isReady) return;
         
         _eventQueue.Shuffle();
         

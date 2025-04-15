@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GameManager
   m_EditorClassIdentifier: 
   Global:
-    FrameRateLocked: 0
+    FrameRateLocked: 60
   UI:
     AnimationDurationSec: 0.3
     AnimationScale: 1.2

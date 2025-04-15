@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
 
 namespace UI
 {
@@ -9,6 +10,7 @@ namespace UI
 	{
 		private TMP_Text[] _data;
 		private RectTransform _rectTransform;
+		private ScrollRect _scrollRect;
 
 		private GameObject _panel;
 		
@@ -16,6 +18,7 @@ namespace UI
 		{
 			_rectTransform = GetComponent<RectTransform>();
 			_data = GetComponentsInChildren<TMP_Text>();
+			_scrollRect = GetComponentInChildren<ScrollRect>();
 
 			_panel = transform.parent.gameObject;
 			
@@ -26,6 +29,7 @@ namespace UI
 		{
 			foreach (TMP_Text element in _data)
 				element.text = ResourceLoader.GetGlossaryText(id);
+			_scrollRect.DOVerticalNormalizedPos(1f, 0.75f);
 
 			_rectTransform.localScale = Vector3.zero;
 			_panel.SetActive(true);
