@@ -96,10 +96,12 @@ public class GameEvent
 
     [NonSerialized]
     private bool _isDynamicChecking;
+    [JsonProperty]
+    private bool _isDestroyed;
     
     public void EnableDynamicChecking()
     {
-        if (!_isDynamicChecking)
+        if (!_isDynamicChecking && !_isDestroyed)
         {
             GameManager.PlayerStats.Updated += CheckLimits;
             _isDynamicChecking = true;
@@ -109,6 +111,7 @@ public class GameEvent
     public void DisableDynamicChecking()
     {
         GameManager.PlayerStats.Updated -= CheckLimits;
+        _isDestroyed = true;
         _isDynamicChecking = false;
     }
 

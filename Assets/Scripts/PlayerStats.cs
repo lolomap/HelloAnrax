@@ -41,12 +41,12 @@ public class PlayerStats
 
 	public void SaveGlobal()
 	{
-		PlayerPrefs.SetString("GlobalFlags", JsonConvert.SerializeObject(_globalFlags));
+		ResourceLoader.SavePersistent("GlobalFlags", _globalFlags);
 	}
 
 	public void Save()
 	{
-		PlayerPrefs.SetString("PlayerStats", JsonConvert.SerializeObject(this));
+		ResourceLoader.SavePersistent("PlayerStats", this);
 	}
 
 	public void UpdateUI()
@@ -75,7 +75,6 @@ public class PlayerStats
 			float value = Convert.ToSingle(Utils.Evaluator.Evaluate(formula, variables));
 			
 			variables[stat] = (decimal) SetStat(stat, value);
-			Debug.Log($"{stat}: {variables[stat]}");
 		}
 		
 		OnUpdated();

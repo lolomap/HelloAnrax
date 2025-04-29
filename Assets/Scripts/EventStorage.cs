@@ -58,7 +58,7 @@ public class EventStorage
 
     public void Save()
     {
-        PlayerPrefs.SetString("EventStorage", JsonConvert.SerializeObject(this));
+        ResourceLoader.SavePersistent("EventStorage", this);
     }
     
     public void Init()
@@ -85,9 +85,21 @@ public class EventStorage
         _isReady = true;
     }
 
+    public void Dispose()
+    {
+        foreach (GameEvent gameEvent in _events)
+        {
+            gameEvent.DisableDynamicChecking();
+        }
+        _events.Clear();
+        _timedEvents.Clear();
+        _failEvents.Clear();
+    }
+
     public void EnqueueEvent(GameEvent gameEvent, bool toEnd = false)
     {
-        if (_eventQueue.Contains(gameEvent)) return; // Prevent multiple enqueueing
+        if (_eventQueue.Find(x => x.Description == gameEvent.Description) != null)
+            return; // Prevent multiple enqueueing
         
         if (!_events.Contains(gameEvent)) throw new ArgumentException("Try to enqueue unknown event");
 

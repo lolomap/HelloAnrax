@@ -50,10 +50,10 @@ public class GameManager : ScriptableObject
 		Dictionary<string, string> adIds = ResourceLoader.GetAdIds();
 		BannerAdManager.AdUnitId = adIds["banner"];
 
-		string saved;
-		if (PlayerPrefs.HasKey("PlayerStats") && (saved = PlayerPrefs.GetString("PlayerStats")) != "{}")
+		object saved;
+		if ((saved = ResourceLoader.GetPersistentJson<PlayerStats>("PlayerStats")) != null)
 		{
-			PlayerStats = JsonConvert.DeserializeObject<PlayerStats>(saved);
+			PlayerStats = (PlayerStats) saved;
 		}
 		else
 		{
@@ -61,10 +61,9 @@ public class GameManager : ScriptableObject
 			PlayerStats.Init();
 		}
 		
-		if (PlayerPrefs.HasKey("GlobalFlags") && (saved = PlayerPrefs.GetString("GlobalFlags")) != "{}")
+		if ((saved = ResourceLoader.GetPersistentJson<Dictionary<string, float>>("GlobalFlags")) != null)
 		{
-			foreach ((string flag, float value) in
-			         JsonConvert.DeserializeObject<Dictionary<string, float>>(saved))
+			foreach ((string flag, float value) in (Dictionary<string, float>)saved)
 			{
 				PlayerStats.SetFlag(flag, value);
 			}
@@ -72,9 +71,9 @@ public class GameManager : ScriptableObject
 		
 		ResourceLoader.ReloadGlossary();
 
-		if (PlayerPrefs.HasKey("EventStorage") && (saved = PlayerPrefs.GetString("EventStorage")) != "{}")
+		if ((saved = ResourceLoader.GetPersistentJson<EventStorage>("EventStorage")) != null)
 		{
-			EventStorage = JsonConvert.DeserializeObject<EventStorage>(saved);
+			EventStorage = (EventStorage)saved;
 		}
 		else
 		{
@@ -86,6 +85,7 @@ public class GameManager : ScriptableObject
 
 	public static void Restart()
 	{
+		EventStorage.Dispose();
 		IEnumerable<KeyValuePair<string, float>> saveGlobal = PlayerStats.GetGlobalFlags();
 		PlayerStats = new();
 		PlayerStats.Init();
