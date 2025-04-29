@@ -5,10 +5,10 @@
   "WIN": "(FederationistsPower < 30) + (FederationistsLoyalty > 60)",
   
   "TURN": "TURN + 1",
-  "EVERY2": "TURN % 2",
-  "EVERY3": "TURN % 3",
-  "EVERY5": "TURN % 5",
-  "EVERY10": "TURN % 10",
+  "EVERY2": "(TURN % 2) < 1",
+  "EVERY3": "(TURN % 3) < 1",
+  "EVERY5": "(TURN % 5) < 1",
+  "EVERY10": "(TURN % 10) < 1",
   
   "EconomicReportBestChance": "(EconomicPower < 25) * 10 + ((EconomicPower ≥ 25) & (EconomicPower ≤ 75)) * 20 + (EconomicPower > 75) * 25",
   "EconomicReportMediumChance": "(EconomicPower < 25) * 45 + ((EconomicPower ≥ 25) & (EconomicPower ≤ 75)) * 60 + (EconomicPower > 75) * 65",
@@ -27,7 +27,7 @@
   "HIGHLIGHT_DemocratsPower": "DemocratsPower - (NationalistsDemocratsConcurrency ≤ 5 | DemocratsFederationistsConcurrency ≤ 5) * 2",
   "HIGHLIGHT_FederationistsPower": "FederationistsPower - (NationalistsFederationistsConcurrency ≤ 5 | DemocratsFederationistsConcurrency ≤ 5) * 2",
   
-  "PowerDelta": "(PositiveBlock > NegativeBlock) * PositiveBlock / 5 - (NegativeBlock > PositiveBlock) * NegativeBlock / 5 - (NeutralLoyalty < 50) * (NeutralLoyalty / 3)",
+  "PowerDelta": "(PositiveBlock > NegativeBlock) * PositiveBlock / 10 - (NegativeBlock > PositiveBlock) * NegativeBlock / 10 - (NeutralLoyalty < 50) * ((100 - NeutralLoyalty) / 10)",
   "HIGHLIGHT_Power": "Power + PowerDelta",
   
   "MUSIC_Crisis": "(Power < 30) * (FAIL < 1)",

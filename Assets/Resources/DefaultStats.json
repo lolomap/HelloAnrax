@@ -9,8 +9,7 @@
   "DemocratsPower": {"Value": 50, "Max": 100},
   "NeutralLoyalty": {"Value": 30, "Max": 100},
   "Power": {"Value": 50, "Max": 100},
-  "PowerDelta": {"Value": 0, "Min": -30, "Max": 30},
-  "HIGHLIGHT_Power": {"Value": 50, "Max": 100},
+  "PowerDelta": {"Value": 0, "Min": -15, "Max": 15},
   "Treasury": {"Value": 3, "Max": 5},
   
   

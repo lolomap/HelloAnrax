@@ -139,7 +139,10 @@ public class EventStorage
             {
                 GameEvent e = _timedEvents[0];
                 _timedEvents.Remove(e);
-                return e;
+
+                if (!e.IsAvailable())
+                    return GetNext();
+                else return e;
             }
             return null;
         }

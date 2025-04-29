@@ -18,6 +18,7 @@
   {
     "Title": "Арест Президента",
     "Description": "Вы компромитируете себя, спасая родных. В ваш адрес выдвигают множество обвинений и предают суду. Суд выносит наказание и вы отправляетесь за решётку.",
+    "Category": "Riots",
     
     "Limits": [
       { "Type": "MainQuestCompleteAlternative" }
@@ -33,7 +34,8 @@
   {
     "Title": "Арест Президента",
     "Description": "Многие в СБА поддержали провокационные действия директора против президента. В ваш адрес выдвигают множество обвинений и предают суду. Суд выносит наказание и вы отправляетесь за решётку.",
-
+    "Category": "Riots",
+    
     "Limits": [
       { "Type": "MainQuestComplete" }
     ],
@@ -92,6 +94,7 @@
   {
     "Title": "Народная революция",
     "Description": "Разъяренные толпы заполнили Скарну.",
+    "Category": "Riots",
     
     "Limits": [
       {"Type": "NeutralLoyalty", "Comparison": "Lt"}
@@ -118,9 +121,9 @@
   {
     "Title": "Триумф НПА",
     "Description": "Огонь вновь озаряет столицу страны.",
+    "Category": "Riots",
     
     "Limits": [
-      {"Type":  "NationalistsLoyalty", "CompareTo": 50, "Comparison":  "LtE"},
       {"Type":  "NationalistsPower", "CompareTo": 50 }
     ],
     
@@ -143,9 +146,9 @@
   {
     "Title": "Триумф НПЗC",
     "Description": "Сегодня машина не приезжает за Президентом. Никто не отвезет вас в правительственный дворец.",
+    "Category": "Riots",
 
     "Limits": [
-      {"Type":  "DemocratsLoyalty", "CompareTo": 50, "Comparison":  "LtE"},
       {"Type":  "DemocratsPower", "CompareTo": 50 }
     ],
 
@@ -169,9 +172,9 @@
   {
     "Title": "Каратенское Братство",
     "Description": "Под покровом непроглядной ночи в дверь постучали.",
+    "Category": "Riots",
 
     "Limits": [
-      {"Type":  "FederationistsLoyalty", "CompareTo": 50, "Comparison":  "LtE"},
       {"Type":  "FederationistsPower", "CompareTo": 50 }
     ],
 

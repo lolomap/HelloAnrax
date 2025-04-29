@@ -74,12 +74,8 @@ public class PlayerStats
 		{
 			float value = Convert.ToSingle(Utils.Evaluator.Evaluate(formula, variables));
 			
-			SetStat(stat, value);
-			
-			if (!variables.ContainsKey(stat))
-			{
-				variables[stat] = (decimal) value;
-			}
+			variables[stat] = (decimal) SetStat(stat, value);
+			Debug.Log($"{stat}: {variables[stat]}");
 		}
 		
 		OnUpdated();
@@ -91,21 +87,27 @@ public class PlayerStats
 	}
 	
 	public float GetStat(string stat) => _stats[stat].Value;
-	public void SetStat(string stat, float value)
+	public float SetStat(string stat, float value)
 	{
-		if (!_stats.ContainsKey(stat))
-			_stats[stat] = new();
+		string uiTag = stat;
+		if (uiTag.StartsWith("HIGHLIGHT_"))
+			uiTag = uiTag.Split("HIGHLIGHT_")[1];
 
-		if (value < _stats[stat].Min)
-			_stats[stat].Value = _stats[stat].Min;
-		else if (value > _stats[stat].Max)
-			_stats[stat].Value = _stats[stat].Max;
+		if (!_stats.ContainsKey(uiTag))
+			_stats[uiTag] = new();
+
+		if (value < _stats[uiTag].Min)
+			_stats[uiTag].Value = _stats[uiTag].Min;
+		else if (value > _stats[uiTag].Max)
+			_stats[uiTag].Value = _stats[uiTag].Max;
 		else
-			_stats[stat].Value = value;
+			_stats[uiTag].Value = value;
 		
 		TaggedValue.UpdateAll(stat, value);
 		
 		OnUpdated();
+
+		return _stats[uiTag].Value;
 	}
 
 	public float GetFlag(string flag)
