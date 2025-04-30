@@ -18,17 +18,18 @@
 
   "PositiveBlock": "(NationalistsLoyalty > 50) * NationalistsPower + (DemocratsLoyalty > 50) * DemocratsPower + (FederationistsLoyalty > 50) * FederationistsPower",
   "NegativeBlock": "(NationalistsLoyalty < 50) * NationalistsPower + (DemocratsLoyalty < 50) * DemocratsPower + (FederationistsLoyalty < 50) * FederationistsPower",
-
+  "BlocksConcurrency": "|(PositiveBlock - NegativeBlock)",
+  
   "NationalistsDemocratsConcurrency": "|(DemocratsPower - NationalistsPower)",
   "NationalistsFederationistsConcurrency": "|(FederationistsPower - NationalistsPower)",
   "DemocratsFederationistsConcurrency": "|(DemocratsPower - FederationistsPower)",
 
-  "HIGHLIGHT_NationalistsPower": "NationalistsPower - (NationalistsDemocratsConcurrency ≤ 5 | NationalistsFederationistsConcurrency ≤ 5) * 2",
-  "HIGHLIGHT_DemocratsPower": "DemocratsPower - (NationalistsDemocratsConcurrency ≤ 5 | DemocratsFederationistsConcurrency ≤ 5) * 2",
-  "HIGHLIGHT_FederationistsPower": "FederationistsPower - (NationalistsFederationistsConcurrency ≤ 5 | DemocratsFederationistsConcurrency ≤ 5) * 2",
+  "HIGHLIGHT_NationalistsPower": "NationalistsPower - (NationalistsPower > 30) * (NationalistsDemocratsConcurrency ≤ 3 | NationalistsFederationistsConcurrency ≤ 3) * 2",
+  "HIGHLIGHT_DemocratsPower": "DemocratsPower - (DemocratsPower > 30) * (NationalistsDemocratsConcurrency ≤ 3 | DemocratsFederationistsConcurrency ≤ 3) * 2",
+  "HIGHLIGHT_FederationistsPower": "FederationistsPower - (FederationistsPower > 30) * (NationalistsFederationistsConcurrency ≤ 3 | DemocratsFederationistsConcurrency ≤ 3) * 2",
   
-  "PowerDelta": "(PositiveBlock > NegativeBlock) * PositiveBlock / 10 - (NegativeBlock > PositiveBlock) * NegativeBlock / 10 - (NeutralLoyalty < 50) * ((100 - NeutralLoyalty) / 10)",
-  "HIGHLIGHT_Power": "Power + PowerDelta",
+  "PowerDelta": "(PositiveBlock > NegativeBlock) * PositiveBlock / 10 - (NegativeBlock > PositiveBlock) * NegativeBlock / 10 - (NeutralLoyalty < 40) * ((60 - NeutralLoyalty) / 10)",
+  "HIGHLIGHT_Power": "Power + (BlocksConcurrency > 7) * PowerDelta + (BlocksConcurrency < 7) * 3",
   
   "MUSIC_Crisis": "(Power < 30) * (FAIL < 1)",
   "MUSIC_Edge": "((NationalistsLoyalty < 50) * 1 + (DemocratsLoyalty < 50) * 1 + (FederationistsLoyalty < 50) * 1 + (NeutralLoyalty < 50) * 1) > 2",

@@ -38,7 +38,7 @@ namespace UI
 			
 			if (Value - value >= 0)
 			{
-				for (int i = Value - 1; i > value - 1 && i > 0; i--)
+				for (int i = Value - 1; i > value - 1 && i >= 0; i--)
 				{
 					_segments[i].material = blinkMat;
 				}
