@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json;
+using UnityEngine.Profiling;
 using static Utils;
 
 [Serializable]
@@ -86,6 +87,8 @@ public class GameEvent
     public bool IsDisposable = true;
 
     public bool IsTrigger;
+    public bool IsTreeRoot;
+    public bool IsTree;
     public List<Flag> Limits;
     
     public int TurnPosition = -1;
@@ -94,10 +97,13 @@ public class GameEvent
 
     public List<GameEvent> TLDR;
 
-    [NonSerialized]
-    private bool _isDynamicChecking;
-    [JsonProperty]
-    private bool _isDestroyed;
+    public int Checksum = 0;
+    
+    [NonSerialized] public List<GameEvent> TreeChildren;
+    [NonSerialized] private bool _isDynamicChecking;
+    
+    [JsonProperty] private bool _isDestroyed;
+    [JsonProperty] private bool _isEnqueued;
     
     public void EnableDynamicChecking()
     {
@@ -115,6 +121,14 @@ public class GameEvent
         _isDynamicChecking = false;
     }
 
+    // DO NOT USE CONSTRUCTOR WITH SERIALIZER! 
+    public void Init()
+    {
+        Checksum = GetChecksum();
+        if (IsTreeRoot)
+            IsTree = true;
+    }
+    
     ~GameEvent()
     {
         if (GameManager.PlayerStats != null)
@@ -127,9 +141,39 @@ public class GameEvent
     }
     
     public void CheckLimits()
-     {
-         if (IsAvailable())
-             GameManager.EventStorage.EnqueueEvent(this);
-         else GameManager.EventStorage.DequeueEvent(this);
-     }
+    {
+        if (IsAvailable())
+        {
+            if (_isEnqueued) return;
+            GameManager.EventStorage.EnqueueEvent(this);
+            _isEnqueued = true;
+        }
+        else
+        {
+            GameManager.EventStorage.DequeueEvent(this);
+            _isEnqueued = false;
+        }
+    }
+
+    public int GetChecksum()
+    {
+        return Title.GetHashCode() + Description.GetHashCode() + Category.GetHashCode();
+    }
+
+    public void UpdateChildren(List<GameEvent> events)
+    {
+        TreeChildren ??= new();
+        if (Options == null) return;
+        foreach (Option option in Options)
+        {
+            if (option.Flags == null) continue;
+            foreach (Flag flag in option.Flags)
+            {
+                List<GameEvent> child = events.FindAll(x =>
+                    x.IsTree && x.Limits != null &&
+                    x.Limits.Any(y => y.Type == flag.Type));
+                TreeChildren.AddRange(child);
+            }
+        }
+    }
 }

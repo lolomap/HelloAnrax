@@ -13,6 +13,9 @@ public class EventStorage
     [JsonProperty] private List<GameEvent> _failEvents;
     [JsonProperty] private List<GameEvent> _winEvents;
 
+    // Contains checksums of events that have been got by GetNext()
+    [JsonProperty] private List<int> _pastEvents;
+
     [JsonProperty] private int _currentTurn;
     [JsonProperty] private bool _isReady;
     
@@ -29,10 +32,13 @@ public class EventStorage
         _events = new();
         _timedEvents = new();
         _eventQueue = new();
+        _pastEvents = new();
         
         _events.AddRange(LoadFile("Events/Common.events"));
         _events.AddRange(LoadFile("Events/StartInfo.events"));
+        _events.AddRange(LoadFile("Events/Interview.events"));
         _events.AddRange(LoadFile("Events/SouthWar.events"));
+        _events.AddRange(LoadFile("Events/StoryTree.events"));
         
         _timedEvents = LoadFile("Events/Story.events");
         
@@ -65,17 +71,34 @@ public class EventStorage
     {
         foreach (GameEvent gameEvent in _events)
         {
-            gameEvent.EnableDynamicChecking();
+            gameEvent.Init();
+        }
+        foreach (GameEvent gameEvent in _timedEvents)
+        {
+            gameEvent.Init();
+        }
+        
+        foreach (GameEvent gameEvent in _events)
+        {
+            if (!gameEvent.IsTree || gameEvent.IsTreeRoot)
+                gameEvent.EnableDynamicChecking();
+            if (gameEvent.IsTree)
+                gameEvent.UpdateChildren(_events);
         }
         // No dynamic checks for win/fail events (they use another queue)
         // No dynamic checks for timed events (they use another queue)
+        foreach (GameEvent timedEvent in _timedEvents.Where(timedEvent => timedEvent.IsTree))
+        {
+            timedEvent.UpdateChildren(_events);
+        }
         
         if (_isReady) return; // No need to reload event queue on loading saved game
         
         // Add to initial queue only available events
         foreach (GameEvent gameEvent in _events)
         {
-            gameEvent.CheckLimits();
+            if (!gameEvent.IsTree || gameEvent.IsTreeRoot)
+                gameEvent.CheckLimits();
         }
         
         _eventQueue.Shuffle();
@@ -98,8 +121,8 @@ public class EventStorage
 
     public void EnqueueEvent(GameEvent gameEvent, bool toEnd = false)
     {
-        if (_eventQueue.Find(x => x.Description == gameEvent.Description) != null)
-            return; // Prevent multiple enqueueing
+        if (_pastEvents.Contains(gameEvent.GetChecksum()))
+            return; // Prevent multiple enqueueing*/
         
         if (!_events.Contains(gameEvent)) throw new ArgumentException("Try to enqueue unknown event");
 
@@ -145,52 +168,86 @@ public class EventStorage
     
     public GameEvent GetNext()
     {
-        if (_eventQueue.Count < 1)
-        {
-            if (_timedEvents.Count > 0)
-            {
-                GameEvent e = _timedEvents[0];
-                _timedEvents.Remove(e);
-
-                if (!e.IsAvailable())
-                    return GetNext();
-                else return e;
-            }
-            return null;
-        }
-
-        GameEvent res;
+        GameEvent res = default;
         
-        if (_timedEvents.Count > 0 && _timedEvents[0].TurnPosition <= _currentTurn)
+        // Return related event if it is chained tree
+        if (CurrentEvent is {IsTree: true, TreeChildren: not null})
         {
-            res = _timedEvents[0];
-            _timedEvents.Remove(res);
-            
-            if (!res.IsAvailable())
+            foreach (GameEvent child in CurrentEvent.TreeChildren)
             {
+                if (child == null) continue;
+                if (child.IsAvailable())
+                {
+                    res = child;
+                    // _events.Remove(res);
+                    break;
+                }
+            }
+
+            if (res == null)
+            {
+                CurrentEvent = null;
                 return GetNext();
             }
+            CurrentEvent.TreeChildren.Remove(res);
         }
         else
         {
-            res = _eventQueue[0];
-
-            _eventQueue.Remove(res);
-            if (!res.IsDisposable)
+            // Continue timed events if common list is empty
+            if (_eventQueue.Count < 1)
             {
-                EnqueueEvent(res, true);
+                if (_timedEvents.Count > 0)
+                {
+                    res = _timedEvents[0];
+                    _timedEvents.Remove(res);
+
+                    if (!res.IsAvailable())
+                        return GetNext();
+                }
+                else
+                {
+                    CurrentEvent = null;
+                    return null;
+                }
             }
+            // Return timed events in priority
+            else if (_timedEvents.Count > 0 && _timedEvents[0].TurnPosition <= _currentTurn)
+            {
+                res = _timedEvents[0];
+                _timedEvents.Remove(res);
+
+                if (!res.IsAvailable())
+                {
+                    return GetNext();
+                }
+            }
+            // Normal event queue
             else
             {
-                res.DisableDynamicChecking();
-                _events.Remove(res);
+                res = _eventQueue[0];
+
+                _eventQueue.Remove(res);
+                if (!res.IsDisposable)
+                {
+                    EnqueueEvent(res, true);
+                }
+                else
+                {
+                    res.DisableDynamicChecking();
+                    _events.Remove(res);
+                }
             }
         }
+
+        // Skip duplicate events in queue
+        if (_pastEvents.Contains(res.Checksum))
+            return GetNext();
         
         if (!res.SkipTurn)
             _currentTurn++;
 
         CurrentEvent = res;
+        _pastEvents.Add(res.Checksum);
         return res;
     }
 

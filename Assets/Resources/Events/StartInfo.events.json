@@ -5,6 +5,7 @@
 
     "Limits": [{"Type": "StartInfoSecurity"}],
     "IsTrigger": true,
+    "IsTree": true,
     "SkipTurn": true,
 
     "Options": [
@@ -49,6 +50,7 @@
 
     "Limits": [{"Type": "StartInfoWork"}],
     "IsTrigger": true,
+    "IsTree": true,
     "SkipTurn": true,
 
     "Options": [
@@ -93,6 +95,7 @@
 
     "Limits": [{"Type": "StartInfoEconomics"}],
     "IsTrigger": true,
+    "IsTree": true,
     "SkipTurn": true,
 
     "Options": [
@@ -137,6 +140,7 @@
 
     "Limits": [{"Type": "StartInfoInternational"}],
     "IsTrigger": true,
+    "IsTree": true,
     "SkipTurn": true,
 
     "Options": [
@@ -173,20 +177,6 @@
         "Flags": [{"Type": "StartInfoInternational", "Value": 1}],
         "Limits": [{"Type": "StartInfoInternational", "Comparison": "Lt"}]
       }
-    ]
-  },
-  {
-    "Title": "Секретарша:",
-    "Description": "Господин президент, вы наверное устали от такого обилия дел и приёмов. Я сделала вам кофе.",
-    "Limits": [
-      {"Type": "StartInfoEconomics"},
-      {"Type": "StartInfoSecurity"}
-    ],
-    "IsTrigger": true,
-    "SkipTurn": true,
-    
-    "Options": [
-      {"Title": "Спасибо"}
     ]
   }
 ]

@@ -1,0 +1,117 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://github.com/lolomap/NDT_Events.schema.json/master/NDT_Events.schema.json",
+	"type": "array",
+	"title": "NDT Events",
+	"description": "Events that are compatible with NDT event system",
+
+	"items": {
+		"type": "object",
+		"properties": {
+			"Title": {"type": "string"},
+			"Description": {"type": "string"},
+			"Category": {"type": "string"},
+	
+			"Options": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"Title": {"type": "string"},
+						"Category": {"type": "string"},
+	
+						"Modifiers": {
+							"type": "array",
+							"items": {
+								"type": "object",
+								"properties": {
+									"Type": {
+										"enum": [
+											"NationalistsLoyalty",
+											"NationalistsPower",
+											"DemocratsLoyalty",
+											"DemocratsPower",
+											"FederationistsLoyalty",
+											"FederationistsPower",
+											"NeutralLoyalty",
+											"Power",
+											"Treasury",
+											"EconomicPower",
+											"MilitaryPower",
+											"ExtremismLevel",
+											"RelationsUCB",
+											"RelationsSBU",
+											"RelationsIID",
+											"RelationsEIK"
+										]
+									},
+									"Value": {"type": "number"},
+									"Limit": {
+										"type": "object",
+										"properties":  {
+											"Type": {"type": "string"},
+											"CompareTo": {"type": "number"},
+											"Comparison": {"enum": [ "Gt", "Lt", "GtE", "LtE", "Eq", "Exists" ]}
+										},
+										"required": [ "Type" ],
+										"additionalProperties": false
+									}
+								},
+								"required": [ "Type", "Value" ]
+							}
+						},
+						"Flags": {
+							"type": "array",
+							"items": {
+								"type": "object",
+								"properties":  {
+									"Type": {"type": "string"},
+									"Value": {"type": "number"}
+								},
+								"required": [ "Type", "Value" ]
+							}
+						},
+						"Limits": {
+							"type": "array",
+							"items": {
+								"type": "object",
+								"properties":  {
+									"Type": {"type": "string"},
+									"CompareTo": {"type": "number"},
+									"Comparison": {"enum": [ "Gt", "Lt", "GtE", "LtE", "Eq", "Exists" ]}
+								},
+								"required": [ "Type" ],
+								"additionalProperties": false
+							}
+						}
+					},
+					"required": [ "Title" ]
+				}
+			},
+			
+			"IsDisposable": {"type": "boolean"},
+			"IsTrigger": {"type": "boolean"},
+			"SkipTurn": {"type": "boolean"},
+			
+			"Limits": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties":  {
+						"Type": {"type": "string"},
+						"CompareTo": {"type": "number"},
+						"Comparison": {"enum": [ "Gt", "Lt", "GtE", "LtE", "Eq", "Exists" ]}
+					},
+					"required": [ "Type" ],
+					"additionalProperties": false
+				}
+			},
+			"TurnPosition": {"type": "integer"},
+			"TLDR": {
+				"type": "array",
+				"items": { "$ref": "#/items" }
+			}
+		},
+		"required": ["Description"]
+	}
+}

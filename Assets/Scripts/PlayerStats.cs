@@ -62,7 +62,7 @@ public class PlayerStats
 		}
 	}
 
-	public void CalculateFormulas()
+	public void CalculateFormulas(bool notify = true)
 	{
 		Dictionary<string, decimal> variables = new();
 		foreach ((string id, Stat stat) in _stats)
@@ -74,10 +74,11 @@ public class PlayerStats
 		{
 			float value = Convert.ToSingle(Utils.Evaluator.Evaluate(formula, variables));
 			
-			variables[stat] = (decimal) SetStat(stat, value);
+			variables[stat] = (decimal) SetStat(stat, value, notify);
 		}
 		
-		OnUpdated();
+		if (notify)
+			OnUpdated();
 	}
 
 	public IEnumerable<KeyValuePair<string,float>> GetGlobalFlags()
@@ -86,7 +87,7 @@ public class PlayerStats
 	}
 	
 	public float GetStat(string stat) => _stats[stat].Value;
-	public float SetStat(string stat, float value)
+	public float SetStat(string stat, float value, bool notify = true)
 	{
 		string uiTag = stat;
 		if (uiTag.StartsWith("HIGHLIGHT_"))
@@ -104,7 +105,8 @@ public class PlayerStats
 		
 		TaggedValue.UpdateAll(stat, value);
 		
-		OnUpdated();
+		if (notify)
+			OnUpdated();
 
 		return _stats[uiTag].Value;
 	}
@@ -130,7 +132,7 @@ public class PlayerStats
 		return Utils.Compare(_stats.TryGetValue(flag.Type, out Stat stat) ? stat.Value : flagValue,
 			flag.CompareTo, flag.Comparison);
 	}
-	public void SetFlag(string flag, float value)
+	public void SetFlag(string flag, float value, bool notify = true)
 	{
 		if (flag == null) return;
 		if (flag.StartsWith("GLOBAL_"))
@@ -138,11 +140,11 @@ public class PlayerStats
 			
 		_flags[flag] = value;
 		TaggedValue.UpdateAll(flag, value);
-
-		OnUpdated();
+		if (notify)
+			OnUpdated();
 	}
 
-	private void OnUpdated()
+	public void OnUpdated()
 	{
 		if (_isReady)
 			Updated?.Invoke();

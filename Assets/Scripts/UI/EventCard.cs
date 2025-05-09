@@ -16,12 +16,14 @@ namespace UI
         public RoundList EventOptionsList;
         public Image EventPicture;
         public AudioSource EventSound;
+
+        public GameObject ErrorIcon;
         
         public GameEvent Data;
         private Option _selectedOption;
         private int _tldrPosition;
         private GameEvent _tldrData;
-
+        
         private void Awake()
         {
             GameManager.EventStorage.Init();
@@ -66,7 +68,7 @@ namespace UI
                     if (string.IsNullOrEmpty(modifier.Limit?.Type) || GameManager.PlayerStats.HasFlag(modifier.Limit))
                     {
                         GameManager.PlayerStats.SetStat(modifier.Type,
-                            GameManager.PlayerStats.GetStat(modifier.Type) + modifier.Value);
+                            GameManager.PlayerStats.GetStat(modifier.Type) + modifier.Value, false);
                     }
                 }
             }
@@ -76,7 +78,7 @@ namespace UI
             {
                 foreach (Flag flag in flags)
                 {
-                    GameManager.PlayerStats.SetFlag(flag.Type, flag.Value);
+                    GameManager.PlayerStats.SetFlag(flag.Type, flag.Value, false);
                 }
             }
             
@@ -126,13 +128,17 @@ namespace UI
             if (!ProcessOption()) return;
             
             if (!Data.SkipTurn)
-                GameManager.PlayerStats.CalculateFormulas();
+                GameManager.PlayerStats.CalculateFormulas(false);
             
+            GameManager.PlayerStats.OnUpdated();
+
             Data = (
-                    GameManager.PlayerStats.HasFlag("FAIL")
+                GameManager.PlayerStats.HasFlag("FAIL")
                     ? GameManager.EventStorage.GetFail()
-                    : GameManager.EventStorage.GetNext()
-                ) ?? GameManager.EventStorage.GetWin();
+                    : GameManager.PlayerStats.HasFlag("WIN_ENDGAME")
+                        ? null
+                        : GameManager.EventStorage.GetNext()
+            ) ?? GameManager.EventStorage.GetWin();
 
             _selectedOption = null;
             

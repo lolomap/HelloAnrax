@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using DG.Tweening;
 using Newtonsoft.Json;
 using UI;
 using UnityEngine;
@@ -18,6 +19,7 @@ public class GameManager : ScriptableObject
 	
 	public EventCard EventUI { get; set; }
 	public int TimedEventTurn { get; set; }
+	public bool LockPower { get; set; }
 
 	//public static FrameRateManager FrameRateManager { get; private set; }
 	
@@ -34,6 +36,14 @@ public class GameManager : ScriptableObject
 	public static void OverrideEventStorage(EventStorage eventStorage)
 	{
 		EventStorage = eventStorage;
+	}
+
+	public static void ShowError()
+	{
+		DOTween.Sequence()
+			.AppendCallback(() => { Instance.EventUI.ErrorIcon.SetActive(true); })
+			.AppendInterval(3)
+			.AppendCallback(() => { Instance.EventUI.ErrorIcon.SetActive(false); });
 	}
 	
 	[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]

@@ -1,0 +1,1106 @@
+﻿[
+	{
+		"Title": "Интервьюер:",
+		"Description": "Каково вам занимать должность главы государства? Что вы сделаете, чтобы изменить Анракс к лучшему?",
+		"IsTree": true,
+		"Category": "Media",
+		"Limits": [
+			{"Type": "InterviewStart"}
+		],
+
+		"Options": [
+			{
+				"Title": "(Оптимичтично)",
+				"Modifiers": [
+					{ "Type": "NeutralLoyalty", "Value": 5 }
+				],
+				"Flags": [
+					{ "Type": "Interview1.1", "Value": 1 }
+				]
+			},
+			{
+				"Title": "(Сдержано)",
+				"Modifiers": [
+					{ "Type": "DemocratsLoyalty","Value": 5},
+					{ "Type": "NationalistsLoyalty", "Value": 5 },
+					{ "Type": "FederationistsLoyalty",  "Value": 5 }
+				],
+				"Flags": [
+					{ "Type": "Interview1.2", "Value": 1 }
+				]
+			}
+		]
+	},
+
+	{
+		"Title": "Вы:",
+		"Category": "Media",
+		"Description": "Я рад исполнять обязанности президента и сделаю всё, чтобы Анракс процветал",
+		"Limits": [{"Type": "Interview1.1"}],
+		"SkipTurn": true,
+		"IsTree": true,
+		"Options": [
+			{
+				"Title": "Следующий вопрос",
+				"Flags": [
+					{"Type": "Interview2", "Value": 1}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Вы:",
+		"Category": "Media",
+		"Description": "Исполнять обязанности президента страны непросто, я постараюсь приложить свою руку к восстановлению нашего государства в этот сложный период",
+		"Limits": [{"Type": "Interview1.2"}],
+		"SkipTurn": true,
+		"IsTree": true,
+		"Options": [
+			{
+				"Title": "Следующий вопрос",
+				"Flags": [
+					{"Type": "Interview2", "Value": 1}
+				]
+			}
+		]
+	},
+
+	{
+		"Title": "Интервьюер:",
+		"Description": "На какую сферу деятельности вы планируете сделать упор в руководстве государством?",
+		"IsTree": true,
+		"Category": "Media",
+		"Limits": [
+			{"Type": "Interview2"}
+		],
+
+		"Options": [
+			{
+				"Title": "На социальную",
+				"Category": "Nationalists",
+				"Modifiers": [
+					{ "Type": "DemocratsLoyalty", "Value": -10 },
+					{ "Type": "NationalistsLoyalty", "Value": 10 },
+					{ "Type": "FederationistsLoyalty", "Value": -10 },
+					{ "Type": "DemocratsPower", "Value": -5 },
+					{ "Type": "NationalistsPower", "Value": 5 },
+					{ "Type": "FederationistsPower", "Value": -5 }
+				],
+				"Flags": [
+					{ "Type": "Interview2.1", "Value": 1 }
+				]
+			},
+			{
+				"Title": "На военнопромышленную",
+				"Category": "Federationists",
+				"Modifiers": [
+					{ "Type": "DemocratsLoyalty", "Value": -10 },
+					{ "Type": "NationalistsLoyalty", "Value": -10 },
+					{ "Type": "FederationistsLoyalty", "Value": 10 },
+					{ "Type": "DemocratsPower", "Value": -5 },
+					{ "Type": "NationalistsPower", "Value": -5 },
+					{ "Type": "FederationistsPower", "Value": 5 }
+				],
+				"Flags": [
+					{ "Type": "Interview2.2", "Value": 2 }
+				]
+			},
+			{
+				"Title": "На экономическую.",
+				"Category": "Democrats",
+				"Modifiers": [
+					{ "Type": "DemocratsLoyalty", "Value": 10 },
+					{ "Type": "NationalistsLoyalty", "Value": -10 },
+					{ "Type": "FederationistsLoyalty", "Value": -10 },
+					{ "Type": "DemocratsPower", "Value": 5 },
+					{ "Type": "NationalistsPower", "Value": -5 },
+					{ "Type": "FederationistsPower", "Value": -5 }
+				],
+				"Flags": [
+					{ "Type": "Interview2.3", "Value": 3 }
+				]
+			}
+		]
+	},
+
+	{
+		"Title": "Вы:",
+		"Category": "Media",
+		"Description": "На социальную. В поствоенный период нужно поддержать граждан и обеспечить им всё необходимое для достойной жизни",
+		"Limits": [{"Type": "Interview2.1", "CompareTo": 1, "Comparison": "Eq"}],
+		"SkipTurn": true,
+		"IsTree": true,
+		"Options": [
+			{
+				"Title": "Следующий вопрос",
+				"Flags": [
+					{"Type": "Interview3", "Value": 1}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Вы:",
+		"Category": "Media",
+		"Description": "На военнопромышленную. В такое сложное время нужно быть полностью готовыми принять новый удар от любого потенциального противника",
+		"Limits": [{"Type": "Interview2.2", "CompareTo": 2, "Comparison": "Eq"}],
+		"SkipTurn": true,
+		"IsTree": true,
+		"Options": [
+			{
+				"Title": "Следующий вопрос",
+				"Flags": [
+					{"Type": "Interview3", "Value": 1}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Вы:",
+		"Category": "Media",
+		"Description": "На экономическую. Анраксу нужны новые торговые связи и активное пополнение государственного бюджета",
+		"Limits": [{"Type": "Interview2.3", "CompareTo": 3, "Comparison": "Eq"}],
+		"SkipTurn": true,
+		"IsTree": true,
+		"Options": [
+			{
+				"Title": "Следующий вопрос",
+				"Flags": [
+					{"Type": "Interview3", "Value": 1}
+				]
+			}
+		]
+	},
+
+	{
+		"Title": "Интервьюер:",
+		"Description": "Что вы можете сказать о Ровуле Маноре?",
+		"IsTree": true,
+		"Limits": [
+			{"Type": "Interview3"},
+			{"Type": "PM_Democrats"}
+		],
+		"Category": "Media",
+
+		"Options": [
+			{
+				"Title": "(Похвалить)",
+				"Category": "Democrats",
+				"Modifiers": [
+					{ "Type": "DemocratsLoyalty", "Value": 15 },
+					{ "Type": "DemocratsPower", "Value": 5 }
+				],
+				"Flags": [
+					{ "Type": "Interview3.1", "Value": 1 }
+				]
+			},
+			{
+				"Title": "(Отчитать нейтрально)",
+				"Category": "Refuse",
+				"Modifiers": [
+					{ "Type": "DemocratsLoyalty", "Value": -10 },
+					{ "Type": "DemocratsPower", "Value": -5 },
+					{ "Type": "NeutralLoyalty", "Value": 5 }
+				],
+				"Flags": [
+					{ "Type": "Interview3.2", "Value": 2 }
+				]
+			},
+			{
+				"Title": "(Отчитать как демократа)",
+				"Category": "Ban",
+				"Modifiers": [
+					{ "Type": "DemocratsLoyalty", "Value": -15 },
+					{ "Type": "NationalistsLoyalty", "Value": 10 },
+					{ "Type": "DemocratsPower", "Value": -10 },
+					{ "Type": "NationalistsPower", "Value": 5 }
+				],
+				"Flags": [
+					{ "Type": "Interview3.3", "Value": 3 }
+				]
+			}
+		]
+	},
+
+	{
+		"Title": "Вы:",
+		"Category": "Media",
+		"Description": "Я считаю, что Манора отлично выполняет обязанности премьер-министра страны, несмотря на все нападки на него со стороны службы безопасности",
+		"Limits": [
+			{"Type": "Interview3.1", "CompareTo": 1, "Comparison": "Eq"}
+		],
+		"SkipTurn": true,
+		"Options": [
+			{
+				"Title": "Следующий вопрос",
+				"Flags": [
+					{"Type": "Interview4", "Value": 1}
+				]
+			}
+		],
+		"IsTree": true
+	},
+	{
+		"Title": "Вы:",
+		"Category": "Media",
+		"Description": "Безусловно, Ровуль Манора мог бы достичь большего на своей должности к этому моменту, стоит ли говорить, что возможно он работал не в полную силу? Возможно",
+		"Limits": [
+			{"Type": "Interview3.2", "CompareTo": 2, "Comparison": "Eq"}
+		],
+		"Options": [
+			{
+				"Title": "Следующий вопрос",
+				"Flags": [
+					{"Type": "Interview4", "Value": 1}
+				]
+			}
+		],
+		"SkipTurn": true,
+		"IsTree": true
+	},
+	{
+		"Title": "Вы:",
+		"Category": "Media",
+		"Description": "Приверженность Маноры демократическим ценностям похвальна, однако зачастую его предложения диаметрально противоположны идеям и ценностям нашего народа. Это может быть довольно опасно",
+		"Limits": [
+			{"Type": "Interview3.3", "CompareTo": 3, "Comparison": "Eq"}
+		],
+		"Options": [
+			{
+				"Title": "Следующий вопрос",
+				"Flags": [
+					{"Type": "Interview4", "Value": 1}
+				]
+			}
+		],
+		"SkipTurn": true,
+		"IsTree": true
+	},
+
+	{
+		"Title": "Интервьюер:",
+		"Category": "Media",
+		"Description": "Что вы можете сказать о Ровуле Маноре?",
+		"IsTree": true,
+		"Limits": [
+			{"Type": "Interview3"},
+			{"Type": "PM_Democrats", "Comparison": "Lt"}
+		],
+
+		"Options": [
+			{
+				"Title": "(Похвалить)",
+				"Category": "Democrats",
+				"Modifiers": [
+					{ "Type": "DemocratsLoyalty", "Value": 15 },
+					{ "Type": "NationalistsLoyalty", "Value": -10 },
+					{ "Type": "NeutralLoyalty", "Value": 5 }
+				],
+				"Flags": [
+					{ "Type": "Interview3-1.1", "Value": 1 }
+				]
+			},
+			{
+				"Title": "(Осудить идеи)",
+				"Category": "Ban",
+				"Modifiers": [
+					{ "Type": "DemocratsLoyalty", "Value": -15 },
+					{ "Type": "NationalistsLoyalty", "Value": 15 },
+					{ "Type": "NeutralLoyalty", "Value": 10 }
+				],
+				"Flags": [
+					{ "Type": "Interview3-1.2", "Value": 2 }
+				]
+			},
+			{
+				"Title": "(Поставить под сомнение)",
+				"Category": "Unknown",
+				"Modifiers": [
+					{ "Type": "DemocratsLoyalty", "Value": -10 },
+					{ "Type": "NationalistsLoyalty", "Value": 10 },
+					{ "Type": "NeutralLoyalty", "Value": 5 }
+				],
+				"Flags": [
+					{ "Type": "Interview3-1.3", "Value": 3 }
+				]
+			}
+		]
+	},
+
+
+	{
+		"Title": "Вы:",
+		"Category": "Media",
+		"Description": "Бесспорно, Манора внес неоценимый вклад в развитие демократии в Анраксе. Поэтому я не удивлен, что он так популярен среди народа.",
+		"Limits": [
+			{"Type": "Interview3-1.1", "CompareTo": 1, "Comparison": "Eq"}
+		],
+		"Options": [
+			{
+				"Title": "Следующий вопрос",
+				"Flags": [
+					{"Type": "Interview4", "Value": 1}
+				]
+			}
+		],
+		"SkipTurn": true,
+		"IsTree": true
+	},
+	{
+		"Title": "Вы:",
+		"Category": "Media",
+		"Description": "Лидер НПЗС абсолютно некомпетентный политик, его идеи вредны для нашего общества. Он собирается строить страну по ливерейскому образцу?! Это кощунство!",
+		"Limits": [
+			{"Type": "Interview3-1.2", "CompareTo": 2, "Comparison": "Eq"}
+		],
+		"Options": [
+			{
+				"Title": "Следующий вопрос",
+				"Flags": [
+					{"Type": "Interview4", "Value": 1}
+				]
+			}
+		],
+		"SkipTurn": true,
+		"IsTree": true
+	},
+	{
+		"Title": "Вы:",
+		"Category": "Media",
+		"Description": "Я давно знаком с Манорой и очень хорошо его знаю. Он интересный человек, но я никогда не рассматривал его как серьезную кандидатуру в политике.",
+		"Limits": [
+			{"Type": "Interview3-1.3", "CompareTo": 3, "Comparison": "Eq"}
+		],
+		"Options": [
+			{
+				"Title": "Следующий вопрос",
+				"Flags": [
+					{"Type": "Interview4", "Value": 1}
+				]
+			}
+		],
+		"SkipTurn": true,
+		"IsTree": true
+	},
+
+
+	{
+		"Title": "Интервьюер:",
+		"Description": "Устраивает ли вас работа Далва Тисирского?",
+		"IsTree": true,
+		"Category": "Media",
+		"Limits": [
+			{"Type": "PM_Nationalists"},
+			{"Type": "Interview4"}
+		],
+
+		"Options": [
+			{
+				"Title": "(Похвалить)",
+				"Category": "Nationalists",
+				"Modifiers": [
+					{ "Type": "NationalistsLoyalty", "Value": 15 },
+					{ "Type": "NationalistsPower", "Value": 5 }
+				],
+				"Flags": [
+					{ "Type": "Interview4.1", "Value": 1 }
+				]
+			},
+			{
+				"Title": "(Отчитать нейтрально)",
+				"Category": "Refuse",
+				"Modifiers": [
+					{ "Type": "NationalistsLoyalty", "Value": -10 },
+					{ "Type": "NationalistsPower", "Value": -5 },
+					{ "Type": "NeutralLoyalty", "Value": 5 }
+				],
+				"Flags": [
+					{ "Type": "Interview4.2", "Value": 2 }
+				]
+			},
+			{
+				"Title": "(Отчитать как националиста)",
+				"Category": "Ban",
+				"Modifiers": [
+					{ "Type": "NationalistsLoyalty", "Value": -15 },
+					{ "Type": "DemocratsLoyalty", "Value": 10 },
+					{ "Type": "NationalistsPower", "Value": -10 },
+					{ "Type": "DemocratsPower", "Value": 5 }
+				],
+				"Flags": [
+					{ "Type": "Interview4.3", "Value": 3 }
+				]
+			}
+		]
+	},
+
+	{
+		"Title": "Вы:",
+		"Category": "Media",
+		"Description": "Я категорически убежден в том, что Далв Тисирский находится именно на той должности, на которой и должен быть. Человек твердой руки был необходим стране в столь сложный период",
+		"Limits": [{"Type": "Interview4.1", "CompareTo": 1, "Comparison": "Eq"}],
+		"SkipTurn": true,
+		"IsTree": true,
+		"Options": [
+			{
+				"Title": "Следующий вопрос",
+				"Flags": [
+					{"Type": "Interview5", "Value": 1}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Вы:",
+		"Category": "Media",
+		"Description": "Безусловно, Далв Тисирский мог бы достичь большего на своей должности к этому моменту, стоит ли говорить, что возможно он работал не в полную силу? Возможно",
+		"Limits": [{"Type": "Interview4.2", "CompareTo": 2, "Comparison": "Eq"}],
+		"SkipTurn": true,
+		"IsTree": true,
+		"Options": [
+			{
+				"Title": "Следующий вопрос",
+				"Flags": [
+					{"Type": "Interview5", "Value": 1}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Вы:",
+		"Category": "Media",
+		"Description": "Тисирский достаточно часто указывает на исключительность анраксцев, забывая о том, что наша страна всегда была домом для всех каратенцев. Неужели мы должны просто взять и забыть о нашем общем прошлом с кулиштийцами, нерийцами и ортостанцами?",
+		"Limits": [{"Type": "Interview4.3", "CompareTo": 3, "Comparison": "Eq"}],
+		"SkipTurn": true,
+		"IsTree": true,
+		"Options": [
+			{
+				"Title": "Следующий вопрос",
+				"Flags": [
+					{"Type": "Interview5", "Value": 1}
+				]
+			}
+		]
+	},
+
+	{
+		"Title": "Интервьюер:",
+		"Description": "Устраивает ли вас работа Далва Тисирского?",
+		"IsTree": true,
+		"Category": "Media",
+		"Limits": [
+			{"Type": "PM_Nationalists", "Comparison": "Lt"},
+			{"Type": "Interview4"}
+		],
+
+		"Options": [
+			{
+				"Title": "(Похвалить)",
+				"Category": "Nationalists",
+				"Modifiers": [
+					{ "Type": "NationalistsLoyalty", "Value": 15 },
+					{ "Type": "DemocratsLoyalty", "Value": -10 },
+					{ "Type": "NeutralLoyalty", "Value": 5 }
+				],
+				"Flags": [
+					{ "Type": "Interview4-1.1", "Value": 1 }
+				]
+			},
+			{
+				"Title": "(Осудить идеи)",
+				"Category": "Ban",
+				"Modifiers": [
+					{ "Type": "NationalistsLoyalty", "Value": -15 },
+					{ "Type": "DemocratsLoyalty", "Value": 15 },
+					{ "Type": "NeutralLoyalty", "Value": 10 }
+				],
+				"Flags": [
+					{ "Type": "Interview4-1.2", "Value": 2 }
+				]
+			},
+			{
+				"Title": "(Поставить под сомнение)",
+				"Category": "Refuse",
+				"Modifiers": [
+					{ "Type": "NationalistsLoyalty", "Value": -10 },
+					{ "Type": "DemocratsLoyalty", "Value": 10 },
+					{ "Type": "NeutralLoyalty", "Value": 5 }
+				],
+				"Flags": [
+					{ "Type": "Interview4-1.3", "Value": 3 }
+				]
+			}
+		]
+	},
+
+	{
+		"Title": "Вы:",
+		"Category": "Media",
+		"Description": "Я уважаю его и идеи, за которые он борется. Тисирский достойный человек достойной страны.",
+		"Limits": [
+			{"Type": "Interview4-1.1", "CompareTo": 1, "Comparison": "Eq"}
+		],
+		"SkipTurn": true,
+		"IsTree": true,
+		"Options": [
+			{
+				"Title": "Следующий вопрос",
+				"Flags": [
+					{"Type": "Interview5", "Value": 1}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Вы:",
+		"Category": "Media",
+		"Description": "Знаете, я могу понять за что его любят бездари и преступники с улицы, но мне его идеи противны",
+		"Limits": [
+			{"Type": "Interview4-1.2", "CompareTo": 2, "Comparison": "Eq"}
+		],
+		"SkipTurn": true,
+		"IsTree": true,
+		"Options": [
+			{
+				"Title": "Следующий вопрос",
+				"Flags": [
+					{"Type": "Interview5", "Value": 1}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Вы:",
+		"Category": "Media",
+		"Description": "Тисирский искренне защищает свои идеи, но я их не понимаю. Что он будет говорить в лицо кулиштийцам и ортостанцам после этого?",
+		"Limits": [
+			{"Type": "Interview4-1.3", "CompareTo": 3, "Comparison": "Eq"}
+		],
+		"SkipTurn": true,
+		"IsTree": true,
+		"Options": [
+			{
+				"Title": "Следующий вопрос",
+				"Flags": [
+					{"Type": "Interview5", "Value": 1}
+				]
+			}
+		]
+	},
+
+
+	{
+		"Title": "Интервьюер:",
+		"Description": "На сколько деятельность Анжа Нивича оправдывает ваши ожидания?",
+		"IsTree": true,
+		"Category": "Media",
+		"Limits": [
+			{
+				"Type": "Interview5"
+			}
+		],
+
+		"Options": [
+			{
+				"Title": "(Похвалить)",
+				"Category": "Federationists",
+				"Modifiers": [
+					{ "Type": "FederationistsLoyalty", "Value": 15 },
+					{ "Type": "NeutralLoyalty", "Value": 5 }
+				],
+				"Flags": [
+					{ "Type": "Interview5.1", "Value": 1 }
+				]
+			},
+			{
+				"Title": "(Осудить идеи)",
+				"Category": "Ban",
+				"Modifiers": [
+					{ "Type": "FederationistsLoyalty", "Value": -10 },
+					{ "Type": "FederationistsPower", "Value": -15 },
+					{ "Type": "NeutralLoyalty", "Value": 10 }
+				],
+				"Flags": [
+					{ "Type": "Interview5.2", "Value": 2 }
+				]
+			},
+			{
+				"Title": "(Поставить под сомнение)",
+				"Category": "Refuse",
+				"Modifiers": [
+					{ "Type": "FederationistsLoyalty", "Value": -10 },
+					{ "Type": "FederationistsPower", "Value": -5 },
+					{ "Type": "NeutralLoyalty", "Value": 5 }
+				],
+				"Flags": [
+					{ "Type": "Interview5.3", "Value": 3 }
+				]
+			}
+		]
+	},
+
+	{
+		"Title": "Вы:",
+		"Category": "Media",
+		"Description": "Анж Нивич заслуживает высоких похвал, никто не сделал большего для воссоединения братских народов Каратена!",
+		"Limits": [
+			{"Type": "Interview5.1", "CompareTo": 1, "Comparison": "Eq"}
+		],
+		"SkipTurn": true,
+		"IsTree": true,
+		"Options": [
+			{
+				"Title": "Следующий вопрос",
+				"Flags": [
+					{"Type": "Interview6", "Value": 1}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Вы:",
+		"Category": "Media",
+		"Description": "Деятельность Нивича имеет экспансионистский характер. Он вредит как интересам самих анраксовцев, многие годы требовавших признания их титульной нацией в ФШКБ и в дальнейшем проливавших кровь за независимость, так он подрывает тем самым наши отношения с Содружеством.",
+		"Limits": [
+			{"Type": "Interview5.2", "CompareTo": 2, "Comparison": "Eq"}
+		],
+		"SkipTurn": true,
+		"IsTree": true,
+		"Options": [
+			{
+				"Title": "Следующий вопрос",
+				"Flags": [
+					{"Type": "Interview6", "Value": 1}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Вы:",
+		"Category": "Media",
+		"Description": "Анж Нивич хорошо справляется со своими обязанностями в рамках военно-промышленного комплекса, но его высказывания в Парламенте вызывают у меня опасения.",
+		"Limits": [
+			{"Type": "Interview5.3", "CompareTo": 3, "Comparison": "Eq"}
+		],
+		"SkipTurn": true,
+		"IsTree": true,
+		"Options": [
+			{
+				"Title": "Следующий вопрос",
+				"Flags": [
+					{"Type": "Interview6", "Value": 1}
+				]
+			}
+		]
+	},
+
+	{
+		"Title": "Интервьюер:",
+		"Description": "Экономика продолжает стагнировать. Как быть?",
+		"Limits": [
+			{
+				"Type": "Interview6"
+			},
+			{"Type": "EconomicPower", "CompareTo": 50, "Comparison": "Lt"}
+		],
+		"IsTree": true,
+		"Category": "Media",
+
+		"Options": [
+			{
+				"Title": "Следующий вопрос",
+				"Modifiers": [
+					{ "Type": "NeutralLoyalty", "Value": -10 },
+					{ "Type": "Power", "Value": 5 }
+				],
+				"Flags": [
+					{"Type":  "Interview7", "Value": 1}
+				]
+			},
+			{
+				"Title": "Здесь все зависит от того как поставить вопрос, стагнирует по сравнению с чем?",
+				"Modifiers": [
+					{ "Type": "Power", "Value": 10 },
+					{ "Type": "NeutralLoyalty", "Value": -5 }
+				],
+				"Flags": [
+					{"Type":  "Interview7", "Value": 1}
+				]
+			},
+			{
+				"Title": "Я вас не совсем понял, быть кому?",
+				"Modifiers": [
+					{ "Type": "Power", "Value": 5 },
+					{ "Type": "NeutralLoyalty", "Value": -7 }
+				],
+				"Flags": [
+					{"Type":  "Interview7", "Value": 1}
+				]
+			},
+			{
+				"Title": "Я считаю причиной этому являются действия враждебных к нам государств",
+				"Modifiers": [
+					{ "Type": "FederationistsLoyalty", "Value": 10 },
+					{ "Type": "NationalistsLoyalty", "Value": 10 },
+					{ "Type": "Power", "Value": 5 }
+				],
+				"Flags": [
+					{"Type":  "Interview7", "Value": 1}
+				]
+			},
+			{
+				"Title": "Скажу честно - я облажался",
+				"Modifiers": [
+					{ "Type": "Power", "Value": 5 },
+					{ "Type": "NeutralLoyalty", "Value": -10 }
+				],
+				"Flags": [
+					{"Type":  "Interview7", "Value": 1}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Интервьюер:",
+		"Description": "Как вы видите будущее Анракса после нашего экономического чуда?",
+		"Limits": [
+			{
+				"Type": "Interview6"
+			},
+			{"Type": "EconomicPower", "CompareTo": 50, "Comparison": "GtE"}
+		],
+		"IsTree": true,
+		"Category": "Media",
+
+		"Options": [
+			{
+				"Title": "Анракс ждут еще более великие дни при моем президентстве",
+				"Modifiers": [
+					{ "Type": "NeutralLoyalty", "Value": 10 },
+					{ "Type": "Power", "Value": 50 },
+					{"Type": "NationalistsPower", "Value": -15 },
+					{"Type": "DemocratsPower", "Value": -15 },
+					{"Type": "FederationistsPower", "Value": -15 }
+				],
+				"Flags": [
+					{"Type":  "Interview7", "Value": 1}
+				]
+			},
+			{
+				"Title": "Успех достигнут благодаря нашему народу, так будет и впредь",
+				"Modifiers": [
+					{ "Type": "Power", "Value": 25 },
+					{ "Type": "NeutralLoyalty", "Value": 30 },
+					{ "Type": "NationalistsPower", "Value": -10 },
+					{ "Type": "DemocratsPower", "Value": -10 },
+					{ "Type": "FederationistsPower", "Value": -10 }
+				],
+				"Flags": [
+					{"Type":  "Interview7", "Value": 1}
+				]
+			},
+			{
+				"Title": "Анракс вскоре выйдет на мировой уровень и будет диктовать свою волю",
+				"Modifiers": [
+					{ "Type": "Power", "Value": 25 },
+					{ "Type": "FederationistsLoyalty", "Value": 20 },
+					{ "Type": "NationalistsLoyalty", "Value": 10 },
+					{ "Type": "NeutralLoyalty", "Value": 20 },
+					{ "Type": "NationalistsPower", "Value": -10 },
+					{ "Type": "DemocratsPower", "Value": -10 },
+					{ "Type": "FederationistsPower", "Value": -10 }
+				],
+				"Flags": [
+					{"Type":  "Interview7", "Value": 1}
+				]
+			}
+		]
+	},
+
+	{
+		"Title": "Интервьюер:",
+		"Description": "Анракс наводнили радикалы и экстремисты. Как вы будете держать их в узде?",
+		"Limits": [{"Type": "Interview7"},{"Type": "ExtremismLevel", "CompareTo": 25, "Comparison": "GtE"}],
+		"IsTree": true,
+		"Category": "Media",
+
+		"Options": [
+			{
+				"Title": "Следующий вопрос",
+				"Modifiers": [
+					{ "Type": "NeutralLoyalty", "Value": -10 },
+					{ "Type": "Power", "Value": 5 }
+				],
+				"Flags": [
+					{"Type":  "Interview8", "Value": 1}
+				]
+			},
+			{
+				"Title": "При Соланде Вланоре был полный беспредел, сейчас этого нет",
+				"Modifiers": [
+					{ "Type": "Power", "Value": 10 },
+					{ "Type": "FederationistsLoyalty", "Value": -10 },
+					{ "Type": "DemocratsLoyalty", "Value": 10 },
+					{ "Type": "NationalistsLoyalty", "Value": 10 }
+				],
+				"Flags": [
+					{"Type":  "Interview8", "Value": 1}
+				]
+			},
+			{
+				"Title": "Я вас не совсем понял, эти экстремисты сейчас в этой комнате?",
+				"Modifiers": [
+					{ "Type": "Power", "Value": 5 },
+					{ "Type": "NeutralLoyalty", "Value": -10 }
+				],
+				"Flags": [
+					{"Type":  "Interview8", "Value": 1}
+				]
+			},
+			{
+				"Title": "Я об этом ничего не знаю, обратитесь к Службе Безопасности",
+				"Modifiers": [
+					{ "Type": "FederationistsLoyalty", "Value": -5 },
+					{ "Type": "NeutralLoyalty", "Value": -5 },
+					{ "Type": "Power", "Value": 5 }
+				],
+				"Flags": [
+					{"Type":  "Interview8", "Value": 1}
+				]
+			},
+			{
+				"Title": "Всех экстремистов мы будем мочить в сортирах",
+				"Modifiers": [
+					{ "Type": "Power", "Value": 10 },
+					{ "Type": "NeutralLoyalty", "Value": 5 },
+					{ "Type": "NationalistsLoyalty", "Value": -5 },
+					{ "Type": "DemocratsLoyalty", "Value": -5 },
+					{ "Type": "FederationistsLoyalty", "Value": -5 }
+				],
+				"Flags": [
+					{"Type":  "Interview8", "Value": 1}
+				]
+			}
+		]
+	},
+	{
+		"Title": "Интервьюер:",
+		"Description": "За время вашего президенства уровень преступности Анракса в разы упал, как вы этого добились?",
+		"Limits": [{"Type": "Interview7"},{"Type": "EconomicPower", "CompareTo": 25, "Comparison": "Lt"}],
+		"IsTree": true,
+		"Category": "Media",
+
+		"Options": [
+			{
+				"Title": "Все благодаря взаимопонимаю и кооперации правительственных органов между собой",
+				"Modifiers": [
+					{ "Type": "NeutralLoyalty", "Value": 10 },
+					{ "Type": "Power", "Value": 10 },
+					{"Type": "NationalistsLoyalty", "Value": 10 },
+					{"Type": "DemocratsLoyalty", "Value": 10 },
+					{"Type": "FederationistsLoyalty", "Value": 10 }
+				],
+				"Flags": [
+					{"Type":  "Interview8", "Value": 1}
+				]
+			},
+			{
+				"Title": "Я добился этого сильной президентской рукой",
+				"Modifiers": [
+					{ "Type": "Power", "Value": 25 },
+					{ "Type": "NeutralLoyalty", "Value": 20 }
+				],
+				"Flags": [
+					{"Type":  "Interview8", "Value": 1}
+				]
+			},
+			{
+				"Title": "Всего то стоило усмирить пыл оппозиционных партий",
+				"Modifiers": [
+					{ "Type": "Power", "Value": 25 },
+					{ "Type": "NeutralLoyalty", "Value": 10 },
+					{ "Type": "FederationistsLoyalty", "Value": -10 },
+					{ "Type": "NationalistsLoyalty", "Value": -10 },
+					{ "Type": "DemocratsLoyalty", "Value": -10 },
+					{ "Type": "NationalistsPower", "Value": -10 },
+					{ "Type": "DemocratsPower", "Value": -10 },
+					{ "Type": "FederationistsPower", "Value": -10 }
+				],
+				"Flags": [
+					{"Type":  "Interview8", "Value": 1}
+				]
+			}
+		]
+	},
+
+	{
+		"Title": "Интервьюер:",
+		"Description": "В обществе продолжают ходить идеи о новой Федерации. Вы не боитесь, что история повторится?",
+		"IsTree": true,
+		"Category": "Media",
+		"Limits": [{
+			"Type": "Interview8"
+		}
+		],
+		"Options": [
+			{
+				"Title": "Только через мой труп",
+				"Modifiers": [
+					{ "Type": "NeutralLoyalty", "Value": -5 },
+					{ "Type": "Power", "Value": 15 }
+				],
+				"Flags": [
+					{"Type":  "Interview9", "Value": 1}
+				]
+			},
+			{
+				"Title": "Анракс выбрал путь суверенного государства, иного не дано",
+				"Modifiers": [
+					{ "Type": "DemocratsLoyalty", "Value": 15 },
+					{ "Type": "NationalistsLoyalty", "Value": 15 },
+					{ "Type": "FederationistsLoyalty", "Value": -10 },
+					{ "Type": "FederationistsPower", "Value": -10 },
+					{ "Type": "NeutralLoyalty", "Value": 10 }
+				],
+				"Flags": [
+					{"Type":  "Interview9", "Value": 1}
+				]
+			},
+			{
+				"Title": "Я этого не боюсь, это моя мечта",
+				"Modifiers": [
+					{ "Type": "DemocratsLoyalty", "Value": -15 },
+					{ "Type": "NationalistsLoyalty", "Value": -15},
+					{ "Type": "FederationistsLoyalty", "Value": 10 },
+					{ "Type": "FederationistsPower", "Value": 10 },
+					{ "Type": "NeutralLoyalty", "Value": 5 }
+				],
+				"Flags": [
+					{"Type":  "Interview9", "Value": 1}
+				]
+			},
+			{
+				"Title": "Я вас не совсем понял...",
+				"Modifiers": [
+					{"Type": "NeutralLoyalty", "Value": -10},
+					{"Type": "Power", "Value": 5}
+				],
+				"Flags": [
+					{"Type":  "Interview9", "Value": 1}
+				]
+			}
+		]
+	},
+
+	{
+		"Title": "Интервьюер:",
+		"Description": "Отношения с Сибурлендом продолжают ухудшаться, вы не боитесь повторения операции «Альдеко» но уже против Анракса? Сибурская авиация базируется в Лангате, а их ближайший союзник - ОсНБ.",
+		"IsTree": true,
+		"Category": "Media",
+		"Limits": [
+			{"Type": "Interview9"},
+			{"Type": "RelationsSBU", "CompareTo": 40, "Comparison": "Lt"}
+		],
+
+		"Options": [
+			{
+				"Title": "Я не боюсь вторжения соседей, не захватили тогда - не захватят и сейчас",
+				"Modifiers": [
+					{ "Type": "DemocratsLoyalty", "Value": 5 },
+					{ "Type": "NationalistsLoyalty", "Value": 5},
+					{ "Type": "FederationistsLoyalty", "Value": 5 },
+					{ "Type": "NeutralLoyalty", "Value": 10 },
+					{ "Type": "Power", "Value": 10 }
+				],
+				"Flags": [
+					{"Type":  "Interview9", "Value": 1}
+				]
+			},
+			{
+				"Title": "Я вас не понял, вы знаете о чем говорите?",
+				"Modifiers": [
+					{ "Type": "Power", "Value": 5 },
+					{ "Type": "NeutralLoyalty", "Value": -5 }
+				],
+				"Flags": [
+					{"Type":  "Interview9", "Value": 1}
+				]
+			},
+			{
+				"Title": "На любую угрозку извне - мы ответим троекратно",
+				"Modifiers": [
+					{ "Type": "Power", "Value": 10 },
+					{ "Type": "NationalistsLoyalty", "Value": 15},
+					{ "Type": "FederationistsLoyalty", "Value": 10 },
+					{ "Type": "NeutralLoyalty", "Value": 15 }
+				],
+				"Flags": [
+					{"Type":  "Interview9", "Value": 1}
+				]
+			},
+			{
+				"Title": "Опасность со стороны Содружества преувеличена, у нас больше общего чем вы думаете",
+				"Modifiers": [
+					{ "Type": "RelationsUCB", "Value": 10 },
+					{ "Type": "RelationsSBU", "Value": 10 },
+					{ "Type": "DemocratsLoyalty", "Value": 15 },
+					{ "Type": "NationalistsLoyalty", "Value": -10 },
+					{ "Type": "FederationistsLoyalty", "Value": -10 },
+					{ "Type": "NeutralLoyalty", "Value": 5 },
+					{ "Type": "Power", "Value": 10}
+				],
+				"Flags": [
+					{"Type":  "Interview9", "Value": 1}
+				]
+			}
+		]
+	},
+
+	{
+		"Title": "Интервьюер:",
+		"Description": "Как вы относитесь к последним резким заявлениям главы СБА в адрес республик бывшего ФШКБ?",
+		"IsTree": true,
+		"Category": "Media",
+		"Limits": [
+			{
+				"Type": "Interview9"
+			}
+		],
+
+		"Options": [
+			{
+				"Title": "Он говорит четко и стандартно",
+				"Modifiers": [
+					{ "Type": "NeutralLoyalty", "Value": 5},
+					{ "Type": "FederationistsLoyalty", "Value": 5 },
+					{ "Type": "Power", "Value": 5 }
+				]
+			},
+			{
+				"Title": "Возможно часть из его заявлений была резковата",
+				"Modifiers": [
+					{ "Type": "DemocratsLoyalty", "Value": 5 },
+					{ "Type": "NeutralLoyalty", "Value": 5 }
+				]
+			},
+			{
+				"Title": "Нас окружают естественные враги, что еще он должен говорить?",
+				"Modifiers": [
+					{ "Type": "Power", "Value": 10 },
+					{ "Type": "DemocratsLoyalty", "Value": -5},
+					{ "Type": "FederationistsLoyalty", "Value": 10 },
+					{ "Type": "NeutralLoyalty", "Value": 10 }
+				]
+			},
+			{
+				"Title": "Я категорически против подобных выпадов в адрес наших братьев",
+				"Modifiers": [
+					{ "Type": "DemocratsLoyalty", "Value": 10 },
+					{ "Type": "FederationistsLoyalty", "Value": -10 },
+					{ "Type": "NeutralLoyalty", "Value": 10 },
+					{ "Type": "Power", "Value": 10}
+				]
+			}
+		]
+	}
+]
