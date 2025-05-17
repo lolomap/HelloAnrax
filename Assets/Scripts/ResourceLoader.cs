@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using UnityEngine;
@@ -91,6 +92,12 @@ public static class ResourceLoader
 			JsonConvert.DeserializeObject<Dictionary<string, string>>(
 				Resources.Load<TextAsset>("GlossaryLinks").text
 			);
+		
+		foreach (string key in _glossary.Keys.ToList())
+		{
+			_glossary[key] = AddGlossaryLinks(_glossary[key]);
+		}
+
 	}
 
 	public static string GetGlossaryText(string id)
@@ -98,6 +105,26 @@ public static class ResourceLoader
 		return _glossary.GetValueOrDefault(id);
 	}
 
+	public static string AddGlossaryLinks(string text)
+	{
+		string result = text;
+		foreach ((string regexp, string style) in _glossaryLinks)
+		{
+			Regex regex = new(regexp, RegexOptions.IgnoreCase);
+					
+			MatchCollection matches = regex.Matches(result);
+			foreach (Match match in matches)
+			{
+				result = result.Replace(
+					match.Value,
+					$"<style=\"{style}\">{match.Value}</style>"
+				);
+			}
+		}
+
+		return result;
+	}
+	
 	public static void AddGlossaryLinks(List<GameEvent> events)
 	{
 		foreach (GameEvent gameEvent in events)

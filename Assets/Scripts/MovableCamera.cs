@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -70,7 +69,7 @@ public class MovableCamera : MonoBehaviour
         {
             //if (IsClickedOnUi()) return;
 
-            Touch touch = Input.GetTouch(0);
+            Touch touch = InputManager.Instance.GetPointerInput();
 
             switch (touch.phase)
             {
@@ -119,7 +118,7 @@ public class MovableCamera : MonoBehaviour
 
         PointerEventData eventDataCurrentPosition = new(EventSystem.current)
         {
-            position = Input.GetTouch(0).position
+            position = InputManager.Instance.GetPointerInput().position
         };
         List<RaycastResult> results = new();
         EventSystem.current.RaycastAll(eventDataCurrentPosition, results);

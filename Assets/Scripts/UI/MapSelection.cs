@@ -40,7 +40,7 @@ namespace UI
 		
 		public void OnDrag()
 		{
-			Touch touch = Input.GetTouch(0);
+			Touch touch = InputManager.Instance.GetPointerInput();
 			
 			switch (touch.deltaPosition.x)
 			{
@@ -69,7 +69,7 @@ namespace UI
 		{
 			if (_isDragging) return;
 			
-			Touch touch = Input.GetTouch(0);
+			Touch touch = InputManager.Instance.GetPointerInput();
 
 			RectTransformUtility.ScreenPointToLocalPointInRectangle(_rectTransform, touch.position,
 				Camera.main, out Vector2 localPoint);

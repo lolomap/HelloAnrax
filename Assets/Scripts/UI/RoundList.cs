@@ -75,6 +75,7 @@ namespace UI
 		public float ByOneSelectionAngle = 15f;
 
 		public float AdjustSpeed;
+		public float ScaleElements = 1f;
 		
 		private float _radius;
 		private float _elementStartAngle;
@@ -125,7 +126,7 @@ namespace UI
 		{
 			if (_isAdjusting) return;
 
-			Touch touch = Input.GetTouch(0);
+			Touch touch = InputManager.Instance.GetPointerInput();
 			float angle = Vector2.SignedAngle(Vector2.up, (Vector2)Camera.main!.ScreenToWorldPoint(touch.position) - (Vector2)transform.position);
 			if (angle < 0) angle = 360 + angle;
 
@@ -173,7 +174,7 @@ namespace UI
 		{
 			if (_elements.Count < 1) return;
 
-			Touch touch = Input.GetTouch(0);
+			Touch touch = InputManager.Instance.GetPointerInput();
 			
 			_elementStartAngle = Vector2.SignedAngle(Vector2.up, (Vector2)_elements[0].RTransform.transform.position - (Vector2)transform.position);
 			if (_elementStartAngle < 0) _elementStartAngle = 360 + _elementStartAngle;
@@ -282,7 +283,7 @@ namespace UI
 				RectTransform element = _elements[i].RTransform;
 				element.transform.SetParent(transform);
 				element.localPosition = Vector3.zero;
-				element.localScale = Vector3.one;
+				element.localScale = Vector3.one * ScaleElements;
 
 				_radius = ExtraRadius;
 				if (FitWidth)

@@ -21,7 +21,7 @@ namespace UI
 		public void OnPointerClick(PointerEventData eventData)
 		{
 			int linkIndex =
-				TMP_TextUtilities.FindIntersectingLink(_text, Input.GetTouch(0).position, Camera.main);
+				TMP_TextUtilities.FindIntersectingLink(_text, InputManager.Instance.GetPointerInput().position, Camera.main);
 
 			if (linkIndex > -1)
 				Glossary.Show(_text.textInfo.linkInfo[linkIndex].GetLinkID());
