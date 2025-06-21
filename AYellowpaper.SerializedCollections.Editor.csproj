@@ -41,6 +41,7 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+    <Analyzer Include="E:\UnityProjects\HelloAnrax\HelloAnrax\Assets\Packages\CsvCSharp.1.0.0\analyzers\dotnet\cs\Csv.SourceGenerator.dll" />
     <Analyzer Include="E:\UnityProjects\HelloAnrax\HelloAnrax\Library\PackageCache\com.luca3317.tmpeffects@d654665d03ac\TMPEffects.ParameterUtilityGenerator.dll" />
     <Analyzer Include="E:\UnityProjects\HelloAnrax\HelloAnrax\Library\PackageCache\com.luca3317.tmpeffects@d654665d03ac\TMPEffects.AutoParameters.dll" />
     <Analyzer Include="E:\UnityProjects\HelloAnrax\HelloAnrax\Library\PackageCache\com.luca3317.tmpeffects@d654665d03ac\TMPEffects.StringLibrary.dll" />
@@ -49,40 +50,40 @@
     <Analyzer Include="E:\Unity\6000.0.40f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Plugins\SerializedCollections\Editor\Scripts\Search\SearchResultEntry.cs" />
-    <Compile Include="Assets\Plugins\SerializedCollections\Editor\Scripts\SerializedDictionaryInstanceDrawer.cs" />
-    <Compile Include="Assets\Plugins\SerializedCollections\Editor\Scripts\Search\Matchers\Matchers.cs" />
-    <Compile Include="Assets\Plugins\SerializedCollections\Editor\Scripts\Data\ElementSettings.cs" />
     <Compile Include="Assets\Plugins\SerializedCollections\Editor\Scripts\Utility\LabelWidth.cs" />
     <Compile Include="Assets\Plugins\SerializedCollections\Editor\Scripts\Utility\RectUtility.cs" />
-    <Compile Include="Assets\Plugins\SerializedCollections\Editor\Scripts\KeyListGenerators\KeyListGeneratorEditor.cs" />
     <Compile Include="Assets\Plugins\SerializedCollections\Editor\Scripts\Search\Matchers\NumericMatcher.cs" />
-    <Compile Include="Assets\Plugins\SerializedCollections\Editor\Scripts\Data\ElementData.cs" />
-    <Compile Include="Assets\Plugins\SerializedCollections\Editor\Scripts\KeyListGenerators\Implementors\IntSteppingGenerator.cs" />
-    <Compile Include="Assets\Plugins\SerializedCollections\Editor\Scripts\States\DefaultListState.cs" />
     <Compile Include="Assets\Plugins\SerializedCollections\Editor\Scripts\KeyListGenerators\Implementors\EnumGenerator.cs" />
-    <Compile Include="Assets\Plugins\SerializedCollections\Editor\Scripts\States\ListState.cs" />
     <Compile Include="Assets\Plugins\SerializedCollections\Editor\Scripts\SerializedDictionaryDrawer.cs" />
-    <Compile Include="Assets\Plugins\SerializedCollections\Editor\Scripts\Search\Matchers\EnumMatcher.cs" />
-    <Compile Include="Assets\Plugins\SerializedCollections\Editor\Scripts\KeyListGenerators\KeyListGeneratorAttribute.cs" />
     <Compile Include="Assets\Plugins\SerializedCollections\Editor\Scripts\KeyListGenerators\KeyListGenerator.cs" />
     <Compile Include="Assets\Plugins\SerializedCollections\Editor\Scripts\Data\PropertyData.cs" />
-    <Compile Include="Assets\Plugins\SerializedCollections\Editor\Scripts\Utility\SCEditorUtility.cs" />
-    <Compile Include="Assets\Plugins\SerializedCollections\Editor\Scripts\PagingElement.cs" />
     <Compile Include="Assets\Plugins\SerializedCollections\Editor\Scripts\Search\Matchers\Matcher.cs" />
     <Compile Include="Assets\Plugins\SerializedCollections\Editor\Scripts\KeyListGenerators\KeyListGeneratorCache.cs" />
     <Compile Include="Assets\Plugins\SerializedCollections\Editor\Scripts\Utility\GUIEnabledScope.cs" />
     <Compile Include="Assets\Plugins\SerializedCollections\Editor\Scripts\KeyListGenerators\ModificationType.cs" />
-    <Compile Include="Assets\Plugins\SerializedCollections\Editor\Scripts\Search\SearchQuery.cs" />
-    <Compile Include="Assets\Plugins\SerializedCollections\Editor\Scripts\Search\PropertySearchResult.cs" />
     <Compile Include="Assets\Plugins\SerializedCollections\Editor\Scripts\States\SearchListState.cs" />
     <Compile Include="Assets\Plugins\SerializedCollections\Editor\Scripts\Settings\EditorUserSettingsProvider.cs" />
-    <Compile Include="Assets\Plugins\SerializedCollections\Editor\Scripts\Search\Matchers\StringMatcher.cs" />
     <Compile Include="Assets\Plugins\SerializedCollections\Editor\Scripts\KeyListGenerators\KeyListGeneratorSelectorWindow.cs" />
     <Compile Include="Assets\Plugins\SerializedCollections\Editor\Scripts\KeyListGenerators\KeyListGeneratorData.cs" />
     <Compile Include="Assets\Plugins\SerializedCollections\Editor\Scripts\KeyListGenerators\Implementors\IntRangeGenerator.cs" />
-    <Compile Include="Assets\Plugins\SerializedCollections\Editor\Scripts\Utility\SCEnumUtility.cs" />
     <Compile Include="Assets\Plugins\SerializedCollections\Editor\Scripts\Settings\EditorUserSettings.cs" />
+    <Compile Include="Assets\Plugins\SerializedCollections\Editor\Scripts\Search\SearchResultEntry.cs" />
+    <Compile Include="Assets\Plugins\SerializedCollections\Editor\Scripts\SerializedDictionaryInstanceDrawer.cs" />
+    <Compile Include="Assets\Plugins\SerializedCollections\Editor\Scripts\Search\Matchers\Matchers.cs" />
+    <Compile Include="Assets\Plugins\SerializedCollections\Editor\Scripts\Data\ElementSettings.cs" />
+    <Compile Include="Assets\Plugins\SerializedCollections\Editor\Scripts\KeyListGenerators\KeyListGeneratorEditor.cs" />
+    <Compile Include="Assets\Plugins\SerializedCollections\Editor\Scripts\Data\ElementData.cs" />
+    <Compile Include="Assets\Plugins\SerializedCollections\Editor\Scripts\KeyListGenerators\Implementors\IntSteppingGenerator.cs" />
+    <Compile Include="Assets\Plugins\SerializedCollections\Editor\Scripts\States\DefaultListState.cs" />
+    <Compile Include="Assets\Plugins\SerializedCollections\Editor\Scripts\States\ListState.cs" />
+    <Compile Include="Assets\Plugins\SerializedCollections\Editor\Scripts\Search\Matchers\EnumMatcher.cs" />
+    <Compile Include="Assets\Plugins\SerializedCollections\Editor\Scripts\KeyListGenerators\KeyListGeneratorAttribute.cs" />
+    <Compile Include="Assets\Plugins\SerializedCollections\Editor\Scripts\Utility\SCEditorUtility.cs" />
+    <Compile Include="Assets\Plugins\SerializedCollections\Editor\Scripts\PagingElement.cs" />
+    <Compile Include="Assets\Plugins\SerializedCollections\Editor\Scripts\Search\SearchQuery.cs" />
+    <Compile Include="Assets\Plugins\SerializedCollections\Editor\Scripts\Search\PropertySearchResult.cs" />
+    <Compile Include="Assets\Plugins\SerializedCollections\Editor\Scripts\Search\Matchers\StringMatcher.cs" />
+    <Compile Include="Assets\Plugins\SerializedCollections\Editor\Scripts\Utility\SCEnumUtility.cs" />
     <Compile Include="Assets\Plugins\SerializedCollections\Editor\Scripts\DisplayType.cs" />
     <None Include="Assets\Plugins\SerializedCollections\Editor\AYellowpaper.SerializedCollections.Editor.asmdef" />
     <None Include="Assets\Plugins\SerializedCollections\Editor\Assets\KeysGeneratorSelectorWindow.uxml" />
@@ -459,6 +460,9 @@
     <Reference Include="Unity.VisualScripting.YamlDotNet">
       <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe">
+      <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Assets\Packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="Google.VersionHandlerImpl">
       <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Assets\ExternalDependencyManager\Editor\1.2.177\Google.VersionHandlerImpl.dll</HintPath>
     </Reference>
@@ -480,6 +484,9 @@
     <Reference Include="Unity.Plastic.Antlr3.Runtime">
       <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Library\PackageCache\com.unity.collab-proxy@50ac96531b63\Lib\Editor\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="Csv.Annotations">
+      <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Assets\Packages\CsvCSharp.Annotations.1.0.0\lib\netstandard2.1\Csv.Annotations.dll</HintPath>
+    </Reference>
     <Reference Include="Google.VersionHandler">
       <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Assets\ExternalDependencyManager\Editor\Google.VersionHandler.dll</HintPath>
     </Reference>
@@ -494,6 +501,9 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.IonicZip">
       <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll</HintPath>
+    </Reference>
+    <Reference Include="Csv">
+      <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Assets\Packages\CsvCSharp.1.0.0\lib\netstandard2.1\Csv.dll</HintPath>
     </Reference>
     <Reference Include="DOTween">
       <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Assets\DOTween\DOTween.dll</HintPath>

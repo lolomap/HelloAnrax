@@ -178,7 +178,7 @@ namespace UI
 
             List<RoundListElement> list = new();
 
-            Data.Options ??= new() {new() {Title = "Далее"}};
+            Data.Options ??= new() {new() {Title = "OK"}};
             foreach (Option option in Data.Options)
             {
                 OptionIcon prefab = ResourceLoader.GetResource<OptionIcon>("Prefabs/OptionIcon");

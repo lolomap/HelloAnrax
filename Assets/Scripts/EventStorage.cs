@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Newtonsoft.Json;
+using UnityEngine.Localization.Settings;
 using Random = UnityEngine.Random;
 
 public class EventStorage
@@ -21,10 +22,44 @@ public class EventStorage
     
     [JsonProperty] public GameEvent CurrentEvent;
 
+    private static void LocalizeEvent(GameEvent gameEvent, IReadOnlyDictionary<string, string> localized)
+    {
+        gameEvent.Title = localized[gameEvent.Title];
+        gameEvent.Description = localized[gameEvent.Description];
+            
+        if (gameEvent.Options != null)
+        {
+            foreach (Option option in gameEvent.Options)
+            {
+                option.Title = localized[option.Title];
+            }
+        }
+        
+        if (gameEvent.TLDR != null)
+        {
+            foreach (GameEvent nestedEvent in gameEvent.TLDR)
+            {
+                LocalizeEvent(nestedEvent, localized);
+            }
+        }
+    }
+    
     private static List<GameEvent> LoadFile(string path)
     {
-        TextAsset raw = ResourceLoader.GetResource<TextAsset>(path);
-        return JsonConvert.DeserializeObject<List<GameEvent>>(raw.text);
+        TextAsset raw = ResourceLoader.GetResource<TextAsset>($"Events/{path}.events");
+        TextAsset localRaw =
+            ResourceLoader.GetResource<TextAsset>(
+                $"Localization/{LocalizationSettings.SelectedLocale.Identifier.Code}/Events/{path}.local");
+        
+        List<GameEvent> events = JsonConvert.DeserializeObject<List<GameEvent>>(raw.text);
+        Dictionary<string, string> localized = JsonConvert.DeserializeObject<Dictionary<string, string>>(localRaw.text);
+
+        foreach (GameEvent gameEvent in events)
+        {
+            LocalizeEvent(gameEvent, localized);
+        }
+
+        return events;
     }
     
     public void Load()
@@ -34,16 +69,16 @@ public class EventStorage
         _eventQueue = new();
         _pastEvents = new();
         
-        _events.AddRange(LoadFile("Events/Common.events"));
-        _events.AddRange(LoadFile("Events/StartInfo.events"));
-        _events.AddRange(LoadFile("Events/Interview.events"));
-        _events.AddRange(LoadFile("Events/SouthWar.events"));
-        _events.AddRange(LoadFile("Events/StoryTree.events"));
+        _events.AddRange(LoadFile("Common"));
+        _events.AddRange(LoadFile("StartInfo"));
+        _events.AddRange(LoadFile("Interview"));
+        _events.AddRange(LoadFile("SouthWar"));
+        _events.AddRange(LoadFile("StoryTree"));
         
-        _timedEvents = LoadFile("Events/Story.events");
+        _timedEvents = LoadFile("Story");
         
-        _failEvents = LoadFile("Events/Fail.events");
-        _winEvents = LoadFile("Events/Win.events");
+        _failEvents = LoadFile("Fail");
+        _winEvents = LoadFile("Win");
         
         ResourceLoader.AddGlossaryLinks(_events);
         ResourceLoader.AddGlossaryLinks(_timedEvents);

@@ -41,6 +41,7 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+    <Analyzer Include="E:\UnityProjects\HelloAnrax\HelloAnrax\Assets\Packages\CsvCSharp.1.0.0\analyzers\dotnet\cs\Csv.SourceGenerator.dll" />
     <Analyzer Include="E:\UnityProjects\HelloAnrax\HelloAnrax\Library\PackageCache\com.luca3317.tmpeffects@d654665d03ac\TMPEffects.ParameterUtilityGenerator.dll" />
     <Analyzer Include="E:\UnityProjects\HelloAnrax\HelloAnrax\Library\PackageCache\com.luca3317.tmpeffects@d654665d03ac\TMPEffects.AutoParameters.dll" />
     <Analyzer Include="E:\UnityProjects\HelloAnrax\HelloAnrax\Library\PackageCache\com.luca3317.tmpeffects@d654665d03ac\TMPEffects.StringLibrary.dll" />
@@ -49,33 +50,33 @@
     <Analyzer Include="E:\Unity\6000.0.40f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\MovableCamera.cs" />
-    <Compile Include="Assets\Scripts\UI\GlossaryCard.cs" />
     <Compile Include="Assets\Scripts\UI\AnimatedBar.cs" />
     <Compile Include="Assets\Scripts\UI\OptionIcon.cs" />
     <Compile Include="Assets\Scripts\YaAd\BannerAdManager.cs" />
     <Compile Include="Assets\Scripts\ResourceLoader.cs" />
-    <Compile Include="Assets\Scripts\YaAd\InterstitialAdManager.cs" />
     <Compile Include="Assets\Scripts\UI\RoundList.cs" />
-    <Compile Include="Assets\Scripts\YaAd\RewardedAdManager.cs" />
     <Compile Include="Assets\Scripts\UI\TaggedValue.cs" />
+    <Compile Include="Assets\Scripts\ExpressionEvaluator.cs" />
+    <Compile Include="Assets\Scripts\InputManager.cs" />
+    <Compile Include="Assets\Scripts\EventStorage.cs" />
+    <Compile Include="Assets\Scripts\UI\MapSelection.cs" />
+    <Compile Include="Assets\Scripts\FrameRateManager.cs" />
+    <Compile Include="Assets\Scripts\PlayerStats.cs" />
+    <Compile Include="Assets\Scripts\UI\SegmentBar.cs" />
+    <Compile Include="Assets\Scripts\MovableCamera.cs" />
+    <Compile Include="Assets\Scripts\UI\GlossaryCard.cs" />
+    <Compile Include="Assets\Scripts\YaAd\InterstitialAdManager.cs" />
+    <Compile Include="Assets\Scripts\YaAd\RewardedAdManager.cs" />
     <Compile Include="Assets\Scripts\MusicManager.cs" />
     <Compile Include="Assets\Scripts\UI\Generics.cs" />
     <Compile Include="Assets\Scripts\BuildScriptableObject.cs" />
     <Compile Include="Assets\Scripts\UI\EventCard.cs" />
-    <Compile Include="Assets\Scripts\ExpressionEvaluator.cs" />
     <Compile Include="Assets\Scripts\UI\GlossaryHandler.cs" />
-    <Compile Include="Assets\Scripts\InputManager.cs" />
     <Compile Include="Assets\Scripts\UI\UIGenericAnimation.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\GameEvent.cs" />
-    <Compile Include="Assets\Scripts\EventStorage.cs" />
-    <Compile Include="Assets\Scripts\UI\MapSelection.cs" />
     <Compile Include="Assets\Scripts\Utils.cs" />
     <Compile Include="Assets\Scripts\DiskManager.cs" />
-    <Compile Include="Assets\Scripts\FrameRateManager.cs" />
-    <Compile Include="Assets\Scripts\PlayerStats.cs" />
-    <Compile Include="Assets\Scripts\UI\SegmentBar.cs" />
     <None Include="Assets\Scripts\GenericScripts.asmdef" />
     <Reference Include="UnityEngine">
       <HintPath>E:\Unity\6000.0.40f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
@@ -434,6 +435,9 @@
     <Reference Include="Unity.VisualScripting.YamlDotNet">
       <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe">
+      <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Assets\Packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="Google.VersionHandlerImpl">
       <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Assets\ExternalDependencyManager\Editor\1.2.177\Google.VersionHandlerImpl.dll</HintPath>
     </Reference>
@@ -455,6 +459,9 @@
     <Reference Include="Unity.Plastic.Antlr3.Runtime">
       <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Library\PackageCache\com.unity.collab-proxy@50ac96531b63\Lib\Editor\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="Csv.Annotations">
+      <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Assets\Packages\CsvCSharp.Annotations.1.0.0\lib\netstandard2.1\Csv.Annotations.dll</HintPath>
+    </Reference>
     <Reference Include="Google.VersionHandler">
       <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Assets\ExternalDependencyManager\Editor\Google.VersionHandler.dll</HintPath>
     </Reference>
@@ -469,6 +476,9 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.IonicZip">
       <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll</HintPath>
+    </Reference>
+    <Reference Include="Csv">
+      <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Assets\Packages\CsvCSharp.1.0.0\lib\netstandard2.1\Csv.dll</HintPath>
     </Reference>
     <Reference Include="DOTween">
       <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Assets\DOTween\DOTween.dll</HintPath>
@@ -877,6 +887,9 @@
     </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Localization">
+      <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Library\ScriptAssemblies\Unity.Localization.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>

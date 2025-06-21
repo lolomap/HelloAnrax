@@ -8,8 +8,7 @@
 	"items": {
 		"type": "object",
 		"properties": {
-			"Title": {"type": "string"},
-			"Description": {"type": "string"},
+			"Id": {"type": "string"},
 			"Category": {"type": "string"},
 	
 			"Options": {
@@ -17,7 +16,6 @@
 				"items": {
 					"type": "object",
 					"properties": {
-						"Title": {"type": "string"},
 						"Category": {"type": "string"},
 	
 						"Modifiers": {
@@ -84,8 +82,7 @@
 								"additionalProperties": false
 							}
 						}
-					},
-					"required": [ "Title" ]
+					}
 				}
 			},
 			
@@ -112,6 +109,6 @@
 				"items": { "$ref": "#/items" }
 			}
 		},
-		"required": ["Description"]
+		"required": ["Id"]
 	}
 }

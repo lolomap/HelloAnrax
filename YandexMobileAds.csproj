@@ -41,6 +41,7 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+    <Analyzer Include="E:\UnityProjects\HelloAnrax\HelloAnrax\Assets\Packages\CsvCSharp.1.0.0\analyzers\dotnet\cs\Csv.SourceGenerator.dll" />
     <Analyzer Include="E:\UnityProjects\HelloAnrax\HelloAnrax\Library\PackageCache\com.luca3317.tmpeffects@d654665d03ac\TMPEffects.ParameterUtilityGenerator.dll" />
     <Analyzer Include="E:\UnityProjects\HelloAnrax\HelloAnrax\Library\PackageCache\com.luca3317.tmpeffects@d654665d03ac\TMPEffects.AutoParameters.dll" />
     <Analyzer Include="E:\UnityProjects\HelloAnrax\HelloAnrax\Library\PackageCache\com.luca3317.tmpeffects@d654665d03ac\TMPEffects.StringLibrary.dll" />
@@ -49,30 +50,69 @@
     <Analyzer Include="E:\Unity\6000.0.40f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\YandexMobileAds\Platforms\Android\MobileAdsClient.cs" />
     <Compile Include="Assets\YandexMobileAds\Platforms\Android\RewardedAdClient.cs" />
     <Compile Include="Assets\YandexMobileAds\Common\DummyAppOpenAdLoaderClient.cs" />
-    <Compile Include="Assets\YandexMobileAds\Platforms\iOS\MonoPInvokeCallbackAttribute.cs" />
     <Compile Include="Assets\YandexMobileAds\Platforms\Android\AppStateObserverClient.cs" />
     <Compile Include="Assets\YandexMobileAds\Base\AdRequestConfigurationFactory.cs" />
     <Compile Include="Assets\YandexMobileAds\Platforms\iOS\BannerAdSizeBridge.cs" />
     <Compile Include="Assets\YandexMobileAds\Base\AdRequestConfiguration.cs" />
-    <Compile Include="Assets\YandexMobileAds\Common\DummyInterstitialClient.cs" />
     <Compile Include="Assets\YandexMobileAds\Platforms\iOS\InterstitialAdLoaderClient.cs" />
-    <Compile Include="Assets\YandexMobileAds\Base\Location.cs" />
     <Compile Include="Assets\YandexMobileAds\ScreenUtils.cs" />
     <Compile Include="Assets\YandexMobileAds\Common\GenericEventArgs.cs" />
-    <Compile Include="Assets\YandexMobileAds\Platforms\iOS\MobileAdsBridge.cs" />
-    <Compile Include="Assets\YandexMobileAds\Platforms\Android\InterstitialAdLoaderClient.cs" />
     <Compile Include="Assets\YandexMobileAds\Common\IRewardedAdClient.cs" />
     <Compile Include="Assets\YandexMobileAds\Platforms\iOS\MobileAdsClient.cs" />
     <Compile Include="Assets\YandexMobileAds\Platforms\iOS\InterstitialBridge.cs" />
-    <Compile Include="Assets\YandexMobileAds\Common\AppOpenAdLoadedEventArgs.cs" />
     <Compile Include="Assets\YandexMobileAds\Platforms\iOS\AdSizeBridge.cs" />
+    <Compile Include="Assets\YandexMobileAds\Common\InterstitialAdLoadedEventArgs.cs" />
+    <Compile Include="Assets\YandexMobileAds\Platforms\YandexMobileAdsClientFactory.cs" />
+    <Compile Include="Assets\YandexMobileAds\Common\RewardedAdLoadedEventArgs.cs" />
+    <Compile Include="Assets\YandexMobileAds\AppOpenAdLoader.cs" />
+    <Compile Include="Assets\YandexMobileAds\Platforms\Android\AdInfoFactory.cs" />
+    <Compile Include="Assets\YandexMobileAds\Base\AdPosition.cs" />
+    <Compile Include="Assets\YandexMobileAds\Platforms\Android\Utils.cs" />
+    <Compile Include="Assets\YandexMobileAds\Common\IScreenClient.cs" />
+    <Compile Include="Assets\YandexMobileAds\Platforms\Android\RewardedAdLoaderClient.cs" />
+    <Compile Include="Assets\YandexMobileAds\RewardedAdLoader.cs" />
+    <Compile Include="Assets\YandexMobileAds\Common\MainThreadDispatcher.cs" />
+    <Compile Include="Assets\YandexMobileAds\Base\BannerAdSize.cs" />
+    <Compile Include="Assets\YandexMobileAds\Platforms\iOS\InterstitialClient.cs" />
+    <Compile Include="Assets\YandexMobileAds\Inspector\RewardAdComponent.cs" />
+    <Compile Include="Assets\YandexMobileAds\Platforms\iOS\AppOpenAdClient.cs" />
+    <Compile Include="Assets\YandexMobileAds\Common\AppStateObserverClient.cs" />
+    <Compile Include="Assets\YandexMobileAds\Common\IBannerAdSizeClient.cs" />
+    <Compile Include="Assets\YandexMobileAds\Common\Constants.cs" />
+    <Compile Include="Assets\YandexMobileAds\Platforms\iOS\InterstitialAdLoaderBridge.cs" />
+    <Compile Include="Assets\YandexMobileAds\Platforms\iOS\AdInfoBridge.cs" />
+    <Compile Include="Assets\YandexMobileAds\Platforms\iOS\AdRequestBridge.cs" />
+    <Compile Include="Assets\YandexMobileAds\Platforms\iOS\LocationClient.cs" />
+    <Compile Include="Assets\YandexMobileAds\Platforms\iOS\BannerClient.cs" />
+    <Compile Include="Assets\YandexMobileAds\Common\IAppOpenAdLoaderClient.cs" />
+    <Compile Include="Assets\YandexMobileAds\Platforms\Android\BannerAdSizeUtils.cs" />
+    <Compile Include="Assets\YandexMobileAds\Platforms\iOS\ListClient.cs" />
+    <Compile Include="Assets\YandexMobileAds\Platforms\iOS\LocationBridge.cs" />
+    <Compile Include="Assets\YandexMobileAds\Platforms\iOS\BannerBridge.cs" />
+    <Compile Include="Assets\YandexMobileAds\Platforms\iOS\AppOpenAdLoaderBridge.cs" />
+    <Compile Include="Assets\YandexMobileAds\Common\IInterstitialAdLoaderClient.cs" />
+    <Compile Include="Assets\YandexMobileAds\Platforms\iOS\ScreenBridge.cs" />
+    <Compile Include="Assets\YandexMobileAds\Base\AdSize.cs" />
+    <Compile Include="Assets\YandexMobileAds\Common\DummyMobileAdsClient.cs" />
+    <Compile Include="Assets\YandexMobileAds\Platforms\iOS\RewardedAdLoaderBridge.cs" />
+    <Compile Include="Assets\YandexMobileAds\Common\AppStateChangedEventArgs.cs" />
+    <Compile Include="Assets\YandexMobileAds\AppStateObserver.cs" />
+    <Compile Include="Assets\YandexMobileAds\Inspector\InterstitialAdComponent.cs" />
+    <Compile Include="Assets\YandexMobileAds\Platforms\iOS\RewardedAdLoaderClient.cs" />
+    <Compile Include="Assets\YandexMobileAds\Platforms\Android\AppOpenAdClient.cs" />
+    <Compile Include="Assets\YandexMobileAds\Base\AdRequestError.cs" />
+    <Compile Include="Assets\YandexMobileAds\Platforms\Android\MobileAdsClient.cs" />
+    <Compile Include="Assets\YandexMobileAds\Platforms\iOS\MonoPInvokeCallbackAttribute.cs" />
+    <Compile Include="Assets\YandexMobileAds\Common\DummyInterstitialClient.cs" />
+    <Compile Include="Assets\YandexMobileAds\Base\Location.cs" />
+    <Compile Include="Assets\YandexMobileAds\Platforms\iOS\MobileAdsBridge.cs" />
+    <Compile Include="Assets\YandexMobileAds\Platforms\Android\InterstitialAdLoaderClient.cs" />
+    <Compile Include="Assets\YandexMobileAds\Common\AppOpenAdLoadedEventArgs.cs" />
     <Compile Include="Assets\YandexMobileAds\Base\AdTheme.cs" />
     <Compile Include="Assets\YandexMobileAds\Common\IMobileAdsClient.cs" />
     <Compile Include="Assets\YandexMobileAds\Base\ImpressionData.cs" />
-    <Compile Include="Assets\YandexMobileAds\Common\InterstitialAdLoadedEventArgs.cs" />
     <Compile Include="Assets\YandexMobileAds\Common\DummyInterstitialAdLoaderClient.cs" />
     <Compile Include="Assets\YandexMobileAds\Common\DummyScreenClient.cs" />
     <Compile Include="Assets\YandexMobileAds\Platforms\iOS\ScreenClient.cs" />
@@ -80,85 +120,46 @@
     <Compile Include="Assets\YandexMobileAds\Common\DummyRewardedAdLoaderClient.cs" />
     <Compile Include="Assets\YandexMobileAds\Platforms\iOS\RewardedAdBridge.cs" />
     <Compile Include="Assets\YandexMobileAds\Base\Reward.cs" />
-    <Compile Include="Assets\YandexMobileAds\Platforms\YandexMobileAdsClientFactory.cs" />
     <Compile Include="Assets\YandexMobileAds\Base\AdRequestCreator.cs" />
     <Compile Include="Assets\YandexMobileAds\Platforms\iOS\DictionaryBridge.cs" />
     <Compile Include="Assets\YandexMobileAds\RewardedAd.cs" />
-    <Compile Include="Assets\YandexMobileAds\Common\RewardedAdLoadedEventArgs.cs" />
     <Compile Include="Assets\YandexMobileAds\Platforms\iOS\DictionaryClient.cs" />
-    <Compile Include="Assets\YandexMobileAds\AppOpenAdLoader.cs" />
-    <Compile Include="Assets\YandexMobileAds\Platforms\Android\AdInfoFactory.cs" />
-    <Compile Include="Assets\YandexMobileAds\Base\AdPosition.cs" />
     <Compile Include="Assets\YandexMobileAds\Platforms\Android\BannerClient.cs" />
-    <Compile Include="Assets\YandexMobileAds\Platforms\Android\Utils.cs" />
-    <Compile Include="Assets\YandexMobileAds\Common\IScreenClient.cs" />
     <Compile Include="Assets\YandexMobileAds\Base\AdFailureEventArgs.cs" />
-    <Compile Include="Assets\YandexMobileAds\Platforms\iOS\AdRequestClient.cs" />
     <Compile Include="Assets\YandexMobileAds\Common\DummyBannerClient.cs" />
+    <Compile Include="Assets\YandexMobileAds\Platforms\iOS\AdRequestClient.cs" />
     <Compile Include="Assets\YandexMobileAds\Platforms\Android\AppOpenAdLoaderClient.cs" />
-    <Compile Include="Assets\YandexMobileAds\Platforms\Android\RewardedAdLoaderClient.cs" />
     <Compile Include="Assets\YandexMobileAds\Platforms\iOS\AppOpenAdLoaderClient.cs" />
     <Compile Include="Assets\YandexMobileAds\Platforms\iOS\AdSizeClient.cs" />
     <Compile Include="Assets\YandexMobileAds\Common\IAppStateObserverClient.cs" />
-    <Compile Include="Assets\YandexMobileAds\RewardedAdLoader.cs" />
     <Compile Include="Assets\YandexMobileAds\Interstitial.cs" />
-    <Compile Include="Assets\YandexMobileAds\Common\MainThreadDispatcher.cs" />
     <Compile Include="Assets\YandexMobileAds\Platforms\iOS\AppOpenAdBridge.cs" />
-    <Compile Include="Assets\YandexMobileAds\Base\BannerAdSize.cs" />
-    <Compile Include="Assets\YandexMobileAds\Platforms\iOS\InterstitialClient.cs" />
     <Compile Include="Assets\YandexMobileAds\MobileAds.cs" />
     <Compile Include="Assets\YandexMobileAds\Base\AdFailedToLoadEventArgs.cs" />
-    <Compile Include="Assets\YandexMobileAds\Inspector\RewardAdComponent.cs" />
-    <Compile Include="Assets\YandexMobileAds\Platforms\iOS\AppOpenAdClient.cs" />
     <Compile Include="Assets\YandexMobileAds\Base\MobileAdsPackageInfo.cs" />
-    <Compile Include="Assets\YandexMobileAds\Common\AppStateObserverClient.cs" />
-    <Compile Include="Assets\YandexMobileAds\Common\IBannerAdSizeClient.cs" />
-    <Compile Include="Assets\YandexMobileAds\Common\Constants.cs" />
     <Compile Include="Assets\YandexMobileAds\Banner.cs" />
-    <Compile Include="Assets\YandexMobileAds\Platforms\iOS\InterstitialAdLoaderBridge.cs" />
     <Compile Include="Assets\YandexMobileAds\Base\AdInfo.cs" />
     <Compile Include="Assets\YandexMobileAds\Common\DummyAppOpenAdClient.cs" />
-    <Compile Include="Assets\YandexMobileAds\Platforms\iOS\AdInfoBridge.cs" />
-    <Compile Include="Assets\YandexMobileAds\Platforms\iOS\AdRequestBridge.cs" />
     <Compile Include="Assets\YandexMobileAds\Platforms\Android\AdSizeUtils.cs" />
     <Compile Include="Assets\YandexMobileAds\InterstitialAdLoader.cs" />
-    <Compile Include="Assets\YandexMobileAds\Platforms\iOS\LocationClient.cs" />
-    <Compile Include="Assets\YandexMobileAds\Platforms\iOS\BannerClient.cs" />
-    <Compile Include="Assets\YandexMobileAds\Common\IAppOpenAdLoaderClient.cs" />
-    <Compile Include="Assets\YandexMobileAds\Platforms\Android\BannerAdSizeUtils.cs" />
     <Compile Include="Assets\YandexMobileAds\Platforms\iOS\ObjectBridge.cs" />
     <Compile Include="Assets\YandexMobileAds\Common\IBannerClient.cs" />
     <Compile Include="Assets\YandexMobileAds\Platforms\Android\InterstitialClient.cs" />
     <Compile Include="Assets\YandexMobileAds\Common\IAppOpenAdClient.cs" />
     <Compile Include="Assets\YandexMobileAds\Inspector\AppOpenAdComponent.cs" />
-    <Compile Include="Assets\YandexMobileAds\Platforms\iOS\ListClient.cs" />
     <Compile Include="Assets\YandexMobileAds\Platforms\Android\BannerAdSizeClient.cs" />
     <Compile Include="Assets\YandexMobileAds\Inspector\BannerComponent.cs" />
-    <Compile Include="Assets\YandexMobileAds\Platforms\iOS\LocationBridge.cs" />
     <Compile Include="Assets\YandexMobileAds\Base\Gender.cs" />
     <Compile Include="Assets\YandexMobileAds\Platforms\iOS\ListBridge.cs" />
-    <Compile Include="Assets\YandexMobileAds\Platforms\iOS\BannerBridge.cs" />
     <Compile Include="Assets\YandexMobileAds\Platforms\Android\ScreenClient.cs" />
-    <Compile Include="Assets\YandexMobileAds\Platforms\iOS\AppOpenAdLoaderBridge.cs" />
-    <Compile Include="Assets\YandexMobileAds\Common\IInterstitialAdLoaderClient.cs" />
-    <Compile Include="Assets\YandexMobileAds\Platforms\iOS\ScreenBridge.cs" />
     <Compile Include="Assets\YandexMobileAds\Common\DummyRewardedAdClient.cs" />
     <Compile Include="Assets\YandexMobileAds\Platforms\iOS\BannerAdSizeClient.cs" />
-    <Compile Include="Assets\YandexMobileAds\Base\AdSize.cs" />
-    <Compile Include="Assets\YandexMobileAds\Common\DummyMobileAdsClient.cs" />
-    <Compile Include="Assets\YandexMobileAds\Platforms\iOS\RewardedAdLoaderBridge.cs" />
     <Compile Include="Assets\YandexMobileAds\Base\AdRequest.cs" />
-    <Compile Include="Assets\YandexMobileAds\Common\AppStateChangedEventArgs.cs" />
     <Compile Include="Assets\YandexMobileAds\AppOpenAd.cs" />
     <Compile Include="Assets\YandexMobileAds\Common\IInterstitialClient.cs" />
-    <Compile Include="Assets\YandexMobileAds\AppStateObserver.cs" />
-    <Compile Include="Assets\YandexMobileAds\Inspector\InterstitialAdComponent.cs" />
-    <Compile Include="Assets\YandexMobileAds\Platforms\iOS\RewardedAdLoaderClient.cs" />
     <Compile Include="Assets\YandexMobileAds\Platforms\iOS\AdRequestConfigurationClient.cs" />
-    <Compile Include="Assets\YandexMobileAds\Platforms\Android\AppOpenAdClient.cs" />
     <Compile Include="Assets\YandexMobileAds\Base\AdError.cs" />
     <Compile Include="Assets\YandexMobileAds\Common\IRewardedAdLoaderClient.cs" />
-    <Compile Include="Assets\YandexMobileAds\Base\AdRequestError.cs" />
     <Compile Include="Assets\YandexMobileAds\Platforms\iOS\RewardedAdClient.cs" />
     <Compile Include="Assets\YandexMobileAds\Common\DummyBannerAdSizeClient.cs" />
     <None Include="Assets\YandexMobileAds\YandexMobileAds.asmdef" />
@@ -519,6 +520,9 @@
     <Reference Include="Unity.VisualScripting.YamlDotNet">
       <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe">
+      <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Assets\Packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="Google.VersionHandlerImpl">
       <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Assets\ExternalDependencyManager\Editor\1.2.177\Google.VersionHandlerImpl.dll</HintPath>
     </Reference>
@@ -540,6 +544,9 @@
     <Reference Include="Unity.Plastic.Antlr3.Runtime">
       <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Library\PackageCache\com.unity.collab-proxy@50ac96531b63\Lib\Editor\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="Csv.Annotations">
+      <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Assets\Packages\CsvCSharp.Annotations.1.0.0\lib\netstandard2.1\Csv.Annotations.dll</HintPath>
+    </Reference>
     <Reference Include="Google.VersionHandler">
       <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Assets\ExternalDependencyManager\Editor\Google.VersionHandler.dll</HintPath>
     </Reference>
@@ -554,6 +561,9 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.IonicZip">
       <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll</HintPath>
+    </Reference>
+    <Reference Include="Csv">
+      <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Assets\Packages\CsvCSharp.1.0.0\lib\netstandard2.1\Csv.dll</HintPath>
     </Reference>
     <Reference Include="DOTween">
       <HintPath>E:\UnityProjects\HelloAnrax\HelloAnrax\Assets\DOTween\DOTween.dll</HintPath>

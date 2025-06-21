@@ -1,51 +1,51 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneralScripts", "GeneralScripts.csproj", "{6f79a9dc-1a0a-d217-a2ba-018782c88c96}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YandexMobileAds", "YandexMobileAds.csproj", "{10a90698-34bb-3d77-d6d9-316029c70467}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AYellowpaper.SerializedCollections", "AYellowpaper.SerializedCollections.csproj", "{3a467063-5f71-1671-72cb-ba777029ec5a}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{eb295003-311a-649e-684f-43a9c45fe7b6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YandexAdsEditor", "YandexAdsEditor.csproj", "{1955230c-2b0d-3ee9-50ce-d9c9e6bd37c9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneralScripts", "GeneralScripts.csproj", "{6f79a9dc-1a0a-d217-a2ba-018782c88c96}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AYellowpaper.SerializedCollections.Editor", "AYellowpaper.SerializedCollections.Editor.csproj", "{d28d6570-813b-679c-4b91-bd4c2527ea20}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YandexAdsEditor", "YandexAdsEditor.csproj", "{1955230c-2b0d-3ee9-50ce-d9c9e6bd37c9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DOTween.Modules", "DOTween.Modules.csproj", "{33a81380-1631-c0db-a469-e2fa72ddcfe6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests.csproj", "{a062b096-b8b1-0ac4-1c5f-6c9e719fd0b4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AYellowpaper.SerializedCollections.Editor", "AYellowpaper.SerializedCollections.Editor.csproj", "{d28d6570-813b-679c-4b91-bd4c2527ea20}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{9966de74-273c-5502-2ebb-98e1cd8a89f4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-firstpass", "Assembly-CSharp-firstpass.csproj", "{b455f053-ce2d-0f32-0878-829fc97043ef}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests.csproj", "{a062b096-b8b1-0ac4-1c5f-6c9e719fd0b4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6f79a9dc-1a0a-d217-a2ba-018782c88c96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6f79a9dc-1a0a-d217-a2ba-018782c88c96}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10a90698-34bb-3d77-d6d9-316029c70467}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{10a90698-34bb-3d77-d6d9-316029c70467}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3a467063-5f71-1671-72cb-ba777029ec5a}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3a467063-5f71-1671-72cb-ba777029ec5a}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{eb295003-311a-649e-684f-43a9c45fe7b6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{eb295003-311a-649e-684f-43a9c45fe7b6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6f79a9dc-1a0a-d217-a2ba-018782c88c96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6f79a9dc-1a0a-d217-a2ba-018782c88c96}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1955230c-2b0d-3ee9-50ce-d9c9e6bd37c9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1955230c-2b0d-3ee9-50ce-d9c9e6bd37c9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{d28d6570-813b-679c-4b91-bd4c2527ea20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{d28d6570-813b-679c-4b91-bd4c2527ea20}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{33a81380-1631-c0db-a469-e2fa72ddcfe6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{33a81380-1631-c0db-a469-e2fa72ddcfe6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{a062b096-b8b1-0ac4-1c5f-6c9e719fd0b4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{a062b096-b8b1-0ac4-1c5f-6c9e719fd0b4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{d28d6570-813b-679c-4b91-bd4c2527ea20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{d28d6570-813b-679c-4b91-bd4c2527ea20}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9966de74-273c-5502-2ebb-98e1cd8a89f4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9966de74-273c-5502-2ebb-98e1cd8a89f4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{b455f053-ce2d-0f32-0878-829fc97043ef}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{b455f053-ce2d-0f32-0878-829fc97043ef}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{a062b096-b8b1-0ac4-1c5f-6c9e719fd0b4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{a062b096-b8b1-0ac4-1c5f-6c9e719fd0b4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

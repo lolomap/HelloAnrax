@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json;
-using UnityEngine.Profiling;
 using static Utils;
 
 [Serializable]
@@ -78,6 +77,8 @@ public class Option
 [Serializable]
 public class GameEvent
 {
+    public string Id = "";
+    
     public string Title = "";
     public string Description = "";
 
@@ -97,7 +98,7 @@ public class GameEvent
 
     public List<GameEvent> TLDR;
 
-    public int Checksum = 0;
+    public int Checksum;
     
     [NonSerialized] public List<GameEvent> TreeChildren;
     [NonSerialized] private bool _isDynamicChecking;
@@ -157,7 +158,7 @@ public class GameEvent
 
     public int GetChecksum()
     {
-        return Title.GetHashCode() + Description.GetHashCode() + Category.GetHashCode();
+        return Id.GetHashCode() + Category.GetHashCode();
     }
 
     public void UpdateChildren(List<GameEvent> events)

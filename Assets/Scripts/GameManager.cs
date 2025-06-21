@@ -4,6 +4,8 @@ using DG.Tweening;
 using Newtonsoft.Json;
 using UI;
 using UnityEngine;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
 
 [CreateAssetMenu(fileName = "EditorUtilities/GameManager", menuName = "Game/Manager")]
 public class GameManager : ScriptableObject
@@ -13,6 +15,7 @@ public class GameManager : ScriptableObject
 	// Options
 	public GlobalSettings Global;
 	public UISettings UI;
+	public Locale Locale;
 
 	
 	// Runtime utilities
@@ -51,6 +54,7 @@ public class GameManager : ScriptableObject
 	{
 		ResourceLoader.ClearResources();
 		Instance = Resources.Load<GameManager>("EditorUtilities/GameManager");
+		LocalizationSettings.SelectedLocale = Instance.Locale;
 
 		_buildNumber = ResourceLoader.GetResource<BuildScriptableObject>("EditorUtilities/Build").BuildNumber;
 
@@ -95,6 +99,8 @@ public class GameManager : ScriptableObject
 
 	public static void Restart()
 	{
+		LocalizationSettings.SelectedLocale = Instance.Locale;
+		
 		EventStorage.Dispose();
 		IEnumerable<KeyValuePair<string, float>> saveGlobal = PlayerStats.GetGlobalFlags();
 		PlayerStats = new();
