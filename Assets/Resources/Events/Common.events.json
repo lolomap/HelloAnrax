@@ -2751,10 +2751,6 @@
                     {
                         "Type": "NationalistsLoyalty",
                         "Value": 15
-                    },
-                    {
-                        "Type": "DemocratsLoyalty",
-                        "Value": -15
                     }
                 ],
                 "Flags": [

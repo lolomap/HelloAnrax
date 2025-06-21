@@ -496,7 +496,7 @@
         "Title": "$$Story.21.title",
         "Description": "$$Story.21.description",
         "Category": "War",
-        "TurnPosition": 30,
+        "TurnPosition": 50,
         "Options": [
             {
                 "Title": "$$Story.21.0",

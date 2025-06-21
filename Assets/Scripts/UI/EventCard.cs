@@ -8,6 +8,8 @@ namespace UI
 {
     public class EventCard : MonoBehaviour
     {
+        public GameObject RestartPanel;
+        
         public TMP_Text EventTitle;
         public TMP_Text EventDescriptionBoxDummy;
         public TMP_Text EventDescription;
@@ -91,8 +93,11 @@ namespace UI
             return true;
         }
 
+        public void ShowRestart() => RestartPanel.SetActive(!RestartPanel.activeInHierarchy);
+        
         public void AcceptRestart()
         {
+            RestartPanel.SetActive(false);
             GameManager.Restart();
             GameManager.PlayerStats.Updated += MusicManager.Instance.TriggerAudio;
             GameManager.EventStorage.Init();

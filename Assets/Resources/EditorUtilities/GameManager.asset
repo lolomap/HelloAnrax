@@ -20,3 +20,4 @@ MonoBehaviour:
     AnimationShakeStrength: 100
     AnimationDelaySec: 0.5
     PopUpDuration: 0.5
+  Locale: {fileID: 11400000, guid: 2b4414ef008a77d478eee04a44c02752, type: 2}
