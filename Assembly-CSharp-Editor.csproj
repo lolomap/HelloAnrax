@@ -59,6 +59,7 @@
     <None Include="Assets\PlayServicesResolver\Editor\play-services-resolver_v1.2.137.0.txt" />
     <None Include="Assets\TMPEffects\Editor\StyleSheets\Extensions\light.uss" />
     <None Include="Assets\TMPEffects\Editor\StyleSheets\Extensions\common.uss" />
+    <None Include="Assets\ExternalDependencyManager\Editor\external-dependency-manager_version-1.2.182_manifest.txt" />
     <None Include="Assets\TMPEffects\Editor\StyleSheets\Extensions\dark.uss" />
     <None Include="Assets\ExternalDependencyManager\Editor\external-dependency-manager_version-1.2.177_manifest.txt" />
     <Reference Include="UnityEngine">
@@ -1167,6 +1168,10 @@
       <Project>{10a90698-34bb-3d77-d6d9-316029c70467}</Project>
       <Name>YandexMobileAds</Name>
     </ProjectReference>
+    <ProjectReference Include="Google.Play.Games.Editor.csproj">
+      <Project>{e9c4fb6a-8f44-ad11-4cf9-828547968f9e}</Project>
+      <Name>Google.Play.Games.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="YandexAdsEditor.csproj">
       <Project>{1955230c-2b0d-3ee9-50ce-d9c9e6bd37c9}</Project>
       <Name>YandexAdsEditor</Name>
@@ -1174,6 +1179,10 @@
     <ProjectReference Include="DOTween.Modules.csproj">
       <Project>{33a81380-1631-c0db-a469-e2fa72ddcfe6}</Project>
       <Name>DOTween.Modules</Name>
+    </ProjectReference>
+    <ProjectReference Include="Google.Play.Games.csproj">
+      <Project>{a54c7a8a-4245-cf55-a0af-0f0f1f0ca3c3}</Project>
+      <Name>Google.Play.Games</Name>
     </ProjectReference>
     <ProjectReference Include="GeneralScripts.csproj">
       <Project>{6f79a9dc-1a0a-d217-a2ba-018782c88c96}</Project>

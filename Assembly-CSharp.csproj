@@ -116,6 +116,7 @@
     <Compile Include="Assets\Modern UI Pack\Scripts\UI Manager\UIManagerScrollbar.cs" />
     <Compile Include="Assets\Modern UI Pack\Scripts\UI Manager\UIManagerWindowManager.cs" />
     <Compile Include="Assets\Modern UI Pack\Scripts\Notification\NotificationStacking.cs" />
+    <Compile Include="Assets\GPGSIds.cs" />
     <Compile Include="Assets\Modern UI Pack\Scripts\Progress Bar\ProgressBarEditor.cs" />
     <Compile Include="Assets\Modern UI Pack\Scripts\Dropdown\CustomDropdownEditor.cs" />
     <Compile Include="Assets\Modern UI Pack\Scripts\Slider\RangeSlider.cs" />
@@ -141,6 +142,7 @@
     <Compile Include="Assets\Modern UI Pack\Scripts\Window\WindowManager.cs" />
     <Compile Include="Assets\Modern UI Pack\Scripts\Window\WindowManagerEditor.cs" />
     <Compile Include="Assets\Modern UI Pack\Scripts\UI Manager\UIManagerNotification.cs" />
+    <None Include="Assets\GooglePlayGames\com.google.play.games\Proguard\games.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\Resources\Localization\ru\Events\StartInfo.local.json" />
     <None Include="Assets\Resources\Localization\ru\Events\Win.local.json" />
@@ -150,6 +152,7 @@
     <None Include="Assets\Resources\Events\StoryTree.events.json" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile-2-Pass.shader" />
     <None Include="Assets\Resources\Localization\en\Events\Common.local.json" />
+    <None Include="Assets\GooglePlayGames\com.google.play.games\package.json" />
     <None Include="Assets\Resources\Map.json" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\DOTween\readme.txt" />
@@ -196,6 +199,7 @@
     <None Include="Assets\PlayerPrefsEditor\README.txt" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\Resources\Localization\en\Events\Story.local.json" />
+    <None Include="Assets\AddressableAssetsData\link.xml" />
     <None Include="Assets\Resources\Events\Common.events.json" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\Resources\Localization\en\Events\StartInfo.local.json" />
@@ -1227,6 +1231,10 @@
       <Project>{10a90698-34bb-3d77-d6d9-316029c70467}</Project>
       <Name>YandexMobileAds</Name>
     </ProjectReference>
+    <ProjectReference Include="Google.Play.Games.Editor.csproj">
+      <Project>{e9c4fb6a-8f44-ad11-4cf9-828547968f9e}</Project>
+      <Name>Google.Play.Games.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="YandexAdsEditor.csproj">
       <Project>{1955230c-2b0d-3ee9-50ce-d9c9e6bd37c9}</Project>
       <Name>YandexAdsEditor</Name>
@@ -1234,6 +1242,10 @@
     <ProjectReference Include="DOTween.Modules.csproj">
       <Project>{33a81380-1631-c0db-a469-e2fa72ddcfe6}</Project>
       <Name>DOTween.Modules</Name>
+    </ProjectReference>
+    <ProjectReference Include="Google.Play.Games.csproj">
+      <Project>{a54c7a8a-4245-cf55-a0af-0f0f1f0ca3c3}</Project>
+      <Name>Google.Play.Games</Name>
     </ProjectReference>
     <ProjectReference Include="GeneralScripts.csproj">
       <Project>{6f79a9dc-1a0a-d217-a2ba-018782c88c96}</Project>

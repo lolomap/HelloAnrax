@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AYellowpaper.SerializedColl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{eb295003-311a-649e-684f-43a9c45fe7b6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Google.Play.Games.Editor", "Google.Play.Games.Editor.csproj", "{e9c4fb6a-8f44-ad11-4cf9-828547968f9e}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Google.Play.Games", "Google.Play.Games.csproj", "{a54c7a8a-4245-cf55-a0af-0f0f1f0ca3c3}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneralScripts", "GeneralScripts.csproj", "{6f79a9dc-1a0a-d217-a2ba-018782c88c96}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YandexAdsEditor", "YandexAdsEditor.csproj", "{1955230c-2b0d-3ee9-50ce-d9c9e6bd37c9}"
@@ -32,6 +36,10 @@ Global
 		{3a467063-5f71-1671-72cb-ba777029ec5a}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{eb295003-311a-649e-684f-43a9c45fe7b6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{eb295003-311a-649e-684f-43a9c45fe7b6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{e9c4fb6a-8f44-ad11-4cf9-828547968f9e}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{e9c4fb6a-8f44-ad11-4cf9-828547968f9e}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{a54c7a8a-4245-cf55-a0af-0f0f1f0ca3c3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{a54c7a8a-4245-cf55-a0af-0f0f1f0ca3c3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6f79a9dc-1a0a-d217-a2ba-018782c88c96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6f79a9dc-1a0a-d217-a2ba-018782c88c96}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1955230c-2b0d-3ee9-50ce-d9c9e6bd37c9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU

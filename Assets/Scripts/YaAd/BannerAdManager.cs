@@ -1,32 +1,43 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using YandexMobileAds;
 using YandexMobileAds.Base;
-public class BannerAdManager : MonoBehaviour
+
+namespace YaAd
 {
-    private Banner banner;
-
-    public static string AdUnitId;
-
-
-    private void Start()
+    public class BannerAdManager : MonoBehaviour
     {
-        RequestStickyBanner();
-    }
-    private int GetScreenWidthDp()
-    {
-        int screenWidth = (int)Screen.safeArea.width;
-        return ScreenUtils.ConvertPixelsToDp(screenWidth);
-    }
+        private Banner _banner;
+        private BannerAdSize _bannerSize;
 
-    private void RequestStickyBanner()
-    {
-        BannerAdSize bannerMaxSize = BannerAdSize.StickySize(GetScreenWidthDp());
-        banner = new Banner(AdUnitId, bannerMaxSize, AdPosition.BottomCenter);
+        public static string AdUnitId = "R-M-14387385-1";
 
-        AdRequest request = new AdRequest.Builder().Build();
-        banner.LoadAd(request);
+
+        private void Awake()
+        {
+            RequestStickyBanner();
+        }
+        private static int GetScreenWidthDp()
+        {
+            int screenWidth = (int)Screen.safeArea.width;
+            return ScreenUtils.ConvertPixelsToDp(screenWidth);
+        }
+
+        private void RequestStickyBanner()
+        {
+            _bannerSize = BannerAdSize.InlineSize(GetScreenWidthDp(), 50);
+            _banner = new(AdUnitId, _bannerSize, AdPosition.TopCenter);
+
+            _banner.OnAdLoaded += HandleAdLoaded;
+            
+            AdRequest request = new AdRequest.Builder().Build();
+            _banner.LoadAd(request);
+        }
+
+        private void HandleAdLoaded(object sender, EventArgs args)
+        {
+            _banner.Show();
+        }
     }
 }
 
