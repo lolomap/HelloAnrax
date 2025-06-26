@@ -1,7 +1,8 @@
 using System;
 using System.Collections.Generic;
 using DG.Tweening;
-using Newtonsoft.Json;
+using GooglePlayGames;
+using GooglePlayGames.BasicApi;
 using UI;
 using UnityEngine;
 using UnityEngine.Localization;
@@ -27,6 +28,7 @@ public class GameManager : ScriptableObject
 
 	//public static FrameRateManager FrameRateManager { get; private set; }
 	
+	public static AchievementsManager AchievementsManager { get; private set; }
 	public static EventStorage EventStorage { get; private set; }
 	public static PlayerStats PlayerStats { get; private set; }
 
@@ -53,6 +55,23 @@ public class GameManager : ScriptableObject
 	[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
 	private static void ReloadGame()
 	{
+		PlayGamesPlatform.Instance.Authenticate((status) =>
+		{
+			switch (status)
+			{
+				case SignInStatus.Success:
+					// Contintue with Play Games Services
+					break;
+				
+				// Show button for manual authenticate
+				default:
+				case SignInStatus.InternalError:
+					break;
+				case SignInStatus.Canceled:
+					break;
+			}
+		});
+		
 		ResourceLoader.ClearResources();
 		Instance = Resources.Load<GameManager>("EditorUtilities/GameManager");
 		LocalizationSettings.SelectedLocale = Instance.Locale;
@@ -65,6 +84,8 @@ public class GameManager : ScriptableObject
 		Dictionary<string, string> adIds = ResourceLoader.GetAdIds();
 		BannerAdManager.AdUnitId = adIds["banner"];
 
+		AchievementsManager = new();
+		
 		object saved;
 		if ((saved = ResourceLoader.GetPersistentJson<PlayerStats>("PlayerStats")) != null)
 		{

@@ -1,5 +1,5 @@
 ﻿#define DEBUG_MOUSE
-//#undef DEBUG_MOUSE
+#undef DEBUG_MOUSE
 
 using System;
 using UnityEngine;
@@ -53,5 +53,10 @@ public class InputManager : MonoBehaviour
 		};
 
 		return result;
+	}
+
+	public void ShowAchievements()
+	{
+		AchievementsManager.ShowGPAchievements();
 	}
 }

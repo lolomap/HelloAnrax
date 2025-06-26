@@ -137,6 +137,8 @@ public class PlayerStats
 		if (flag == null) return;
 		if (flag.StartsWith("GLOBAL_"))
 			_globalFlags[flag] = value;
+		if (flag.StartsWith("ACH_"))
+			GameManager.AchievementsManager.Reward(flag, value);
 			
 		_flags[flag] = value;
 		TaggedValue.UpdateAll(flag, value);
