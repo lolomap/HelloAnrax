@@ -13,6 +13,10 @@ public class InputManager : MonoBehaviour
 	private Vector2 _lastPosition = Vector2.zero;
 	private Vector2 _currentPosition = Vector2.zero;
 	private Vector2 _deltaPosition = Vector2.zero;
+	
+	private float _lastPinchDistance;
+
+	public float PinchDelta { get; private set; }
 
 	public InputManager()
 	{
@@ -39,6 +43,21 @@ public class InputManager : MonoBehaviour
 			_currentPosition = Input.mousePosition;
 			_deltaPosition = _currentPosition - _lastPosition;
 			_lastPosition = _currentPosition;
+		}
+		else
+		{
+			if (Input.touchCount > 1)
+			{
+				float distance = Vector2.Distance(Input.GetTouch(0).position, Input.GetTouch(1).position);
+				if (_lastPinchDistance > 0f)
+					PinchDelta = distance - _lastPinchDistance;
+				_lastPinchDistance = distance;
+			}
+			else
+			{
+				_lastPinchDistance = 0f;
+				PinchDelta = 0f;
+			}
 		}
 	}
     

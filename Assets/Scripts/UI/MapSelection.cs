@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using UnityEngine;
@@ -17,6 +18,7 @@ namespace UI
 		public GlossaryCard Glossary;
 		public GameObject Panel;
 		public float ScrollSpeed = 1f;
+		public float ZoomSpeed = 0.01f;
 		private static readonly int _selectedColor = Shader.PropertyToID("_SelectedColor");
 
 		private Dictionary<string, string> _glossaryBindings;
@@ -28,11 +30,16 @@ namespace UI
 			_texture = _image.sprite.texture;
 			Material material = new(_image.material); // Instantiate new material to change it without affecting asset
 			_image.material = material;
-			_rectTransform = GetComponent<RectTransform>();
+			_rectTransform = transform.parent.GetComponent<RectTransform>();
 
 			_glossaryBindings =
 				JsonConvert.DeserializeObject<Dictionary<string, string>>(
 					ResourceLoader.GetResource<TextAsset>("Map").text);
+		}
+
+		private void Update()
+		{
+			_rectTransform.localScale *= 1 + InputManager.Instance.PinchDelta * ZoomSpeed;
 		}
 
 		public void OnBeginDrag() => _isDragging = true;
@@ -51,6 +58,18 @@ namespace UI
 					return;
 				default:
 					_rectTransform.anchoredPosition += touch.deltaPosition * ScrollSpeed * Vector2.right;
+					break;
+			}
+
+			switch (touch.deltaPosition.y)
+			{
+				case > 0 when Camera.main!.orthographicSize
+				              < _rectTransform.localPosition.y - _rectTransform.rect.height / 2f:
+				case < 0 when Camera.main!.orthographicSize
+				              > _rectTransform.localPosition.y + _rectTransform.rect.height / 2f:
+					return;
+				default:
+					_rectTransform.anchoredPosition += touch.deltaPosition * ScrollSpeed * Vector2.up;
 					break;
 			}
 		}

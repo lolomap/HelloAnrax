@@ -199,8 +199,8 @@
     <None Include="Assets\PlayServicesResolver\play-services-resolver_v1.2.137.0.txt" />
     <None Include="Assets\PlayerPrefsEditor\README.txt" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
-    <None Include="Assets\Resources\Localization\en\Events\Story.local.json" />
     <None Include="Assets\AddressableAssetsData\link.xml" />
+    <None Include="Assets\Resources\Localization\en\Events\Story.local.json" />
     <None Include="Assets\Resources\Events\Common.events.json" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\Resources\Localization\en\Events\StartInfo.local.json" />

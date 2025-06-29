@@ -1030,6 +1030,9 @@
                         "Type": "Treasury",
                         "CompareTo": 2
                     }
+                ],
+                "Flags": [
+                    {"Type": "InvestRebuilding", "Value": 1}
                 ]
             },
             {
@@ -1049,6 +1052,9 @@
                         "Type": "Treasury",
                         "CompareTo": 1
                     }
+                ],
+                "Flags": [
+                    {"Type": "InvestSmallBusiness", "Value": 1}
                 ]
             },
             {
@@ -1066,6 +1072,9 @@
                         "Type": "NationalistsLoyalty",
                         "Value": -10
                     }
+                ],
+                "Flags": [
+                    {"Type": "InvestForeign", "Value": 1}
                 ]
             },
             {
@@ -5353,6 +5362,149 @@
                         "Value": -15
                     }
                 ]
+            }
+        ]
+    },
+
+	{
+		"Id": "Common.BuildingGrowth",
+		
+		"Title": "$$Common.BuildingGrowth.title",
+        "Description": "$$Common.BuildingGrowth.description",
+        "Category": "Industry",
+        
+        "Limits": [
+            {"Type": "InvestRebuilding"}
+        ],
+        
+        "Options": [
+            {
+                "Title": "$$Common.BuildingGrowth.0",
+                "Modifiers": [
+                    {"Type": "NeutralLoyalty", "Value": 15},
+                    {"Type": "ExtremismLevel", "Value": -5}
+                ]
+            }
+        ]
+    },
+    {
+        "Id": "Common.SmallBusiness",
+        "Title": "$$Common.SmallBusiness.title",
+        "Description": "$$Common.SmallBusiness.description",
+        "Category": "Social",
+        "Options": [
+            {
+                "Title": "$$Common.SmallBusiness.0",
+                "Modifiers": [
+                    {
+                        "Type": "NeutralLoyalty",
+                        "Value": 10
+                    },
+                    {
+                        "Type": "ExtremismLevel",
+                        "Value": -5
+                    },
+                    {
+                        "Type": "EconomicPower",
+                        "Value": 10
+                    }
+                ]
+            }
+        ],
+        "IsDisposable": true,
+        "Limits": [
+            {
+                "Type": "InvestSmallBusiness"
+            }
+        ]
+    },
+    {
+        "Id": "Common.ForeignInvestments",
+        "Title": "$$Common.ForeignInvestments.title",
+        "Description": "$$Common.ForeignInvestments.description",
+        "Category": "Financial",
+        "Options": [
+            {
+                "Title": "$$Common.ForeignInvestments.0",
+                "Modifiers": [
+                    {
+                        "Type": "NeutralLoyalty",
+                        "Value": 5
+                    },
+                    {
+                        "Type": "RelationsUCB",
+                        "Value": 5
+                    },
+                    {
+                        "Type": "RelationsSBU",
+                        "Value": 5
+                    },
+                    {
+                        "Type": "RelationsIID",
+                        "Value": 5
+                    },
+                    {
+                        "Type": "RelationsEIK",
+                        "Value": 5
+                    },
+                    {
+                        "Type": "NationalistsLoyalty",
+                        "Value": -10
+                    },
+                    {
+                        "Type": "EconomicPower",
+                        "Value": 5
+                    }
+                ]
+            }
+        ],
+        "Limits": [
+            {
+                "Type": "InvestForeign"
+            }
+        ],
+        "IsDisposable": true
+    },
+    {
+        "Id": "Common.EnormousCosts",
+        "Title": "$$Common.EnormousCosts.title",
+        "Description": "$$Common.EnormousCosts.description",
+        "Category": "Industry",
+        "IsDisposable": true,
+        "Options": [
+            {
+                "Title": "$$Common.EnormousCosts.0",
+                "Modifiers": [
+                    {
+                        "Type": "NeutralLoyalty",
+                        "Value": -15
+                    },
+                    {
+                        "Type": "NationalistsLoyalty",
+                        "Value": -10
+                    },
+                    {
+                        "Type": "DemocratsLoyalty",
+                        "Value": -10
+                    },
+                    {
+                        "Type": "FederationistsLoyalty",
+                        "Value": -10
+                    },
+                    {
+                        "Type": "ExtremismLevel",
+                        "Value": 5
+                    },
+                    {
+                        "Type": "EconomicPower",
+                        "Value": -10
+                    }
+                ]
+            }
+        ],
+        "Limits": [
+            {
+                "Type": "NoIIDTrade"
             }
         ]
     }

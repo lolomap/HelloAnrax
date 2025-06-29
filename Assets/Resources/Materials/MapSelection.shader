@@ -2,16 +2,17 @@ Shader "Unlit/MapSelection"
 {
     Properties
     {
-        _MainTex ("Texture", 2D) = "white" {}
+        _MainTex ("Color (RGB) Alpha (A)", 2D) = "white" {}
         _SelectedColor ("Selected Color", Color) = (.0, .0, .0, 1)
         _SelectionTint ("Selection Tint", Color) = (.0, .0, .0, 1)
         _TintForce ("Tint Force", Range(0.0, 1.0)) = 1.0 
     }
     SubShader
     {
-        Tags { "RenderType"="Opaque" }
+        Tags { "Queue"="Transparent" "RenderType"="Transparent" }
         LOD 100
-
+        
+        Blend SrcAlpha OneMinusSrcAlpha
         Pass
         {
             CGPROGRAM
@@ -62,6 +63,7 @@ Shader "Unlit/MapSelection"
                         time = 1. - time;
                     out_col = col + _SelectionTint * _TintForce * time;
                 }
+                out_col.a = col.a;
                 
                 return out_col;
             }

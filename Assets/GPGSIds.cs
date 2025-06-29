@@ -24,7 +24,24 @@
 
 public static class GPGSIds
 {
+        public const string achievement_gigachad = "CgkIo5i4gZkVEAIQAQ"; // <GPGSID>
+        public const string achievement_xmen = "CgkIo5i4gZkVEAIQCw"; // <GPGSID>
+        public const string achievement_fixer = "CgkIo5i4gZkVEAIQDQ"; // <GPGSID>
+        public const string achievement_gambler = "CgkIo5i4gZkVEAIQDg"; // <GPGSID>
+        public const string achievement_banana_president = "CgkIo5i4gZkVEAIQBQ"; // <GPGSID>
+        public const string achievement_anraxian_tiger = "CgkIo5i4gZkVEAIQBg"; // <GPGSID>
+        public const string achievement_connoisseur = "CgkIo5i4gZkVEAIQAw"; // <GPGSID>
+        public const string achievement_i_love__more_than_anrax = "CgkIo5i4gZkVEAIQAg"; // <GPGSID>
+        public const string achievement_i_am_the_only_needed = "CgkIo5i4gZkVEAIQDA"; // <GPGSID>
+        public const string achievement_friendship_standard = "CgkIo5i4gZkVEAIQCA"; // <GPGSID>
+        public const string achievement_not_that_president = "CgkIo5i4gZkVEAIQEA"; // <GPGSID>
+        public const string achievement_miracle = "CgkIo5i4gZkVEAIQDw"; // <GPGSID>
         public const string achievement_bad_luck = "CgkIo5i4gZkVEAIQAA"; // <GPGSID>
+        public const string achievement_gamblers_of_luck = "CgkIo5i4gZkVEAIQBA"; // <GPGSID>
+        public const string achievement_im_crazy_run_away = "CgkIo5i4gZkVEAIQCg"; // <GPGSID>
+        public const string achievement_true_loimanian = "CgkIo5i4gZkVEAIQBw"; // <GPGSID>
+        public const string achievement_false_friends_are_worse_than_open_enemies = "CgkIo5i4gZkVEAIQCQ"; // <GPGSID>
+        public const string achievement_no_showoff = "CgkIo5i4gZkVEAIQEQ"; // <GPGSID>
 
 }
 
