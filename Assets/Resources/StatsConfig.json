@@ -33,5 +33,12 @@
   
   "MUSIC_Crisis": "(Power < 30) * (FAIL < 1)",
   "MUSIC_Edge": "((NationalistsLoyalty < 50) * 1 + (DemocratsLoyalty < 50) * 1 + (FederationistsLoyalty < 50) * 1 + (NeutralLoyalty < 50) * 1) > 2",
-  "MUSIC_Conclusions": "FAIL > 0"
+  "MUSIC_Conclusions": "FAIL > 0",
+  
+  "ACH_BananaPresident": "(EconomicPower < 1) * 100",
+  "ACH_AnraxianTiger": "(EconomicPower > 99) * 100",
+  "ACH_TrueLoimanian": "(MilitaryPower < 1) * 100",
+  "ACH_ImCrazyRunAway": "(MilitaryPower > 99) * 100",
+  "ACH_Fixer": "((NationalistsPower < 1) & (DemocratsPower < 1) & (FederationistsPower < 1)) * 100",
+  "ACH_IAmTheOnlyNeeded": "((NationalistsBanned > 0) & (DemocratsBanned > 0) & (FederationistsBanned > 0)) * 100"
 }

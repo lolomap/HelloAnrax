@@ -15,7 +15,8 @@
                     {
                         "Type": "RESTART_GAME",
                         "Value": 1
-                    }
+                    },
+                    {"Type": "ACH_NotThatPresident", "Value": 100}
                 ]
             }
         ]
@@ -84,7 +85,8 @@
                     {
                         "Type": "RESTART_GAME",
                         "Value": 1
-                    }
+                    },
+                    {"Type": "ACH_BadLuck", "Value": 100}
                 ]
             }
         ]

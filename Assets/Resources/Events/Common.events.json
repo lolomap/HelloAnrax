@@ -1147,7 +1147,8 @@
             {
                 "Type": "EconomicReport",
                 "CompareTo": 3
-            }
+            },
+            {"Type": "EconomicPower", "CompareTo": 25}
         ],
         "IsTrigger": true,
         "IsDisposable": false,
@@ -1160,6 +1161,36 @@
                         "Type": "Treasury",
                         "Value": 4
                     }
+                ]
+            }
+        ]
+    },
+    {
+        "Id": "Common.17_ACHIEVEMENT",
+        "Title": "$$Common.17.title",
+        "Description": "$$Common.17.description",
+        "Category": "Financial",
+        "Limits": [
+            {
+                "Type": "EconomicReport",
+                "CompareTo": 3
+            },
+            {"Type": "EconomicPower", "CompareTo": 25, "Comparison": "Lt"}
+        ],
+        "IsTrigger": true,
+        "IsDisposable": false,
+        "Options": [
+            {
+                "Title": "$$Common.17.0",
+                "Category": "Treasury",
+                "Modifiers": [
+                    {
+                        "Type": "Treasury",
+                        "Value": 4
+                    }
+                ],
+                "Flags": [
+                    {"Type": "ACH_Miracle", "Value": 100}
                 ]
             }
         ]
@@ -2083,7 +2114,8 @@
                     {
                         "Type": "MinerFight",
                         "Value": 0
-                    }
+                    },
+                    {"Type":  "ACH_Gigachad", "Value": 100}
                 ]
             }
         ]
@@ -2122,7 +2154,8 @@
                     {
                         "Type": "MinerFight",
                         "Value": 0
-                    }
+                    },
+                    {"Type": "ACH_NoShowOff", "Value": 1}
                 ]
             }
         ]
@@ -2455,6 +2488,9 @@
                         "Type": "FederationistsLoyalty",
                         "Value": 15
                     }
+                ],
+                "Flags": [
+                    {"Type": "ACH_Xmen", "Value": 100}
                 ]
             }
         ]
@@ -4960,6 +4996,9 @@
                         "Type": "FederationistsLoyalty",
                         "Value": -10
                     }
+                ],
+                "Flags": [
+                    {"Type": "ACH_ILove$MoreThenAnrax", "Value": 100}
                 ]
             },
             {

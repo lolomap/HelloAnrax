@@ -69,6 +69,10 @@ public class PlayerStats
 		{
 			variables[id] = (decimal) stat.Value;
 		}
+		foreach ((string id, float value) in _flags)
+		{
+			variables[id] = (decimal) value;
+		}
 		
 		foreach ((string stat, string formula) in _formulas)
 		{
@@ -89,6 +93,12 @@ public class PlayerStats
 	public float GetStat(string stat) => _stats[stat].Value;
 	public float SetStat(string stat, float value, bool notify = true)
 	{
+		if (stat.StartsWith("ACH_"))
+		{
+			SetFlag(stat, value, notify);
+			return value;
+		}
+        
 		string uiTag = stat;
 		if (uiTag.StartsWith("HIGHLIGHT_"))
 			uiTag = uiTag.Split("HIGHLIGHT_")[1];
